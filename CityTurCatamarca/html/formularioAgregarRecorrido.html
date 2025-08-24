@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="authores" content="erick:1744-emir:1723-alejo:1713, initial-scale=1.0">
+    <title>Agregar Recorrido</title>
+</head>
+<body>
+    <header>
+            <h1>City-Tur Catamarca</h1>
+        <nav>
+            <li>
+                <ul> </ul>
+            </li>
+        </nav>
+    </header>
+
+    <main>
+        <div>
+            <form action="#" method="get">
+                <fieldset>
+                    <legend>Agregar recorrido</legend>
+
+
+                    <label for="nombre-recorrido">Ingrese el nombre del recorrido: </label>
+                    <input type="text" name="nombre-recorrido" id="nombre-recorrido" required maxlength="70">
+
+                    <br><br>
+
+                    <label for="partida">Puntos de partida: </label>
+                    <select name="partida" id="partida" required size="3">
+                        <option value="1">opcion1</option>
+                        <option value="2">opcion2</option>
+                        <option value="3">opcion3</option>
+                    </select>
+
+                    <br><br>
+                    
+                    <label for="interes">Puntos de interes: </label>
+                    <select name="interes" id="interes" multiple required size="3">
+                        <option value="1">opcion1</option>
+                        <option value="2">opcion2</option>
+                        <option value="3">opcion3</option>
+                    </select>
+                    
+                    <br><br>
+
+                    <label for="final">Final del recorrido: </label>
+                    <select name="final" id="final" required size="3">
+                        <option value="1">opcion1</option>
+                        <option value="2">opcion2</option>
+                        <option value="3">opcion3</option>
+                    </select>
+
+                    <br><br>
+
+                    <label for="hora-recorrido"> Hora del recorrido: </label>
+                    <input type="time" name="hora-recorrido" id="hora-recorrido" required> 
+
+                    <br><br>
+
+
+                    <label for="fecha-recorrido"> Fecha del recorrido: </label>
+                    <input type="date" name="fecha-recorrido" id="fecha-recorrido" required>
+                    
+                    <br><br>
+                    
+                    
+                    <label for="final">Paradas del recorrido: </label>
+                    <select name="final" id="final" multiple required size="3">
+                        <option value="1">opcion1</option>
+                        <option value="2">opcion2</option>
+                        <option value="3">opcion3</option>
+                        <option value="4">opcion4</option>
+                        <option value="5">opcion5</option>
+                        <option value="6">opcion6</option>  
+                    </select>
+
+                    <br><br>
+                    
+                    <button type="submit">Aceptar</button>
+                    <button type="reset">Cancelar</button>
+
+                    <a href="registroreco.html">
+                        <button type="button">Atras</button>
+                    </a>
+
+                </fieldset>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <p>
+                ©copy 2025-Programacion 3
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
