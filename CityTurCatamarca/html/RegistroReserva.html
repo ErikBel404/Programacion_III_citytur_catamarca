@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="authores" content="erick:1744-emir:1723-alejo:1713, initial-scale=1.0">
+    <title>CityTur Catamarca</title>
+</head>
+<body>
+    <header>
+        <h1>City-Tur Catamarca</h1>
+        <nav>
+            <a href="home.html">Home</a> |
+            <a href="registroreco.html">Registro de Recorrido</a> |
+            <a href="RegistroReserva.html">Reservar Recorrido</a>
+        </nav>
+        <br><br>
+    </header>
+
+    <main>
+        <div>
+            <form action="">
+                <fieldset>
+                    <legend>Registro de la Reserva</legend>
+
+                    <label for="Recorridos">Recorridos</label>
+                    <select name="Recorridos" id="Recorridos" required>
+                        <option value="Recorrido1">Recorrido1</option>
+                        <option value="Recorrido2">Recorrido2</option>
+                        <option value="Recorrido3">Recorrido3</option>
+                    </select>
+
+                    <label for="fecha">Fecha de Reservacion:</label>
+                    <input type="date" id="fecha" required>
+
+                    <br><br>
+
+                    <label for="horarios">Horarios disponibles:</label>
+                    <select name="horarios" id="horarios" required>
+                        <option value="hora1">13:00</option>
+                        <option value="hora2">15:00</option>
+                        <option value="hora3">17:00</option>
+                        <option value="hora4">18:00</option>
+                    </select>
+
+                    <br><br>
+                    
+                    <label for="abordaje">Indique donde desea abordar:</label>
+                    <select name="abordaje" id="abordaje">
+                        <option value="parada1">parada1</option>
+                        <option value="parada2">parada2</option>
+                        <option value="parada3">parada3</option>
+                        <option value="parada4">parada4</option>
+                    </select>
+                    
+                    <br><br>
+                    
+                    <label for="Reservas">Reservas:</label>
+                    <input type="number" id="asiento" min="1" max="40" required>
+                    
+                    <br><br>
+                    
+                    <input type="submit" value="Enviar">
+                    <input type="reset" value="Calcelar">
+                    <a href="home.html">
+                        <button type="button">Atras</button>
+                    </a>
+                </fieldset>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <p>
+                ©copy 2025-Programacion 3
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
