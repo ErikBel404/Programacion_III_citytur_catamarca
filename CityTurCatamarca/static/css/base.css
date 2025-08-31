@@ -1,0 +1,31 @@
+header {
+    background: #0c7968;
+    color: white;
+    width: 100%;
+    padding: 30px;
+}
+
+
+header a {
+    color: white;
+    
+}
+
+#titulo {
+    float: right;
+}
+
+header h1 {
+    color: white;
+    font-size: 50px;
+}
+
+footer {
+    background: #0c7968;
+}
+
+main {
+    background: #e38e15;
+}
+
+
