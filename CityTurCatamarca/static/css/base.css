@@ -1,31 +1,144 @@
+body{
+    padding: 0px;
+    margin: 0px;
+    background-color: #e38e15;
+
+    transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease;
+
+}
+
+
+/*Aca empieza el header mi rey*/
 header {
     background: #0c7968;
     color: white;
-    width: 100%;
-    padding: 30px;
+    padding: 15px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
+}
+
+#arribaheader {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+}
+
+#logoheader{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#logoheader img{
+    width: 120px;
+    height: 120px;
 }
 
 
-header a {
-    color: white;
+h1{
+    font-size: 160%;
+    text-align: center;
     
 }
 
-#titulo {
-    float: right;
+#perfilUsuario button{
+    color: black;
+    background-color: #ffcc3b;
+    border-radius:15px ;
+    padding: 10px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+    font-weight: bold;
+
+
+
 }
 
-header h1 {
-    color: white;
-    font-size: 50px;
+nav{
+    margin-top: 20px;
+    list-style: none;
+    display: flex;
+    justify-content: right;
+    gap: 20PX;
+    padding: 0;
 }
 
-footer {
-    background: #0c7968;
+nav a{
+    padding: 10px 20px;
+    border-radius:20px;
+    color: black;
+    background: #ffcc3b;
+    text-decoration: none;
+    font-weight: bold;
+    border: 3px solid transparent;
 }
+
+nav a:hover{
+    background-color: #fdc52b;
+
+    padding: 10px 20px;
+    border-radius:20px;
+    color: black;
+    background: #ffcc3b;
+    text-decoration: none;
+    font-weight: bold;
+    border: 3px solid transparent;
+
+    transform: scale(1.03);
+
+}
+
+/*Aca termina el header*/
+
+/*Aca empieza el body*/
 
 main {
-    background: #e38e15;
+    background: #ffcc3b;
+    padding: 50px;
+    margin: 20px auto;
+    width: 80%;
+
+    border-radius: 8px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
 }
 
 
+/*Aca termina el body*/
+
+/*Aca empieza el footer*/
+footer {
+    background: #0c7968;
+    padding: 10px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+}
+
+#logosfooter1 img{
+    width: 200px;
+    height: 70px;
+}
+
+#logosfooter2 img{
+    width: 200px;
+    height: 70px;
+}
+
+#abajafooter{
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 50px;
+}
+
+#derechosautor{
+    margin-top: 15px;
+    text-align: center;
+}
+
+
+#derechosautor p{
+   font-size: 20px;
+    margin: 0;
+}
+
+
+/*Aca termina el footer*/
