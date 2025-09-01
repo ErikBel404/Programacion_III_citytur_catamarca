@@ -13,18 +13,21 @@ body{
     padding: 0px;
     margin: 0px;
     background-color: var(--naranja);
-    margin-top: 150px;
     font-family: "TASA Explorer", sans-serif;
 }
 
 /*Aca empieza el header mi rey*/
 header {
     background: var(--verdeAgua);
+    /*background: linear-gradient(to top,var(--naranja)1%,var(--verdeAgua));*/
+
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
     color: var(--blancoCalido);
     padding: 0px 0px 10px 0px;
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
     align-items: center;
+}
 
+.headerbloqueado{
     position:fixed;
     width: 100%;
     top: 0;
@@ -82,7 +85,7 @@ nav{
 
 nav a{
     padding: 10px 10px;
-    border-radius:30px;
+    border-radius:20px;
     color: black;
     background: var(--blancoCalido);
     text-decoration: none;
@@ -116,42 +119,77 @@ nav a:hover, #perfilUsuario button:hover{
 
 /*header tablet*/
 #headertablet{
-    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.botontablet{
-    position: relative;
-    top:10px;
-    right:10px;
+#tabletarriba{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
 }
-
 
 /*header tablet final*/
 
+
+/*header celu*/
+#headercelu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#arribacelu{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:10px
+}
+
+#abajocelu nav li{
+     margin-top: 11px;
+     list-style: none;
+     width: 100%;
+}
+
+#abajocelu nav ul li a{
+    display: block;
+    width: 300px;
+    text-align: center;
+}
+
+/*header celu final*/
 
 /*Aca termina el header*/
 
 
 /*Aca empieza el body*/
-#cosas_dentro_main {
+
+.cosas_dentro_main {
     background: var(--amarilloClarito);
     padding: 50px;
     margin: 20px auto;
     width: 80%;
-    /*height: 680px;*/  /*esto lo saque porque rompe el body en las paginas largas*/
+    height: 680px;  /*esto lo saque porque rompe el body en las paginas largas*/
     border-radius: 8px;
     box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
+
 }
+
+.margentop250{
+    margin-top: 130px;
+}
+
 /*Aca termina el body*/
 
 
 /*Aca empieza el footer*/
 footer {
     background: #0c7968;
-    padding: 10px;
     box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
 }
 
@@ -177,19 +215,19 @@ footer {
 
 #abajafooter{
     display: flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items: center;
-    gap: 50px;
-    height: 100px;
+    gap: 90px;
+    flex-wrap: wrap;
 }
 
 #derechosautor{
-    margin-top: 15px;
+    margin-top: 0px;
     text-align: center;
 }
 
 #derechosautor p{
-   font-size: 20px;
+    font-size: 20px;
     margin: 0;
 }
 /*Aca termina el footer*/
