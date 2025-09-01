@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
+
+
+
+
 :root {
   --verdeAgua: #0c7968;
   --naranja: #e38e15;
@@ -10,8 +16,8 @@ body{
     padding: 0px;
     margin: 0px;
     background-color: var(--naranja);
-
     margin-top: 150px;
+    font-family: "TASA Explorer", sans-serif;
 }
 
 /*Aca empieza el header mi rey*/
@@ -41,8 +47,10 @@ header {
 }
 
 h1{
-    font-size: 160%;
+    font-size: 220%;
     margin: 0;    
+    font-family: "Story Script", sans-serif;
+    text-shadow: 0px 5px 7px rgba(0,0,0,0.5);
 }
 
 #perfilUsuario button{
