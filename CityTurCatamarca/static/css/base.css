@@ -1,34 +1,38 @@
 :root {
-  --verde-agua: #0c7968;
+  --verdeAgua: #0c7968;
   --naranja: #e38e15;
-  --amarillo-fuerte:#fab701;
-  --blanco-calido:#F1F1F1;
-  --amarillo-clarito:#ffcc3b;
-  --color-perfil:#B5E61D;
-
+  --amarilloFuerte:#fab701;
+  --blancoCalido:#f1f1f1;
+  --amarilloClarito:#ffcc3b;
 }
 
 body{
     padding: 0px;
     margin: 0px;
     background-color: var(--naranja);
+
+    margin-top: 150px;
 }
 
 /*Aca empieza el header mi rey*/
 header {
-    background: var(--verde-agua);
-    color: var(--blanco-calido);
+    background: var(--verdeAgua);
+    color: var(--blancoCalido);
     padding: 0px 0px 10px 0px;
     box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    position:fixed;
+    width: 100%;
+    top: 0;
 }
 
 #logoheader{
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 1px;
 }
 
 #logoheader img{
@@ -43,91 +47,80 @@ h1{
 
 #perfilUsuario button{
     color: black;
-    background-color: var(--amarillo-clarito);
-    border-radius:20px ;
-    padding: 3px;
+    background-color: none;
+    border-radius:50% ;
+    padding: 10px 14px;
     border: 3px solid transparent;
     cursor: pointer;
     box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
     font-weight: bold;
-    margin: 0px 10px 0px 0px;
-    width: 185px;
-    height: 50px;
+    margin: 0px 20px 0px 0px;  
 }
 
 nav{
+    margin-top: 10px;
     margin-right:10px;
     list-style: none;
     display: flex;
-    justify-content: right;
-    gap: 20px;
+    justify-content: left;
+    gap: 10px;
     padding: 0;
 }
 
 nav a{
-    padding: 10px 20px;
-    border-radius:20px;
+    padding: 10px 10px;
+    border-radius:30px;
     color: black;
-    background: var(--blanco-calido);
+    background: var(--blancoCalido);
     text-decoration: none;
     font-weight: bold;
     border: 3px solid transparent;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
 }
 
 nav a:hover, #perfilUsuario button:hover{
-    background-color: var(--amarillo-fuerte);
-
+    background-color: var(--amarilloFuerte);
     padding: 10px 20px;
     border-radius:20px;
     color: black;
     text-decoration: none;
     font-weight: bold;
     border: 3px solid transparent;
-
     transform: scale(1.03);
-
     transition: all 0.3s ease;
+}
 
+#perfilUsuario button:hover{
+    padding: 10px 39px;
 }
 
 #abajoheader{
     display: flex;
-    flex-direction:column;
+    flex-direction:row;
     align-items: flex-end;
     gap: 10px;
-    
 }
-
 /*Aca termina el header*/
 
-/*Aca empieza el body*/
 
+/*Aca empieza el body*/
 #cosas_dentro_main {
-    background: var(--amarillo-clarito);
+    background: var(--amarilloClarito);
     padding: 50px;
     margin: 20px auto;
     width: 80%;
-    height: 593px;
-
+    height: 680px;
     border-radius: 8px;
     box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
 }
-
-
 /*Aca termina el body*/
+
 
 /*Aca empieza el footer*/
 footer {
     background: #0c7968;
     padding: 10px;
     box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
-}
-
-.flex_conteiner {
-    display: flex;
-    justify-content: space-between;
-    height: 150px;
-    
 }
 
 #logosfooter1 img{
@@ -140,14 +133,10 @@ footer {
     height: 70px;
 }
 
-
 #logosfooter3 img{
     width: 150px;
     height: 200px;
-    position: relative;
-    top: -60px; /* lo sube 20px */
 }
-
 
 #logosfooter4 img{
     width: 180px;
@@ -159,6 +148,7 @@ footer {
     justify-content:space-between;
     align-items: center;
     gap: 50px;
+    height: 100px;
 }
 
 #derechosautor{
@@ -166,11 +156,8 @@ footer {
     text-align: center;
 }
 
-
 #derechosautor p{
    font-size: 20px;
     margin: 0;
 }
-
-
 /*Aca termina el footer*/
