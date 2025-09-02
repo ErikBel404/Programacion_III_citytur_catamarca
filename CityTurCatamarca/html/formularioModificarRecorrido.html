@@ -3,171 +3,482 @@
 <head>
     <meta charset="UTF-8">
     <meta name="authores" content="erick:1744-emir:1723-alejo:1713, initial-scale=1.0">
-    <title>Modificar Recorrido </title>
+    <title>CityTur Catamarca</title>
 
     <link rel="icon" href="../static/img/Logo City Tour.png" type="image/x-icon">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/formularioAgregarRecorrido.css">
+    <link rel="stylesheet" href="../static/css/formularioModificarRecorrido.css">
 
     
 </head>
 <body>
-    <header>
-        <div id="logoheader">
-            <img src="../static/img/Logo City Tour.png" alt="logocitytour">
-            <h1>City-Tour  <br> Catamarca</h1> 
-        </div>
-
-        <div id="abajoheader">
-
-            <div id="navheader">
-                <nav>
-                    <a href="home.html">Home</a> 
-                    <a href="registroreco.html">Registro de Recorrido</a> 
-                    <a href="registroReserva.html">Reservar Recorrido</a>
-                </nav>
-            </div>
-
-            <div id="perfilUsuario">
-                <button> <img src="../static/img/usericon.svg" alt=""></button>
-            </div>
-        </div>
-
-        
-        
-    </header>
-
-    <main>
-        <div id="cosas_dentro_main">
-            <form action="#" method="get">
-                <fieldset>
-                    <legend>Modificar recorrido</legend>
-
-
-                   <label for="recorrido-modificar">Seleccione el recorrido a modificar: </label>
-                    <select name="recorrido-modificar" id="recorrido-modificar" size="3" required>
-                        <option value="1">opcion1</option>
-                        <option value="2">opcion2</option>
-                        <option value="3">opcion3</option>
-                    </select>
-
-                    <br><br>
-
-                    <label for="partida-nueva">Ingrese el nuevo punto de partida: </label>
-                     <select name="partida-nueva" id="partida-nueva" size="3">
-                        <option value="1">opcion1</option>
-                        <option value="2">opcion2</option>
-                        <option value="3">opcion3</option>
-                    </select>
-
-                    <br><br>
-                    
-                    <label for="interes-agregar">Puntos de interes que quiere agregar: </label>
-                    <select name="interes-agregar" id="interes-agregar" multiple size="3" >
-                        <option value="1">opcion1</option>
-                        <option value="2">opcion2</option>
-                        <option value="3">opcion3</option>
-                    </select>
-
-                    <br><br>
-
-                    <label for="interes">Puntos de interes que quiere remover: </label>
-                    <select name="interes-remover" id="interes-remover" multiple size="3" >
-                        <option value="1">opcion1</option>
-                        <option value="2">opcion2</option>
-                        <option value="3">opcion3</option>
-                    </select>
-
-                    <br><br>
-
-                    <label for="final-nuevo">Final del recorrido nuevo: </label>
-                    <select name="final-nuevo" id="final-nuevo" size="3">
-                        <option value="1">opcion1</option>
-                        <option value="2">opcion2</option>
-                        <option value="3">opcion3</option>
-                    </select>
-
-                    <br><br>
-
-                    <label for="hora-recorrido">Nueva hora del recorrido: </label>
-                    <input type="time" name="hora-recorrido" id="hora-recorrido" > 
-
-                    <br><br>
-
-
-                    <label for="fecha-recorrido">Nueva fecha del recorrido: </label>
-                    <input type="date" name="fecha-recorrido" id="fecha-recorrido" >
-                    
-                    <br><br>
-                    
-                    
-                    <label for="final">Agregar paradas del recorrido: </label>
-                    <select name="final" id="final" multiple size="3">
-                        <option value="1">opcion1</option>
-                        <option value="2">opcion2</option>
-                        <option value="3">opcion3</option>
-                        <option value="4">opcion4</option>
-                        <option value="5">opcion5</option>
-                        <option value="6">opcion6</option>  
-                    </select>
-
-                    <br><br>
-                    
-                    <label for="final">quitar paradas del recorrido: </label>
-                    <select name="final" id="final" multiple size="3">
-                        <option value="1">opcion1</option>
-                        <option value="2">opcion2</option>
-                        <option value="3">opcion3</option>
-                        <option value="4">opcion4</option>
-                        <option value="5">opcion5</option>
-                        <option value="6">opcion6</option>  
-                    </select>
-
-                    <br><br>
-
-                    <button type="submit">Aceptar</button>
-                    <button type="reset">Cancelar</button>
-
-                    <a href="registroreco.html">
-                        <button type="button">Atras</button>
-                    </a>
-
-                </fieldset>
-            </form>
-        </div>
-    </main>
-
-    <footer>
-        
-        <div id="abajafooter">
-
-            <div id="logosfooter4">
-                <img src="../static/img/catamarca_logo_turismo.png" alt="">
-            </div>
-
-            <div id="logosfooter1">
-                <img src="../static/img/logoCatamarca.png" alt="">
-            </div>
-
-            <div id="logosfooter2">
-                <img src="../static/img/SFVC-original-1024x351.png" alt="">
-            </div>
-
-            <div id="logosfooter3">
-                <img src="../static/img/logo1_no_bg.png" alt="logoCatamarca capitak">
-                
-            </div>
-
+        <div class="pc">
+            <header class="jc-between displayflex headerbloqueado">
+                <div id="logoheader">
+                    <img src="../static/img/Logo City Tour.png" alt="logocitytour">
+                    <h1>City-Tour  <br> Catamarca</h1>
+                </div>
+                <div id="abajoheader">
+                    <div id="navheader">
+                        <nav>
+                            <a href="home.html">Home</a>
+                            <a href="registroreco.html">Registro de Recorrido</a>
+                            <a href="registroReserva.html">Reservar Recorrido</a>
+                        </nav>
+                    </div>
+                    <div id="perfilUsuario">
+                        <button> <img src="../static/img/usericon.svg" alt=""></button>
+                    </div>
+                </div>
             
+            
+            </header>
+            <main>
+                <div id="" class="margentop250 cosas_dentro_main">
+                    <div id="formularioAgregar">
+                        <form action="#" method="get">
+                            <fieldset>
+                                <label id="agregarRecorrido">Modificar recorrido</label>
+                                
+                                <div class="grupopartida">
+                                    <label for="recorrido-modificar" id="labelpartida">🚌&nbsp;Seleccione&nbsp;el&nbsp;recorrido&nbsp;a&nbsp;modificar: </label>
+                                    <select name="recorrido-modificar" id="recorrido-modificar" required size="1">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+                                <br>
+
+                                <div class="grupopartida">
+                                    <label for="partida-nueva" >📌&nbsp;Ingrese&nbsp;el&nbsp;nuevo&nbsp;punto&nbsp;de&nbsp;partida: </label>
+                                    <select name="partida-nueva" id="partida-nueva" required size="1">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+                        
+                                <div class="grupointeres">
+                                    <label for="interes-agregar" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;agregar: </label>
+                                    <select name="interes-agregar" id="interes-agregar" multiple size="2" >
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+
+                                <div class="grupointeres">
+                                    <label for="interes" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;remover: </label>
+                                    <select name="interes-remover" id="interes-remover" multiple size="2" >
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+
+                                <br><br>
+
+                                <div class="grupofinal">
+                                    <label for="final-nuevo">📌&nbsp;Final&nbsp;del&nbsp;recorrido&nbsp;nuevo: </label>
+                                    <select name="final-nuevo" id="final-nuevo" size="1">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+
+                                <div class="grupohora">
+                                    <label for="hora-recorrido">🕑&nbsp;Nueva&nbsp;hora&nbsp;del&nbsp;recorrido: </label>
+                                    <input type="time" name="hora-recorrido" id="hora-recorrido" >
+                                </div>
+                                
+                                <br><br>
+
+
+                                <div class="grupofecha"> 
+                                    <label for="fecha-recorrido">📅&nbsp;Nueva&nbsp;fecha&nbsp;del&nbsp;recorrido: </label>
+                                    <input type="date" name="fecha-recorrido" id="fecha-recorrido" >
+                                </div>
+                        
+                                <br><br>
+                        
+                        
+                                <div class="grupoparadas">
+                                    <label for="final" id="labelinteres">🚏&nbsp;Agregar&nbsp;paradas&nbsp;del&nbsp;recorrido: </label>
+                                    <select name="final" id="final" multiple size="2">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                        <option value="4">opcion4</option>
+                                        <option value="5">opcion5</option>
+                                        <option value="6">opcion6</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+                        
+                                <div class="grupoparadas">
+                                    <label for="final" id="labelinteres">🚏&nbsp;Quitar&nbsp;Paradas&nbsp;del&nbsp;Recorrido: </label>
+                                    <select name="final" id="final" multiple size="2">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                        <option value="4">opcion4</option>
+                                        <option value="5">opcion5</option>
+                                        <option value="6">opcion6</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+
+                                <div id="botones-formularios">
+                                    <button type="submit" id="boton-aceptar">Aceptar</button>
+                                    <button type="reset" id="boton-cancelar">Cancelar</button>
+                                    <a href="registroreco.html">
+                                        <button type="button" id="boton-atras">Atras</button>
+                                    </a>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+    
+
+        <div class="tablet">
+            <header>
+                <div id="headertablet">
+                    <div id="tabletarriba">
+                        <div id="logoheader">
+                            <img src="../static/img/Logo City Tour.png" alt="logocitytour">
+                            <h1>City-Tour  <br> Catamarca</h1>
+                        </div>     
+
+                        <div id="perfilUsuario" class="botontablet">
+                            <button> <img src="../static/img/usericon.svg" alt=""></button>
+                        </div>
+                    </div>
+
+                    <div id="abajotablet">
+                        <nav>
+                            <a href="home.html">Home</a>
+                            <a href="registroreco.html">Registro de Recorrido</a>
+                            <a href="registroReserva.html">Reservar Recorrido</a>
+                        </nav>
+                    </div>
+                </div>
+                    
+            </header>
+            <main>
+                <div id="" class="margentop250 cosas_dentro_main margin-tablet">
+                    <div id="formularioAgregar">
+                        <form action="#" method="get">
+                            <fieldset>
+                                <label id="agregarRecorrido">Modificar recorrido</label>
+                                
+                                <div class="grupopartida">
+                                    <label for="recorrido-modificar" id="labelpartida">🚌&nbsp;Seleccione&nbsp;el&nbsp;recorrido&nbsp;a&nbsp;modificar: </label>
+                                    <select name="recorrido-modificar" id="recorrido-modificar" required size="1">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+                                <br>
+
+                                <div class="grupopartida">
+                                    <label for="partida-nueva" >📌&nbsp;Ingrese&nbsp;el&nbsp;nuevo&nbsp;punto&nbsp;de&nbsp;partida: </label>
+                                    <select name="partida-nueva" id="partida-nueva" required size="1">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+                        
+                                <div class="grupointeres">
+                                    <label for="interes-agregar" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;agregar: </label>
+                                    <select name="interes-agregar" id="interes-agregar" multiple size="2" >
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+
+                                <div class="grupointeres">
+                                    <label for="interes" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;remover: </label>
+                                    <select name="interes-remover" id="interes-remover" multiple size="2" >
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+
+                                <br><br>
+
+                                <div class="grupofinal">
+                                    <label for="final-nuevo">📌&nbsp;Final&nbsp;del&nbsp;recorrido&nbsp;nuevo: </label>
+                                    <select name="final-nuevo" id="final-nuevo" size="1">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+
+                                <div class="grupohora">
+                                    <label for="hora-recorrido">🕑&nbsp;Nueva&nbsp;hora&nbsp;del&nbsp;recorrido: </label>
+                                    <input type="time" name="hora-recorrido" id="hora-recorrido" >
+                                </div>
+                                
+                                <br><br>
+
+
+                                <div class="grupofecha"> 
+                                    <label for="fecha-recorrido">📅&nbsp;Nueva&nbsp;fecha&nbsp;del&nbsp;recorrido: </label>
+                                    <input type="date" name="fecha-recorrido" id="fecha-recorrido" >
+                                </div>
+                        
+                                <br><br>
+                        
+                        
+                                <div class="grupoparadas">
+                                    <label for="final" id="labelinteres">🚏&nbsp;Agregar&nbsp;paradas&nbsp;del&nbsp;recorrido: </label>
+                                    <select name="final" id="final" multiple size="2">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                        <option value="4">opcion4</option>
+                                        <option value="5">opcion5</option>
+                                        <option value="6">opcion6</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+                        
+                                <div class="grupoparadas">
+                                    <label for="final" id="labelinteres">🚏&nbsp;Quitar&nbsp;Paradas&nbsp;del&nbsp;Recorrido: </label>
+                                    <select name="final" id="final" multiple size="2">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                        <option value="4">opcion4</option>
+                                        <option value="5">opcion5</option>
+                                        <option value="6">opcion6</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+
+                                <div id="botones-formularios">
+                                    <button type="submit" id="boton-aceptar">Aceptar</button>
+                                    <button type="reset" id="boton-cancelar">Cancelar</button>
+                                    <a href="registroreco.html">
+                                        <button type="button" id="boton-atras">Atras</button>
+                                    </a>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div class="celular">
+            <header>
+                <div id="headercelu">
+                    <div id="arribacelu">
+                        <div id="logoheader">
+                            <img src="../static/img/Logo City Tour.png" alt="logocitytour">
+                            <h1>City-Tour  <br> Catamarca</h1>
+                        </div>
+                        <div id="perfilUsuario">
+                                <button> <img src="../static/img/usericon.svg" alt=""></button>
+                        </div>
+                    </div>
+                    
+                    <div id="abajocelu">
+                        <nav>
+                            <ul>
+                                <li><a href="home.html">Home</a></li>
+                                <li><a href="registroreco.html">Registro de Recorrido</a></li>
+                                <li><a href="registroReserva.html">Reservar Recorrido</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            
+            </header>
+
+            <main>
+                <div id="" class="margentop250 cosas_dentro_main margin-celular">
+                    <div id="formularioAgregar">
+                        <form action="#" method="get">
+                            <fieldset>
+                                <label id="agregarRecorrido">Modificar recorrido</label>
+                                
+                                <div class="grupopartida">
+                                    <label for="recorrido-modificar" id="labelpartida">🚌&nbsp;Seleccione&nbsp;el&nbsp;recorrido&nbsp;a&nbsp;modificar: </label>
+                                    <select name="recorrido-modificar" id="recorrido-modificar" required size="1">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+                                <br>
+
+                                <div class="grupopartida">
+                                    <label for="partida-nueva" >📌&nbsp;Ingrese&nbsp;el&nbsp;nuevo&nbsp;punto&nbsp;de&nbsp;partida: </label>
+                                    <select name="partida-nueva" id="partida-nueva" required size="1">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+                        
+                                <div class="grupointeres">
+                                    <label for="interes-agregar" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;agregar: </label>
+                                    <select name="interes-agregar" id="interes-agregar" multiple size="2" >
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+
+                                <div class="grupointeres">
+                                    <label for="interes" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;remover: </label>
+                                    <select name="interes-remover" id="interes-remover" multiple size="2" >
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+
+                                <br><br>
+
+                                <div class="grupofinal">
+                                    <label for="final-nuevo">📌&nbsp;Final&nbsp;del&nbsp;recorrido&nbsp;nuevo: </label>
+                                    <select name="final-nuevo" id="final-nuevo" size="1">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+
+                                <div class="grupohora">
+                                    <label for="hora-recorrido">🕑&nbsp;Nueva&nbsp;hora&nbsp;del&nbsp;recorrido: </label>
+                                    <input type="time" name="hora-recorrido" id="hora-recorrido" >
+                                </div>
+                                
+                                <br><br>
+
+
+                                <div class="grupofecha"> 
+                                    <label for="fecha-recorrido">📅&nbsp;Nueva&nbsp;fecha&nbsp;del&nbsp;recorrido: </label>
+                                    <input type="date" name="fecha-recorrido" id="fecha-recorrido" >
+                                </div>
+                        
+                                <br><br>
+                        
+                        
+                                <div class="grupoparadas">
+                                    <label for="final" id="labelinteres">🚏&nbsp;Agregar&nbsp;paradas&nbsp;del&nbsp;recorrido: </label>
+                                    <select name="final" id="final" multiple size="2">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                        <option value="4">opcion4</option>
+                                        <option value="5">opcion5</option>
+                                        <option value="6">opcion6</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+                        
+                                <div class="grupoparadas">
+                                    <label for="final" id="labelinteres">🚏&nbsp;Quitar&nbsp;Paradas&nbsp;del&nbsp;Recorrido: </label>
+                                    <select name="final" id="final" multiple size="2">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                        <option value="4">opcion4</option>
+                                        <option value="5">opcion5</option>
+                                        <option value="6">opcion6</option>
+                                    </select>
+                                </div>
+
+                                <br><br>
+
+                                <div id="botones-formularios">
+                                    <button type="submit" id="boton-aceptar">Aceptar</button>
+                                    <button type="reset" id="boton-cancelar">Cancelar</button>
+                                    <a href="registroreco.html">
+                                        <button type="button" id="boton-atras">Atras</button>
+                                    </a>
+                                </div>
+
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </main>
 
         </div>
 
-        <div id="derechosautor">
-            <p>
-                ©copy 2025-CityTour Catamarca
-            </p>
-        </div>
-    </footer>
+
+
+        <footer>
+                <div id="abajafooter">
+                    <div id="logosfooter4">
+                        <img src="../static/img/catamarca_logo_turismo.png" alt="">
+                    </div>
+                    <div id="logosfooter1">
+                        <img src="../static/img/logoCatamarca.png" alt="">
+                    </div>
+                    <div id="logosfooter2">
+                        <img src="../static/img/SFVC-original-1024x351.png" alt="">
+                    </div>
+                    <div id="logosfooter3">
+                        <img src="../static/img/logo1_no_bg.png" alt="logoCatamarca capitak">
+            
+                    </div>
+            
+                </div>
+                <div id="derechosautor">
+                    <p>
+                        ©copy 2025-CityTour Catamarca
+                    </p>
+                </div>
+            </footer>
 </body>
 </html>

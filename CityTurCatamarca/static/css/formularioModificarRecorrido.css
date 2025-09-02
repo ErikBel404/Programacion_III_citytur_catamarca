@@ -1,0 +1,34 @@
+.cosas_dentro_main{
+    background: none;
+    box-shadow: none;
+    height: 1000px;
+}
+
+.grupopartida label {
+    padding: 1.5px;
+}
+
+.grupointeres label {
+    padding: 1.9px;
+
+}
+
+.grupofinal label {
+    padding: 1.8px;
+}
+
+.grupohora label {
+    padding: 3px;
+}
+
+.grupofecha label{
+    padding: 3.5px;
+
+}
+
+
+.margin-celular, .margin-tablet {
+    margin: 0px auto;
+}
+
+
