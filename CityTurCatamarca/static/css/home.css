@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
+
 :root {
   --verdeAgua: #0c7968;
   --naranja: #e38e15;
@@ -44,5 +47,62 @@
     
 }
 
+.article-titulo-imagen-celular {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+}
+
+.article-titulo-imagen-celular h2 {
+    font-size:50px;
+    margin: 10px;
+    font-family:"Story Script", sans-serif;
+    font-weight: 700;
+}
+
+
+
+.article-parrafos-celular {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align: center;
+}
+
+.article-parrafos-celular h2 {
+    font-size: 50px;
+    font-family:"Story Script", sans-serif;
+    font-weight: 500;
+}
+
+.article-parrafos-celular-div img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+/*ACA TERMINA LA VISION DE CELULAR*/
+
+.ajuste-margen-pc {
+    margin-top: 200px;
+    margin-bottom: 50px;
+
+}
+
+.ajuste-margen-tablet {
+    margin-top: 100px;
+    margin-bottom:25px;
+}
+
+.ajuste-margen-celular {
+    margin-top: 50px;
+    margin-bottom: 15px;
+
+}
+
+.margentop250 p {
+    font-size: 30px;
+}
 
 
