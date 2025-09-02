@@ -1,0 +1,37 @@
+.imgreco
+{
+    width: 200px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.mgpc
+{
+    margin-top: 150px;
+    margin-bottom: 20px;
+}
+.mgt
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.ordenarimgpc
+{
+    justify-content: center;
+    display: flex;
+    gap: 25px;
+
+}
+
+.bradio
+{
+    border-radius: 2opx;
+}
+
+
+main a :hover
+{
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
