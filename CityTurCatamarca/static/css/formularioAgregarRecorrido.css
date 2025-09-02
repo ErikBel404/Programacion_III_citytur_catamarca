@@ -112,11 +112,6 @@ select[multiple] {
 
 
 
-
-
-
-
-
 /*Mi guerra con los labes*/
 label{
     background-color: white;
@@ -189,7 +184,7 @@ label{
 
 #agregarRecorrido{
     background: none;
-    font-weight:none;
+    font-weight:bold;
     font-size: 150%;
     padding: 0px;
     border: none;

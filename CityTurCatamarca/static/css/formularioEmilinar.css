@@ -1,0 +1,50 @@
+:root {
+  --verdeAgua: #0c7968;
+  --naranja: rgb(227, 142, 21);
+  --amarilloFuerte:#fab701;
+  --blancoCalido:#f1f1f1;
+  --amarilloClarito:#ffcc3b;
+}
+
+#formularioEliminar{
+    width: 100%;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+    transition: transform  0.3s ease, background 0.3s ease, color 0.3s ease;
+}
+
+
+#formularioEliminar fieldset{
+    background: var(--amarilloFuerte);
+    background: rgba(255, 204, 59,0.6);
+    border-radius: 12px;
+    padding: 30px 20px;
+    width: 90%;
+    margin: 0px auto;
+    box-shadow: 0px 6px 15px rgba(0,0,0,0.5);
+}   
+
+
+#eliminarRecorrido{
+    background: none;
+    font-weight:none;
+    font-size: 150%;
+    padding: 0px;
+    border: none;
+    color: white;    
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.grupoDesactivar{
+    display: flex;
+    align-items: center;
+    gap:0;
+}
+
+#labelDesactivar{
+    padding: 2.4px;
+}
+
