@@ -9,118 +9,320 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/base.css">
-
+    <link rel="stylesheet" href="/CityTurCatamarca/static/css/reserva.css">
+    <link rel="stylesheet" href="/CityTurCatamarca/static/css/formularioAgregarRecorrido.css">
     
 </head>
 <body>
-    <header>
-        <div id="logoheader">
-            <img src="../static/img/Logo City Tour.png" alt="logocitytour">
-            <h1>City-Tour  <br> Catamarca</h1> 
-        </div>
-
-        <div id="abajoheader">
-
-            <div id="navheader">
-                <nav>
-                    <a href="home.html">Home</a> 
-                    <a href="registroreco.html">Registro de Recorrido</a> 
-                    <a href="registroReserva.html">Reservar Recorrido</a>
-                </nav>
-            </div>
-
-            <div id="perfilUsuario">
-                <button> <img src="../static/img/usericon.svg" alt=""></button>
-            </div>
-        </div>
-
-        
-        
-    </header>
-
-    <main>
-        <div id="cosas_dentro_main">
-            <form action="">
-                <fieldset>
-                    <legend>Registro de la Reserva</legend>
-
-                    <label for="Recorridos">Recorridos</label>
-                    <select name="Recorridos" id="Recorridos" required>
-                        <option value="Recorrido1">Recorrido1</option>
-                        <option value="Recorrido2">Recorrido2</option>
-                        <option value="Recorrido3">Recorrido3</option>
-                    </select>
-
-                    <label for="fecha">Fecha de Reservacion:</label>
-                    <input type="date" id="fecha" required>
-
-                    <br><br>
-
-                    <label for="horarios">Horarios disponibles:</label>
-                    <select name="horarios" id="horarios" required>
-                        <option value="hora1">13:00</option>
-                        <option value="hora2">15:00</option>
-                        <option value="hora3">17:00</option>
-                        <option value="hora4">18:00</option>
-                    </select>
-
-                    <br><br>
-                    
-                    <label for="abordaje">Indique donde desea abordar:</label>
-                    <select name="abordaje" id="abordaje">
-                        <option value="parada1">parada1</option>
-                        <option value="parada2">parada2</option>
-                        <option value="parada3">parada3</option>
-                        <option value="parada4">parada4</option>
-                    </select>
-                    
-                    <br><br>
-                    
-                    <label for="Reservas">Reservas:</label>
-                    <input type="number" id="asiento" min="1" max="40" required>
-                    
-                    <br><br>
-                    
-                    <input type="submit" value="Enviar">
-                    <input type="reset" value="Calcelar">
-                    <a href="home.html">
-                        <button type="button">Atras</button>
-                    </a>
-                </fieldset>
-            </form>
-        </div>
-    </main>
-
-    <footer>
-        
-        <div id="abajafooter">
-
-            <div id="logosfooter4">
-                <img src="../static/img/catamarca_logo_turismo.png" alt="">
-            </div>
-
-            <div id="logosfooter1">
-                <img src="../static/img/logoCatamarca.png" alt="">
-            </div>
-
-            <div id="logosfooter2">
-                <img src="../static/img/SFVC-original-1024x351.png" alt="">
-            </div>
-
-            <div id="logosfooter3">
-                <img src="../static/img/logo1_no_bg.png" alt="logoCatamarca capitak">
-                
-            </div>
-
+        <div class="pc margentop250">
+            <header class="jc-between displayflex headerbloqueado">
+                <div id="logoheader">
+                    <img src="../static/img/Logo City Tour.png" alt="logocitytour">
+                    <h1>City-Tour  <br> Catamarca</h1>
+                </div>
+                <div id="abajoheader">
+                    <div id="navheader">
+                        <nav>
+                            <a href="home.html">Home</a>
+                            <a href="registroreco.html">Registro de Recorrido</a>
+                            <a href="registroReserva.html">Reservar Recorrido</a>
+                        </nav>
+                    </div>
+                    <div id="perfilUsuario">
+                        <button> <img src="../static/img/usericon.svg" alt=""></button>
+                    </div>
+                </div>
             
+            
+            </header>
+            <main>
+                <div id="" class="margentop250 cosas_dentro_main">
+                    <div id="formularioAgregar">
+                        <form action="#" method="get">
+                            <fieldset>
+                                <label class="tituloforms"><strong>Registro Reserva</strong></label> 
+                                
+                                <br>
+                                <div class="grupopartida">
+                                    <label for="recorrido" id="recorrido">🚌&nbsp;Recorridos:&nbsp;</label>
+                                    <select name="recorrido" id="recorrido" required size="1">
+                                        <option value="0" hidden>Elija </option>
+                                        <option value="1">recorrido1</option>
+                                        <option value="2">recorrido2</option>
+                                        <option value="3">recorrido3</option>
+                                    </select>
+                                </div>
 
+                                <br>
+                                <div class="grupofecha">
+                                    <label for="fecha-reserva"> 📅&nbsp;Fecha&nbsp;de&nbsp;reserva:&nbsp;</label>
+                                    <input type="date" name="fecha-reserva" id="fecha-reserva" required>
+                                </div>
+
+                                <br>
+                                <div class="grupopartida">
+                                    <label for="horarios" id="horarios">🕑&nbsp;Horarios&nbsp;Disponibles:&nbsp;</label>
+                                    <select name="horarios" id="horarios" required size="1">
+                                        <option value="0" hidden>Elija </option>
+                                        <option value="1">horario1</option>
+                                        <option value="2">horario2</option>
+                                        <option value="3">horario3</option>
+                                    </select>
+                                </div>
+
+                                <br>
+                                <div class="grupopartida">
+                                    <label for="abordaje" id="abordaje">📌&nbsp;Indique&nbsp;donde&nbsp;desea&nbsp;abordar:&nbsp;</label>
+                                    <select name="abordaje" id="abordaje" required size="1">
+                                        <option value="0" hidden>Elija </option>
+                                        <option value="1">parada1</option>
+                                        <option value="2">parada2</option>
+                                        <option value="3">parada3</option>
+                                        <option value="4">parada4</option>
+                                    </select>
+                                </div>
+
+                                <br>
+                                <div class="grupopartida">
+                                    <label for="Nreservas" id="Nreservas">📋&nbsp;Numero&nbsp;de&nbsp;reservas:&nbsp;</label>
+                                    <input type="number" name="Nreservas" id="Nreservas" min="0" max="40" required size="1">
+                                </div>
+                                
+                                <br>
+                                
+                                <div id="botones-formularios">
+                                    <button type="submit" id="boton-aceptar">Aceptar</button>
+                                    
+                                    <button type="reset" id="boton-cancelar">Cancelar</button>
+                                    
+                                    <a href="registroreco.html">
+                                        <button type="button" id="boton-atras">Atras</button>
+                                    </a>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </main>
         </div>
 
-        <div id="derechosautor">
-            <p>
-                ©copy 2025-CityTour Catamarca
-            </p>
+    
+
+        <div class="tablet">
+            <header>
+                <div id="headertablet">
+                    <div id="tabletarriba">
+                        <div id="logoheader">
+                            <img src="../static/img/Logo City Tour.png" alt="logocitytour">
+                            <h1>City-Tour  <br> Catamarca</h1>
+                        </div>     
+
+                        <div id="perfilUsuario" class="botontablet">
+                            <button> <img src="../static/img/usericon.svg" alt=""></button>
+                        </div>
+                    </div>
+
+                    <div id="abajotablet">
+                        <nav>
+                            <a href="home.html">Home</a>
+                            <a href="registroreco.html">Registro de Recorrido</a>
+                            <a href="registroReserva.html">Reservar Recorrido</a>
+                        </nav>
+                    </div>
+                </div>
+                    
+            </header>
+            <main>
+                <div id="" class="margentop250 cosas_dentro_main">
+                    <div id="formularioAgregar">
+                        <form action="#" method="get">
+                            <fieldset>
+                                <label class="tituloforms"><strong>Registro Reserva</strong></label> 
+                                
+                                <br>
+                                <div class="grupopartida">
+                                    <label for="recorrido" id="recorrido">🚌&nbsp;Recorridos:&nbsp;</label>
+                                    <select name="recorrido" id="recorrido" required size="1">
+                                        <option value="0" hidden>Elija </option>
+                                        <option value="1">recorrido1</option>
+                                        <option value="2">recorrido2</option>
+                                        <option value="3">recorrido3</option>
+                                    </select>
+                                </div>
+
+                                <br>
+                                <div class="grupofecha">
+                                    <label for="fecha-reserva"> 📅&nbsp;Fecha&nbsp;de&nbsp;reserva:&nbsp;</label>
+                                    <input type="date" name="fecha-reserva" id="fecha-reserva" required>
+                                </div>
+
+                                <br>
+                                <div class="grupopartida">
+                                    <label for="horarios" id="horarios">🕑&nbsp;Horarios&nbsp;Disponibles:&nbsp;</label>
+                                    <select name="horarios" id="horarios" required size="1">
+                                        <option value="0" hidden>Elija </option>
+                                        <option value="1">horario1</option>
+                                        <option value="2">horario2</option>
+                                        <option value="3">horario3</option>
+                                    </select>
+                                </div>
+
+                                <br>
+                                <div class="grupopartida">
+                                    <label for="abordaje" id="abordaje">📌&nbsp;Indique&nbsp;donde&nbsp;desea&nbsp;abordar:&nbsp;</label>
+                                    <select name="abordaje" id="abordaje" required size="1">
+                                        <option value="0" hidden>Elija </option>
+                                        <option value="1">parada1</option>
+                                        <option value="2">parada2</option>
+                                        <option value="3">parada3</option>
+                                        <option value="4">parada4</option>
+                                    </select>
+                                </div>
+
+                                <br>
+                                <div class="grupopartida">
+                                    <label for="Nreservas" id="Nreservas">📋&nbsp;Numero&nbsp;de&nbsp;reservas:&nbsp;</label>
+                                    <input type="number" name="Nreservas" id="Nreservas" min="0" max="40" required size="1">
+                                </div>
+                                
+                                <br>
+                                
+                                <div id="botones-formularios">
+                                    <button type="submit" id="boton-aceptar">Aceptar</button>
+                                    
+                                    <button type="reset" id="boton-cancelar">Cancelar</button>
+                                    
+                                    <a href="registroreco.html">
+                                        <button type="button" id="boton-atras">Atras</button>
+                                    </a>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </main>
         </div>
-    </footer>
+
+        <div class="celular">
+            <header>
+                <div id="headercelu">
+                    <div id="arribacelu">
+                        <div id="logoheader">
+                            <img src="../static/img/Logo City Tour.png" alt="logocitytour">
+                            <h1>City-Tour  <br> Catamarca</h1>
+                        </div>
+                        <div id="perfilUsuario">
+                                <button> <img src="../static/img/usericon.svg" alt=""></button>
+                        </div>
+                    </div>
+                    
+                    <div id="abajocelu">
+                        <nav>
+                            <ul>
+                                <li><a href="home.html">Home</a></li>
+                                <li><a href="registroreco.html">Registro de Recorrido</a></li>
+                                <li><a href="registroReserva.html">Reservar Recorrido</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            
+            </header>
+            <main>
+                <div id="" class="margentop250 cosas_dentro_main">
+                    <div id="formularioAgregar">
+                        <form action="#" method="get">
+                            <fieldset>
+                                <label class="tituloforms"><strong>Registro Reserva</strong></label> 
+                                
+                                <br>
+                                <div class="grupopartida">
+                                    <label for="recorrido" id="recorrido">🚌&nbsp;Recorridos:&nbsp;</label>
+                                    <select name="recorrido" id="recorrido" required size="1">
+                                        <option value="0" hidden>Elija </option>
+                                        <option value="1">recorrido1</option>
+                                        <option value="2">recorrido2</option>
+                                        <option value="3">recorrido3</option>
+                                    </select>
+                                </div>
+
+                                <br>
+                                <div class="grupofecha">
+                                    <label for="fecha-reserva"> 📅&nbsp;Fecha&nbsp;de&nbsp;reserva:&nbsp;</label>
+                                    <input type="date" name="fecha-reserva" id="fecha-reserva" required>
+                                </div>
+
+                                <br>
+                                <div class="grupopartida">
+                                    <label for="horarios" id="horarios">🕑&nbsp;Horarios&nbsp;Disponibles:&nbsp;</label>
+                                    <select name="horarios" id="horarios" required size="1">
+                                        <option value="0" hidden>Elija </option>
+                                        <option value="1">horario1</option>
+                                        <option value="2">horario2</option>
+                                        <option value="3">horario3</option>
+                                    </select>
+                                </div>
+
+                                <br>
+                                <div class="grupopartida">
+                                    <label for="abordaje" id="abordaje">📌&nbsp;Indique&nbsp;donde&nbsp;desea&nbsp;abordar:&nbsp;</label>
+                                    <select name="abordaje" id="abordaje" required size="1">
+                                        <option value="0" hidden>Elija </option>
+                                        <option value="1">parada1</option>
+                                        <option value="2">parada2</option>
+                                        <option value="3">parada3</option>
+                                        <option value="4">parada4</option>
+                                    </select>
+                                </div>
+
+                                <br>
+                                <div class="grupopartida">
+                                    <label for="Nreservas" id="Nreservas">📋&nbsp;Numero&nbsp;de&nbsp;reservas:&nbsp;</label>
+                                    <input type="number" name="Nreservas" id="Nreservas" min="0" max="40" required size="1">
+                                </div>
+                                
+                                <br>
+                                
+                                <div id="botones-formularios">
+                                    <button type="submit" id="boton-aceptar">Aceptar</button>
+                                    
+                                    <button type="reset" id="boton-cancelar">Cancelar</button>
+                                    
+                                    <a href="registroreco.html">
+                                        <button type="button" id="boton-atras">Atras</button>
+                                    </a>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+
+
+        <footer>
+                <div id="abajafooter">
+                    <div id="logosfooter4">
+                        <img src="../static/img/catamarca_logo_turismo.png" alt="">
+                    </div>
+                    <div id="logosfooter1">
+                        <img src="../static/img/logoCatamarca.png" alt="">
+                    </div>
+                    <div id="logosfooter2">
+                        <img src="../static/img/SFVC-original-1024x351.png" alt="">
+                    </div>
+                    <div id="logosfooter3">
+                        <img src="../static/img/logo1_no_bg.png" alt="logoCatamarca capitak">
+            
+                    </div>
+            
+                </div>
+                <div id="derechosautor">
+                    <p>
+                        ©copy 2025-CityTour Catamarca
+                    </p>
+                </div>
+            </footer>
 </body>
 </html>

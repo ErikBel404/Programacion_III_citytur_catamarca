@@ -1,0 +1,11 @@
+.tituloforms
+{
+    background: none;
+    font-weight:none;
+    font-size: 150%;
+    padding: 0px;
+    border: none;
+    color: white;    
+    display: flex;
+    justify-content: center;
+}
