@@ -157,78 +157,96 @@
                     
             </header>
             <main>
-                <div class="cosas_dentro_main">
-                    <form action="#" method="get">
-                        <fieldset>
-                            <legend>Agregar recorrido</legend>
+                <div id="" class="margentop250 cosas_dentro_main">
+                    <div id="formularioAgregar">
+                        <form action="#" method="get">
+                            <fieldset>
+                                <label id="agregarRecorrido"><strong>Agregar Recorrido</strong></label> 
+                                
+                                <br>
 
+                                <div class="gruponombre">
+                                    <label for="nombre-recorrido">🚌&nbsp;Ingrese&nbsp;el&nbsp;nombre&nbsp;del&nbsp;recorrido: </label>
+                                    <input type="text" name="nombre-recorrido" id="nombre-recorrido" required maxlength="70">
+                                </div>
+                                
+                                <br>
+                                   
+                                <div class="grupopartida">
+                                    <label for="partida" id="labelpartida">📌&nbsp;Puntos&nbsp;de&nbsp;partida:&nbsp;</label>
+                                    <select name="partida" id="partida" required size="1">
+                                        <option value="0" hidden>Elija </option>
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+        
+                                <br>
+                                
+                                <div class="grupointeres">
+                                    <label for="interes" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes: </label>
+                                    <select name="interes" id="interes" multiple required size="2">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
 
-                            <label for="nombre-recorrido">Ingrese el nombre del recorrido: </label>
-                            <input type="text" name="nombre-recorrido" id="nombre-recorrido" required maxlength="70">
+                                <br>
 
-                            <br><br>
+                                <div class="grupofinal">
+                                    <label for="final" id="labelfinal">📌&nbsp;Final&nbsp;del&nbsp;recorrido:&nbsp; </label>
+                                    <select name="final" id="final" required size="1">
+                                        <option value="0" hidden>Elija</option>
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
 
-                            <label for="partida">Puntos de partida: </label>
-                            <select name="partida" id="partida" required size="3">
-                                <option value="1">opcion1</option>
-                                <option value="2">opcion2</option>
-                                <option value="3">opcion3</option>
-                            </select>
+                                <br>
 
-                            <br><br>
-                            
-                            <label for="interes">Puntos de interes: </label>
-                            <select name="interes" id="interes" multiple required size="3">
-                                <option value="1">opcion1</option>
-                                <option value="2">opcion2</option>
-                                <option value="3">opcion3</option>
-                            </select>
-                            
-                            <br><br>
+                                <div class="grupohora">
+                                    <label for="hora-recorrido" id="labelhora">🕑&nbsp;Hora&nbsp;del&nbsp;recorrido: </label>
+                                    <input type="time" name="hora-recorrido" id="hora-recorrido"  required> 
+                                </div>
 
-                            <label for="final">Final del recorrido: </label>
-                            <select name="final" id="final" required size="3">
-                                <option value="1">opcion1</option>
-                                <option value="2">opcion2</option>
-                                <option value="3">opcion3</option>
-                            </select>
+                                <br>
 
-                            <br><br>
+                                <div class="grupofecha">
+                                    <label for="fecha-recorrido"> 📅&nbsp;Fecha&nbsp;del&nbsp;recorrido:&nbsp;</label>
+                                    <input type="date" name="fecha-recorrido" id="fecha-recorrido" required>
+                                </div>
 
-                            <label for="hora-recorrido"> Hora del recorrido: </label>
-                            <input type="time" name="hora-recorrido" id="hora-recorrido" required> 
+                                <br>
+                                
+                                <div class="grupoparadas">
+                                    <label for="paradas" id="labelparadas">🚏&nbsp;Paradas&nbsp;del&nbsp;recorrido:&nbsp;</label>
+                                    <select name="paradas" id="paradas" multiple required size="2">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                        <option value="4">opcion4</option>
+                                        <option value="5">opcion5</option>
+                                        <option value="6">opcion6</option>  
+                                    </select>
+                                </div>
 
-                            <br><br>
-
-
-                            <label for="fecha-recorrido"> Fecha del recorrido: </label>
-                            <input type="date" name="fecha-recorrido" id="fecha-recorrido" required>
-                            
-                            <br><br>
-                            
-                            
-                            <label for="final">Paradas del recorrido: </label>
-                            <select name="final" id="final" multiple required size="3">
-                                <option value="1">opcion1</option>
-                                <option value="2">opcion2</option>
-                                <option value="3">opcion3</option>
-                                <option value="4">opcion4</option>
-                                <option value="5">opcion5</option>
-                                <option value="6">opcion6</option>  
-                            </select>
-
-                            <br><br>
-                            
-                            <button type="submit">Aceptar</button>
-                            <button type="reset">Cancelar</button>
-
-                            <a href="registroreco.html">
-                                <button type="button">Atras</button>
-                            </a>
-
-                        </fieldset>
-                    </form>
-            
+                                <br>
+                                
+                                <div id="botones-formularios">
+                                    <button type="submit" id="boton-aceptar">Aceptar</button>
+                                    
+                                    <button type="reset" id="boton-cancelar">Cancelar</button>
+                                    
+                                    <a href="registroreco.html">
+                                        <button type="button" id="boton-atras">Atras</button>
+                                    </a>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
                 </div>
             </main>
         </div>
@@ -259,82 +277,99 @@
             
             </header>
             <main>
-                <div class="cosas_dentro_main">
-                    <form action="#" method="get">
-                        <fieldset>
-                            <legend>Agregar recorrido</legend>
+                <div id="" class="margentop250 cosas_dentro_main">
+                    <div id="formularioAgregar">
+                        <form action="#" method="get">
+                            <fieldset>
+                                <label id="agregarRecorrido"><strong>Agregar Recorrido</strong></label> 
+                                
+                                <br>
 
+                                <div class="gruponombre">
+                                    <label for="nombre-recorrido">🚌&nbsp;Ingrese&nbsp;el&nbsp;nombre&nbsp;del&nbsp;recorrido: </label>
+                                    <input type="text" name="nombre-recorrido" id="nombre-recorrido" required maxlength="70">
+                                </div>
+                                
+                                <br>
+                                   
+                                <div class="grupopartida">
+                                    <label for="partida" id="labelpartida">📌&nbsp;Puntos&nbsp;de&nbsp;partida:&nbsp;</label>
+                                    <select name="partida" id="partida" required size="1">
+                                        <option value="0" hidden>Elija </option>
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
+        
+                                <br>
+                                
+                                <div class="grupointeres">
+                                    <label for="interes" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes: </label>
+                                    <select name="interes" id="interes" multiple required size="2">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
 
-                            <label for="nombre-recorrido">Ingrese el nombre del recorrido: </label>
-                            <input type="text" name="nombre-recorrido" id="nombre-recorrido" required maxlength="70">
+                                <br>
 
-                            <br><br>
+                                <div class="grupofinal">
+                                    <label for="final" id="labelfinal">📌&nbsp;Final&nbsp;del&nbsp;recorrido:&nbsp; </label>
+                                    <select name="final" id="final" required size="1">
+                                        <option value="0" hidden>Elija</option>
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                    </select>
+                                </div>
 
-                            <label for="partida">Puntos de partida: </label>
-                            <select name="partida" id="partida" required size="3">
-                                <option value="1">opcion1</option>
-                                <option value="2">opcion2</option>
-                                <option value="3">opcion3</option>
-                            </select>
+                                <br>
 
-                            <br><br>
-                            
-                            <label for="interes">Puntos de interes: </label>
-                            <select name="interes" id="interes" multiple required size="3">
-                                <option value="1">opcion1</option>
-                                <option value="2">opcion2</option>
-                                <option value="3">opcion3</option>
-                            </select>
-                            
-                            <br><br>
+                                <div class="grupohora">
+                                    <label for="hora-recorrido" id="labelhora">🕑&nbsp;Hora&nbsp;del&nbsp;recorrido: </label>
+                                    <input type="time" name="hora-recorrido" id="hora-recorrido"  required> 
+                                </div>
 
-                            <label for="final">Final del recorrido: </label>
-                            <select name="final" id="final" required size="3">
-                                <option value="1">opcion1</option>
-                                <option value="2">opcion2</option>
-                                <option value="3">opcion3</option>
-                            </select>
+                                <br>
 
-                            <br><br>
+                                <div class="grupofecha">
+                                    <label for="fecha-recorrido"> 📅&nbsp;Fecha&nbsp;del&nbsp;recorrido:&nbsp;</label>
+                                    <input type="date" name="fecha-recorrido" id="fecha-recorrido" required>
+                                </div>
 
-                            <label for="hora-recorrido"> Hora del recorrido: </label>
-                            <input type="time" name="hora-recorrido" id="hora-recorrido" required> 
+                                <br>
+                                
+                                <div class="grupoparadas">
+                                    <label for="paradas" id="labelparadas">🚏&nbsp;Paradas&nbsp;del&nbsp;recorrido:&nbsp;</label>
+                                    <select name="paradas" id="paradas" multiple required size="2">
+                                        <option value="1">opcion1</option>
+                                        <option value="2">opcion2</option>
+                                        <option value="3">opcion3</option>
+                                        <option value="4">opcion4</option>
+                                        <option value="5">opcion5</option>
+                                        <option value="6">opcion6</option>  
+                                    </select>
+                                </div>
 
-                            <br><br>
-
-
-                            <label for="fecha-recorrido"> Fecha del recorrido: </label>
-                            <input type="date" name="fecha-recorrido" id="fecha-recorrido" required>
-                            
-                            <br><br>
-                            
-                            
-                            <label for="final">Paradas del recorrido: </label>
-                            <select name="final" id="final" multiple required size="3">
-                                <option value="1">opcion1</option>
-                                <option value="2">opcion2</option>
-                                <option value="3">opcion3</option>
-                                <option value="4">opcion4</option>
-                                <option value="5">opcion5</option>
-                                <option value="6">opcion6</option>  
-                            </select>
-
-                            <br><br>
-                            
-                            <button type="submit">Aceptar</button>
-                            <button type="reset">Cancelar</button>
-
-                            <a href="registroreco.html">
-                                <button type="button">Atras</button>
-                            </a>
-
-                        </fieldset>
-                    </form>
+                                <br>
+                                
+                                <div id="botones-formularios">
+                                    <button type="submit" id="boton-aceptar">Aceptar</button>
+                                    
+                                    <button type="reset" id="boton-cancelar">Cancelar</button>
+                                    
+                                    <a href="registroreco.html">
+                                        <button type="button" id="boton-atras">Atras</button>
+                                    </a>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
                 </div>
             </main>
         </div>
-
-
 
         <footer>
                 <div id="abajafooter">
