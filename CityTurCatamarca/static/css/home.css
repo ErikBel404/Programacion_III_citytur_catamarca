@@ -1,0 +1,48 @@
+:root {
+  --verdeAgua: #0c7968;
+  --naranja: #e38e15;
+  --amarilloFuerte:#fab701;
+  --blancoCalido:#f1f1f1;
+  --amarilloClarito:#ffcc3b;
+}
+
+.inicio-sesion-celular{
+    display:flex;
+    flex-direction: column;
+    align-items: end;
+    padding:15px;
+}
+
+.inicio-sesion-celular-link {
+    margin:8px;
+    padding:8px;
+    width:120px;
+    border-radius:20px;
+    color: black;
+    background: var(--blancoCalido);
+    text-decoration: none;
+    font-weight: bold;
+    border: 3px solid transparent;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.inicio-sesion-celular-link:hover {
+    background-color: var(--amarilloFuerte);
+    padding: 10px 20px;
+    border-radius:20px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border: 3px solid transparent;
+    transform: scale(1.03);
+    transition: all 0.3s ease;
+}
+
+.margentop250 {
+    margin: 0px auto;
+    
+}
+
+
+

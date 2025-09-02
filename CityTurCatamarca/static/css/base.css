@@ -174,7 +174,6 @@ nav a:hover, #perfilUsuario button:hover{
     padding: 50px;
     margin: 20px auto;
     width: 80%;
-    height: 680px;  /*esto lo saque porque rompe el body en las paginas largas*/
     border-radius: 8px;
     box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
 
