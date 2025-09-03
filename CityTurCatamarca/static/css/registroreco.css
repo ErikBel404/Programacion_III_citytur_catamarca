@@ -7,13 +7,13 @@
 
 .mgpc
 {
-    margin-top: 150px;
+    margin-top: 307px;
     margin-bottom: 20px;
 }
 .mgt
 {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 55px;
+    margin-bottom: 55px;
 }
 
 .ordenarimgpc
@@ -29,4 +29,8 @@ main a :hover
 {
     transform: scale(1.1);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.heightpc{
+    height: 450px;
 }
