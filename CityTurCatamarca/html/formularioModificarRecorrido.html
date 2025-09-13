@@ -63,7 +63,7 @@
                                     </select>
                                 </div>
 
-                                <br><br>
+                                <br>
                         
                                 <div class="grupointeres">
                                     <label for="interes-agregar" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;agregar: </label>
@@ -74,7 +74,7 @@
                                     </select>
                                 </div>
 
-                                <br><br>
+                                <br>
 
                                 <div class="grupointeres">
                                     <label for="interes" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;remover: </label>
@@ -85,8 +85,7 @@
                                     </select>
                                 </div>
 
-
-                                <br><br>
+                                <br>
 
                                 <div class="grupofinal">
                                     <label for="final-nuevo">📌&nbsp;Final&nbsp;del&nbsp;recorrido&nbsp;nuevo: </label>
@@ -97,27 +96,30 @@
                                     </select>
                                 </div>
 
-                                <br><br>
+                                <br>
 
                                 <div class="grupohora">
                                     <label for="hora-recorrido">🕑&nbsp;Nueva&nbsp;hora&nbsp;del&nbsp;recorrido: </label>
                                     <input type="time" name="hora-recorrido" id="hora-recorrido" >
                                 </div>
                                 
-                                <br><br>
-
-
-                                <div class="grupofecha"> 
-                                    <label for="fecha-recorrido">📅&nbsp;Nueva&nbsp;fecha&nbsp;del&nbsp;recorrido: </label>
-                                    <input type="date" name="fecha-recorrido" id="fecha-recorrido" >
+                                <br>
+ 
+                                <div class="grupofecha">
+                                    <label for="fecha-recorrido" id="labelFecha-reco"> 📅&nbsp;Fecha&nbsp;del&nbsp;recorrido:&nbsp;</label>
+                                    <select name="fecha-recorrido" id="fecha-recorrido" required multiple size="2">
+                                        <option value="0" hidden>Elija</option>
+                                        <option value="1">Lunes</option>
+                                        <option value="2">Martes</option>
+                                        <option value="3">Miercoles</option>
+                                        <option value="4">Jueves</option>
+                                        <option value="5">Viernes</option>
+                                        <option value="6">Sabado</option>
+                                        <option value="7">Domingo</option>
+                                    </select>
                                 </div>
                         
-                                <br><br>
-                        
-                        
-                                
-
-                                <br><br>
+                                <br>
 
                                 <div id="botones-formularios">
                                     <button type="submit" id="boton-aceptar">Aceptar</button>
@@ -161,7 +163,7 @@
                     
             </header>
             <main>
-                <div id="" class="margentop250 cosas_dentro_main margin-tablet">
+                <div id="" class="margentop250 cosas_dentro_main">
                     <div id="formularioAgregar">
                         <form action="#" method="get">
                             <fieldset>
@@ -187,7 +189,7 @@
                                     </select>
                                 </div>
 
-                                <br><br>
+                                <br>
                         
                                 <div class="grupointeres">
                                     <label for="interes-agregar" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;agregar: </label>
@@ -198,7 +200,7 @@
                                     </select>
                                 </div>
 
-                                <br><br>
+                                <br>
 
                                 <div class="grupointeres">
                                     <label for="interes" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;remover: </label>
@@ -209,8 +211,7 @@
                                     </select>
                                 </div>
 
-
-                                <br><br>
+                                <br>
 
                                 <div class="grupofinal">
                                     <label for="final-nuevo">📌&nbsp;Final&nbsp;del&nbsp;recorrido&nbsp;nuevo: </label>
@@ -221,51 +222,30 @@
                                     </select>
                                 </div>
 
-                                <br><br>
+                                <br>
 
                                 <div class="grupohora">
                                     <label for="hora-recorrido">🕑&nbsp;Nueva&nbsp;hora&nbsp;del&nbsp;recorrido: </label>
                                     <input type="time" name="hora-recorrido" id="hora-recorrido" >
                                 </div>
                                 
-                                <br><br>
-
-
-                                <div class="grupofecha"> 
-                                    <label for="fecha-recorrido">📅&nbsp;Nueva&nbsp;fecha&nbsp;del&nbsp;recorrido: </label>
-                                    <input type="date" name="fecha-recorrido" id="fecha-recorrido" >
-                                </div>
-                        
-                                <br><br>
-                        
-                        
-                                <div class="grupoparadas">
-                                    <label for="final" id="labelinteres">🚏&nbsp;Agregar&nbsp;paradas&nbsp;del&nbsp;recorrido: </label>
-                                    <select name="final" id="final" multiple size="2">
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                        <option value="4">opcion4</option>
-                                        <option value="5">opcion5</option>
-                                        <option value="6">opcion6</option>
+                                <br>
+ 
+                                <div class="grupofecha">
+                                    <label for="fecha-recorrido" id="labelFecha-reco"> 📅&nbsp;Fecha&nbsp;del&nbsp;recorrido:&nbsp;</label>
+                                    <select name="fecha-recorrido" id="fecha-recorrido" required multiple size="2">
+                                        <option value="0" hidden>Elija</option>
+                                        <option value="1">Lunes</option>
+                                        <option value="2">Martes</option>
+                                        <option value="3">Miercoles</option>
+                                        <option value="4">Jueves</option>
+                                        <option value="5">Viernes</option>
+                                        <option value="6">Sabado</option>
+                                        <option value="7">Domingo</option>
                                     </select>
                                 </div>
-
-                                <br><br>
                         
-                                <div class="grupoparadas">
-                                    <label for="final" id="labelinteres">🚏&nbsp;Quitar&nbsp;Paradas&nbsp;del&nbsp;Recorrido: </label>
-                                    <select name="final" id="final" multiple size="2">
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                        <option value="4">opcion4</option>
-                                        <option value="5">opcion5</option>
-                                        <option value="6">opcion6</option>
-                                    </select>
-                                </div>
-
-                                <br><br>
+                                <br>
 
                                 <div id="botones-formularios">
                                     <button type="submit" id="boton-aceptar">Aceptar</button>
@@ -309,7 +289,7 @@
             </header>
 
             <main>
-                <div id="" class="margentop250 cosas_dentro_main margin-celular">
+                <div id="" class="margentop250 cosas_dentro_main">
                     <div id="formularioAgregar">
                         <form action="#" method="get">
                             <fieldset>
@@ -335,7 +315,7 @@
                                     </select>
                                 </div>
 
-                                <br><br>
+                                <br>
                         
                                 <div class="grupointeres">
                                     <label for="interes-agregar" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;agregar: </label>
@@ -346,7 +326,7 @@
                                     </select>
                                 </div>
 
-                                <br><br>
+                                <br>
 
                                 <div class="grupointeres">
                                     <label for="interes" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;remover: </label>
@@ -357,8 +337,7 @@
                                     </select>
                                 </div>
 
-
-                                <br><br>
+                                <br>
 
                                 <div class="grupofinal">
                                     <label for="final-nuevo">📌&nbsp;Final&nbsp;del&nbsp;recorrido&nbsp;nuevo: </label>
@@ -369,51 +348,30 @@
                                     </select>
                                 </div>
 
-                                <br><br>
+                                <br>
 
                                 <div class="grupohora">
                                     <label for="hora-recorrido">🕑&nbsp;Nueva&nbsp;hora&nbsp;del&nbsp;recorrido: </label>
                                     <input type="time" name="hora-recorrido" id="hora-recorrido" >
                                 </div>
                                 
-                                <br><br>
-
-
-                                <div class="grupofecha"> 
-                                    <label for="fecha-recorrido">📅&nbsp;Nueva&nbsp;fecha&nbsp;del&nbsp;recorrido: </label>
-                                    <input type="date" name="fecha-recorrido" id="fecha-recorrido" >
-                                </div>
-                        
-                                <br><br>
-                        
-                        
-                                <div class="grupoparadas">
-                                    <label for="final" id="labelinteres">🚏&nbsp;Agregar&nbsp;paradas&nbsp;del&nbsp;recorrido: </label>
-                                    <select name="final" id="final" multiple size="2">
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                        <option value="4">opcion4</option>
-                                        <option value="5">opcion5</option>
-                                        <option value="6">opcion6</option>
+                                <br>
+ 
+                                <div class="grupofecha">
+                                    <label for="fecha-recorrido" id="labelFecha-reco"> 📅&nbsp;Fecha&nbsp;del&nbsp;recorrido:&nbsp;</label>
+                                    <select name="fecha-recorrido" id="fecha-recorrido" required multiple size="2">
+                                        <option value="0" hidden>Elija</option>
+                                        <option value="1">Lunes</option>
+                                        <option value="2">Martes</option>
+                                        <option value="3">Miercoles</option>
+                                        <option value="4">Jueves</option>
+                                        <option value="5">Viernes</option>
+                                        <option value="6">Sabado</option>
+                                        <option value="7">Domingo</option>
                                     </select>
                                 </div>
-
-                                <br><br>
                         
-                                <div class="grupoparadas">
-                                    <label for="final" id="labelinteres">🚏&nbsp;Quitar&nbsp;Paradas&nbsp;del&nbsp;Recorrido: </label>
-                                    <select name="final" id="final" multiple size="2">
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                        <option value="4">opcion4</option>
-                                        <option value="5">opcion5</option>
-                                        <option value="6">opcion6</option>
-                                    </select>
-                                </div>
-
-                                <br><br>
+                                <br>
 
                                 <div id="botones-formularios">
                                     <button type="submit" id="boton-aceptar">Aceptar</button>
