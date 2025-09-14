@@ -9,8 +9,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/base.css">
-    <link rel="stylesheet" href="/CityTurCatamarca/static/css/reserva.css">
     <link rel="stylesheet" href="/CityTurCatamarca/static/css/formularioAgregarRecorrido.css">
+    <link rel="stylesheet" href="/CityTurCatamarca/static/css/reserva.css">
+
     
 </head>
 <body>
@@ -84,8 +85,26 @@
 
                                 <br>
                                 <div class="grupopartida">
-                                    <label for="Nreservas" id="Nreservas">📋&nbsp;Numero&nbsp;de&nbsp;reservas:&nbsp;</label>
-                                    <input type="number" name="Nreservas" id="Nreservas" min="0" max="40" required size="1">
+                                    <label for="Nreservas">📋&nbsp;Numero&nbsp;de&nbsp;reservas:&nbsp;</label>
+                                    <input type="number" name="Nreservas" id="NreservasPc" min="0" max="40" required>
+                                </div>
+
+                                <br>
+
+                                <div class="bloqueRepetitivo" id="bloqueRepetitivoPc">
+                                    <div class="grupoNombrePersona">
+                                        <label for="nombrePersona" id="labelPersona">Nombre:</label>
+                                        <input type="text" name="nombrePersona" maxlength="70" required>
+                                    </div>
+
+                                    <br>
+
+                                     <div class="grupoDniPersona">
+                                        <label for="dniPersona" id="labelDniPersona">DNI:</label>
+                                        <input type="number" name="dniPersona" max="20" required>
+                                    </div>
+                                    <br>
+
                                 </div>
                                 
                                 <br>
@@ -181,8 +200,26 @@
 
                                 <br>
                                 <div class="grupopartida">
-                                    <label for="Nreservas" id="Nreservas">📋&nbsp;Numero&nbsp;de&nbsp;reservas:&nbsp;</label>
-                                    <input type="number" name="Nreservas" id="Nreservas" min="0" max="40" required size="1">
+                                    <label for="Nreservas">📋&nbsp;Numero&nbsp;de&nbsp;reservas:&nbsp;</label>
+                                    <input type="number" name="Nreservas" id="NreservasTablet" min="0" max="40" required>
+                                </div>
+
+                                <br>
+
+                                <div class="bloqueRepetitivo" id="bloqueRepetitivoTablet">
+                                    <div class="grupoNombrePersona">
+                                        <label for="nombrePersona" id="labelPersona">Nombre:</label>
+                                        <input type="text" name="nombrePersona" maxlength="70" required>
+                                    </div>
+
+                                    <br>
+
+                                     <div class="grupoDniPersona">
+                                        <label for="dniPersona" id="labelDniPersona">DNI:</label>
+                                        <input type="number" name="dniPersona" max="20" required>
+                                    </div>
+                                    <br>
+
                                 </div>
                                 
                                 <br>
@@ -229,7 +266,7 @@
             
             </header>
             <main>
-                <div id="" class="margentop250 cosas_dentro_main">
+                <div id="" class="margentop150 ">
                     <div id="formularioAgregar">
                         <form action="#" method="get">
                             <fieldset>
@@ -237,7 +274,7 @@
                                 
                                 <br>
                                 <div class="grupopartida">
-                                    <label for="recorrido" id="recorrido">🚌&nbsp;Recorridos:&nbsp;</label>
+                                    <label for="recorrido" id="labelRecorrido">🚌&nbsp;Recorridos:&nbsp;</label>
                                     <select name="recorrido" id="recorrido" required size="1">
                                         <option value="0" hidden>Elija </option>
                                         <option value="1">recorrido1</option>
@@ -254,7 +291,7 @@
 
                                 <br>
                                 <div class="grupopartida">
-                                    <label for="horarios" id="horarios">🕑&nbsp;Horarios&nbsp;Disponibles:&nbsp;</label>
+                                    <label for="horarios" id="labelHorarios">🕑&nbsp;Horarios&nbsp;Disponibles:&nbsp;</label>
                                     <select name="horarios" id="horarios" required size="1">
                                         <option value="0" hidden>Elija </option>
                                         <option value="1">horario1</option>
@@ -265,7 +302,7 @@
 
                                 <br>
                                 <div class="grupopartida">
-                                    <label for="abordaje" id="abordaje">📌&nbsp;Indique&nbsp;donde&nbsp;desea&nbsp;abordar:&nbsp;</label>
+                                    <label for="abordaje" id="labelAbordaje">📌&nbsp;Indique&nbsp;donde&nbsp;desea&nbsp;abordar:&nbsp;</label>
                                     <select name="abordaje" id="abordaje" required size="1">
                                         <option value="0" hidden>Elija </option>
                                         <option value="1">parada1</option>
@@ -277,13 +314,25 @@
 
                                 <br>
                                 <div class="grupopartida">
-                                    <label for="Nreservas" id="Nreservas">📋&nbsp;Numero&nbsp;de&nbsp;reservas:&nbsp;</label>
-                                    <input type="number" name="Nreservas" id="Nreservas" min="0" max="40" required size="1">
+                                    <label for="Nreservas">📋&nbsp;Numero&nbsp;de&nbsp;reservas:&nbsp;</label>
+                                    <input type="number" name="Nreservas" id="NreservasCelular" min="0" max="40" required>
                                 </div>
 
                                 <br>
 
-                                <div id="bloqueRepetitivo">
+                                <div class="bloqueRepetitivo" id="bloqueRepetitivoCelular">
+                                    <div class="grupoNombrePersona">
+                                        <label for="nombrePersona" id="labelPersona">Nombre:</label>
+                                        <input type="text" name="nombrePersona" maxlength="70" required>
+                                    </div>
+
+                                    <br>
+
+                                     <div class="grupoDniPersona">
+                                        <label for="dniPersona" id="labelDniPersona">DNI:</label>
+                                        <input type="number" name="dniPersona" max="20" required>
+                                    </div>
+                                    <br>
 
                                 </div>
                                 
@@ -330,5 +379,7 @@
                     </p>
                 </div>
             </footer>
+
+            <script src="../JS/cantidadReservas.js"></script>
 </body>
 </html>

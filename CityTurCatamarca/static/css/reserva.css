@@ -9,3 +9,9 @@
     display: flex;
     justify-content: center;
 }
+
+.margentop150{
+        margin-top: 100px;
+        margin-bottom: 100px;
+
+}

@@ -186,6 +186,15 @@ label{
         padding: 11px;
 }
 
+#labelRecorrido,#labelHorarios,#labelAbordaje{
+    padding: 1.3px;
+}
+
+.grupoNombrePersona,.grupoDniPersona{
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
 
 #agregarRecorrido{
     background: none;
@@ -197,3 +206,4 @@ label{
     display: flex;
     justify-content: center;
 }
+
