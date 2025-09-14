@@ -17,21 +17,6 @@ puntoPartidaPc.addEventListener('change',()=>{
     })
 
 })
-/*
-finalRecorridoPc.addEventListener('change',()=>{
-    const final = finalRecorridoPc.value;
-
-    Array.from(puntoPartidaPc.options).forEach(partidas =>{
-        if(partidas.value === final){
-            partidas.disabled=true;
-            partidas.style.color ="red";
-        }
-        else{
-            partidas.disabled =false;
-            partidas.style.color = "gray"
-        }
-    })
-})*/
 
 //tablet
 const puntoPartidaTablet = document.getElementById("partidaNuevaTablet");
@@ -52,22 +37,6 @@ puntoPartidaTablet.addEventListener('change',()=>{
     })
 
 })
-/*
-finalRecorridoTablet.addEventListener('change',()=>{
-    const final = finalRecorridoTablet.value;
-
-    Array.from(puntoPartidaTablet.options).forEach(partidas =>{
-        if(partidas.value === final){
-            partidas.disabled=true;
-            partidas.style.color ="red";
-        }
-        else{
-            partidas.disabled =false;
-            partidas.style.color = "gray"
-        }
-    })
-})
-*/
 
 //celu
 const puntoPartidaCelu = document.getElementById("partidaNuevaCelu");
@@ -88,21 +57,3 @@ puntoPartidaCelu.addEventListener('change',()=>{
     })
 
 })
-
-/*
-finalRecorridoCelu.addEventListener('change',()=>{
-    const final = finalRecorridoCelu.value;
-
-    Array.from(puntoPartidaCelu.options).forEach(partidas =>{
-        if(partidas.value === final){
-            partidas.disabled=true;
-            partidas.style.color ="red";
-        }
-        else{
-            partidas.disabled =false;
-            partidas.style.color = "gray"
-        }
-    })
-})
-    
-*/
