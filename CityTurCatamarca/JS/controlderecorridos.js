@@ -1,9 +1,6 @@
-function validarModificacion() {
-    const agregarSelect = document.getElementById("interes-agregar");
-    const removerSelect = document.getElementById("interes-remover");
-
-    const seleccionadosAgregar = [...agregarSelect.selectedOptions].map(opt => opt.value);
-    const seleccionadosRemover = [...removerSelect.selectedOptions].map(opt => opt.value);
+function validarModificacion(agregarSelect, removerSelect) {
+    const seleccionadosAgregar = agregarSelect ? [...agregarSelect.selectedOptions].map(opt => opt.value) : [];
+    const seleccionadosRemover = removerSelect ? [...removerSelect.selectedOptions].map(opt => opt.value) : [];
 
     const conflicto = seleccionadosAgregar.some(v => seleccionadosRemover.includes(v));
 
@@ -14,9 +11,8 @@ function validarModificacion() {
     return true;
 }
 
-function actualizarOpciones() {
-    const agregarSelect = document.getElementById("interes-agregar");
-    const removerSelect = document.getElementById("interes-remover");
+function actualizarOpcionesParaPar(agregarSelect, removerSelect) {
+    if (!agregarSelect || !removerSelect) return;
 
     const seleccionadosAgregar = [...agregarSelect.selectedOptions].map(opt => opt.value);
     const seleccionadosRemover = [...removerSelect.selectedOptions].map(opt => opt.value);
@@ -33,17 +29,24 @@ function actualizarOpciones() {
 }
 
 window.addEventListener("load", () => {
-    const form = document.getElementById("formModificar");
-    const agregarSelect = document.getElementById("interes-agregar");
-    const removerSelect = document.getElementById("interes-remover");
+    const forms = document.querySelectorAll("form");
 
-    if (form) {
-        form.onsubmit = () => validarModificacion();
-    }
+    forms.forEach(form => {
+        const agregar = form.querySelector('#interes-agregar, .interes-agregar');
+        const remover = form.querySelector('#interes-remover, .interes-remover');
 
-    if (agregarSelect && removerSelect) {
-        agregarSelect.addEventListener("change", actualizarOpciones);
-        removerSelect.addEventListener("change", actualizarOpciones);
-        actualizarOpciones(); // inicializar
-    }
+        if (!agregar || !remover) return; 
+
+        form.addEventListener("submit", e => {
+            if (!validarModificacion(agregar, remover)) {
+                e.preventDefault();
+            }
+        });
+
+        const handler = () => actualizarOpcionesParaPar(agregar, remover);
+        agregar.addEventListener("change", handler);
+        remover.addEventListener("change", handler);
+
+        handler();
+    });
 });
