@@ -14,7 +14,7 @@ document.addEventListener ("DOMContentLoaded", ()=> {
             document.getElementById ("labelFechaPc").style.borderTop= "5px solid red";
             document.getElementById ("labelFechaPc").style.borderLeft= "5px solid red";
             document.getElementById ("labelFechaPc").style.borderBottom= "5px solid red";
-            campoFechaUsuario.setCustomValidity("Formato inválido");
+            campoFechaUsuario.setCustomValidity("Fecha Invalida");
             
         }else {
             campoFechaUsuario.style.color = "gray";
@@ -43,7 +43,7 @@ document.addEventListener ("DOMContentLoaded", ()=> {
             document.getElementById ("labelFechaTablet").style.borderTop= "5px solid red";
             document.getElementById ("labelFechaTablet").style.borderLeft= "5px solid red";
             document.getElementById ("labelFechaTablet").style.borderBottom= "5px solid red";
-            campoFechaUsuario.setCustomValidity("Formato inválido");
+            campoFechaUsuario.setCustomValidity("Fecha Invalida");
             
         }else {
             campoFechaUsuario.style.color = "gray";
@@ -73,7 +73,7 @@ document.addEventListener ("DOMContentLoaded", ()=> {
             document.getElementById ("labelFechaCelular").style.borderTop= "5px solid red";
             document.getElementById ("labelFechaCelular").style.borderLeft= "5px solid red";
             document.getElementById ("labelFechaCelular").style.borderBottom= "5px solid red";
-            campoFechaUsuario.setCustomValidity("Formato inválido");
+            campoFechaUsuario.setCustomValidity("Fecha Invalida");
             
         }else {
             campoFechaUsuario.style.color = "gray";
