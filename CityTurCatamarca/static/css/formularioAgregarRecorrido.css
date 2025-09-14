@@ -207,3 +207,9 @@ label{
     justify-content: center;
 }
 
+
+select option:disabled {
+  background-color: #ffcccc; 
+  color: #a70000;          
+  font-weight: bold;
+}
