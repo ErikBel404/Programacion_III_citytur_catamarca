@@ -1,6 +1,6 @@
 from django.db import models
-from perfil.models import Administrador
-from puntoTuristico.models import PuntoTuristico
+from apps.perfil.models import Administrador
+from apps.puntoTuristico.models import PuntoTuristico
 
 # Create your models here.
 class Recorrido (models.Model):

@@ -1,7 +1,7 @@
 from django.db import models
-from transporte.models import Transporte
-from recorridos.models import Recorrido
-from reportes.models import Reportes 
+from apps.transporte.models import Transporte
+from apps.recorridos.models import Recorrido
+from apps.reportes.models import Reportes 
 
 # Create your models here.
 

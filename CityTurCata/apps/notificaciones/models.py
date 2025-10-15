@@ -1,7 +1,7 @@
 from django.db import models
-from perfil.models import Operario
-from perfil.models import Administrador
-from itinerarios.models import Itinerario
+from apps.perfil.models import Operario
+from apps.perfil.models import Administrador
+from apps.itinerarios.models import Itinerario
 
 
 # Create your models here.

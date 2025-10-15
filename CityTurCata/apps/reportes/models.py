@@ -1,6 +1,6 @@
 from django.db import models
-from perfil.models import Cliente
-from perfil.models import Administrador
+from apps.perfil.models import Cliente
+from apps.perfil.models import Administrador
 
 # Create your models here.
 class Reportes(models.Model):
