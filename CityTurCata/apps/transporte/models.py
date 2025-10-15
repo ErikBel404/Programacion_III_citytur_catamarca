@@ -1,4 +1,5 @@
 from django.db import models
+from perfil.models import Administrador
 
 # Create your models here.
 class Transporte(models.Model):
@@ -6,6 +7,7 @@ class Transporte(models.Model):
     capacidadTransporte = models.IntegerField(blank=False, null=False);
     estadoTransporte = models.TextField(max_length=250, blank= False, null= False);
 
+    administradores = models.ManyToManyField (Administrador, related_name= 'transportesAdministrador')
+
     def __str__(self):
         return f'Matricula del Transporte: {self.dominioMatriculaTransporte}, Capacidad del transporte: {self.capacidadTransporte}, estado del Transporte: {self.estadoTransporte}'
-    
