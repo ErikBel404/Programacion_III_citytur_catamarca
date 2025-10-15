@@ -1,0 +1,130 @@
+*.log
+
+*.py[codt]
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+logs
+compose
+compose-local
+compose-production
+compose-develop
+default.conf
+docker-compose.yml
+docker-compose-local.yml
+docker-compose-production.yml
+docker-compose-develop.yml
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+htmlcov/
+.tox
+nosetests.xml
+coverage.xml
+junit.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+
+# Complexity
+output/*.html
+output/*/index.html
+
+# Sphinx
+docs/_build
+
+.webassets-cache
+
+# Virtualenvs
+venv
+
+# intellij
+*.ipr
+*.iml
+*.iws
+
+# vim
+*.sw[o,p]
+
+.DS_Store
+
+# node
+node_modules/
+
+# bower packages
+.sass-cache/
+.idea/.name
+.idea/scopes/scope_settings.xml
+.idea/encodings.xml
+.idea/workspace.xml
+
+# models
+models.png
+
+.idea/*
+
+*.db
+
+secret.key
+
+.bash_history
+.vagrant/*
+
+# Sublime Text 3
+*.sublime-project
+*.sublime-workspace
+
+# ?
+.cache
+src
+
+# Configuration
+.env
+
+# Virtual Environment
+.venv
+tmp
+Procfile.dev
+
+# Cython .C files (precompilation)
+*.c
+
+__pycache__/
+
+# Logs nginx
+deployment/logs/
+
+.pytest_cache/
+
+
+# Celery beat
+celery
+celerybeat-schedule
+celerybeat-schedule.bak
+celerybeat-schedule.dat
+celerybeat-schedule.dir
+
+
