@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'apps.recorridos',
     'apps.reportes',
     'apps.reservas',
-    'apps.seguridadControl',
     'apps.transporte'
 ]
 
