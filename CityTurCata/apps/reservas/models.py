@@ -1,6 +1,6 @@
 from django.db import models
 from apps.perfil.models  import Turista
-from apps.itinerarios.models  import Itinerario
+from apps.administracion.models  import Itinerario
 
 # Create your models here.
 class Reserva(models.Model):
