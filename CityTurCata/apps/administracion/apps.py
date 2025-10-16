@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ItinerariosConfig(AppConfig):
+class AdministracionConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'apps.itinerarios'
+    name = 'apps.administracion'
