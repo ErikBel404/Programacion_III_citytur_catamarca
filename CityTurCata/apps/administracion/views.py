@@ -6,10 +6,15 @@ from apps.administracion.models import Transporte
 # Create your views here.
 
 #Definicion de transporte
-def transporte_view(request):
+def lista_transportes_view(request):
     #return render(request, 'administracion/transporte.html')   -> suponiendo que creamos una carpetea template dentro de la misma ponemos una carpeta administracion y dentro de ella tenemos el html de transporte
 
-    return HttpResponse('ACA VA TRANSPORTE GIL')
+    return HttpResponse('Aca sale la lista de transportes')
+
+
+def detalle_transporte_view(request, id):
+    
+    return HttpResponse(f'Aca sale un transporte en detalle con id:{id}')
 
 
 
