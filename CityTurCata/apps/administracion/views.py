@@ -39,3 +39,30 @@ def reporteConsultaReservas(request):
 
 def reporteEstadistaPasajeros(request):
     return HttpResponse('Aca va el reporte de estadisticas en un rango de fechas')
+
+#Definicion de puntos Turisticos;
+
+def PuntosTuristicosView(request):
+    return HttpResponse('Aca es la pagina de los puntos turisticos')
+
+def listarPuntosTuristicos(request):
+    return HttpResponse('Aca iran los puntos turisticos y su informacion de actividad')
+
+def CrearPuntosTuristicos(request):
+    return HttpResponse('Aqui se solitara la informacion necesaria para crear los punto turisticos')
+
+
+
+#Definicion de Recorridos;
+
+def RecorridosView(request):
+    return HttpResponse('Aca es la pagina de los Recorridos')
+
+def listarRecorridos(request):
+    return HttpResponse('Aca se mostrara una lista de los Recorridos')
+
+def CrearRecorrido(request):
+    return HttpResponse('Aqui se solicitara la informacion necesaria para crear un recorrido')
+
+def modificarRecorridos(request):
+    return HttpResponse('Aqui se mostrara la pagina de modificaciones')
