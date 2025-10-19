@@ -66,3 +66,33 @@ def CrearRecorrido(request):
 
 def modificarRecorridos(request):
     return HttpResponse('Aqui se mostrara la pagina de modificaciones')
+
+
+#vistas de itinerarios
+
+# Create your views here.
+def crearItinerario (request):
+    return HttpResponse ('aca sale la parte para crear un Itinerario')
+
+def listarItinerarios (request):
+    return HttpResponse('aca sale la lista de Itinerarios')
+
+def modificarItinerarios (request):
+    return HttpResponse ('aca esta la parte para modificar los Itinerarios')
+
+def buscarItinerarioParticular (request, id):
+    return HttpResponse(f'Aca sale un Itinerario particular con id:{id}')
+
+
+#vistas de notificaciones
+def crearNotificacion (request):
+    return HttpResponse ('aca sale la parte para crear un Notificacion')
+
+def listarNotificaciones (request):
+    return HttpResponse('aca sale la lista de Notificaciones')
+
+def modificarNotificacion (request):
+    return HttpResponse ('aca esta la parte para modificar las Notificaciones')
+
+def buscarNotificacionParticular (request, id):
+    return HttpResponse(f'Aca sale un Notificacion particular con id:{id}')
