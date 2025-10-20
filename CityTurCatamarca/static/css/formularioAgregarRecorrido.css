@@ -53,6 +53,7 @@ form input, form select{
     transition: all 0.3s ease;
     color: #767676;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 select[multiple] {
@@ -120,6 +121,10 @@ label{
     margin-left: 0;
     border:1px solid #ccc;
     color: #767676;
+    width: 100%;
+    display: flex;          
+    text-align: left;
+    overflow:hidden;
 
 }
 
