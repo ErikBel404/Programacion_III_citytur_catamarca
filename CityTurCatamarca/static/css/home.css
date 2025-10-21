@@ -2,107 +2,101 @@
 @import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
 
 :root {
-  --verdeAgua: #0c7968;
-  --naranja: #e38e15;
-  --amarilloFuerte:#fab701;
-  --blancoCalido:#f1f1f1;
-  --amarilloClarito:#ffcc3b;
-}
-
-.inicio-sesion-celular{
-    display:flex;
-    flex-direction: column;
-    align-items: end;
-    padding:15px;
-}
-
-.inicio-sesion-celular-link {
-    margin:8px;
-    padding:8px;
-    width:120px;
-    border-radius:20px;
-    color: black;
-    background: var(--blancoCalido);
-    text-decoration: none;
-    font-weight: bold;
-    border: 3px solid transparent;
-    box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
-    text-align: center;
-}
-
-.inicio-sesion-celular-link:hover {
-    background-color: var(--amarilloFuerte);
-    padding: 10px 20px;
-    border-radius:20px;
-    color: black;
-    text-decoration: none;
-    font-weight: bold;
-    border: 3px solid transparent;
-    transform: scale(1.03);
-    transition: all 0.3s ease;
+    --verdeAgua: #0c7968;
+    --naranja: #e38e15;
+    --amarilloFuerte: #fab701;
+    --blancoCalido: #f1f1f1;
+    --amarilloClarito: #ffcc3b;
 }
 
 .margentop250 {
     margin: 0px auto;
-    
-}
-
-.article-titulo-imagen-celular {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-
-}
-
-.article-titulo-imagen-celular h2 {
-    font-size:50px;
-    margin: 10px;
-    font-family:"Story Script", sans-serif;
-    font-weight: 700;
-}
-
-
-
-.article-parrafos-celular {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align: center;
-}
-
-.article-parrafos-celular h2 {
-    font-size: 50px;
-    font-family:"Story Script", sans-serif;
-    font-weight: 500;
-}
-
-.article-parrafos-celular-div img {
-    width: 100%;
-    border-radius: 20px;
-}
-
-/*ACA TERMINA LA VISION DE CELULAR*/
-
-.ajuste-margen-pc {
-    margin-top: 200px;
-    margin-bottom: 50px;
-
-}
-
-.ajuste-margen-tablet {
-    margin-top: 100px;
-    margin-bottom:25px;
-}
-
-.ajuste-margen-celular {
-    margin-top: 50px;
-    margin-bottom: 15px;
-
 }
 
 .margentop250 p {
     font-size: 30px;
 }
 
+/* --- Artículos --- */
 
+/* Estilos compartidos por ambos artículos */
+.article-titulo-imagen,
+.article-parrafos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.img_carpa  {
+    border: 3px solid var(--verdeAgua);
+    border-radius: 50%;
+    background : var(--verdeAgua);
+}
+
+/* Estilos compartidos por los H2 */
+.article-titulo-imagen h2,
+.article-parrafos h2 {
+    font-size: 50px;
+    font-family: "Story Script", sans-serif;
+    font-style: initial;
+}
+
+/* Estilos específicos para el H2 del primer artículo */
+.article-titulo-imagen h2 {
+    margin: 10px;
+    font-weight: 700;
+    text-align: center;
+    
+}
+
+/* Estilos específicos para el H2 del segundo artículo */
+.article-parrafos h2 {
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.article-parrafos-div img {
+    width: 100%;
+    border-radius: 500px;
+    border: 5px solid var(--verdeAgua);
+}
+
+/* --- Ajustes de Margen --- */
+
+.ajuste-margen {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+em {
+    color: var(--verdeAgua);
+    text-decoration: underline;
+}
+
+/*celular*/
+@media (max-width:767px) {
+    .article-titulo-imagen,
+    .article-parrafos {
+        text-align: center;
+    }
+    
+}
+
+/*tablet*/
+@media (min-width:768px) and (max-width:1023px)
+{
+    .article-titulo-imagen,
+    .article-parrafos {
+        text-align: center;
+    }
+    
+}
+
+/*pc*/
+@media (min-width:1024px){
+    .article-titulo-imagen,
+    .article-parrafos {
+        text-align: justify;
+    }
+}
