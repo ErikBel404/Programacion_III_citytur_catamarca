@@ -45,53 +45,50 @@
                     <fieldset>
                         <label id="agregarRecorrido"><strong>Agregar Recorrido</strong></label>
 
+
+                        <div class="contenedorLabelInput">
+                            <input type="text" name="nombre-recorrido" id="nombre-recorrido" class="inputLabel" required maxlength="70">
+                            <label for="nombre-recorrido" class="campoLabel">🚌&nbsp;Ingrese&nbsp;recorrido: </label>
+                        </div>
+
+                        <div class="contenedorLabelInput">
+                            <select name="partida" id="partidaNuevaPC" class="inputLabel" required size="1">
+                                <option value="" disabled selected hidden></option>
+                                <option value="1">opcion1</option>
+                                <option value="2">opcion2</option>
+                                <option value="3">opcion3</option>
+                            </select>
+                            <label for="partida" id="labelpartida" class="campoLabel">📌&nbsp;Punto&nbsp;de&nbsp;partida:&nbsp;</label>
+
+                        </div>
+
+                        <div class="contenedorLabelInput">
+                            <select name="interes" id="interes" class="inputLabel" multiple required >
+                                <option value="" disabled selected hidden></option>
+                                <option value="1">opcion1</option>
+                                <option value="2">opcion2</option>
+                                <option value="3">opcion3</option>
+                            </select>
+                            <label for="interes" id="labelinteres"  class="campoLabel" >📌&nbsp;Puntos&nbsp;turisticos: </label> 
+                        </div>
+
+
+                        <div class="contenedorLabelInput">
+                            <select name="final" id="finalNuevoPc" class="inputLabel"  required size="1">
+                                <option value="" disabled selected hidden></option>
+                                <option value="1">opcion1</option>
+                                <option value="2">opcion2</option>
+                                <option value="3">opcion3</option>
+                            </select>
+                            <label for="final" id="labelfinal" class="campoLabel" >📌&nbsp;Final&nbsp;recorrido:&nbsp; </label>
+
+                        </div>
+
                         <br>
 
                         <div class="contenedorLabelInput">
-                            <input type="text" name="nombre-recorrido" id="nombre-recorrido" class="campoLabel" required maxlength="70">
-                            <label for="nombre-recorrido" class="inputLabel">🚌&nbsp;Ingrese&nbsp;recorrido: </label>
-                        </div>
-
-                        <br>
-
-                        <div class="grupopartida">
-                            <label for="partida" id="labelpartida">📌&nbsp;Punto&nbsp;de&nbsp;partida:&nbsp;</label>
-                            <select name="partida" id="partidaNuevaPC" required size="1">
-                                <option value="0" hidden>Elija </option>
-                                <option value="1">opcion1</option>
-                                <option value="2">opcion2</option>
-                                <option value="3">opcion3</option>
-                            </select>
-                        </div>
-
-                        <br>
-
-                        <div class="grupointeres">
-                            <label for="interes" id="labelinteres">📌&nbsp;Puntos&nbsp;turisticos: </label>
-                            <select name="interes" id="interes" multiple required size="2">
-                                <option value="1">opcion1</option>
-                                <option value="2">opcion2</option>
-                                <option value="3">opcion3</option>
-                            </select>
-                        </div>
-
-                        <br>
-
-                        <div class="grupofinal">
-                            <label for="final" id="labelfinal">📌&nbsp;Final&nbsp;recorrido:&nbsp; </label>
-                            <select name="final" id="finalNuevoPc" required size="1">
-                                <option value="0" hidden>Elija</option>
-                                <option value="1">opcion1</option>
-                                <option value="2">opcion2</option>
-                                <option value="3">opcion3</option>
-                            </select>
-                        </div>
-
-                        <br>
-
-                        <div class="grupohora">
-                            <label for="hora-recorrido" id="labelhora">🕑&nbsp;Hora&nbsp;recorrido: </label>
-                            <input type="time" name="hora-recorrido" id="hora-recorrido" required>
+                            <input type="time" name="hora-recorrido" id="hora-recorrido" class="inputLabel"  required>
+                            <label for="hora-recorrido" id="labelhora" class="campoLabel">🕑&nbsp;Hora&nbsp;recorrido: </label>
                         </div>
 
                         <br>

@@ -115,7 +115,7 @@ form select,form select[multiple] {
     margin-top: 25px;
 }
 
-.campoLabel {
+.inputLabel {
     width: 100%;
     padding: 14px 10px 6px 10px;
     font-size: 16px;
@@ -130,7 +130,7 @@ form select,form select[multiple] {
     background-color: white;
 }
 
-.inputLabel {
+.campoLabel{
     position: absolute;
     top: 10px;
     left: 10px;
@@ -140,14 +140,14 @@ form select,form select[multiple] {
     transition: all 0.2s ease;
 }
 
-.campoLabel:focus+.inputLabel,
-.campoLabel:valid+.inputLabel {
+.inputLabel:focus+.campoLabel,
+.inputLabel:valid+.campoLabel {
     top: 1px;
     font-size: 12px;
     color: var(--verdeAgua);
 }
 
-.campoLabel:focus {
+.inputLabel:focus {
     outline: none;
     border-color: var(--verdeAgua);
 }
