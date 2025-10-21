@@ -32,12 +32,6 @@ header {
     align-items: center;
 }
 
-/*dudaso
-.headerbloqueado{
-    position:fixed;
-    width: 100%;
-    top: 0;
-}*/
 
 .displayflex{
     display: flex;
@@ -136,10 +130,6 @@ main{
 
 }
 
-/*.margentop250{
-    margin-top: 150px;
-}*/
-
 /*Aca termina el body*/
 
 
@@ -202,14 +192,8 @@ footer {
     footer{
         padding-top: 10px;
     }
-    
-    
-
 }
 /*tablet*/
-
-
-
 
 
 @media (min-width:768px) and (max-width:1023px)
@@ -233,7 +217,6 @@ footer {
 /*pc*/
 @media(min-width:1024px)
 {
-
     .jc-between{
         justify-content: space-between;
     }
