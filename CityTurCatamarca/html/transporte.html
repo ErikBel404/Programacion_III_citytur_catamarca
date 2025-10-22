@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="authores" content="erick:1744-emir:1723-alejo:1713, initial-scale=1.0">
+    <title>CityTur Catamarca</title>
+
+    <link rel="icon" href="../static/img/Logo City Tour.png" type="image/x-icon">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <link rel="stylesheet" href="../static/css/formularioAgregarRecorrido.css">
+    <link rel="stylesheet" href="../static/css/PuntoTuristico.css">
+
+
+</head>
+
+<body>
+
+    <header class="jc-between displayflex headerbloqueado">
+        <div id="logoheader">
+            <img src="../static/img/Logo City Tour.png" alt="logocitytour">
+            <h1>City-Tour <br> Catamarca</h1>
+        </div>
+        <div id="abajoheader">
+            <div id="navheader">
+                <nav>
+                    <a href="home.html">Home</a>
+                    <a href="registroreco.html">Registro de Recorrido</a>
+                    <a href="registroReserva.html">Reservar Recorrido</a>
+                </nav>
+            </div>
+            <div id="perfilUsuario">
+                <button> <img src="../static/img/usericon.svg" alt=""></button>
+            </div>
+        </div>
+
+
+    </header>
+    <main>
+        <div id="" class=" cosas_dentro_main">
+            <div id="formularioAgregar">
+                <form action="#" method="get">
+                    <fieldset>
+                        <label id="agregarPuntoTuristico"><strong>Agregar transporte</strong></label>
+
+
+                        <div class="contenedorLabelInput">
+                            <input type="text" name="dominio" id="dominio" class="inputLabel" required
+                                maxlength="7">
+                            <label for="dominio" class="campoLabel">🚌&nbsp;Ingrese&nbsp;dominio &nbsp;del &nbsp;transporte : </label>
+                        </div>
+                        <div class="contenedorLabelInput">
+                            <input type="number" name="capacidadTransporte" id="capacidadTransporte" class="inputLabel" required
+                                maxlength="70">
+                            <label for="capacidadTransporte" class="campoLabel">🙋‍♂️&nbsp;Ingrese&nbsp;capacidad&nbsp;del&nbsp;Transporte&nbsp;turistico : </label>
+                        </div>
+                        <div class="contenedorLabelInput">
+                            <select name="estadoTransporte" id="estadoTransporte" class="inputLabel" required size="1">
+                                <option value="" disabled selected hidden></option>
+                                <option value="1">Activo</option>
+                                <option value="2">Averiado</option>
+                                <option value="3">En reparacion</option>
+                                <option value="4">Fuera de servicio</option>
+                            </select>
+                            <label for="final" id="labelfinal" class="campoLabel">🔧&nbsp;Estado&nbsp;transporte:&nbsp;
+                            </label>
+                        </div>
+
+                        <div id="botones-formularios">
+                            <button type="submit" id="boton-aceptar">Aceptar</button>
+
+                            <button type="reset" id="boton-cancelar">Cancelar</button>
+
+                            <a href="registroreco.html">
+                                <button type="button" id="boton-atras">Atras</button>
+                            </a>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+    <footer>
+        <div id="abajafooter">
+            <div id="logosfooter4">
+                <img src="../static/img/catamarca_logo_turismo.png" alt="">
+            </div>
+            <div id="logosfooter1">
+                <img src="../static/img/logoCatamarca.png" alt="">
+            </div>
+            <div id="logosfooter2">
+                <img src="../static/img/SFVC-original-1024x351.png" alt="">
+            </div>
+            <div id="logosfooter3">
+                <img src="../static/img/logo1_no_bg.png" alt="logoCatamarca capitak">
+
+            </div>
+
+        </div>
+        <div id="derechosautor">
+            <p>
+                ©copy 2025-CityTour Catamarca
+            </p>
+        </div>
+    </footer>
+
+    <script src="../JS/contoladorAñadirPuntoTuristico.js"></script>
+
+</body>
+
+</html>
