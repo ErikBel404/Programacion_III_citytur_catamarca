@@ -61,7 +61,6 @@ class Recorrido (models.Model):
     
     nombreRecorrido = models.CharField(max_length=100, blank=False, null=False)
     horarios = models.TimeField(blank=False, null=False)
-    puntosTuristicos = models.CharField(max_length=200, blank=False, null=False)
 
     inicio = models.CharField(max_length= 250, blank=False, null=False)
     final = models.CharField(max_length= 250, blank=False, null=False)
