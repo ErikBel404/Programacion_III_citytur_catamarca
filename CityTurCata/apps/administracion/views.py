@@ -9,7 +9,7 @@ from apps.administracion.models import Reportes
 
 #importaciones de los form
 from .forms import PuntoTuristicoForm
-from .forms import TransporteForm
+from .forms import TransporteForm, ReportesForm
 
 # Create your views here.
 
@@ -22,16 +22,19 @@ def detalleTransporteView(request, id):
     return HttpResponse(f'Aca sale un transporte en detalle con id:{id}');
 
 def registraTransporteView(request):
+    nuevoTransporte = None
     if request.method == 'POST':
         transporteForm = TransporteForm(request.POST)
         if transporteForm.is_valid():
-            transporteForm.save()
-            return render(request, 'administrador/',{
+            nuevoTransporte = transporteForm.save(commit=False)
+            nuevoTransporte.save()
+            messages.success(
+                request,
+                'Se ha agregado correctamente el Punto Turistico {}'.format(nuevoTransporte))
+            return redirect(reverse(
+                '', args=(nuevoTransporte.id,)))
 
-            })
-
-    return HttpResponse('Aca se registran los transportes solamente');
-
+    return HttpResponse('Aca se registran los transportes solamente'); #Aca vamos a hacer el render despue
 
 def modificarTransporteView(request):
     return HttpResponse('Aca se modifica el transporte');
@@ -39,6 +42,12 @@ def modificarTransporteView(request):
 #Definicion de reportes
 
 def reportesView(request):
+    nuevoReporte = None
+    if request.method == 'POST':
+        reportesForm = ReportesForm(request.POST)
+        if reportesForm.is_valid():
+            nuevoReporte 
+
     return HttpResponse('Aca es la pagina de los resportes');
 
 def reporteRecorridosActivosView(request):
