@@ -48,7 +48,7 @@ figure{
     }
 
     .imgreco {
-        width: 70%; /* O el tamaño que prefieras */
+        width: 70%; 
         height: auto;
         border-radius: 20px;
     }
@@ -56,19 +56,17 @@ figure{
     .ordenarimgpc {
         display: flex;
         flex-direction: column;
-        align-items: center;  /* Centra los 'figure' horizontalmente */
-        gap: 40px; /* Un poco más de espacio puede quedar bien */
+        align-items: center;  
+        gap: 40px; 
     }
 
     figure {
-        margin:0; /* <-- LA CLAVE: Elimina el margen por defecto que empuja el elemento */
-        text-align: center; /* Asegura que el contenido dentro de figure también se centre */
+        margin:0; 
+        text-align: center; 
     }
 }
 
 /*tablet*/
-
-
 @media (min-width:768px) and (max-width:1023px){
     
     
