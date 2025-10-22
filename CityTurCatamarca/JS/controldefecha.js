@@ -3,6 +3,7 @@
 document.addEventListener ("DOMContentLoaded", ()=> {
 
     const campoFechaUsuario = document.getElementById ("fecha-reservaPc");
+    const labelFechaUsuario = document.getElementById ("labelFechaPc");
 
     campoFechaUsuario.addEventListener ("change", ()=>{
         const fechaUsuario = new Date (campoFechaUsuario.value);
@@ -11,6 +12,8 @@ document.addEventListener ("DOMContentLoaded", ()=> {
         if (fechaUsuario < fechaActual){
             campoFechaUsuario.style.color = "red";
             campoFechaUsuario.style.border = "5px solid red";
+            labelFechaUsuario.style.top = "1px";
+            labelFechaUsuario.style.fontSize = "12px"
             campoFechaUsuario.setCustomValidity("Fecha invalida");
             
             

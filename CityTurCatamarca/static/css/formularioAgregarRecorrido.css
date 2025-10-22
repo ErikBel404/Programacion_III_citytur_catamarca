@@ -147,13 +147,6 @@ form select{
     color: var(--verdeAgua);
 }
 
-.inputLabel:focus+.campoLabel,
-.inputLabel:invalid+.campoLabel {
-    top: 1px;
-    font-size: 12px;
-    
-}
-
 .inputLabel:focus {
     outline: none;
     border-color: var(--verdeAgua);
