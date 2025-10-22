@@ -5,9 +5,15 @@ from apps.perfil.models import Operario
 
 # Create your models here.
 class Transporte(models.Model):
-    dominioMatriculaTransporte = models.TextField(max_length=250, unique=True);
+
+    estadoTransporte = [('activo', 'Activo'),
+                        ('averiado','Averiado'),
+                        ('reparacion','En Reparacion'),
+                        ('fueraServicio', 'Fuera de Servicio')]
+
+    dominioMatriculaTransporte = models.CharField(max_length=250, unique=True);
     capacidadTransporte = models.IntegerField(blank=False, null=False);
-    estadoTransporte = models.TextField(max_length=250, blank= False, null= False);
+    estadoTransporte = models.CharField(max_legth = 3, choices = estadoTransporte, default = 'activo', blank= False, null=False);
 
     administradores = models.ManyToManyField (Administrador, related_name= 'transportesAdministrador')
 
@@ -15,9 +21,22 @@ class Transporte(models.Model):
         return f'Matricula del Transporte: {self.dominioMatriculaTransporte}, Capacidad del transporte: {self.capacidadTransporte}, estado del Transporte: {self.estadoTransporte}'
     
 class Reportes(models.Model):
-    tipoReportes = models.TextField(max_length=250, blank=False, null=False);
+    tipoInforme=[('recoActivos', 'Recorridos Activos'),
+                 ('paradasMasUtilizadas', 'Paradas Mas Utilizadas'),
+                 ('reservaPorRecorrido','Reservas Por Recorrido'),
+                 ('consultaDeReservas', 'Consulta De Reservas'),
+                 ('estadisticasPasajeros', 'Estadisticas Pasajeros')
+                 ]
+
+    formatoDocumento = [('pdf', 'PDF'),
+                        ('excel', 'Excel'),
+                        ('csv', 'CSV')]
+
+    tipoReportes = models.CharField(max_length=3, blank=False, null=False, choices=tipoInforme, default='');
+    formatoReporte = models.CharField(max_length=3,blank=False, null=False, choices=formatoDocumento, default='pdf')
+
     horaFecha= models.DateTimeField (blank=False, null= False);
-    identidadSolicitante= models.TextField (blank=False, null= False)
+    identidadSolicitante= models.CharField (blank=False, null= False)
     
     clientes= models.ManyToManyField (Cliente, related_name='reporteCliente');
     administradores= models.ManyToManyField (Administrador, related_name='reporteAdministrador');
@@ -27,8 +46,8 @@ class Reportes(models.Model):
     
    
 class PuntoTuristico (models.Model):
-    nombre = models.TextField(max_length=20, blank=False, null=False)
-    ubicacion = models.TextField(max_length=100, blank=False, null=False)
+    nombre = models.CharField(max_length=20, blank=False, null=False)
+    ubicacion = models.CharField(max_length=100, blank=False, null=False)
     informacion = models.TextField(max_length=500, blank=False, null=False)
     imagen = models.FileField()
 
@@ -39,11 +58,13 @@ class PuntoTuristico (models.Model):
 
     
 class Recorrido (models.Model):
-    nombreRecorrido = models.TimeField(max_length=100, blank=False, null=False)
+    
+    nombreRecorrido = models.CharField(max_length=100, blank=False, null=False)
     horarios = models.TimeField(blank=False, null=False)
-    puntosTuristicos = models.TextField(max_length=200, blank=False, null=False)
-    inicio = models.TextField(max_length= 250, blank=False, null=False)
-    final = models.TextField(max_length= 250, blank=False, null=False)
+    puntosTuristicos = models.CharField(max_length=200, blank=False, null=False)
+
+    inicio = models.CharField(max_length= 250, blank=False, null=False)
+    final = models.CharField(max_length= 250, blank=False, null=False)
 
     administradores = models.ManyToManyField (Administrador, related_name= 'recorridosAdministrador')
     puntosTuristicos= models.ManyToManyField(PuntoTuristico, related_name='recorridosPuntosTuristicos')
@@ -54,15 +75,13 @@ class Recorrido (models.Model):
 class Itinerario(models.Model):
     titulo = models.CharField(max_length=100, blank=False, null=False)
     descripcion = models.TextField(blank=False, null=False)
-    recorrido = models.TextField(blank=False, null=False)
-    dominioTransporte = models.TextField(unique=True)
 
     transporte= models.ForeignKey(Transporte, on_delete=models.CASCADE, related_name='trasporteItinerario')
     recorridos= models.ForeignKey(Recorrido, on_delete=models.CASCADE, related_name='recorridoItinerario')
     reportes= models.ManyToManyField (Reportes, related_name='reportesNotificaciones')
 
     def __str__(self):
-        return f'Titulo:{self.titulo} Descripcion:{self.descripcion} Recorrido:{self.recorrido} Dominio:{self.dominioTransporte}'
+        return f'Titulo:{self.titulo} Descripcion:{self.descripcion} Recorrido:{self.recorrido}'
 
 class Notificacion(models.Model):
     titulo=models.CharField(max_length=100, blank= False, null=False)
