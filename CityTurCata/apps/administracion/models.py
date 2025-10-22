@@ -13,7 +13,7 @@ class Transporte(models.Model):
 
     dominioMatriculaTransporte = models.CharField(max_length=250, unique=True);
     capacidadTransporte = models.IntegerField(blank=False, null=False);
-    estadoTransporte = models.CharField(max_legth = 3, choices = estadoTransporte, default = 'activo', blank= False, null=False);
+    estadoTransporte = models.CharField(max_length = 20, choices = estadoTransporte, default = 'activo', blank= False, null=False);
 
     administradores = models.ManyToManyField (Administrador, related_name= 'transportesAdministrador')
 
@@ -32,17 +32,17 @@ class Reportes(models.Model):
                         ('excel', 'Excel'),
                         ('csv', 'CSV')]
 
-    tipoReportes = models.CharField(max_length=3, blank=False, null=False, choices=tipoInforme, default='');
-    formatoReporte = models.CharField(max_length=3,blank=False, null=False, choices=formatoDocumento, default='pdf')
+    tipoReportes = models.CharField(max_length=40, blank=False, null=False, choices=tipoInforme, default='recoActivos');
+    formatoReporte = models.CharField(max_length=20,blank=False, null=False, choices=formatoDocumento, default='pdf')
 
     horaFecha= models.DateTimeField (blank=False, null= False);
-    identidadSolicitante= models.CharField (blank=False, null= False)
+    identidadSolicitante= models.CharField (blank=False, null= False, max_length=250)
     
     clientes= models.ManyToManyField (Cliente, related_name='reporteCliente');
     administradores= models.ManyToManyField (Administrador, related_name='reporteAdministrador');
 
     def __str__(self):
-        return f'Descripcion del reporte: {self.descripcionReportes}, tipo de reporte: {self.tipoReportes}'
+        return f'tipo de reporte: {self.tipoReportes}'
     
    
 class PuntoTuristico (models.Model):
