@@ -36,36 +36,3 @@ select option:disabled {
   color: #a70000;          
   font-weight: bold;
 }
-
-
-/* ==========================================================
-   NUEVOS ESTILOS (SÓLO PARA SELECT MÚLTIPLE)
-   Añade esto al final de tu CSS.
-   ========================================================== */
-
-/* 1. Sobrescribe el padding del .campoLabel DENTRO de .contenedor-multiple */
-.contenedor-multiple .campoLabel {
-    /* El select multiple no usa 'appearance: none', 
-       así que necesita un padding uniforme. */
-    padding: 20px;
-}
-
-/* 2. Sobrescribe la posición de la etiqueta en reposo */
-.contenedor-multiple .inputLabel {
-    top: 10px; /* Alineada con el nuevo padding de 10px */
-    /* Clave: Fondo blanco para "cortar" el borde del select 
-       cuando la etiqueta suba. */
-    background-color: white;
-    border-radius: 15px;
-}
-
-/* 3. Sobrescribe el EFECTO FLOTANTE (la parte activa) */
-.contenedor-multiple .campoLabel:focus + .inputLabel,
-.contenedor-multiple .campoLabel:valid + .inputLabel {
-    
-    /* Sube la etiqueta POR ENCIMA del borde del select */
-     
-    left: 6px;  /* Un poco a la izquierda */
-    font-size: 12px;
-    color: var(--verdeAgua); /* O el color que prefieras */
-}

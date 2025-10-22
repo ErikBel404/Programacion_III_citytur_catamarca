@@ -48,42 +48,42 @@
 
                         <div class="contenedorLabelInput">
                             <select name="recorrido-modificar" id="recorrido-modificar" required size="1"
-                                class="campoLabel">
+                                class="inputLabel">
                                 <option value="" disabled selected hidden></option>
                                 <option value="1">opcion1</option>
                                 <option value="2">opcion2</option>
                                 <option value="3">opcion3</option>
                             </select>
                             <label for="recorrido-modificar" id="labelpartida"
-                                class="inputLabel">🚌&nbsp;Seleccione&nbsp;el&nbsp;recorrido&nbsp;a&nbsp;modificar:
+                                class="campoLabel">🚌&nbsp;Seleccione&nbsp;el&nbsp;recorrido&nbsp;a&nbsp;modificar:
                             </label>
                         </div>
 
                         <br>
 
                         <div class="contenedorLabelInput">
-                            <select name="partida-nueva" id="partidaNuevaPC" required size="1" class="campoLabel">
+                            <select name="partida-nueva" id="partidaNuevaPC" required size="1" class="inputLabel">
                                 <option value="" disabled selected hidden></option>
                                 <option value="1">opcion1</option>
                                 <option value="2">opcion2</option>
                                 <option value="3">opcion3</option>
                             </select>
                             <label for="partida-nueva"
-                                class="inputLabel">📌&nbsp;Ingrese&nbsp;el&nbsp;nuevo&nbsp;punto&nbsp;de&nbsp;partida:
+                                class="campoLabel">📌&nbsp;Ingrese&nbsp;el&nbsp;nuevo&nbsp;punto&nbsp;de&nbsp;partida:
                             </label>
                         </div>
 
                         <br>
 
-                        <div class="contenedorLabelInput contenedor-multiple">
-                            <select name="interes-agregar" id="interes-agregar" multiple size="2" class="campoLabel">
+                        <div class="contenedorLabelInput ">
+                            <select name="interes-agregar" id="interes-agregar" multiple size="2" class="inputLabel">
                                 <option value="a" disabled selected hidden></option>
                                 <option value="1">opcion1</option>
                                 <option value="2">opcion2</option>
                                 <option value="3">opcion3</option>
                             </select>
-                            <label for="interes-agregar"
-                                id="labelinteres" class="inputLabel">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;agregar:
+                            <label for="interes-agregar" id="labelinteres"
+                                class="campoLabel">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;agregar:
                             </label>
                         </div>
 
@@ -102,14 +102,15 @@
 
                         <br>
 
-                        <div class="grupofinal">
-                            <label for="final-nuevo">📌&nbsp;Final&nbsp;del&nbsp;recorrido&nbsp;nuevo: </label>
-                            <select name="final-nuevo" id="finalNuevoPc" size="1">
-                                <option value="0" selected>Elijan</option>
+                        <div class="contenedorLabelInput">
+                            <select name="final-nuevo" id="finalNuevoPc" size="1" class="inputLabel" required>
+                                <option value="" disabled selected hidden></option>
                                 <option value="1">opcion1</option>
                                 <option value="2">opcion2</option>
                                 <option value="3">opcion3</option>
                             </select>
+                            <label for="final-nuevo"
+                                class="campoLabel">📌&nbsp;Final&nbsp;del&nbsp;recorrido&nbsp;nuevo: </label>
                         </div>
 
                         <br>
