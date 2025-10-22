@@ -59,8 +59,6 @@
                             </label>
                         </div>
 
-                        <br>
-
                         <div class="contenedorLabelInput">
                             <select name="partida-nueva" id="partidaNuevaPC" required size="1" class="inputLabel">
                                 <option value="" disabled selected hidden></option>
@@ -75,32 +73,37 @@
 
                         <br>
 
-                        <div class="contenedorLabelInput ">
-                            <select name="interes-agregar" id="interes-agregar" multiple size="2" class="inputLabel">
-                                <option value="a" disabled selected hidden></option>
-                                <option value="1">opcion1</option>
-                                <option value="2">opcion2</option>
-                                <option value="3">opcion3</option>
-                            </select>
-                            <label for="interes-agregar" id="labelinteres"
-                                class="campoLabel">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;agregar:
+                        <div class="acordeonGrupo">
+                            <input type="checkbox" id="acordeon-1" class="acordeonInput"> <!--sin esto no funciona no tocar-->
+                            <label for="acordeon-1" class="acordeonLabel">
+                                <div class="">📌&nbsp;Agregar&nbsp;Puntos&nbsp;turisticos:</div>
+                                <div class="acordeonFlecha">▼</div> <!-- la flecha que tanto rompia la pija belicho-->
                             </label>
+
+                            <div class="acordeonContenido">
+                                <div class="checkboxItem">
+                                    <input type="checkbox" id="chk-1" name="interes">
+                                    <label for="chk-1">Punto 1</label>
+                                </div>
+                            </div>
                         </div>
 
                         <br>
 
-                        <div class="grupointeres">
-                            <label for="interes"
-                                id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes&nbsp;que&nbsp;quiere&nbsp;remover:
+                        <div class="acordeonGrupo">
+                            <input type="checkbox" id="acordeon-2" class="acordeonInput"> <!--sin esto no funciona no tocar-->
+                            <label for="acordeon-2" class="acordeonLabel">
+                                <div class="">📌&nbsp;Quitar&nbsp;Puntos&nbsp;turisticos:</div>
+                                <div class="acordeonFlecha">▼</div> <!-- la flecha que tanto rompia la pija belicho-->
                             </label>
-                            <select name="interes-remover" id="interes-remover" multiple size="2">
-                                <option value="1">opcion1</option>
-                                <option value="2">opcion2</option>
-                                <option value="3">opcion3</option>
-                            </select>
-                        </div>
 
-                        <br>
+                            <div class="acordeonContenido">
+                                <div class="checkboxItem">
+                                    <input type="checkbox" id="chk-2" name="interes">
+                                    <label for="chk-2">Punto 1</label>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="contenedorLabelInput">
                             <select name="final-nuevo" id="finalNuevoPc" size="1" class="inputLabel" required>
@@ -113,20 +116,15 @@
                                 class="campoLabel">📌&nbsp;Final&nbsp;del&nbsp;recorrido&nbsp;nuevo: </label>
                         </div>
 
-                        <br>
-
-                        <div class="grupohora">
-                            <label for="hora-recorrido">🕑&nbsp;Nueva&nbsp;hora&nbsp;del&nbsp;recorrido: </label>
-                            <input type="time" name="hora-recorrido" id="hora-recorrido">
+                        <div class="contenedorLabelInput">
+                            
+                            <input type="time" name="hora-recorrido" id="hora-recorrido" class="inputLabel" required>
+                            <label for="hora-recorrido" class="campoLabel">🕑&nbsp;Nueva&nbsp;hora&nbsp;del&nbsp;recorrido: </label>
                         </div>
 
-                        <br>
-
-                        <div class="grupofecha">
-                            <label for="fecha-recorrido" id="labelFecha-reco">
-                                📅&nbsp;Fecha&nbsp;del&nbsp;recorrido:&nbsp;</label>
-                            <select name="fecha-recorrido" id="fecha-recorrido" required multiple size="2">
-                                <option value="0" hidden>Elija</option>
+                        <div class="contenedorLabelInput">
+                            <select name="fecha-recorrido" id="fecha-recorrido" required size="1" class="inputLabel">
+                                <option value="" disabled selected hidden></option>
                                 <option value="1">Lunes</option>
                                 <option value="2">Martes</option>
                                 <option value="3">Miercoles</option>
@@ -135,6 +133,9 @@
                                 <option value="6">Sabado</option>
                                 <option value="7">Domingo</option>
                             </select>
+                            <label for="fecha-recorrido" id="fecha-recorrido" required
+                                class="campoLabel">📅&nbsp;Fecha&nbsp;del&nbsp;recorrido:&nbsp;
+                            </label>
                         </div>
 
                         <br>

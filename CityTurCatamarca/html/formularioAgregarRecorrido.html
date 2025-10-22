@@ -47,7 +47,8 @@
 
 
                         <div class="contenedorLabelInput">
-                            <input type="text" name="nombre-recorrido" id="nombre-recorrido" class="inputLabel" required maxlength="70">
+                            <input type="text" name="nombre-recorrido" id="nombre-recorrido" class="inputLabel" required
+                                maxlength="70">
                             <label for="nombre-recorrido" class="campoLabel">🚌&nbsp;Ingrese&nbsp;recorrido: </label>
                         </div>
 
@@ -58,46 +59,50 @@
                                 <option value="2">opcion2</option>
                                 <option value="3">opcion3</option>
                             </select>
-                            <label for="partida" id="labelpartida" class="campoLabel">📌&nbsp;Punto&nbsp;de&nbsp;partida:&nbsp;</label>
+                            <label for="partida" id="labelpartida"
+                                class="campoLabel">📌&nbsp;Punto&nbsp;de&nbsp;partida:&nbsp;</label>
 
+                        </div><br>
+
+                        
+                        <div class="acordeonGrupo">
+                            <input type="checkbox" id="acordeon-1" class="acordeonInput"> <!--sin esto no funciona no tocar-->
+
+                            <label for="acordeon-1" class="acordeonLabel">
+                                <div class="">📌&nbsp;Puntos&nbsp;turisticos:</div>
+                                <div class="acordeonFlecha">▼</div> <!-- la flecha que tanto rompia la pija belicho-->
+                            </label>
+
+                            <div class="acordeonContenido">
+                                <div class="checkboxItem">
+                                    <input type="checkbox" id="chk-1" name="interes">
+                                    <label for="chk-1">Punto 1</label>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="contenedorLabelInput">
-                            <select name="interes" id="interes" class="inputLabel" multiple required >
+                            <select name="final" id="finalNuevoPc" class="inputLabel" required size="1">
                                 <option value="" disabled selected hidden></option>
                                 <option value="1">opcion1</option>
                                 <option value="2">opcion2</option>
                                 <option value="3">opcion3</option>
                             </select>
-                            <label for="interes" id="labelinteres"  class="campoLabel" >📌&nbsp;Puntos&nbsp;turisticos: </label> 
+                            <label for="final" id="labelfinal" class="campoLabel">📌&nbsp;Final&nbsp;recorrido:&nbsp;
+                            </label>
                         </div>
 
 
                         <div class="contenedorLabelInput">
-                            <select name="final" id="finalNuevoPc" class="inputLabel"  required size="1">
+                            <input type="time" name="hora-recorrido" id="hora-recorrido" class="inputLabel" required>
+                            <label for="hora-recorrido" id="labelhora" class="campoLabel">🕑&nbsp;Hora&nbsp;recorrido:
+                            </label>
+                        </div>
+
+
+                        <div class="contenedorLabelInput">
+                            <select name="partida" id="fechaRecorrido" class="inputLabel" required size="1">
                                 <option value="" disabled selected hidden></option>
-                                <option value="1">opcion1</option>
-                                <option value="2">opcion2</option>
-                                <option value="3">opcion3</option>
-                            </select>
-                            <label for="final" id="labelfinal" class="campoLabel" >📌&nbsp;Final&nbsp;recorrido:&nbsp; </label>
-
-                        </div>
-
-                        <br>
-
-                        <div class="contenedorLabelInput">
-                            <input type="time" name="hora-recorrido" id="hora-recorrido" class="inputLabel"  required>
-                            <label for="hora-recorrido" id="labelhora" class="campoLabel">🕑&nbsp;Hora&nbsp;recorrido: </label>
-                        </div>
-
-                        <br>
-
-                        <div class="grupofecha">
-                            <label for="fecha-recorrido" id="labelFecha-reco">
-                                📅&nbsp;Fecha&nbsp;recorrido:&nbsp;</label>
-                            <select name="fecha-recorrido" id="fecha-recorrido" required multiple size="2">
-                                <option value="0" hidden>Elija</option>
                                 <option value="1">Lunes</option>
                                 <option value="2">Martes</option>
                                 <option value="3">Miercoles</option>
@@ -106,10 +111,9 @@
                                 <option value="6">Sabado</option>
                                 <option value="7">Domingo</option>
                             </select>
-                        </div>
-
-                        <br>
-
+                            <label for="partida" id="labelpartida"
+                                class="campoLabel">📅&nbsp;Fecha&nbsp;recorrido:&nbsp;</label>
+                        </div><br>
 
 
                         <div id="botones-formularios">
