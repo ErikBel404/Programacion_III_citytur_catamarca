@@ -23,7 +23,12 @@ def detalleTransporteView(request, id):
 
 def registraTransporteView(request):
     if request.method == 'POST':
-        transporteForm ==
+        transporteForm = TransporteForm(request.POST)
+        if transporteForm.is_valid():
+            transporteForm.save()
+            return render(request, 'administrador/',{
+
+            })
 
     return HttpResponse('Aca se registran los transportes solamente');
 
@@ -67,7 +72,6 @@ def CrearPuntosTuristicos(request):
             # Se guardan los datos que provienen del formulario en la B.D.
             nuevoPuntoTuristico = formPuntoTuristico.save(commit=False)
             nuevoPuntoTuristico.save()
-            
             # Guarda las relaciones ManyToMany (como el campo categorias)
             formPuntoTuristico.save_m2m()
             messages.success(
