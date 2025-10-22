@@ -1,8 +1,14 @@
-from django.shortcuts import render
+from pyexpat.errors import messages
+from django.shortcuts import redirect, render
 from django.http import HttpResponse
+from django.urls import reverse
 
+##importaciones de los modelos
 from apps.administracion.models import Transporte
 from apps.administracion.models import Reportes
+
+#importaciones de los form
+from .forms import PuntoTuristicoForm
 
 # Create your views here.
 
@@ -49,6 +55,24 @@ def listarPuntosTuristicos(request):
     return HttpResponse('Aca iran los puntos turisticos y su informacion de actividad')
 
 def CrearPuntosTuristicos(request):
+    nuevoPuntoTuristico = None
+    if request.method == 'POST':
+        formPuntoTuristico = PuntoTuristicoForm (request.POST, request.FILES)
+        if formPuntoTuristico.is_valid():
+            # Se guardan los datos que provienen del formulario en la B.D.
+            nuevoPuntoTuristico = formPuntoTuristico.save(commit=False)
+            nuevoPuntoTuristico.save()
+            # Guarda las relaciones ManyToMany (como el campo categorias)
+            formPuntoTuristico.save_m2m()
+            messages.success(
+                request,
+                'Se ha agregado correctamente el Punto Turistico {}'.format(nuevoPuntoTuristico))
+            return redirect(reverse(
+                '', args=(nuevoPuntoTuristico.id,)))
+        
+        else:
+            anuncio_form = PuntoTuristicoForm()
+
     return HttpResponse('Aqui se solitara la informacion necesaria para crear los punto turisticos')
 
 
