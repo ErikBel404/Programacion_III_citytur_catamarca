@@ -6,14 +6,14 @@ from apps.perfil.models import Operario
 # Create your models here.
 class Transporte(models.Model):
 
-    estadoTransporte = [('activo', 'Activo'),
+    ESTADOTRANSPORTE = [('activo', 'Activo'),
                         ('averiado','Averiado'),
                         ('reparacion','En Reparacion'),
                         ('fueraServicio', 'Fuera de Servicio')]
 
     dominioMatriculaTransporte = models.CharField(max_length=250, unique=True);
     capacidadTransporte = models.IntegerField(blank=False, null=False);
-    estadoTransporte = models.CharField(max_length = 20, choices = estadoTransporte, default = 'activo', blank= False, null=False);
+    estadoTransporte = models.CharField(max_length = 20, choices = ESTADOTRANSPORTE, default = 'activo', blank= False, null=False);
 
     administradores = models.ManyToManyField (Administrador, related_name= 'transportesAdministrador')
 
@@ -21,19 +21,19 @@ class Transporte(models.Model):
         return f'Matricula del Transporte: {self.dominioMatriculaTransporte}, Capacidad del transporte: {self.capacidadTransporte}, estado del Transporte: {self.estadoTransporte}'
     
 class Reportes(models.Model):
-    tipoInforme=[('recoActivos', 'Recorridos Activos'),
+    TIPOINFORME=[('recoActivos', 'Recorridos Activos'),
                  ('paradasMasUtilizadas', 'Paradas Mas Utilizadas'),
                  ('reservaPorRecorrido','Reservas Por Recorrido'),
                  ('consultaDeReservas', 'Consulta De Reservas'),
                  ('estadisticasPasajeros', 'Estadisticas Pasajeros')
                  ]
 
-    formatoDocumento = [('pdf', 'PDF'),
+    FORMATODOCUMENTO = [('pdf', 'PDF'),
                         ('excel', 'Excel'),
                         ('csv', 'CSV')]
 
-    tipoReportes = models.CharField(max_length=40, blank=False, null=False, choices=tipoInforme, default='recoActivos');
-    formatoReporte = models.CharField(max_length=20,blank=False, null=False, choices=formatoDocumento, default='pdf')
+    tipoReportes = models.CharField(max_length=40, blank=False, null=False, choices=TIPOINFORME, default='recoActivos');
+    formatoReporte = models.CharField(max_length=20,blank=False, null=False, choices=FORMATODOCUMENTO, default='pdf')
 
     horaFecha= models.DateTimeField (blank=False, null= False);
     identidadSolicitante= models.CharField (blank=False, null= False, max_length=250)
