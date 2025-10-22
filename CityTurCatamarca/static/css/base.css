@@ -192,6 +192,17 @@ footer {
     footer{
         padding-top: 10px;
     }
+    nav a:hover, #perfilUsuario button:hover{
+    background-color: var(--amarilloFuerte);
+    padding: 10px 20px;
+    border-radius:20px;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border: 3px solid transparent;
+    transform: scale(1.03);
+    transition: all 0.3s ease;
+}
 }
 /*tablet*/
 
