@@ -21,8 +21,8 @@ urlpatterns = [
     path('reportes/estadisticas/', reporteEstadistaPasajeros, name='estadisticasPasajeros'),
     #urls de puntos Turisticos
     path('puntosTuristicos/', PuntosTuristicosView, name='puntosTuristicos'),
-    path('puntosTuristicos/lista', listarPuntosTuristicos, name='listaPuntosTuristicos'),
-    path('puntosTuristicos/crear', CrearPuntosTuristicos, name='crearPuntosTuristicos'),
+    path('puntosTuristicos/lista/', listarPuntosTuristicos, name='listaPuntosTuristicos'),
+    path('puntosTuristicos/crear/', CrearPuntosTuristicos, name='crearPuntosTuristicos'),
     #urls de recorridos
     path('recorridos/', RecorridosView, name='paginaRecorridos'),
     path('recorridos/lista', listarRecorridos, name='ListarRecorridos'),
@@ -38,6 +38,8 @@ urlpatterns = [
     path('notificacion/crear', crearNotificacion, name='crearNotificacion'), 
     path('notificacion/modificar', modificarNotificacion, name='modificarNotificacion'), 
     path('notificacion/<int:id>',buscarNotificacionParticular , name='buscarNotificacionParticular'),
+
+    
 ]
 
 

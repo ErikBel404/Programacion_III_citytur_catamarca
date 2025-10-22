@@ -92,7 +92,7 @@ def CrearPuntosTuristicos(request):
     else:
         formPuntoTuristico = PuntoTuristicoForm()
 
-    return HttpResponse('Aqui se solitara la informacion necesaria para crear los punto turisticos')
+    return render(request, 'puntosTuristicos/formularioAgregarPuntoTuristico.html')
 
 
 

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Punto Turistico - CityTur Catamarca
+{% endblock %}
+
+{% block head_css %}
+  <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <main>
+    <div id="" class="cosas_dentro_main">
+      <div id="formularioAgregar">
+        <form action="#" method="get">
+          <fieldset>
+            <label id="agregarPuntoTuristico"><strong>Agregar Punto Turistico</strong></label>
+
+            <div class="contenedorLabelInput">
+              <input type="text" name="nombre-puntoTuristico" id="nombre-puntoTuristico" class="inputLabel" required maxlength="70" />
+              <label for="nombre-puntoTuristico" class="campoLabel">🚩&nbsp;Ingrese&nbsp;punto&nbsp;turistico :</label>
+            </div>
+            <div class="contenedorLabelInput">
+              <input type="text" name="ubicacion" id="ubicacion" class="inputLabel" required maxlength="70" />
+              <label for="ubicacion" class="campoLabel">📌&nbsp;ubicacion&nbsp;del&nbsp;punto :</label>
+            </div>
+            <div class="contenedorLabelInput">
+              <input type="text" name="informacionPuntoTuristico" id="informacionPuntoTuristico" class="inputLabel" required maxlength="500" />
+              <label for="informacionPuntoTuristico" class="campoLabel">📰&nbsp;Ingrese&nbsp;informacion:</label>
+            </div>
+            <div class="contenedorLabelInput">
+              <input type="file" name="imgPuntoTuristico" id="imgPuntoTuristico" class="inputArchivoOculto" />
+
+              <label for="imgPuntoTuristico" class="inputLabel labelParaArchivo">
+                <span class="campoLabel">🏞️&nbsp;Ingrese&nbsp;imagen:</span>
+                <span id="nombreArchivoSeleccionado" class="nombreArchivoEnCaja">No se eligió ningún archivo</span>
+              </label>
+            </div>
+
+            <br>
+
+            <div id="botones-formularios">
+              <button type="submit" id="boton-aceptar">Aceptar</button>
+
+              <button type="reset" id="boton-cancelar">Cancelar</button>
+
+              <a href="registroreco.html"><button type="button" id="boton-atras">Atras</button></a>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock %}
