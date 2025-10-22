@@ -9,8 +9,8 @@ class PuntoTuristicoForm (forms.ModelForm):
         fields = [
             'nombre',
             'ubicacion',
-            'informacion'
-            
+            'informacion', 
+            'imagen'
         ]
         widgets = {
         }

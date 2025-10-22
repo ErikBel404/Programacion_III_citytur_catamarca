@@ -67,6 +67,7 @@ def CrearPuntosTuristicos(request):
             # Se guardan los datos que provienen del formulario en la B.D.
             nuevoPuntoTuristico = formPuntoTuristico.save(commit=False)
             nuevoPuntoTuristico.save()
+            
             # Guarda las relaciones ManyToMany (como el campo categorias)
             formPuntoTuristico.save_m2m()
             messages.success(
@@ -75,8 +76,8 @@ def CrearPuntosTuristicos(request):
             return redirect(reverse(
                 '', args=(nuevoPuntoTuristico.id,)))
         
-        else:
-            anuncio_form = PuntoTuristicoForm()
+    else:
+        formPuntoTuristico = PuntoTuristicoForm()
 
     return HttpResponse('Aqui se solitara la informacion necesaria para crear los punto turisticos')
 
