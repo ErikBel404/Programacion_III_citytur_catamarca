@@ -11,7 +11,16 @@
 }
 
 .margentop150{
-        margin-top: 100px;
-        margin-bottom: 100px;
-
+        margin-top: 10%;
+        margin-bottom: 100%;
 }
+
+input[type="date"]:invalid {
+    color: transparent;
+}
+
+
+input[type="date"]:valid {
+    color: #000; 
+}
+

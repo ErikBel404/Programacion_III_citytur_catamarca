@@ -147,6 +147,13 @@ form select{
     color: var(--verdeAgua);
 }
 
+.inputLabel:focus+.campoLabel,
+.inputLabel:invalid+.campoLabel {
+    top: 1px;
+    font-size: 12px;
+    
+}
+
 .inputLabel:focus {
     outline: none;
     border-color: var(--verdeAgua);
@@ -267,5 +274,5 @@ input[type="time"]:invalid {
 
 
 input[type="time"]:valid {
-    color: #000; /* O el color de texto que uses */
+    color: #000; 
 }
