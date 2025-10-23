@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Punto Turistico - CityTur Catamarca
+{% endblock %}
+
+{% block head_css %}
+  <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <main>
+    <div id="" class="cosas_dentro_main">
+      <h2>Lista de puntos Turisticos</h2>
+      {% for punto in puntos %}
+        <div>
+          <figure>
+            <img src="{{ punto.imagen.url }}" alt="imagen del punto turistico" width="100%" height="100%" />
+          </figure>
+          <p>
+            <span>Nombre:</span> {{ punto.nombre }}
+          </p>
+          <p>
+            <span>Ubicacion:</span> {{ punto.ubicacion }}
+          </p>
+          <p>
+            <span>Informacion:</span> {{ punto.informacion }}
+          </p>
+          <br />
+        </div>
+      {% endfor %}
+    </div>
+  </main>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/controladorAñadirPuntoTuristico.js' %}"></script>
+{% endblock %}
