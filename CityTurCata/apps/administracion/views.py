@@ -4,22 +4,22 @@ from django.http import HttpResponse
 from django.urls import reverse
 
 ##importaciones de los modelos
-from apps.administracion.models import PuntoTuristico, Transporte
-from apps.administracion.models import Reportes
+from apps.administracion.models import PuntoTuristico, Transporte, Recorrido, Reportes
 
 #importaciones de los form
-from .forms import PuntoTuristicoForm
-from .forms import TransporteForm, ReportesForm, RecorridoForm, NotificacionForm
+from .forms import TransporteForm, ReportesForm, RecorridoForm, NotificacionForm,PuntoTuristicoForm
 
 # Create your views here.
 
 #Definicion de transporte
 def listaTransportesView(request):
-    #return render(request, 'administracion/transporte.html')   -> suponiendo que creamos una carpetea template dentro de la misma ponemos una carpeta administracion y dentro de ella tenemos el html de transporte
-    return HttpResponse('Aca sale la lista de transportes');
+    transportesVista = Transporte.objects.all()
 
-def detalleTransporteView(request, id):
-    return HttpResponse(f'Aca sale un transporte en detalle con id:{id}');
+    contexto = {
+        'transportes' : transportesVista
+    }
+
+    return render(request, '',contexto)
 
 def registraTransporteView(request):
     nuevoTransporte = None
@@ -45,6 +45,10 @@ def registraTransporteView(request):
 def modificarTransporteView(request):
     return HttpResponse('Aca se modifica el transporte');
 
+def bajaTransporteView(request):
+    return HttpResponse('Aca se da de baja el transporte');
+
+
 #Definicion de reportes
 
 def reportesView(request):
@@ -66,6 +70,15 @@ def reportesView(request):
 
     return render(request,'',contexto)
 
+def listaReportesView(request):
+    reportesView = Reportes.objects.all()
+
+    contexto = {
+        'reportes' : reportesView
+    }
+
+    return render(request,'',contexto)
+
 def reporteRecorridosActivosView(request):
     return HttpResponse('Aca va el reporte de recorridos activos');
 
@@ -75,15 +88,15 @@ def reporteParadasMasUtilizadasView(request):
 def reporteReservasRecorridoView(resquest):
     return HttpResponse('Aca va el reporte de las reservas de los recorridos');
 
-def reporteConsultaReservas(request):
+def reporteConsultaReservasView(request):
     return HttpResponse('Aca va el reporte de las consultas de las reservas');
 
-def reporteEstadistaPasajeros(request):
+def reporteEstadistaPasajerosView(request):
     return HttpResponse('Aca va el reporte de estadisticas en un rango de fechas')
 
 #Definicion de puntos Turisticos;
 
-def listarPuntosTuristicos(request):
+def listarPuntosTuristicosView(request):
     puntosTuristicosVista = PuntoTuristico.objects.all();
 
     contexto = {
@@ -92,7 +105,7 @@ def listarPuntosTuristicos(request):
 
     render(request, '',contexto)
 
-def CrearPuntosTuristicos(request):
+def crearPuntosTuristicosView(request):
     nuevoPuntoTuristico = None
     if request.method == 'POST':
         formPuntoTuristico = PuntoTuristicoForm (request.POST, request.FILES)
@@ -116,17 +129,26 @@ def CrearPuntosTuristicos(request):
     }
     return render(request, 'puntosTuristicos/formularioAgregarPuntoTuristico.html', contexto )
 
+def modificarPuntoTuristicosView(request):
+    return HttpResponse('Aca es la pagina de los Recorridos')
+
+
+def bajaPuntoTuristicosView(request):
+    return HttpResponse('Aca es la pagina de los Recorridos')
 
 
 #Definicion de Recorridos;
 
-def RecorridosView(request):
-    return HttpResponse('Aca es la pagina de los Recorridos')
+def listarRecorridosView(request):
+    recorridoView = Recorrido.objects.all();
 
-def listarRecorridos(request):
-    return HttpResponse('Aca se mostrara una lista de los Recorridos')
+    contexto = {
+        'recorridos' : recorridoView
+    }
 
-def CrearRecorrido(request):
+    return render(request,'',contexto)
+
+def crearRecorridosView(request):
     nuevoRecorrido = None
     recorridoForm = RecorridoForm(request.POST)
     if recorridoForm.is_valid():
@@ -147,13 +169,15 @@ def CrearRecorrido(request):
     return render(request,'', contexto)
 
     
-def modificarRecorridos(request):
+def modificarRecorridosView(request):
+    return HttpResponse('Aqui se mostrara la pagina de modificaciones')
+
+def bajaRecorridosView(request):
     return HttpResponse('Aqui se mostrara la pagina de modificaciones')
 
 
-#vistas de itinerarios
-
-def crearItinerario (request):
+#vistas de itinerarios -- hasta aca toqe yo no tocar mas  haya de aca belicho
+def crearItinerarios (request):
     return HttpResponse ('aca sale la parte para crear un Itinerario')
 
 def listarItinerarios (request):
@@ -162,9 +186,8 @@ def listarItinerarios (request):
 def modificarItinerarios (request):
     return HttpResponse ('aca esta la parte para modificar los Itinerarios')
 
-def buscarItinerarioParticular (request, id):
-    return HttpResponse(f'Aca sale un Itinerario particular con id:{id}')
-
+def bajaItinerarios (request):
+    return HttpResponse ('aca esta la parte para modificar los Itinerarios')
 
 #vistas de notificaciones
 def crearNotificacion (request):
@@ -187,8 +210,6 @@ def crearNotificacion (request):
 
     return render(request,'',contexto)
         
-    return HttpResponse ('aca sale la parte para crear un Notificacion')
-
 def listarNotificaciones (request):
     return HttpResponse('aca sale la lista de Notificaciones')
 
