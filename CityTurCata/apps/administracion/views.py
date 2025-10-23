@@ -1,4 +1,4 @@
-from pyexpat.errors import messages
+from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.urls import reverse
@@ -31,8 +31,8 @@ def registraTransporteView(request):
             messages.success(
                 request,
                 'Se ha agregado correctamente el Punto Turistico {}'.format(nuevoTransporte))
-            return redirect(reverse(
-                '', args=(nuevoTransporte.id,)))
+            #return #redirect(reverse(
+                #'', args=(nuevoTransporte.id,)))
 
     else:
         transporteForm = TransporteForm()
@@ -88,13 +88,16 @@ def CrearPuntosTuristicos(request):
             messages.success(
                 request,
                 'Se ha agregado correctamente el Punto Turistico {}'.format(nuevoPuntoTuristico))
-            return redirect(reverse(
-                '', args=(nuevoPuntoTuristico.id,)))
-        
+    
+            #return redirect(reverse(
+            #   '../', args=(nuevoPuntoTuristico.id,)))    
     else:
         formPuntoTuristico = PuntoTuristicoForm()
-
-    return render(request, 'puntosTuristicos/formularioAgregarPuntoTuristico.html')
+        
+    contexto = {
+        'form': formPuntoTuristico
+    }
+    return render(request, 'puntosTuristicos/formularioAgregarPuntoTuristico.html', contexto )
 
 
 
