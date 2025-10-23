@@ -1,3 +1,5 @@
+media/
+
 *.log
 
 *.py[codt]
