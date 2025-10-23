@@ -13,6 +13,29 @@ class PuntoTuristicoForm (forms.ModelForm):
             'imagen'
         ]
         widgets = {
+            'nombre': forms.TextInput(attrs={
+                'class': 'inputLabel',
+                'id': 'nombre-puntoTuristico',
+            }),
+            'ubicacion': forms.TextInput(attrs={
+                'class': 'inputLabel',
+                'id': 'ubicacion',
+            }),
+            'informacion': forms.TextInput(attrs={
+                'class': 'inputLabel',
+                'id': 'informacionPuntoTuristico',
+            }),
+            'imagen': forms.FileInput(attrs={
+                'class': 'inputArchivoOculto',
+                'id': 'imgPuntoTuristico',
+            }),
+        }
+
+        labels = {
+            'nombre': '🚩 Ingrese punto turistico:',
+            'ubicacion': '📌 Ingrese ubicacion del punto turistico:',
+            'informacion': '📰 Ingrese informacion del punto turistico:',
+            'imagen': '🏞️ Ingrese imagen del punto turistico:',
         }
 
 
