@@ -34,6 +34,8 @@ def registraTransporteView(request):
             return redirect(reverse(
                 '', args=(nuevoTransporte.id,)))
 
+    else:
+        transporteForm = TransporteForm()
     return HttpResponse('Aca se registran los transportes solamente'); #Aca vamos a hacer el render despue
 
 def modificarTransporteView(request):
