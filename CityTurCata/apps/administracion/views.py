@@ -90,7 +90,7 @@ def listarPuntosTuristicos(request):
         'puntos' : puntosTuristicosVista
     }
 
-    render(request, '',contexto)
+    return render(request, 'puntosTuristicos/visualizarPuntoTuristico.html',contexto)
 
 def CrearPuntosTuristicos(request):
     nuevoPuntoTuristico = None

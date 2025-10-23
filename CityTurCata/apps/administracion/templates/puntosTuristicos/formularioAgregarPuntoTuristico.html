@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-  Punto Turistico - CityTur Catamarca
+  Punto Turistico Crear - CityTur Catamarca
 {% endblock %}
 
 {% block head_css %}
@@ -14,8 +14,10 @@
   <main>
     <div id="" class="cosas_dentro_main">
       <div id="formularioAgregar">
+        
         <form method="POST" enctype="multipart/form-data">
           <fieldset>
+            
             {% csrf_token %}
 
             <div class="contenedorLabelInput">

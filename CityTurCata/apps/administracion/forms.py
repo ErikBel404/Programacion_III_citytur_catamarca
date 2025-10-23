@@ -32,10 +32,10 @@ class PuntoTuristicoForm (forms.ModelForm):
         }
 
         labels = {
-            'nombre': '🚩 Ingrese punto turistico:',
-            'ubicacion': '📌 Ingrese ubicacion del punto turistico:',
-            'informacion': '📰 Ingrese informacion del punto turistico:',
-            'imagen': '🏞️ Ingrese imagen del punto turistico:',
+            'nombre': '🚩 Nombre:',
+            'ubicacion': '📌 Ubicacion:',
+            'informacion': '📰 Informacion:',
+            'imagen': '🏞️  Imagen:',
         }
 
 
