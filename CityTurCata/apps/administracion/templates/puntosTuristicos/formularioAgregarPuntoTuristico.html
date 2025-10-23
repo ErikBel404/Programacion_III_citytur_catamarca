@@ -11,10 +11,23 @@
 {% endblock %}
 
 {% block content %}
+
   <main>
     <div id="" class="cosas_dentro_main">
       <div id="formularioAgregar">
-        <form action="#" method="get">
+        <form  method="POST" enctype="multipart/form-data">
+
+          
+          {% for field in form %}
+            <div>
+              {{ field.errors }}
+              {{ field.label_tag }} {{ field }}
+            </div><br>
+          {% endfor %}
+        
+          {% csrf_token %}
+
+<!--
           <fieldset>
             <label id="agregarPuntoTuristico"><strong>Agregar Punto Turistico</strong></label>
 
@@ -40,7 +53,7 @@
             </div>
 
             <br />
-
+-->
             <div id="botones-formularios">
               <button type="submit" id="boton-aceptar">Aceptar</button>
 
@@ -49,6 +62,7 @@
               <a href="registroreco.html"><button type="button" id="boton-atras">Atras</button></a>
             </div>
           </fieldset>
+
         </form>
       </div>
     </div>
