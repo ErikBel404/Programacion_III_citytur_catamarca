@@ -99,10 +99,10 @@ class RecorridoForm(forms.ModelForm):
     
 
 
-class Notificacion(forms.ModelForm):
+class NotificacionForm(forms.ModelForm):
     model =Notificacion
     fields = ['titulo', 'descripcion']
 
     widgets = {
-        
+
     }

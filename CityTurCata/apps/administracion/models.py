@@ -73,14 +73,13 @@ class Recorrido (models.Model):
  
 class Itinerario(models.Model):
     titulo = models.CharField(max_length=100, blank=False, null=False)
-    descripcion = models.TextField(blank=False, null=False)
 
     transporte= models.ForeignKey(Transporte, on_delete=models.CASCADE, related_name='trasporteItinerario')
     recorridos= models.ForeignKey(Recorrido, on_delete=models.CASCADE, related_name='recorridoItinerario')
     reportes= models.ManyToManyField (Reportes, related_name='reportesNotificaciones')
 
     def __str__(self):
-        return f'Titulo:{self.titulo} Descripcion:{self.descripcion} Recorrido:{self.recorrido}'
+        return f'Titulo:{self.titulo} Recorrido:{self.recorrido}'
 
 class Notificacion(models.Model):
     titulo=models.CharField(max_length=100, blank= False, null=False)

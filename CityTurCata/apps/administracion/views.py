@@ -9,7 +9,7 @@ from apps.administracion.models import Reportes
 
 #importaciones de los form
 from .forms import PuntoTuristicoForm
-from .forms import TransporteForm, ReportesForm, RecorridoForm
+from .forms import TransporteForm, ReportesForm, RecorridoForm, NotificacionForm
 
 # Create your views here.
 
@@ -165,6 +165,25 @@ def buscarItinerarioParticular (request, id):
 
 #vistas de notificaciones
 def crearNotificacion (request):
+    nuevoNotificacion = None
+    if request.method == 'POST':
+        notificacionForm = NotificacionForm(request.POST)
+        if notificacionForm.is_valid():
+            nuevoNotificacion = notificacionForm.save(commit=False)
+            nuevoNotificacion.save()
+
+            notificacionForm.save_m2m()
+            messages.success(
+                request, 'Se agrego la notificacion de manera correcta: {}'.format(nuevoNotificacion))
+    else:
+        notificacionForm = NotificacionForm()
+    
+    contexto = {
+        'form':notificacionForm
+    }
+
+    return render(request,'',contexto)
+        
     return HttpResponse ('aca sale la parte para crear un Notificacion')
 
 def listarNotificaciones (request):
