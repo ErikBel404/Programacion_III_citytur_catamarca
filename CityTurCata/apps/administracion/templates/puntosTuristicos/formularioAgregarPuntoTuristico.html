@@ -11,58 +11,48 @@
 {% endblock %}
 
 {% block content %}
-
   <main>
     <div id="" class="cosas_dentro_main">
       <div id="formularioAgregar">
-        <form  method="POST" enctype="multipart/form-data">
-
-          
-          {% for field in form %}
-            <div>
-              {{ field.errors }}
-              {{ field.label_tag }} {{ field }}
-            </div><br>
-          {% endfor %}
-        
-          {% csrf_token %}
-
-<!--
+        <form method="POST" enctype="multipart/form-data">
           <fieldset>
-            <label id="agregarPuntoTuristico"><strong>Agregar Punto Turistico</strong></label>
+            {% csrf_token %}
 
             <div class="contenedorLabelInput">
-              <input type="text" name="nombre-puntoTuristico" id="nombre-puntoTuristico" class="inputLabel" required maxlength="70" />
-              <label for="nombre-puntoTuristico" class="campoLabel">🚩&nbsp;Ingrese&nbsp;punto&nbsp;turistico :</label>
+              {{ form.nombre.errors }}
+              {{ form.nombre }}
+              <label for="{{ form.nombre.id_for_label }}" class="campoLabel">{{ form.nombre.label }}</label>
             </div>
-            <div class="contenedorLabelInput">
-              <input type="text" name="ubicacion" id="ubicacion" class="inputLabel" required maxlength="70" />
-              <label for="ubicacion" class="campoLabel">📌&nbsp;ubicacion&nbsp;del&nbsp;punto :</label>
-            </div>
-            <div class="contenedorLabelInput">
-              <input type="text" name="informacionPuntoTuristico" id="informacionPuntoTuristico" class="inputLabel" required maxlength="500" />
-              <label for="informacionPuntoTuristico" class="campoLabel">📰&nbsp;Ingrese&nbsp;informacion:</label>
-            </div>
-            <div class="contenedorLabelInput">
-              <input type="file" name="imgPuntoTuristico" id="imgPuntoTuristico" class="inputArchivoOculto" />
 
-              <label for="imgPuntoTuristico" class="inputLabel labelParaArchivo">
-                <span class="campoLabel">🏞️&nbsp;Ingrese&nbsp;imagen:</span>
+            <div class="contenedorLabelInput">
+              {{ form.ubicacion.errors }}
+              {{ form.ubicacion }}
+              <label for="{{ form.ubicacion.id_for_label }}" class="campoLabel">{{ form.ubicacion.label }}</label>
+            </div>
+
+            <div class="contenedorLabelInput">
+              {{ form.informacion.errors }}
+              {{ form.informacion }}
+              <label for="{{ form.informacion.id_for_label }}" class="campoLabel">{{ form.informacion.label }}</label>
+            </div>
+
+            <div class="contenedorLabelInput">
+              {{ form.imagen.errors }}
+              <label for="{{ form.imagen.id_for_label }}" class="inputLabel labelParaArchivo">
+                <span class="campoLabel">{{ form.imagen.label }}</span>
                 <span id="nombreArchivoSeleccionado" class="nombreArchivoEnCaja">No se eligió ningún archivo</span>
               </label>
+              {{ form.imagen }}
             </div>
 
             <br />
--->
+
             <div id="botones-formularios">
               <button type="submit" id="boton-aceptar">Aceptar</button>
-
               <button type="reset" id="boton-cancelar">Cancelar</button>
-
               <a href="registroreco.html"><button type="button" id="boton-atras">Atras</button></a>
             </div>
           </fieldset>
-
         </form>
       </div>
     </div>
