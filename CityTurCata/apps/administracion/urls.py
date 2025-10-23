@@ -1,7 +1,9 @@
 from django.urls import path
+from apps.administracion import views
+
 from apps.administracion.views import listaTransportesView,detalleTransporteView,registraTransporteView,modificarTransporteView
 from apps.administracion.views import reportesView,reporteRecorridosActivosView,reporteParadasMasUtilizadasView,reporteReservasRecorridoView,reporteConsultaReservas,reporteEstadistaPasajeros
-from apps.administracion.views import PuntosTuristicosView,listarPuntosTuristicos,CrearPuntosTuristicos,RecorridosView,listarRecorridos,CrearRecorrido,modificarRecorridos
+from apps.administracion.views import CrearPuntosTuristicos,RecorridosView,listarRecorridos,CrearRecorrido,modificarRecorridos
 from apps.administracion.views import crearItinerario, listarItinerarios, modificarItinerarios, buscarItinerarioParticular
 from apps.administracion.views import crearNotificacion, listarNotificaciones, modificarNotificacion, buscarNotificacionParticular  
 
@@ -20,8 +22,7 @@ urlpatterns = [
     path('reportes/consultas/', reporteConsultaReservas, name='consultasReservas'),
     path('reportes/estadisticas/', reporteEstadistaPasajeros, name='estadisticasPasajeros'),
     #urls de puntos Turisticos
-    path('puntosTuristicos/', PuntosTuristicosView, name='puntosTuristicos'),
-    path('puntosTuristicos/lista/', listarPuntosTuristicos, name='listaPuntosTuristicos'),
+    path('puntosTuristicos/lista/', views.listarPuntosTuristicos, name='listaPuntosTuristicos'),
     path('puntosTuristicos/crear/', CrearPuntosTuristicos, name='crearPuntosTuristicos'),
     #urls de recorridos
     path('recorridos/', RecorridosView, name='paginaRecorridos'),

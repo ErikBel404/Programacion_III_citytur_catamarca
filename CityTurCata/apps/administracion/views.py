@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.urls import reverse
 
 ##importaciones de los modelos
-from apps.administracion.models import Transporte
+from apps.administracion.models import PuntoTuristico, Transporte
 from apps.administracion.models import Reportes
 
 #importaciones de los form
@@ -83,11 +83,14 @@ def reporteEstadistaPasajeros(request):
 
 #Definicion de puntos Turisticos;
 
-def PuntosTuristicosView(request):
-    return HttpResponse('Aca es la pagina de los puntos turisticos')
-
 def listarPuntosTuristicos(request):
-    return HttpResponse('Aca iran los puntos turisticos y su informacion de actividad')
+    puntosTuristicosVista = PuntoTuristico.objects.all();
+
+    contexto = {
+        'puntos' : puntosTuristicosVista
+    }
+
+    render(request, '',contexto)
 
 def CrearPuntosTuristicos(request):
     nuevoPuntoTuristico = None
