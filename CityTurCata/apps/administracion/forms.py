@@ -1,6 +1,6 @@
 from django import forms
 from .models import PuntoTuristico
-from apps.administracion.models import Transporte, Reportes, Recorrido, PuntoTuristico
+from apps.administracion.models import Transporte, Reportes, Recorrido, PuntoTuristico, Notificacion
 
 
 class PuntoTuristicoForm (forms.ModelForm):
@@ -73,3 +73,13 @@ class RecorridoForm(forms.ModelForm):
             recorrido.save()
             self.save_m2m()
         return recorrido
+    
+
+
+class Notificacion(forms.ModelForm):
+    model =Notificacion
+    fields = ['titulo', 'descripcion']
+
+    widgets = {
+        
+    }

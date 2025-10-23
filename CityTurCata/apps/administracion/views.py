@@ -9,7 +9,7 @@ from apps.administracion.models import Reportes
 
 #importaciones de los form
 from .forms import PuntoTuristicoForm
-from .forms import TransporteForm, ReportesForm
+from .forms import TransporteForm, ReportesForm, RecorridoForm
 
 # Create your views here.
 
@@ -28,15 +28,19 @@ def registraTransporteView(request):
         if transporteForm.is_valid():
             nuevoTransporte = transporteForm.save(commit=False)
             nuevoTransporte.save()
-            messages.success(
-                request,
-                'Se ha agregado correctamente el Punto Turistico {}'.format(nuevoTransporte))
-            #return #redirect(reverse(
-                #'', args=(nuevoTransporte.id,)))
+            transporteForm.save_m2m()
 
+            messages.success(request, 'Se ha agregado correctamente el Punto Turistico {}'.format(nuevoTransporte))
+            #return #redirect(reverse(
+                #'', args=(nuevoTransporte.id,))
     else:
         transporteForm = TransporteForm()
-    return HttpResponse('Aca se registran los transportes solamente'); #Aca vamos a hacer el render despue
+
+    contexto = {
+        'form': nuevoTransporte
+    }
+
+    return render(request,'',contexto)
 
 def modificarTransporteView(request):
     return HttpResponse('Aca se modifica el transporte');
@@ -48,9 +52,19 @@ def reportesView(request):
     if request.method == 'POST':
         reportesForm = ReportesForm(request.POST)
         if reportesForm.is_valid():
-            nuevoReporte 
+            nuevoReporte = reportesForm.save(commit=False)
+            nuevoReporte.save()
 
-    return HttpResponse('Aca es la pagina de los resportes');
+            reportesForm.save_m2m()
+            messages.success(request, 'Se ha creado correctamente el reporte: {}'.format(nuevoReporte))
+    else:
+        reportesForm = ReportesForm()
+
+    contexto = {
+        'form' : reportesForm
+    }
+
+    return render(request,'',contexto)
 
 def reporteRecorridosActivosView(request):
     return HttpResponse('Aca va el reporte de recorridos activos');
@@ -87,7 +101,7 @@ def CrearPuntosTuristicos(request):
             formPuntoTuristico.save_m2m()
             messages.success(
                 request,
-                'Se ha agregado correctamente el Punto Turistico {}'.format(nuevoPuntoTuristico))
+                'Se ha agregado correctamente el Punto Turistico: {}'.format(nuevoPuntoTuristico))
     
             #return redirect(reverse(
             #   '../', args=(nuevoPuntoTuristico.id,)))    
@@ -110,15 +124,32 @@ def listarRecorridos(request):
     return HttpResponse('Aca se mostrara una lista de los Recorridos')
 
 def CrearRecorrido(request):
-    return HttpResponse('Aqui se solicitara la informacion necesaria para crear un recorrido')
+    nuevoRecorrido = None
+    recorridoForm = RecorridoForm(request.POST)
+    if recorridoForm.is_valid():
+        nuevoRecorrido = recorridoForm.save(commit=False)
+        nuevoRecorrido.save()
 
+        recorridoForm.save_m2m()
+
+        messages.success(request, 'Se ha agrega correctamente el Recorrido: {}'.format(nuevoRecorrido))
+
+    else:
+        recorridoForm = RecorridoForm()
+
+    contexto = {
+        'form' : recorridoForm
+    }
+
+    return render(request,'', contexto)
+
+    
 def modificarRecorridos(request):
     return HttpResponse('Aqui se mostrara la pagina de modificaciones')
 
 
 #vistas de itinerarios
 
-# Create your views here.
 def crearItinerario (request):
     return HttpResponse ('aca sale la parte para crear un Itinerario')
 
