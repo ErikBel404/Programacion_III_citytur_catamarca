@@ -106,7 +106,7 @@
 span
 {
   font-weight: bold;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 .btnEliminarP
 {
@@ -123,6 +123,7 @@ span
   background-color: #2ecc71;
   border-bottom: 3px solid #27ae60;
   text-decoration: none !important;
+  outline: none;
 }
 .btnModificarP:hover {
     background-color: #27ae60;

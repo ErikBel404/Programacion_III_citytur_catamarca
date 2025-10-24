@@ -8,6 +8,7 @@
 {% block head_css %}
   <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
   <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -25,7 +26,7 @@
                       <h2 class="titulo">Modificar de puntos Turisticos</h2>
                       
                       <div class="contenedor-imagen-con-fondo"> <img src="{{ form.instance.imagen.url }}" alt="Imagen actual">
-                          <p class="pie-de-foto">Imagen actual:</p> </div>
+                          <p class="pie-de-foto">Imagen Actual:</p> </div>
 
                   </div>
               {% endif %}
@@ -63,8 +64,8 @@
             <br />
 
             <div id="botones-formularios">
-              <button type="submit" id="boton-aceptar">Aceptar</button>
-              <a class="btnP btnModificarP" href="{% url 'administracion:listaPuntosTuristicos' %}">Cancelar</a>
+              <button type="submit" class="btnP btnModificarP">Aceptar</button>
+              <a class="btnP btnEliminarP" href="{% url 'administracion:listaPuntosTuristicos' %}">Cancelar</a>
             </div>
           </fieldset>
         </form>
