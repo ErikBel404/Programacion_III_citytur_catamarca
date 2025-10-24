@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse
 from django.urls import reverse
 
@@ -129,8 +129,29 @@ def crearPuntosTuristicosView(request):
     }
     return render(request, 'puntosTuristicos/formularioAgregarPuntoTuristico.html', contexto )
 
-def modificarPuntoTuristicosView(request):
-    return HttpResponse('Aca es la pagina de los Recorridos')
+def modificarPuntoTuristicosView(request, pk):
+
+    puntoViejo= get_object_or_404(puntoViejo, pk=pk)
+
+    if request.method == 'POST':
+        puntoNuevoForm = PuntoTuristicoForm(
+            request.POST, request.FILES, instance=puntoViejo)
+        if puntoNuevoForm.is_valid():
+            puntoNuevoForm.save(commit=True)
+            messages.success(request,
+                           'Se ha actualizado correctamente el Punto Turistico {}'.format(puntoNuevoForm) )
+            return redirect(
+                reverse('', args=[puntoViejo.id]))
+    else:
+        puntoNuevoForm = PuntoTuristicoForm(instance=puntoViejo)
+
+    contexto = {
+        'puntoModificado': puntoNuevoForm
+    }
+    return render(request,
+                  'puntosTuristicos/formularioAgregarPuntoTuristico.html', contexto)
+
+    
 
 
 def bajaPuntoTuristicosView(request):
