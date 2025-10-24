@@ -68,9 +68,18 @@
   font-weight: bold;
 }
 
-
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
   .contenedor-tarjetas {
+    /* ...pon 2 columnas */
+    grid-template-columns: repeat(2, 1fr); /* O 2fr, como tenías */
+  }
+}
+
+/* 2. Cuando la pantalla sea AÚN MÁS PEQUEÑA de 700px */
+@media (max-width: 750px) {
+  .contenedor-tarjetas {
+    /* ...pon 1 sola columna */
     grid-template-columns: 1fr;
   }
 }
+
