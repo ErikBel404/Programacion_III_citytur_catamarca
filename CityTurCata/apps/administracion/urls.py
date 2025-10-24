@@ -26,7 +26,7 @@ urlpatterns = [
     path('puntosTuristicos/lista/', views.listarPuntosTuristicosView, name='listaPuntosTuristicos'),
     path('puntosTuristicos/agregar/', views.crearPuntosTuristicosView, name='agregaroPuntosTuristicos'),
     path('puntosTuristicos/modificar/<int:pk>/', views.modificarPuntoTuristicosView, name="modificarPuntosTuristicos"),
-    path('puntosTuristicos/baja/', views.bajaPuntoTuristicosView, name="bajaPuntosTuristico"),
+    path('puntosTuristicos/baja/<int:pk>/', views.bajaPuntoTuristicosView, name="bajaPuntosTuristico"),
 
     #
     #urls de recorridos

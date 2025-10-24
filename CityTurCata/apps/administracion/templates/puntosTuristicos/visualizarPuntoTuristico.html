@@ -30,7 +30,7 @@
               <span>Informacion:</span> {{ punto.informacion }}
             </p>
             <br />
-            <a href="">Eliminar</a>
+            <a href="{% url 'administracion:bajaPuntosTuristico' punto.id %}">Eliminar</a>
             <a href="{% url 'administracion:modificarPuntosTuristicos' punto.id %}">Modificar</a>
           </div>
         {% endfor %}

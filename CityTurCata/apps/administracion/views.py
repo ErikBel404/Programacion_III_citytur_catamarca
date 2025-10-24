@@ -127,6 +127,7 @@ def crearPuntosTuristicosView(request):
     }
     return render(request, 'puntosTuristicos/formularioAgregarPuntoTuristico.html', contexto )
 
+
 def modificarPuntoTuristicosView(request, pk):
 
     puntoViejo= get_object_or_404(PuntoTuristico, pk=pk)
@@ -150,10 +151,16 @@ def modificarPuntoTuristicosView(request, pk):
                   'puntosTuristicos/formularioAgregarPuntoTuristico.html', contexto)
 
     
+def bajaPuntoTuristicosView(request,pk):
+    bajaPunto = get_object_or_404(PuntoTuristico, pk = pk)
+    bajaPunto.delete()
+    
+    return redirect('administracion:listaPuntosTuristicos')
+
+    #return render(request, 'puntosTuristicos/visualizarPuntoTuristico.html')
 
 
-def bajaPuntoTuristicosView(request):
-    return HttpResponse('Aca es la pagina de dar de baja Puntos')
+
 
 
 #Definicion de Recorridos;
