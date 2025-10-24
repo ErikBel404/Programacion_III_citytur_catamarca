@@ -20,6 +20,7 @@
             <figure>
               <img src="{{ punto.imagen.url }}" alt="imagen del punto turistico" width="60%" height="60%" />
             </figure>
+            <hr>
             <p>
               <span>Nombre:</span> {{ punto.nombre }}
             </p>
@@ -27,11 +28,14 @@
               <span>Ubicacion:</span> {{ punto.ubicacion }}
             </p>
             <p>
-              <span>Informacion:</span> {{ punto.informacion }}
+              <span>Informacion:</span> <div class="campInfo">{{ punto.informacion }}</div>
             </p>
-            <br />
-            <a href="{% url 'administracion:bajaPuntosTuristico' punto.id %}">Eliminar</a>
-            <a href="{% url 'administracion:modificarPuntosTuristicos' punto.id %}">Modificar</a>
+            <hr>
+            <div class="contBtn">
+              <a class="btnP btnModificarP" href="{% url 'administracion:modificarPuntosTuristicos' punto.id %}">Modificar</a>
+              <a class="btnP btnEliminarP" href="{% url 'administracion:bajaPuntosTuristico' punto.id %}">Eliminar</a>
+              
+            </div>
           </div>
         {% endfor %}
       </div>

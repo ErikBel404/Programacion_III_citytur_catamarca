@@ -48,11 +48,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   form.addEventListener('submit', function(event) {
-      if (inputArchivo.files.length === 0) {
-        event.preventDefault(); 
+    const estamosEnModoCrear = !document.getElementById('modo-modificar');
+    const noHayArchivo = inputArchivo.files.length === 0;
+      if (estamosEnModoCrear && noHayArchivo) {
+        event.preventDefault();
         labelDelArchivo.classList.add('input-error');
         spanNombreArchivo.textContent = '¡Debes seleccionar un archivo!';
-      }
+    }
   });
 
 });

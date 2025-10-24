@@ -4,6 +4,11 @@ from apps.administracion.models import Transporte, Reportes, Recorrido, PuntoTur
 
 
 class PuntoTuristicoForm (forms.ModelForm):
+    def __init__(self,*args,**kwargs):
+            super().__init__(*args, **kwargs)
+            if self.instance and self.instance.pk:
+                self.fields['imagen'].required = False
+            
     class Meta:
         model = PuntoTuristico
         fields = [
@@ -37,7 +42,7 @@ class PuntoTuristicoForm (forms.ModelForm):
             'informacion': '📰 Informacion:',
             'imagen': '🏞️  Imagen:',
         }
-
+        
 
 
 class TransporteForm(forms.ModelForm):

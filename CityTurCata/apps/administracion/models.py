@@ -49,7 +49,7 @@ class PuntoTuristico (models.Model):
     nombre = models.CharField(max_length=20, blank=False, null=False)
     ubicacion = models.CharField(max_length=100, blank=False, null=False)
     informacion = models.TextField(max_length=500, blank=False, null=False)
-    imagen = models.FileField()
+    imagen = models.ImageField(upload_to='puntos/', blank=True, null=True)
 
     administrador = models.ManyToManyField (Administrador, related_name= 'puntosTuristicosAdministrador')
     
