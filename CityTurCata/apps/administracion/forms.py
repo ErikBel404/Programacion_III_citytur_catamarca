@@ -47,7 +47,26 @@ class TransporteForm(forms.ModelForm):
                   'capacidadTransporte', 'estadoTransporte']
 
         widgets = {
+            'dominioMatriculaTransporte': forms.TextInput(attrs={
+                'class': 'inputLabel',
+                'id' :'dominioTransporte'
+                }),
 
+            'capacidadTransporte': forms.NumberInput(attrs={
+                'class': 'inputLabel',
+                'id' :'capacidadTransporte'
+                }),
+
+            'estadoTransporte':forms.Select(attrs={
+                'class': 'inputLabel',
+                'id' :'estadoTransporte'
+                })
+        }
+
+        labels = {
+            'dominioMatriculaTransporte':'🚍 Dominio:',
+            'capacidadTransporte':'💺 Cantidad Asientos:',
+            'estadoTransporte':'📢Estado Transporte:'
         }
 
 

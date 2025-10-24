@@ -18,7 +18,7 @@ def listaTransportesView(request):
         'transportes' : transportesVista
     }
 
-    return render(request, '',contexto)
+    return render(request, 'transporte/visualizarTransporte.html',contexto)
 
 
 
@@ -37,10 +37,10 @@ def registraTransporteView(request):
         transporteForm = TransporteForm()
 
     contexto = {
-        'transporte': nuevoTransporte
+        'transportes': transporteForm
     }
 
-    return render(request,'',contexto)
+    return render(request,'transporte/formularioAgregarTransporte.html',contexto)
 
 
 
@@ -48,21 +48,21 @@ def modificarTransporteView(request,pk):
     TransporteViejo = get_object_or_404(Transporte, pk=pk)
 
     if request.method == 'POST':
-        transporteNuevoForm = TransporteForm(request.POST, istance=TransporteViejo)
+        transporteNuevoForm = TransporteForm(request.POST, instance=TransporteViejo)
         if transporteNuevoForm.is_valid():
             transporteNuevoForm.save(commit = True)
             messages.success(request, 'Se ha actulizado correctamente el transporte{}'.format(transporteNuevoForm))
 
-            return redirect('administrador:listaTransporte')
+            return redirect('administracion:listaTransporte')
         
     else:
         transporteNuevoForm = TransporteForm(instance=TransporteViejo)
 
     contexto = {
-        'transporte': transporteNuevoForm
+        'transportes': transporteNuevoForm
     }
 
-    return render(request,'',contexto)
+    return render(request,'transporte/formularioAgregarTransporte.html',contexto)
 
 
 
