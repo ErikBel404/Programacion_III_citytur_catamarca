@@ -22,6 +22,7 @@
             <figure>
               <img src="{% static 'img/modeloTransporte.png' %}" alt="imagen transporte" width="60%" height="60%" />
             </figure>
+            <hr>
             <p>
               <span>Matricula:</span> {{ transporte.dominioMatriculaTransporte }}
             </p>
@@ -31,9 +32,12 @@
             <p>
               <span>Estado de la Unidad:</span> {{ transporte.estadoTransporte }}
             </p>
-            <br />
-            <a href="{% url 'administracion:bajaTransporte' transporte.id %}">Eliminar</a>
-            <a href="{% url 'administracion:modificarTransporte' transporte.id %}">Modificar</a>
+            <hr>
+            <div class="contBtn">
+              <a class="btnP btnModificarP" href="{% url 'administracion:modificarTransporte'  transporte.id %}">Modificar</a>
+              <a class="btnP btnEliminarP" href="{% url 'administracion:bajaTransporte' transporte.id %}">Eliminar</a>      
+            </div>
+        
           </div>
         {% endfor %}
       </div>
