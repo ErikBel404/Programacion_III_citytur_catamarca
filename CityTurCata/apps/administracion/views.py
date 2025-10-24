@@ -144,7 +144,7 @@ def modificarPuntoTuristicosView(request, pk):
         puntoNuevoForm = PuntoTuristicoForm(instance=puntoViejo)
 
     contexto = {
-        'puntoModificado': puntoNuevoForm
+        'form': puntoNuevoForm
     }
     return render(request,
                   'puntosTuristicos/formularioAgregarPuntoTuristico.html', contexto)
