@@ -3,13 +3,14 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse
 from django.urls import reverse
 
-##importaciones de los modelos
+#importaciones de los modelos
 from apps.administracion.models import PuntoTuristico, Transporte, Recorrido, Reportes, Itinerario, Notificacion
 
 #importaciones de los form
 from .forms import TransporteForm, ReportesForm, RecorridoForm, NotificacionForm, PuntoTuristicoForm
 
-#Definicion de transporte
+#=========================================================Definicion de transporte de las vistas de transporte(lo separo asi por que me pierdo si no)=========================================================
+
 def listaTransportesView(request):
     transportesVista = Transporte.objects.all()
 
@@ -19,6 +20,8 @@ def listaTransportesView(request):
 
     return render(request, '',contexto)
 
+
+
 def registraTransporteView(request):
     nuevoTransporte = None
     if request.method == 'POST':
@@ -27,27 +30,50 @@ def registraTransporteView(request):
             nuevoTransporte = transporteForm.save(commit=False)
             nuevoTransporte.save()
             transporteForm.save_m2m()
-
-            messages.success(request, 'Se ha agregado correctamente el Punto Turistico {}'.format(nuevoTransporte))
-            #return #redirect(reverse(
-                #'', args=(nuevoTransporte.id,))
+            
+            return redirect('administracion:listaTransporte')
+           
     else:
         transporteForm = TransporteForm()
 
     contexto = {
-        'form': nuevoTransporte
+        'transporte': nuevoTransporte
     }
 
     return render(request,'',contexto)
 
-def modificarTransporteView(request):
-    return HttpResponse('Aca se modifica el transporte');
-
-def bajaTransporteView(request):
-    return HttpResponse('Aca se da de baja el transporte');
 
 
-#Definicion de reportes
+def modificarTransporteView(request,pk):
+    TransporteViejo = get_object_or_404(Transporte, pk=pk)
+
+    if request.method == 'POST':
+        transporteNuevoForm = TransporteForm(request.POST, istance=TransporteViejo)
+        if transporteNuevoForm.is_valid():
+            transporteNuevoForm.save(commit = True)
+            messages.success(request, 'Se ha actulizado correctamente el transporte{}'.format(transporteNuevoForm))
+
+            return redirect('administrador:listaTransporte')
+        
+    else:
+        transporteNuevoForm = TransporteForm(instance=TransporteViejo)
+
+    contexto = {
+        'transporte': transporteNuevoForm
+    }
+
+    return render(request,'',contexto)
+
+
+
+def bajaTransporteView(request,pk):
+    bajaTransporte = get_object_or_404(Transporte, pk=pk)
+    bajaTransporte.delete()
+
+    return redirect('administracion:listaTransporte')
+
+
+#=========================================================Definicion de transporte de las vistas de reportes(lo separo asi por que me pierdo si no)=========================================================
 
 def reportesView(request):
     nuevoReporte = None
@@ -67,6 +93,8 @@ def reportesView(request):
     }
 
     return render(request,'',contexto)
+
+
 
 def listaReportesView(request):
     reportesView = Reportes.objects.all()
@@ -92,8 +120,9 @@ def reporteConsultaReservasView(request):
 def reporteEstadistaPasajerosView(request):
     return HttpResponse('Aca va el reporte de estadisticas en un rango de fechas')
 
-#Definicion de puntos Turisticos;
 
+
+#=========================================================Definicion de transporte de las vistas de puntos Turisticos(lo separo asi por que me pierdo si no)=========================================================
 def listarPuntosTuristicosView(request):
     puntosTuristicosVista = PuntoTuristico.objects.all();
 
@@ -102,6 +131,8 @@ def listarPuntosTuristicosView(request):
     }
 
     return render(request, 'puntosTuristicos/visualizarPuntoTuristico.html',contexto)
+
+
 
 def crearPuntosTuristicosView(request):
     nuevoPuntoTuristico = None
@@ -123,6 +154,8 @@ def crearPuntosTuristicosView(request):
         'form': formPuntoTuristico
     }
     return render(request, 'puntosTuristicos/formularioAgregarPuntoTuristico.html', contexto )
+
+
 
 
 def modificarPuntoTuristicosView(request, pk):
@@ -148,19 +181,16 @@ def modificarPuntoTuristicosView(request, pk):
                   'puntosTuristicos/formularioAgregarPuntoTuristico.html', contexto)
 
     
+
 def bajaPuntoTuristicosView(request,pk):
     bajaPunto = get_object_or_404(PuntoTuristico, pk = pk)
     bajaPunto.delete()
     
     return redirect('administracion:listaPuntosTuristicos')
 
-    #return render(request, 'puntosTuristicos/visualizarPuntoTuristico.html')
 
 
-
-
-
-#Definicion de Recorridos;
+#=========================================================Definicion de transporte de las vistas de Recorridos(lo separo asi por que me pierdo si no)=========================================================
 
 def listarRecorridosView(request):
     recorridoView = Recorrido.objects.all();
@@ -170,6 +200,8 @@ def listarRecorridosView(request):
     }
 
     return render(request,'',contexto)
+
+
 
 def crearRecorridosView(request):
     nuevoRecorrido = None
@@ -191,17 +223,24 @@ def crearRecorridosView(request):
 
     return render(request,'', contexto)
 
+
+
     
 def modificarRecorridosView(request):
     return HttpResponse('Aqui se mostrara la pagina de modificaciones')
+
+
 
 def bajaRecorridosView(request):
     return HttpResponse('Aqui se de de baja recorridos')
 
 
-#vistas de itinerarios -- hasta aca toqe yo no tocar mas  haya de aca belicho
+#=========================================================Definicion de transporte de las vistas de Itinerarios(lo separo asi por que me pierdo si no)=========================================================
+
 def crearItinerarios (request):
     return HttpResponse ('aca sale la parte para crear un Itinerario')
+
+
 
 def listarItinerarios (request):
     itinerarioView = Itinerario.objects.all()
@@ -212,13 +251,18 @@ def listarItinerarios (request):
 
     return render(request,'',contexto)
 
+
+
 def modificarItinerarios (request):
     return HttpResponse ('aca esta la parte para modificar los Itinerarios')
+
+
+
 
 def bajaItinerarios (request):
     return HttpResponse ('aca esta la parte para dar de baja los Itinerarios')
 
-#vistas de notificaciones
+#=========================================================Definicion de transporte de las vistas de Notificacion(lo separo asi por que me pierdo si no)=========================================================
 def crearNotificacion (request):
     nuevoNotificacion = None
     if request.method == 'POST':
@@ -239,6 +283,8 @@ def crearNotificacion (request):
 
     return render(request,'',contexto)
         
+
+
 def listarNotificaciones (request):
     notificacionView = Notificacion.objects.all()
 
@@ -248,8 +294,13 @@ def listarNotificaciones (request):
 
     return render(request,'',contexto)
 
+
+
 def modificarNotificacion (request):
     return HttpResponse ('aca esta la parte para modificar las Notificaciones')
+
+
+
 
 def bajaNotificacion(request):
     return HttpResponse(f'Aca sale la notificacion que vamos a dar de baja')
