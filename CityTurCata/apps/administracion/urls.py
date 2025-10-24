@@ -25,7 +25,7 @@ urlpatterns = [
     #urls de puntos Turisticos
     path('puntosTuristicos/lista/', views.listarPuntosTuristicosView, name='listaPuntosTuristicos'),
     path('puntosTuristicos/agregar/', views.crearPuntosTuristicosView, name='agregaroPuntosTuristicos'),
-    path('puntosTuristicos/modificar/', views.modificarPuntoTuristicosView, name="modificarPuntosTuristico"),
+    path('puntosTuristicos/modificar/<int:pk>/', views.modificarPuntoTuristicosView, name="modificarPuntosTuristico"),
     path('puntosTuristicos/baja/', views.bajaPuntoTuristicosView, name="bajaPuntosTuristico"),
 
     #

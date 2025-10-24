@@ -30,8 +30,8 @@
               <span>Informacion:</span> {{ punto.informacion }}
             </p>
             <br />
-            <button name="Eliminar" class="btnEliminar" ><a href="">Eliminar</a></button>
-            <button name="Modificar" class="btnmodificar" ><a href="">Modificar</a></button>
+            <a href="">Eliminar</a>
+            <a href="{% url 'modificarPuntosTuristico' punto.id %}">Modificar</a>
           </div>
         {% endfor %}
       </div>

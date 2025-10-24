@@ -129,7 +129,7 @@ def crearPuntosTuristicosView(request):
 
 def modificarPuntoTuristicosView(request, pk):
 
-    puntoViejo= get_object_or_404(puntoViejo, pk=pk)
+    puntoViejo= get_object_or_404(PuntoTuristico, pk=pk)
 
     if request.method == 'POST':
         puntoNuevoForm = PuntoTuristicoForm(
@@ -138,8 +138,8 @@ def modificarPuntoTuristicosView(request, pk):
             puntoNuevoForm.save(commit=True)
             messages.success(request,
                            'Se ha actualizado correctamente el Punto Turistico {}'.format(puntoNuevoForm) )
-            return redirect(
-                reverse('', args=[puntoViejo.id]))
+            #return redirect(
+             #   reverse('', args=[puntoViejo.id]))
     else:
         puntoNuevoForm = PuntoTuristicoForm(instance=puntoViejo)
 
