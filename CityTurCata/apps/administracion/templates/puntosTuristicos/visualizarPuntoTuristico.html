@@ -13,24 +13,28 @@
 {% block content %}
   <main>
     <div id="" class="cosas_dentro_main">
-      <h2>Lista de puntos Turisticos</h2>
-      {% for punto in puntos %}
-        <div>
-          <figure>
-            <img src="{{ punto.imagen.url }}" alt="imagen del punto turistico" width="100%" height="100%" />
-          </figure>
-          <p>
-            <span>Nombre:</span> {{ punto.nombre }}
-          </p>
-          <p>
-            <span>Ubicacion:</span> {{ punto.ubicacion }}
-          </p>
-          <p>
-            <span>Informacion:</span> {{ punto.informacion }}
-          </p>
-          <br />
-        </div>
-      {% endfor %}
+      <h2 class="titulo">Lista de puntos Turisticos</h2>
+      <div class="contenedor-tarjetas">
+        {% for punto in puntos %}
+          <div class="tarjeta">
+            <figure>
+              <img src="{{ punto.imagen.url }}" alt="imagen del punto turistico" width="60%" height="60%" />
+            </figure>
+            <p>
+              <span>Nombre:</span> {{ punto.nombre }}
+            </p>
+            <p>
+              <span>Ubicacion:</span> {{ punto.ubicacion }}
+            </p>
+            <p>
+              <span>Informacion:</span> {{ punto.informacion }}
+            </p>
+            <br />
+            <button name="Eliminar" class="btnEliminar" ><a href="">Eliminar</a></button>
+            <button name="Modificar" class="btnmodificar" ><a href="">Modificar</a></button>
+          </div>
+        {% endfor %}
+      </div>
     </div>
   </main>
 {% endblock %}

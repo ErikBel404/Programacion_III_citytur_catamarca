@@ -4,12 +4,10 @@ from django.http import HttpResponse
 from django.urls import reverse
 
 ##importaciones de los modelos
-from apps.administracion.models import PuntoTuristico, Transporte, Recorrido, Reportes
+from apps.administracion.models import PuntoTuristico, Transporte, Recorrido, Reportes, Itinerario, Notificacion
 
 #importaciones de los form
-from .forms import TransporteForm, ReportesForm, RecorridoForm, NotificacionForm,PuntoTuristicoForm
-
-# Create your views here.
+from .forms import TransporteForm, ReportesForm, RecorridoForm, NotificacionForm, PuntoTuristicoForm
 
 #Definicion de transporte
 def listaTransportesView(request):
@@ -155,7 +153,7 @@ def modificarPuntoTuristicosView(request, pk):
 
 
 def bajaPuntoTuristicosView(request):
-    return HttpResponse('Aca es la pagina de los Recorridos')
+    return HttpResponse('Aca es la pagina de dar de baja Puntos')
 
 
 #Definicion de Recorridos;
@@ -194,7 +192,7 @@ def modificarRecorridosView(request):
     return HttpResponse('Aqui se mostrara la pagina de modificaciones')
 
 def bajaRecorridosView(request):
-    return HttpResponse('Aqui se mostrara la pagina de modificaciones')
+    return HttpResponse('Aqui se de de baja recorridos')
 
 
 #vistas de itinerarios -- hasta aca toqe yo no tocar mas  haya de aca belicho
@@ -202,13 +200,19 @@ def crearItinerarios (request):
     return HttpResponse ('aca sale la parte para crear un Itinerario')
 
 def listarItinerarios (request):
-    return HttpResponse('aca sale la lista de Itinerarios')
+    itinerarioView = Itinerario.objects.all()
+
+    contexto = {
+        'itinerario': itinerarioView
+    }
+
+    return render(request,'',contexto)
 
 def modificarItinerarios (request):
     return HttpResponse ('aca esta la parte para modificar los Itinerarios')
 
 def bajaItinerarios (request):
-    return HttpResponse ('aca esta la parte para modificar los Itinerarios')
+    return HttpResponse ('aca esta la parte para dar de baja los Itinerarios')
 
 #vistas de notificaciones
 def crearNotificacion (request):
@@ -232,10 +236,16 @@ def crearNotificacion (request):
     return render(request,'',contexto)
         
 def listarNotificaciones (request):
-    return HttpResponse('aca sale la lista de Notificaciones')
+    notificacionView = Notificacion.objects.all()
+
+    contexto  = {
+        'notificacion' : notificacionView 
+    }
+
+    return render(request,'',contexto)
 
 def modificarNotificacion (request):
     return HttpResponse ('aca esta la parte para modificar las Notificaciones')
 
-def buscarNotificacionParticular (request, id):
-    return HttpResponse(f'Aca sale un Notificacion particular con id:{id}')
+def bajaNotificacion(request):
+    return HttpResponse(f'Aca sale la notificacion que vamos a dar de baja')
