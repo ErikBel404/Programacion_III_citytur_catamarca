@@ -113,12 +113,9 @@ def crearPuntosTuristicosView(request):
             nuevoPuntoTuristico.save()
             # Guarda las relaciones ManyToMany (como el campo categorias)
             formPuntoTuristico.save_m2m()
-            messages.success(
-                request,
-                'Se ha agregado correctamente el Punto Turistico: {}'.format(nuevoPuntoTuristico))
-    
-            #return redirect(reverse(
-            #   '../', args=(nuevoPuntoTuristico.id,)))    
+
+            return redirect('administracion:listaPuntosTuristicos')
+   
     else:
         formPuntoTuristico = PuntoTuristicoForm()
         
@@ -139,8 +136,8 @@ def modificarPuntoTuristicosView(request, pk):
             puntoNuevoForm.save(commit=True)
             messages.success(request,
                            'Se ha actualizado correctamente el Punto Turistico {}'.format(puntoNuevoForm) )
-            #return redirect(
-             #   reverse('', args=[puntoViejo.id]))
+            
+            return redirect('administracion:listaPuntosTuristicos')
     else:
         puntoNuevoForm = PuntoTuristicoForm(instance=puntoViejo)
 
