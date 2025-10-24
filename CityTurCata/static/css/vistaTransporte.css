@@ -1,0 +1,15 @@
+
+body {
+    background: linear-gradient(rgba(227, 142, 21, 0.7)), url("../img/catamarcaNoche.jpg") top center/cover no-repeat;
+}
+
+.cosas_dentro_main {
+    background: var(--amarilloFuerte);
+    background: rgba(255, 204, 59, 0.6);
+    border-radius: 12px;
+    padding: 50px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 8px;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.5);
+}
