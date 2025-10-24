@@ -263,6 +263,17 @@ def bajaItinerarios (request):
     return HttpResponse ('aca esta la parte para dar de baja los Itinerarios')
 
 #=========================================================Definicion de transporte de las vistas de Notificacion(lo separo asi por que me pierdo si no)=========================================================
+def listarNotificaciones (request):
+    notificacionView = Notificacion.objects.all()
+
+    contexto  = {
+        'notificaciones' : notificacionView 
+    }
+
+    return render(request,'notificaciones/visualizarNotificaciones.html',contexto)
+
+
+
 def crearNotificacion (request):
     nuevoNotificacion = None
     if request.method == 'POST':
@@ -272,8 +283,8 @@ def crearNotificacion (request):
             nuevoNotificacion.save()
 
             notificacionForm.save_m2m()
-            messages.success(
-                request, 'Se agrego la notificacion de manera correcta: {}'.format(nuevoNotificacion))
+            
+            return redirect('administracion:listarNotificaciones')
     else:
         notificacionForm = NotificacionForm()
     
@@ -281,24 +292,26 @@ def crearNotificacion (request):
         'form':notificacionForm
     }
 
-    return render(request,'',contexto)
+    return render(request,'notificaciones/formularioAgregarNotificacion.html',contexto)
         
 
+def modificarNotificacion (request,pk):
+    notificacionVieja = get_object_or_404(Notificacion, pk=pk)
 
-def listarNotificaciones (request):
-    notificacionView = Notificacion.objects.all()
+    if request.method == 'POST':
+        notificacionNuevaForm = NotificacionForm(request.POST, instance=notificacionVieja)
+        if notificacionNuevaForm.is_valid():
+            notificacionNuevaForm.save(commit=True)
 
-    contexto  = {
-        'notificacion' : notificacionView 
+            return redirect('administracion:listarNotificaciones')
+    else:
+        notificacionNuevaForm = NotificacionForm(instance=notificacionVieja)
+
+    contexto = {
+        'notificacion':notificacionNuevaForm
     }
 
-    return render(request,'',contexto)
-
-
-
-def modificarNotificacion (request):
-    return HttpResponse ('aca esta la parte para modificar las Notificaciones')
-
+    return render(request,'notificaciones/formularioAgregarNotificacion',contexto)
 
 
 
