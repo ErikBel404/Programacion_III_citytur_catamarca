@@ -189,9 +189,9 @@ def crearRecorridosView(request):
         'form' : recorridoForm
     }
 
-    return render(request,'', contexto)
+    return render(request, 'recorrido/agregarRecorrido.html', contexto)
 
-    
+
 def modificarRecorridosView(request):
     return HttpResponse('Aqui se mostrara la pagina de modificaciones')
 
@@ -250,6 +250,7 @@ def listarNotificaciones (request):
 
 def modificarNotificacion (request):
     return HttpResponse ('aca esta la parte para modificar las Notificaciones')
+
 
 def bajaNotificacion(request):
     return HttpResponse(f'Aca sale la notificacion que vamos a dar de baja')
