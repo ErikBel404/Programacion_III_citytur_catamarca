@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Punto Turistico Crear - CityTur Catamarca
+{% endblock %}
+
+{% block head_css %}
+  <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <main>
+    <div id="" class="cosas_dentro_main">
+      <div id="formularioAgregar">
+        <label id="agregarPuntoTuristico"><strong>Agregar Punto Turistico</strong></label>
+
+        <form method="POST" enctype="multipart/form-data">
+          <fieldset>
+            {% csrf_token %}
+
+            <div class="contenedorLabelInput">
+              {{ form.nombreRecorrido.errors }}
+              {{ form.nombreRecorrido }}
+              <label for="{{ form.nombreRecorrido.id_for_label }}" class="campoLabel">{{ form.nombreRecorrido.label }}</label>
+            </div>
+
+            <div class="contenedorLabelInput">
+              {{ form.inicio.errors }}
+              {{ form.inicio }}
+              <label for="{{ form.inicio.id_for_label }}" class="campoLabel">{{ form.inicio.label }}</label>
+            </div>
+
+            <div class="contenedorLabelInput">
+              {{ form.final.errors }}
+              {{ form.final }}
+              <label for="{{ form.final.id_for_label }}" class="campoLabel">{{ form.final.label }}</label>
+            </div>
+
+            <div class="contenedorLabelInput">
+              {{ form.horarios.errors }}
+              {{ form.horarios }}
+              <label for="{{ form.horarios.id_for_label }}" class="campoLabel">{{ form.horarios.label }}</label>
+            </div>
+            <br>
+
+            <div class="acordeonGrupo">
+              <input type="checkbox" id="acordeon-1" class="acordeonInput" />
+              <!-- sin esto no funciona no tocar -->
+
+              <label for="acordeon-1" class="acordeonLabel">
+                <div class="">{{ form.puntosTuristicos.label }}</div>
+                <div class="acordeonFlecha">▼</div>
+              </label>
+
+              <div class="acordeonContenido">
+                <div class="checkboxItem">
+                  {{ form.puntosTuristicos.errors }}
+                  {{ form.puntosTuristicos }}
+                  <label for="{{ form.puntosTuristicos.id_for_label }}" class="campoLabel">{{ form.puntosTuristicos.label }}</label>
+                </div>
+              </div>
+            </div>
+
+  
+
+            <div id="botones-formularios">
+              <button type="submit" id="boton-aceptar">Aceptar</button>
+
+              <button type="reset" id="boton-cancelar">Cancelar</button>
+
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/PuntoPartidaPuntoFinalAgregar.js' %}"></script>
+{% endblock %}

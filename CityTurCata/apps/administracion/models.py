@@ -54,7 +54,7 @@ class PuntoTuristico (models.Model):
     administrador = models.ManyToManyField (Administrador, related_name= 'puntosTuristicosAdministrador')
     
     def __str__(self):
-        return f'Nombre:{self.nombre} Ubicacion:{self.ubicacion} Informacion:{self.informacion} imagen:{self.imagen}'
+        return f'{self.nombre}'
 
     
 class Recorrido (models.Model):

@@ -221,7 +221,8 @@ def crearRecorridosView(request):
         'form' : recorridoForm
     }
 
-    return render(request,'', contexto)
+    return render(request, 'recorrido/agregarRecorrido.html', contexto)
+
 
 
 
@@ -312,6 +313,7 @@ def modificarNotificacion (request,pk):
     }
 
     return render(request,'notificaciones/formularioAgregarNotificacion',contexto)
+
 
 
 
