@@ -33,6 +33,7 @@
               <span>Estado de la Unidad:</span> {{ transporte.estadoTransporte }}
             </p>
             <hr>
+            
             <div class="contBtn">
               <a class="btnP btnModificarP" href="{% url 'administracion:modificarTransporte'  transporte.id %}">Modificar</a>
               <a class="btnP btnEliminarP" href="{% url 'administracion:bajaTransporte' transporte.id %}">Eliminar</a>      

@@ -37,16 +37,15 @@ urlpatterns = [
 
     #
     #urls de itinerarios
-    path('itinerario/lista/', views.listarItinerarios, name='listarItinerarios'), 
-    path('itinerario/agregar/', views.crearItinerarios , name='agregarItinerario'), 
-    path('itinerario/modificar/', views.modificarItinerarios, name='modificarItinerarios'),
-    path("itinenrario/baja/", views.bajaItinerarios, name="bajaItinerario"),
+    path('itinerario/lista/', views.listarItinerariosView, name='listarItinerarios'), 
+    path('itinerario/agregar/', views.crearItinerariosView , name='agregarItinerario'), 
+    path('itinerario/modificar/', views.modificarItinerariosView, name='modificarItinerarios'),
+    path("itinenrario/baja/", views.bajaItinerariosView, name="bajaItinerario"),
 
     #
     #urls de notificacion
-    path('notificacion/lista/', views.listarNotificaciones , name='listarNotificaciones '), 
-    path('notificacion/agregar/', views.crearNotificacion, name='agregarNotificacion'), 
-    path('notificacion/modificar/', views.modificarNotificacion, name='modificarNotificacion'), 
-    path('notificacion/baja/',views.bajaNotificacion,name='bajaNotificacion')
- 
+    path('notificacion/lista/', views.listarNotificacionesView , name='listarNotificaciones '), 
+    path('notificacion/agregar/', views.crearNotificacionView, name='agregarNotificacion'), 
+    path('notificacion/modificar/', views.modificarNotificacionView, name='modificarNotificacion'), 
+    path('notificacion/baja/',views.bajaNotificacionView,name='bajaNotificacion')
 ]

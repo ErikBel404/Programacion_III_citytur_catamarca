@@ -63,7 +63,7 @@ def modificarTransporteView(request,pk):
     }
 
     return render(request,'transporte/formularioAgregarTransporte.html',contexto)
-    
+
 
 
 def bajaTransporteView(request,pk):
@@ -238,12 +238,12 @@ def bajaRecorridosView(request):
 
 #=========================================================Definicion de transporte de las vistas de Itinerarios(lo separo asi por que me pierdo si no)=========================================================
 
-def crearItinerarios (request):
+def crearItinerariosView (request):
     return HttpResponse ('aca sale la parte para crear un Itinerario')
 
 
 
-def listarItinerarios (request):
+def listarItinerariosView (request):
     itinerarioView = Itinerario.objects.all()
 
     contexto = {
@@ -254,17 +254,17 @@ def listarItinerarios (request):
 
 
 
-def modificarItinerarios (request):
+def modificarItinerariosView (request):
     return HttpResponse ('aca esta la parte para modificar los Itinerarios')
 
 
 
 
-def bajaItinerarios (request):
+def bajaItinerariosView (request):
     return HttpResponse ('aca esta la parte para dar de baja los Itinerarios')
 
 #=========================================================Definicion de transporte de las vistas de Notificacion(lo separo asi por que me pierdo si no)=========================================================
-def listarNotificaciones (request):
+def listarNotificacionesView (request):
     notificacionView = Notificacion.objects.all()
 
     contexto  = {
@@ -275,7 +275,7 @@ def listarNotificaciones (request):
 
 
 
-def crearNotificacion (request):
+def crearNotificacionView (request):
     nuevoNotificacion = None
     if request.method == 'POST':
         notificacionForm = NotificacionForm(request.POST)
@@ -290,13 +290,13 @@ def crearNotificacion (request):
         notificacionForm = NotificacionForm()
     
     contexto = {
-        'form':notificacionForm
+        'notificaciones':notificacionForm
     }
 
     return render(request,'notificaciones/formularioAgregarNotificacion.html',contexto)
         
 
-def modificarNotificacion (request,pk):
+def modificarNotificacionView (request,pk):
     notificacionVieja = get_object_or_404(Notificacion, pk=pk)
 
     if request.method == 'POST':
@@ -309,13 +309,15 @@ def modificarNotificacion (request,pk):
         notificacionNuevaForm = NotificacionForm(instance=notificacionVieja)
 
     contexto = {
-        'notificacion':notificacionNuevaForm
+        'notificaciones':notificacionNuevaForm
     }
 
     return render(request,'notificaciones/formularioAgregarNotificacion',contexto)
 
 
 
+def bajaNotificacionView(request,pk):
+    bajaNotificacion = get_object_or_404(Notificacion, pk=pk)
+    bajaNotificacion.delete()
 
-def bajaNotificacion(request):
-    return HttpResponse(f'Aca sale la notificacion que vamos a dar de baja')
+    return redirect('administracion:listarNotificaciones')

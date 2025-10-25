@@ -8,6 +8,9 @@
 {%block head_css%}
     <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
     <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+
+
 {%endblock%}
 
 {%block content%}
@@ -32,7 +35,7 @@
             <div class="contenedorLabelInput">
               {{ transportes.capacidadTransporte.errors }}
               {{ transportes.capacidadTransporte }}
-              <label for="{{ form.capacidadTransportes.id_for_label }}" class="campoLabel">{{ transportes.capacidadTransporte.label }}</label>
+              <label for="{{ transportes.capacidadTransportes.id_for_label }}" class="campoLabel">{{ transportes.capacidadTransporte.label }}</label>
             </div>
 
             <div class="contenedorLabelInput">
@@ -43,12 +46,11 @@
 
             <br />
 
-            <div id="botones-formularios">
-              <button type="submit" id="boton-aceptar">Aceptar</button>
-              <button type="reset" id="boton-cancelar">Cancelar</button>
-              <a href="registroreco.html"><button type="button" id="boton-atras">Atras</button></a>
+            <div class="contBtn">
+              <button type="submit" class="btnP btnModificarP">Aceptar</button>
+              <a class="btnP btnEliminarP" href="{% url 'administracion:listaTransporte'%}">Cancelar</a>      
             </div>
-          </fieldset>
+            </fieldset>
         </form>
       </div>
     </div>
