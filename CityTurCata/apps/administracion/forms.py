@@ -154,9 +154,21 @@ class RecorridoForm(forms.ModelForm):
 
 
 class NotificacionForm(forms.ModelForm):
-    model =Notificacion
-    fields = ['titulo', 'descripcion']
+    class Meta:
+        model =Notificacion
+        fields = ['titulo', 'descripcion', 'administrador', 'operario', 'itinerario']
 
-    widgets = {
+        widgets = {
+            'titulo': forms.TextInput(attrs={
+                'class' : 'inputLabel',
+                'id': 'tituloNotificacion'}),
 
-    }
+            'descripcion': forms.Textarea(attrs={
+                'class' : 'inputLabel',
+                'id': 'tituloNotificacion'}),
+        }
+
+        labels = {
+            'titulo':'📎Titulo',
+            'descripcion': '📄Descripcion De la Notificacion'
+        }
