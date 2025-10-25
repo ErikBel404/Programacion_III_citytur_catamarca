@@ -87,18 +87,32 @@ class ReportesForm(forms.ModelForm):
 
 
 class RecorridoForm(forms.ModelForm):
+    # Campo INICIO: Usar el argumento 'widget=' para aplicar el ID personalizado
     inicio = forms.ModelChoiceField(
         queryset=PuntoTuristico.objects.all(),
         required=True,
         label='📌Punto partida:',
-        empty_label=""
+        empty_label="",
+        # AHORA SÍ: Usar el argumento 'widget'
+        widget=forms.Select(attrs={
+            'class': 'inputLabel',
+            'id': 'partidaNuevaPC', # <--- ID personalizado aplicado
+            'required': True
+        })
     )
 
+    # Campo FINAL: Usar el argumento 'widget=' para aplicar el ID personalizado
     final = forms.ModelChoiceField(
         queryset=PuntoTuristico.objects.all(),
         required=True,
         label='📌Final recorrido:',
-        empty_label=""
+        empty_label="",
+        # AHORA SÍ: Usar el argumento 'widget'
+        widget=forms.Select(attrs={
+            'class': 'inputLabel',
+            'id': 'finalNuevoPc', # <--- ID personalizado aplicado
+            'required': True
+        })
     )
 
     class Meta:
@@ -107,32 +121,21 @@ class RecorridoForm(forms.ModelForm):
                   'puntosTuristicos', 'inicio', 'final']
 
         widgets = {
+            # Los otros widgets que no se definieron explícitamente en la clase.
             'nombreRecorrido': forms.TextInput(attrs={
                 'class': 'inputLabel',
                 'id': 'nombre-recorrido',
                 'maxlength': 70,
                 'required': True
             }),
-            'inicio': forms.Select(attrs={
-                'class': 'inputLabel',
-                'id': 'partidaNuevaPC', # ID de tu HTML estático
-                'required': True
-            }),
-            'final': forms.Select(attrs={
-                'class': 'inputLabel',
-                'id': 'finalNuevoPc', # ID de tu HTML estático
-                'required': True
-            }),
             'horarios': forms.TimeInput(attrs={
-                'type': 'time', # Para que sea un input de hora
+                'type': 'time', 
                 'class': 'inputLabel',
                 'id': 'hora-recorrido',
                 'required': True
             }),
             'puntosTuristicos': forms.CheckboxSelectMultiple(attrs={
-                # Django pondrá los <li> y <label> automáticamente
-                # No podemos agregar la clase 'checkboxItem' aquí
-                # pero los pondremos dentro del acordeón
+                # ...
             }),
         }
         
@@ -142,6 +145,7 @@ class RecorridoForm(forms.ModelForm):
             'puntosTuristicos': '📌Puntos turisticos:', 
         }
 
+    # ... (El método save() se mantiene igual)
     def save(self, commit=True):
         recorrido = super().save(commit=False)
         recorrido.inicio = self.cleaned_data['inicio'].nombre
