@@ -6,6 +6,18 @@
     --amarilloClarito: #ffcc3b;
 }
 
+.titulo
+{
+    background: none;
+    font-weight: bold;
+    font-size: 150%;
+    padding: 0px;
+    border: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
 body {
     background: linear-gradient(rgba(227, 142, 21, 0.7)), url("../img/catamarcaNoche.jpg") top center/cover no-repeat;
 }
@@ -65,7 +77,7 @@ form select{
     gap: 10px;
 }
 
-
+/*
 #botones-formularios button {
     width: 100%;
     padding: 10px;
@@ -108,7 +120,7 @@ form select{
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-
+*/
 /*inputs y select normales*/
 .contenedorLabelInput {
     position: relative;
@@ -258,8 +270,6 @@ select option:disabled {
     font-weight: bold;
 }
 
-/*agregacion de belicho*/
-
 
 input[type="time"]:invalid {
     color: transparent;
@@ -268,4 +278,48 @@ input[type="time"]:invalid {
 
 input[type="time"]:valid {
     color: #000; 
+}
+
+.contenedor-imagen-con-fondo {
+    background-color: white; 
+    border-radius: 15px;    
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2); 
+    padding: 15px;          
+    width: 70%;             
+    margin-top: 20px;       
+    margin-bottom: 20px;     
+    
+    display: flex;           
+    flex-direction: column;  
+    align-items: center;     
+}
+
+.contenedor-imagen-con-fondo img {
+    max-width: 100%;      
+    height: auto;
+    border-radius: 10px;   
+    margin-bottom: 10px;   
+    display: block;       
+}
+
+.contenedor-imagen-con-fondo .pie-de-foto {
+    font-size: 1em;         
+    color: var(--verdeAgua); 
+    font-weight: bold;       
+    text-align: center;     
+    margin: 0;             
+    padding: 5px 10px;      
+
+}
+#modo-modificar
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btnModificarP
+{
+    border-top: none;
+    border-right: none;
+    border-left: none;
 }

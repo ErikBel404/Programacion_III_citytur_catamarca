@@ -7,8 +7,8 @@ urlpatterns = [
     #urls de transporte
     path('transportes/lista/',views.listaTransportesView, name='listaTransporte'),
     path('transportes/agregar/',views.registraTransporteView, name='agregarTransporte'),
-    path('transporte/modificar/', views.modificarTransporteView, name='modificarTransporte'),
-    path("transporte/baja/", views.bajaTransporteView, name="bajaTransporte"),
+    path('transporte/modificar/<int:pk>/', views.modificarTransporteView, name='modificarTransporte'),
+    path("transporte/baja/<int:pk>/", views.bajaTransporteView, name="bajaTransporte"),
     
     #
     #urls de reportes
