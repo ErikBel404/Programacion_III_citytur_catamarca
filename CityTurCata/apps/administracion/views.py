@@ -224,12 +224,9 @@ def crearRecorridosView(request):
     return render(request, 'recorrido/agregarRecorrido.html', contexto)
 
 
-<<<<<<< HEAD
-=======
 
 
     
->>>>>>> 5452db4eb0aca09ac4dd0b26e73e213156f04a5c
 def modificarRecorridosView(request):
     return HttpResponse('Aqui se mostrara la pagina de modificaciones')
 
