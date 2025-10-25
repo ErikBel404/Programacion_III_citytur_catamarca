@@ -87,30 +87,30 @@ class ReportesForm(forms.ModelForm):
 
 
 class RecorridoForm(forms.ModelForm):
-    # Campo INICIO: Usar el argumento 'widget=' para aplicar el ID personalizado
+    
     inicio = forms.ModelChoiceField(
         queryset=PuntoTuristico.objects.all(),
         required=True,
         label='📌Punto partida:',
         empty_label="",
-        # AHORA SÍ: Usar el argumento 'widget'
+        
         widget=forms.Select(attrs={
             'class': 'inputLabel',
-            'id': 'partidaNuevaPC', # <--- ID personalizado aplicado
+            'id': 'partidaNuevaPC', 
             'required': True
         })
     )
 
-    # Campo FINAL: Usar el argumento 'widget=' para aplicar el ID personalizado
+    
     final = forms.ModelChoiceField(
         queryset=PuntoTuristico.objects.all(),
         required=True,
         label='📌Final recorrido:',
         empty_label="",
-        # AHORA SÍ: Usar el argumento 'widget'
+        
         widget=forms.Select(attrs={
             'class': 'inputLabel',
-            'id': 'finalNuevoPc', # <--- ID personalizado aplicado
+            'id': 'finalNuevoPc', 
             'required': True
         })
     )
@@ -121,7 +121,7 @@ class RecorridoForm(forms.ModelForm):
                   'puntosTuristicos', 'inicio', 'final']
 
         widgets = {
-            # Los otros widgets que no se definieron explícitamente en la clase.
+            
             'nombreRecorrido': forms.TextInput(attrs={
                 'class': 'inputLabel',
                 'id': 'nombre-recorrido',
@@ -135,7 +135,7 @@ class RecorridoForm(forms.ModelForm):
                 'required': True
             }),
             'puntosTuristicos': forms.CheckboxSelectMultiple(attrs={
-                # ...
+               
             }),
         }
         
