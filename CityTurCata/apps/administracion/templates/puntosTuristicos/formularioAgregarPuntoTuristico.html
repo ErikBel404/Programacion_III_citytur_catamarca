@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Punto Turistico Crear - CityTur Catamarca
+{% endblock %}
+
+{% block head_css %}
+  <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <main>
+    <div id="" class="cosas_dentro_main">
+      <div id="formularioAgregar">
+        
+        <form method="POST" enctype="multipart/form-data">
+          <fieldset>
+            
+            {% csrf_token %}
+            <div class="contenedorLabelInput">
+              {% if form.instance.imagen %}
+                  <div id="modo-modificar">
+                      <h2 class="titulo">Modificar de puntos Turisticos</h2>
+                      
+                      <div class="contenedor-imagen-con-fondo"> <img src="{{ form.instance.imagen.url }}" alt="Imagen actual">
+                          <p class="pie-de-foto">Imagen Actual:</p> </div>
+
+                  </div>
+              {% endif %}
+
+            </div>
+            <div class="contenedorLabelInput">
+              {{ form.nombre.errors }}
+              {{ form.nombre }}
+              <label for="{{ form.nombre.id_for_label }}" class="campoLabel">{{ form.nombre.label }}</label>
+            </div>
+
+            <div class="contenedorLabelInput">
+              {{ form.ubicacion.errors }}
+              {{ form.ubicacion }}
+              <label for="{{ form.ubicacion.id_for_label }}" class="campoLabel">{{ form.ubicacion.label }}</label>
+            </div>
+
+            <div class="contenedorLabelInput">
+              {{ form.informacion.errors }}
+              {{ form.informacion }}
+              <label for="{{ form.informacion.id_for_label }}" class="campoLabel">{{ form.informacion.label }}</label>
+            </div>
+
+
+            <div class="contenedorLabelInput">
+              {{ form.imagen.errors }}
+              <label for="{{ form.imagen.id_for_label }}" class="inputLabel labelParaArchivo">
+                <span class="campoLabel">{{ form.imagen.label }}</span>
+                <span id="nombreArchivoSeleccionado" class="nombreArchivoEnCaja">No se eligió ningún archivo</span>
+              </label>
+              {{ form.imagen }}
+            </div>
+
+
+            <br />
+
+            <div id="botones-formularios">
+              <button type="submit" class="btnP btnModificarP">Aceptar</button>
+              <a class="btnP btnEliminarP" href="{% url 'administracion:listaPuntosTuristicos' %}">Cancelar</a>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/controladorAñadirPuntoTuristico.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Punto Turistico - CityTur Catamarca
+{% endblock %}
+
+{% block head_css %}
+  <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <main>
+    <div id="" class="cosas_dentro_main">
+      <h2 class="titulo">Lista de puntos Turisticos</h2>
+      <div class="contenedor-tarjetas">
+        {% for punto in puntos %}
+          <div class="tarjeta">
+            <figure>
+              <img src="{{ punto.imagen.url }}" alt="imagen del punto turistico" width="60%" height="60%" />
+            </figure>
+            <hr>
+            <p>
+              <span>Nombre:</span> {{ punto.nombre }}
+            </p>
+            <p>
+              <span>Ubicacion:</span> {{ punto.ubicacion }}
+            </p>
+            <p>
+              <span>Informacion:</span> <div class="campInfo">{{ punto.informacion }}</div>
+            </p>
+            <hr>
+            <div class="contBtn">
+              <a class="btnP btnModificarP" href="{% url 'administracion:modificarPuntosTuristicos' punto.id %}">Modificar</a>
+              <a class="btnP btnEliminarP" href="{% url 'administracion:bajaPuntosTuristico' punto.id %}">Eliminar</a>
+              
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/controladorAñadirPuntoTuristico.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,87 @@
+#agregarPuntoTuristico {
+    background: none;
+    font-weight: bold;
+    font-size: 150%;
+    padding: 0px;
+    border: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.inputArchivoOculto {
+    display: none;
+}
+
+.labelParaArchivo {
+    display: block;  
+    cursor: pointer;
+    position: relative; 
+    min-height: 50px; 
+    padding: 10px 15px; 
+    box-sizing: border-box;
+}
+
+
+
+
+.nombreArchivoEnCaja {
+    display: block;
+    color: #333; 
+    font-size: 12px;
+    position: absolute;
+    bottom: 10px; 
+    left: 15px;
+    right: 15px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: none; 
+
+    opacity: 0; 
+    
+    transition: opacity 0.2s ease-in-out;
+}
+
+
+.labelParaArchivo .campoLabel {
+
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: #777; 
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
+    
+    
+}
+
+
+
+.labelParaArchivo.archivo-valido .nombreArchivoEnCaja {
+    opacity: 1; 
+}
+
+
+.labelParaArchivo.input-error .nombreArchivoEnCaja {
+    color: #D93025; 
+    opacity: 1;
+}
+
+
+.labelParaArchivo.archivo-valido .campoLabel,
+.labelParaArchivo.input-error .campoLabel,
+.labelParaArchivo.is-focused .campoLabel {
+    top: 5px; 
+    font-size: 0.75em; 
+}
+
+
+.labelParaArchivo.archivo-valido .campoLabel,
+.labelParaArchivo.is-focused .campoLabel {
+    color: var(--verdeAgua); 
+}
+
+.labelParaArchivo.input-error .campoLabel {
+    color: #D93025 !important; 
+}

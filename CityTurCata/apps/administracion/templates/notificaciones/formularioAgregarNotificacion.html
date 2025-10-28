@@ -1,0 +1,61 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block title%}
+    Notificaciones Crear - CityTur Catamarca
+{%endblock%}
+
+{%block head_css%}
+    <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+{%endblock%}
+
+{%block content%}
+<main>
+    <div id="" class="cosas_dentro_main">
+      <div id="formularioAgregar">
+        
+        <form method="POST">
+          <fieldset>
+            
+            {% csrf_token %}
+
+            <label id="agregarRecorrido"><strong>Crear Notificaciones</strong></label>
+
+
+            <div class="contenedorLabelInput">
+              {{ notificaciones.dominioMatriculaTransporte.errors }}
+              {{ notificaciones.dominioMatriculaTransporte }}
+              <label for="{{ notificaciones.dominioMatriculaTransporte.id_for_label }}" class="campoLabel">{{ transportes.dominioMatriculaTransporte.label }}</label>
+            </div>
+
+            <div class="contenedorLabelInput">
+              {{ notificaciones.capacidadTransporte.errors }}
+              {{ notificaciones.capacidadTransporte }}
+              <label for="{{ notificaciones.capacidadTransportes.id_for_label }}" class="campoLabel">{{ transportes.capacidadTransporte.label }}</label>
+            </div>
+
+            <div class="contenedorLabelInput">
+              {{ transportes.estadoTransporte.errors }}
+              {{ transportes.estadoTransporte }}
+              <label for="{{ transportes.estadoTransporte.id_for_label }}" class="campoLabel">{{ transportes.estadoTransporte.label }}</label>
+            </div>
+
+            <br />
+
+            <div id="botones-formularios">
+              <button type="submit" id="boton-aceptar">Aceptar</button>
+              <button type="reset" id="boton-cancelar">Cancelar</button>
+              <a href="registroreco.html"><button type="button" id="boton-atras">Atras</button></a>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </main>
+
+{%endblock%}
+
+{%block js%}
+
+{%endblock%}

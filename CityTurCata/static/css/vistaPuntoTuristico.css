@@ -1,0 +1,149 @@
+:root {
+    --verdeAgua: #0c7968;
+    --naranja: rgb(227, 142, 21);
+    --amarilloFuerte: #fab701;
+    --blancoCalido: #f1f1f1;
+    --amarilloClarito: #ffcc3b;
+}
+
+.titulo
+{
+    background: none;
+    font-weight: bold;
+    font-size: 150%;
+    padding: 0px;
+    border: none;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+
+.contenedor-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
+  padding: 20px; /* Espacio alrededor del grupo */
+  
+}
+
+
+.tarjeta {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; 
+  background-color: #ffffff;
+  color: gray;
+  padding: 10px;
+  padding-left: 10px;
+}
+.tarjeta:hover
+{
+    transform: scale(1.02);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+.tarjeta figure {
+  margin: 0; 
+}
+
+
+.tarjeta img {
+  width: 100%; 
+  height: 200px; 
+  object-fit: cover; 
+  display: block; 
+  border-radius: 10px;
+}
+
+/* 4. El texto de la tarjeta */
+.tarjeta-info {
+  padding: 15px;
+
+}
+
+.tarjeta-info p {
+  margin: 0 0 10px; 
+}
+.tarjeta-info p span {
+  font-weight: bold;
+}
+
+@media (max-width: 1200px) {
+  .contenedor-tarjetas {
+    /* ...pon 2 columnas */
+    grid-template-columns: repeat(2, 1fr); /* O 2fr, como tenías */
+  }
+}
+
+/* 2. Cuando la pantalla sea AÚN MÁS PEQUEÑA de 700px */
+@media (max-width: 750px) {
+  .contenedor-tarjetas {
+    /* ...pon 1 sola columna */
+    grid-template-columns: 1fr;
+  }
+}
+.contBtn
+{
+  display: flex;
+  justify-content: center;
+}
+
+.btnP
+{
+  padding: 8px 16px;
+
+  
+  color: white;
+  border-radius: 5px;
+  margin-right: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  
+}
+span
+{
+  font-weight: bold;
+  text-transform: capitalize;
+}
+.btnEliminarP
+{
+  background-color: #e74c3c;
+  border-bottom: 3px solid #c0392b;
+  text-decoration: none !important;
+}
+.btnEliminarP:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px);
+}
+.btnModificarP
+{
+  background-color: #2ecc71;
+  border-bottom: 3px solid #27ae60;
+  text-decoration: none !important;
+  outline: none;
+}
+.btnModificarP:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px);
+}
+.btnP:active {
+    transform: translateY(1px); /* Hunda el botón al hacer clic */
+    box-shadow: none;
+}
+.campInfo
+{
+    height: 100px; /* <-- ¡Ajusta esta altura a tu gusto! */
+    
+    /* 2. Muestra un scroll si el texto se desborda */
+    overflow-y: auto; 
+    
+    /* 3. (Opcional) Un pequeño espacio para que el scroll no se pegue al texto */
+    padding-right: 5px; 
+
+    /* Esto ayuda a que el padding no afecte la altura total */
+    box-sizing: border-box;
+}

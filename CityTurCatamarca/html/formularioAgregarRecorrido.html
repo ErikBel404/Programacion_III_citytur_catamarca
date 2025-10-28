@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="authores" content="erick:1744-emir:1723-alejo:1713, initial-scale=1.0">
@@ -7,383 +8,161 @@
 
     <link rel="icon" href="../static/img/Logo City Tour.png" type="image/x-icon">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/base.css">
     <link rel="stylesheet" href="../static/css/formularioAgregarRecorrido.css">
 
-    
+
 </head>
+
 <body>
-        <div class="pc">
-            <header class="jc-between displayflex headerbloqueado">
-                <div id="logoheader">
-                    <img src="../static/img/Logo City Tour.png" alt="logocitytour">
-                    <h1>City-Tour  <br> Catamarca</h1>
-                </div>
-                <div id="abajoheader">
-                    <div id="navheader">
-                        <nav>
-                            <a href="home.html">Home</a>
-                            <a href="registroreco.html">Registro de Recorrido</a>
-                            <a href="registroReserva.html">Reservar Recorrido</a>
-                        </nav>
-                    </div>
-                    <div id="perfilUsuario">
-                        <button> <img src="../static/img/usericon.svg" alt=""></button>
-                    </div>
-                </div>
-            
-            
-            </header>
-            <main>
-                <div id="" class="margentop250 cosas_dentro_main">
-                    <div id="formularioAgregar">
-                        <form action="#" method="get">
-                            <fieldset>
-                                <label id="agregarRecorrido"><strong>Agregar Recorrido</strong></label> 
-                                
-                                <br>
 
-                                <div class="gruponombre">
-                                    <label for="nombre-recorrido">🚌&nbsp;Ingrese&nbsp;el&nbsp;nombre&nbsp;del&nbsp;recorrido: </label>
-                                    <input type="text" name="nombre-recorrido" id="nombre-recorrido" required maxlength="70">
-                                </div>
-                                
-                                <br>
-                                   
-                                <div class="grupopartida">
-                                    <label for="partida" id="labelpartida">📌&nbsp;Puntos&nbsp;de&nbsp;partida:&nbsp;</label>
-                                    <select name="partida" id="partidaNuevaPC" required size="1">
-                                        <option value="0" hidden>Elija </option>
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                    </select>
-                                </div>
-        
-                                <br>
-                                
-                                <div class="grupointeres">
-                                    <label for="interes" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes: </label>
-                                    <select name="interes" id="interes" multiple required size="2">
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                    </select>
-                                </div>
-
-                                <br>
-
-                                <div class="grupofinal">
-                                    <label for="final" id="labelfinal">📌&nbsp;Final&nbsp;del&nbsp;recorrido:&nbsp; </label>
-                                    <select name="final" id="finalNuevoPc" required size="1">
-                                        <option value="0" hidden>Elija</option>
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                    </select>
-                                </div>
-
-                                <br>
-
-                                <div class="grupohora">
-                                    <label for="hora-recorrido" id="labelhora">🕑&nbsp;Hora&nbsp;del&nbsp;recorrido: </label>
-                                    <input type="time" name="hora-recorrido" id="hora-recorrido"  required> 
-                                </div>
-
-                                <br>
-
-                                <div class="grupofecha">
-                                    <label for="fecha-recorrido" id="labelFecha-reco"> 📅&nbsp;Fecha&nbsp;del&nbsp;recorrido:&nbsp;</label>
-                                    <select name="fecha-recorrido" id="fecha-recorrido" required multiple size="2">
-                                        <option value="0" hidden>Elija</option>
-                                        <option value="1">Lunes</option>
-                                        <option value="2">Martes</option>
-                                        <option value="3">Miercoles</option>
-                                        <option value="4">Jueves</option>
-                                        <option value="5">Viernes</option>
-                                        <option value="6">Sabado</option>
-                                        <option value="7">Domingo</option>
-                                    </select>
-                                </div>
-
-                                <br>
-                                
-                                
-                                
-                                <div id="botones-formularios">
-                                    <button type="submit" id="boton-aceptar">Aceptar</button>
-                                    
-                                    <button type="reset" id="boton-cancelar">Cancelar</button>
-                                    
-                                    <a href="registroreco.html">
-                                        <button type="button" id="boton-atras">Atras</button>
-                                    </a>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </main>
+    <header class="jc-between displayflex headerbloqueado">
+        <div id="logoheader">
+            <img src="../static/img/Logo City Tour.png" alt="logocitytour">
+            <h1>City-Tour <br> Catamarca</h1>
+        </div>
+        <div id="abajoheader">
+            <div id="navheader">
+                <nav>
+                    <a href="home.html">Home</a>
+                    <a href="registroreco.html">Registro de Recorrido</a>
+                    <a href="registroReserva.html">Reservar Recorrido</a>
+                </nav>
+            </div>
+            <div id="perfilUsuario">
+                <button> <img src="../static/img/usericon.svg" alt=""></button>
+            </div>
         </div>
 
-    
 
-        <div class="tablet">
-            <header>
-                <div id="headertablet">
-                    <div id="tabletarriba">
-                        <div id="logoheader">
-                            <img src="../static/img/Logo City Tour.png" alt="logocitytour">
-                            <h1>City-Tour  <br> Catamarca</h1>
-                        </div>     
+    </header>
+    <main>
+        <div id="" class=" cosas_dentro_main">
+            <div id="formularioAgregar">
+                <form action="#" method="get">
+                    <fieldset>
+                        <label id="agregarRecorrido"><strong>Agregar Recorrido</strong></label>
 
-                        <div id="perfilUsuario" class="botontablet">
-                            <button> <img src="../static/img/usericon.svg" alt=""></button>
+
+                        <div class="contenedorLabelInput">
+                            <input type="text" name="nombre-recorrido" id="nombre-recorrido" class="inputLabel" required
+                                maxlength="70">
+                            <label for="nombre-recorrido" class="campoLabel">🚌&nbsp;Ingrese&nbsp;recorrido: </label>
                         </div>
-                    </div>
 
-                    <div id="abajotablet">
-                        <nav>
-                            <a href="home.html">Home</a>
-                            <a href="registroreco.html">Registro de Recorrido</a>
-                            <a href="registroReserva.html">Reservar Recorrido</a>
-                        </nav>
-                    </div>
-                </div>
-                    
-            </header>
-            <main>
-                <div id="" class="margentop250 cosas_dentro_main">
-                    <div id="formularioAgregar">
-                        <form action="#" method="get">
-                            <fieldset>
-                                <label id="agregarRecorrido"><strong>Agregar Recorrido</strong></label> 
-                                
-                                <br>
+                        <div class="contenedorLabelInput">
+                            <select name="partida" id="partidaNuevaPC" class="inputLabel" required size="1">
+                                <option value="" disabled selected hidden></option>
+                                <option value="1">opcion1</option>
+                                <option value="2">opcion2</option>
+                                <option value="3">opcion3</option>
+                            </select>
+                            <label for="partida" id="labelpartida"
+                                class="campoLabel">📌&nbsp;Punto&nbsp;de&nbsp;partida:&nbsp;</label>
 
-                                <div class="gruponombre">
-                                    <label for="nombre-recorrido">🚌&nbsp;Ingrese&nbsp;el&nbsp;nombre&nbsp;del&nbsp;recorrido: </label>
-                                    <input type="text" name="nombre-recorrido" id="nombre-recorrido" required maxlength="70">
+                        </div><br>
+
+
+                        <div class="acordeonGrupo">
+                            <input type="checkbox" id="acordeon-1" class="acordeonInput">
+                            <!--sin esto no funciona no tocar-->
+
+                            <label for="acordeon-1" class="acordeonLabel">
+                                <div class="">📌&nbsp;Puntos&nbsp;turisticos:</div>
+                                <div class="acordeonFlecha">▼</div> <!-- la flecha que tanto rompia la pija belicho-->
+                            </label>
+
+                            <div class="acordeonContenido">
+                                <div class="checkboxItem">
+                                    <input type="checkbox" id="chk-1" name="interes">
+                                    <label for="chk-1">Punto 1</label>
                                 </div>
-                                
-                                <br>
-                                   
-                                <div class="grupopartida">
-                                    <label for="partida" id="labelpartida">📌&nbsp;Puntos&nbsp;de&nbsp;partida:&nbsp;</label>
-                                    <select name="partida" id="partidaNuevaTablet" required size="1">
-                                        <option value="0" hidden>Elija </option>
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                    </select>
-                                </div>
-        
-                                <br>
-                                
-                                <div class="grupointeres">
-                                    <label for="interes" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes: </label>
-                                    <select name="interes" id="interes" multiple required size="2">
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                    </select>
-                                </div>
+                            </div>
+                        </div>
 
-                                <br>
+                        <div class="contenedorLabelInput">
+                            <select name="final" id="finalNuevoPc" class="inputLabel" required size="1">
+                                <option value="" disabled selected hidden></option>
+                                <option value="1">opcion1</option>
+                                <option value="2">opcion2</option>
+                                <option value="3">opcion3</option>
+                            </select>
+                            <label for="final" id="labelfinal" class="campoLabel">📌&nbsp;Final&nbsp;recorrido:&nbsp;
+                            </label>
+                        </div>
 
-                                <div class="grupofinal">
-                                    <label for="final" id="labelfinal">📌&nbsp;Final&nbsp;del&nbsp;recorrido:&nbsp; </label>
-                                    <select name="final" id="finalNuevoTablet" required size="1">
-                                        <option value="0" hidden>Elija</option>
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                    </select>
-                                </div>
 
-                                <br>
+                        <div class="contenedorLabelInput">
+                            <input type="time" name="hora-recorrido" id="hora-recorrido" class="inputLabel" required>
+                            <label for="hora-recorrido" id="labelhora" class="campoLabel">🕑&nbsp;Hora&nbsp;recorrido:
+                            </label>
+                        </div>
 
-                                <div class="grupohora">
-                                    <label for="hora-recorrido" id="labelhora">🕑&nbsp;Hora&nbsp;del&nbsp;recorrido: </label>
-                                    <input type="time" name="hora-recorrido" id="hora-recorrido"  required> 
-                                </div>
 
-                                <br>
+                        <div class="contenedorLabelInput">
+                            <select name="partida" id="fechaRecorrido" class="inputLabel" required size="1">
+                                <option value="" disabled selected hidden></option>
+                                <option value="1">Lunes</option>
+                                <option value="2">Martes</option>
+                                <option value="3">Miercoles</option>
+                                <option value="4">Jueves</option>
+                                <option value="5">Viernes</option>
+                                <option value="6">Sabado</option>
+                                <option value="7">Domingo</option>
+                            </select>
+                            <label for="partida" id="labelpartida"
+                                class="campoLabel">📅&nbsp;Fecha&nbsp;recorrido:&nbsp;</label>
+                        </div><br>
 
-                                <div class="grupofecha">
-                                    <label for="fecha-recorrido" id="labelFecha-reco"> 📅&nbsp;Fecha&nbsp;del&nbsp;recorrido:&nbsp;</label>
-                                    <select name="fecha-recorrido" id="fecha-recorrido" required multiple size="2">
-                                        <option value="0" hidden>Elija</option>
-                                        <option value="1">Lunes</option>
-                                        <option value="2">Martes</option>
-                                        <option value="3">Miercoles</option>
-                                        <option value="4">Jueves</option>
-                                        <option value="5">Viernes</option>
-                                        <option value="6">Sabado</option>
-                                        <option value="7">Domingo</option>
-                                    </select>
-                                </div>
 
-                                <br>
-                                
-                                                            
-                                <div id="botones-formularios">
-                                    <button type="submit" id="boton-aceptar">Aceptar</button>
-                                    
-                                    <button type="reset" id="boton-cancelar">Cancelar</button>
-                                    
-                                    <a href="registroreco.html">
-                                        <button type="button" id="boton-atras">Atras</button>
-                                    </a>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </main>
+                        <div id="botones-formularios">
+                            <button type="submit" id="boton-aceptar">Aceptar</button>
+
+                            <button type="reset" id="boton-cancelar">Cancelar</button>
+
+                            <a href="registroreco.html">
+                                <button type="button" id="boton-atras">Atras</button>
+                            </a>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
         </div>
+    </main>
 
-        <div class="celular">
-            <header>
-                <div id="headercelu">
-                    <div id="arribacelu">
-                        <div id="logoheader">
-                            <img src="../static/img/Logo City Tour.png" alt="logocitytour">
-                            <h1>City-Tour  <br> Catamarca</h1>
-                        </div>
-                        <div id="perfilUsuario">
-                                <button> <img src="../static/img/usericon.svg" alt=""></button>
-                        </div>
-                    </div>
-                    
-                    <div id="abajocelu">
-                        <nav>
-                            <ul>
-                                <li><a href="home.html">Home</a></li>
-                                <li><a href="registroreco.html">Registro de Recorrido</a></li>
-                                <li><a href="registroReserva.html">Reservar Recorrido</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            
-            </header>
-            <main>
-                <div id="" class="margentop250 cosas_dentro_main">
-                    <div id="formularioAgregar">
-                        <form action="#" method="get">
-                            <fieldset>
-                                <label id="agregarRecorrido"><strong>Agregar Recorrido</strong></label> 
-                                
-                                <br>
 
-                                <div class="gruponombre">
-                                    <label for="nombre-recorrido">🚌&nbsp;Ingrese&nbsp;el&nbsp;nombre&nbsp;del&nbsp;recorrido: </label>
-                                    <input type="text" name="nombre-recorrido" id="nombre-recorrido" required maxlength="70">
-                                </div>
-                                
-                                <br>
-                                   
-                                <div class="grupopartida">
-                                    <label for="partida" id="labelpartida">📌&nbsp;Puntos&nbsp;de&nbsp;partida:&nbsp;</label>
-                                    <select name="partida" id="partidaNuevaCelu" required size="1">
-                                        <option value="0" hidden>Elija </option>
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                    </select>
-                                </div>
-        
-                                <br>
-                                
-                                <div class="grupointeres">
-                                    <label for="interes" id="labelinteres">📌&nbsp;Puntos&nbsp;de&nbsp;interes: </label>
-                                    <select name="interes" id="interes" multiple required size="2">
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                    </select>
-                                </div>
 
-                                <br>
 
-                                <div class="grupofinal">
-                                    <label for="final" id="labelfinal">📌&nbsp;Final&nbsp;del&nbsp;recorrido:&nbsp; </label>
-                                    <select name="final" id="finalNuevoCelu" required size="1">
-                                        <option value="0" hidden>Elija</option>
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                    </select>
-                                </div>
 
-                                <br>
 
-                                <div class="grupohora">
-                                    <label for="hora-recorrido" id="labelhora">🕑&nbsp;Hora&nbsp;del&nbsp;recorrido: </label>
-                                    <input type="time" name="hora-recorrido" id="hora-recorrido"  required> 
-                                </div>
+    <footer>
+        <div id="abajafooter">
+            <div id="logosfooter4">
+                <img src="../static/img/catamarca_logo_turismo.png" alt="">
+            </div>
+            <div id="logosfooter1">
+                <img src="../static/img/logoCatamarca.png" alt="">
+            </div>
+            <div id="logosfooter2">
+                <img src="../static/img/SFVC-original-1024x351.png" alt="">
+            </div>
+            <div id="logosfooter3">
+                <img src="../static/img/logo1_no_bg.png" alt="logoCatamarca capitak">
 
-                                <br>
+            </div>
 
-                                <div class="grupofecha">
-                                    <label for="fecha-recorrido" id="labelFecha-reco"> 📅&nbsp;Fecha&nbsp;del&nbsp;recorrido:&nbsp;</label>
-                                    <select name="fecha-recorrido" id="fecha-recorrido" required multiple size="2">
-                                        <option value="0" hidden>Elija</option>
-                                        <option value="1">Lunes</option>
-                                        <option value="2">Martes</option>
-                                        <option value="3">Miercoles</option>
-                                        <option value="4">Jueves</option>
-                                        <option value="5">Viernes</option>
-                                        <option value="6">Sabado</option>
-                                        <option value="7">Domingo</option>
-                                    </select>
-                                </div>
-
-                                <br>
-                            
-                                <div id="botones-formularios">
-                                    <button type="submit" id="boton-aceptar">Aceptar</button>
-                                    
-                                    <button type="reset" id="boton-cancelar">Cancelar</button>
-                                    
-                                    <a href="registroreco.html">
-                                        <button type="button" id="boton-atras">Atras</button>
-                                    </a>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </main>
         </div>
+        <div id="derechosautor">
+            <p>
+                ©copy 2025-CityTour Catamarca
+            </p>
+        </div>
+    </footer>
 
-        <footer>
-                <div id="abajafooter">
-                    <div id="logosfooter4">
-                        <img src="../static/img/catamarca_logo_turismo.png" alt="">
-                    </div>
-                    <div id="logosfooter1">
-                        <img src="../static/img/logoCatamarca.png" alt="">
-                    </div>
-                    <div id="logosfooter2">
-                        <img src="../static/img/SFVC-original-1024x351.png" alt="">
-                    </div>
-                    <div id="logosfooter3">
-                        <img src="../static/img/logo1_no_bg.png" alt="logoCatamarca capitak">
-            
-                    </div>
-            
-                </div>
-                <div id="derechosautor">
-                    <p>
-                        ©copy 2025-CityTour Catamarca
-                    </p>
-                </div>
-        </footer>
-    
     <script src="../JS/PuntoPartidaPuntoFinalAgregar.js"></script>
 
 </body>
+
 </html>

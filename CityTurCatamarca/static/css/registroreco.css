@@ -1,36 +1,79 @@
-.imgreco
-{
-    width: 200px;
+.imgreco{
+    width: 80%;
     height: auto;
     border-radius: 20px;
 }
 
-.mgpc
-{
-    margin-top: 307px;
-    margin-bottom: 20px;
-}
-.mgt
-{
-    margin-top: 55px;
-    margin-bottom: 55px;
-}
-
-.ordenarimgpc
-{
+.ordenarimgpc{
     justify-content: center;
     display: flex;
-    gap: 25px;
-
+    gap: 10px;
 }
 
 
-main a :hover
-{
+main a :hover{
     transform: scale(1.1);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
 }
 
-.heightpc{
-    height: 450px;
+
+main{
+    background: none ;
+}
+
+.cosas_dentro_main{
+    background: var(--amarilloFuerte);
+    background: rgba(255, 204, 59, 0.6);
+    border-radius: 12px;
+    padding: 30px 20px;
+    width: 90%;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    background: linear-gradient(rgba(227, 142, 21, 0.7)), url("../img/catamarcaNoche.jpg") top center/cover no-repeat;
+}
+
+figure{
+        margin: 0px;
+        text-align: center;
+    }
+
+
+    /*celular*/
+@media (max-width: 767px) {
+
+    .cosas_dentro_main{
+        width: 60%;
+    }
+
+    .imgreco {
+        width: 70%; 
+        height: auto;
+        border-radius: 20px;
+    }
+
+    .ordenarimgpc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+        gap: 40px; 
+    }
+
+    figure {
+        margin:0; 
+        text-align: center; 
+    }
+}
+
+/*tablet*/
+@media (min-width:768px) and (max-width:1023px){
+    
+    
+}
+/*pc*/
+@media(min-width:1024px)
+{
+    
+
 }

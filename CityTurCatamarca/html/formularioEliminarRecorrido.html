@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="authores" content="erick:1744-emir:1723-alejo:1713, initial-scale=1.0">
@@ -7,213 +8,101 @@
 
     <link rel="icon" href="../static/img/Logo City Tour.png" type="image/x-icon">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/base.css">
     <link rel="stylesheet" href="../static/css/formularioAgregarRecorrido.css">
     <link rel="stylesheet" href="../static/css/formularioEmilinar.css">
 
-    
+
 </head>
+
 <body>
-        <div class="pc">
-            <header class="jc-between displayflex headerbloqueado">
-                <div id="logoheader">
-                    <img src="../static/img/Logo City Tour.png" alt="logocitytour">
-                    <h1>City-Tour  <br> Catamarca</h1>
-                </div>
-                <div id="abajoheader">
-                    <div id="navheader">
-                        <nav>
-                            <a href="home.html">Home</a>
-                            <a href="registroreco.html">Registro de Recorrido</a>
-                            <a href="registroReserva.html">Reservar Recorrido</a>
-                        </nav>
-                    </div>
-                    <div id="perfilUsuario">
-                        <button> <img src="../static/img/usericon.svg" alt=""></button>
-                    </div>
-                </div>
-            
-            
-            </header>
-            <main>
-                <div id class="margentop250 cosas_dentro_main">
-                    <div id="formularioEliminar">
-                        <form action="#" method="get">
-                            <fieldset>
-                                <label id="eliminarRecorrido">Desactivar Recorrido</label>
-
-                                <br>
-
-                                <div class="grupoDesactivar">
-                                    <label for="recorrido-desactivar" id="labelDesactivar">🚌&nbsp;Seleccione&nbsp;el&nbsp;recorrido&nbsp;a&nbsp;desactivar: </label>
-                                    <select name="recorrido-desactivar" id="recorrido-desactivar" size="1" required>
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                    </select>
-                                </div>
-
-                                <br>
-
-                                <div id="botones-formularios">
-                                    <button type="submit" id="boton-aceptar">Guardar</button>
-                                    <button type="reset" id="boton-cancelar">Cancelar</button>
-
-                                    <a href="registroreco.html">
-                                        <button type="button" id="boton-atras">Atras</button>
-                                    </a>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </main>
+    <header class="jc-between displayflex headerbloqueado">
+        <div id="logoheader">
+            <img src="../static/img/Logo City Tour.png" alt="logocitytour">
+            <h1>City-Tour <br> Catamarca</h1>
+        </div>
+        <div id="abajoheader">
+            <div id="navheader">
+                <nav>
+                    <a href="home.html">Home</a>
+                    <a href="registroreco.html">Registro de Recorrido</a>
+                    <a href="registroReserva.html">Reservar Recorrido</a>
+                </nav>
+            </div>
+            <div id="perfilUsuario">
+                <button> <img src="../static/img/usericon.svg" alt=""></button>
+            </div>
         </div>
 
-    
 
-        <div class="tablet">
-            <header>
-                <div id="headertablet">
-                    <div id="tabletarriba">
-                        <div id="logoheader">
-                            <img src="../static/img/Logo City Tour.png" alt="logocitytour">
-                            <h1>City-Tour  <br> Catamarca</h1>
-                        </div>     
+    </header>
+    <main>
+        <div id class="cosas_dentro_main">
+            <div id="formularioEliminar">
+                <form action="#" method="get">
+                    <fieldset>
+                        <label id="eliminarRecorrido">Desactivar Recorrido</label>
 
-                        <div id="perfilUsuario" class="botontablet">
-                            <button> <img src="../static/img/usericon.svg" alt=""></button>
+                        <br>
+
+
+                        <div class="acordeonGrupo">
+                            <input type="checkbox" id="acordeon-1" class="acordeonInput"> <!--sin esto no funciona no tocar-->
+
+                            <label for="acordeon-1" class="acordeonLabel">
+                                <div class="">🚌&nbsp;Seleccione&nbsp;el&nbsp;recorrido:</div>
+                                <div class="acordeonFlecha">▼</div> <!-- la flecha que tanto rompia la pija belicho-->
+                            </label>
+
+                            <div class="acordeonContenido">
+                                <div class="checkboxItem">
+                                    <input type="checkbox" id="chk-1" name="recorrido">
+                                    <label for="chk-1">Recorrido ALAMEDA 1</label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
 
-                    <div id="abajotablet">
-                        <nav>
-                            <a href="home.html">Home</a>
-                            <a href="registroreco.html">Registro de Recorrido</a>
-                            <a href="registroReserva.html">Reservar Recorrido</a>
-                        </nav>
-                    </div>
-                </div>
-                    
-            </header>
-            <main>
-                <div id class="margentop250 cosas_dentro_main">
-                    <div id="formularioEliminar">
-                        <form action="#" method="get">
-                            <fieldset>
-                                <label id="eliminarRecorrido">Desactivar Recorrido</label>
+                        <br>
 
-                                <br>
+                        <div id="botones-formularios">
+                            <button type="submit" id="boton-aceptar">Guardar</button>
+                            <button type="reset" id="boton-cancelar">Cancelar</button>
 
-                                <div class="grupoDesactivar">
-                                    <label for="recorrido-desactivar" id="labelDesactivar">🚌&nbsp;Seleccione&nbsp;el&nbsp;recorrido&nbsp;a&nbsp;desactivar: </label>
-                                    <select name="recorrido-desactivar" id="recorrido-desactivar" size="1" required>
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                    </select>
-                                </div>
-                                <br>
-                                
-
-                                <div id="botones-formularios">
-                                    <button type="submit" id="boton-aceptar">Guardar</button>
-                                    <button type="reset" id="boton-cancelar">Cancelar</button>
-
-                                    <a href="registroreco.html">
-                                        <button type="button" id="boton-atras">Atras</button>
-                                    </a>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </main>
+                            <a href="registroreco.html">
+                                <button type="button" id="boton-atras">Atras</button>
+                            </a>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
         </div>
+    </main>
 
-        <div class="celular">
-            <header>
-                <div id="headercelu">
-                    <div id="arribacelu">
-                        <div id="logoheader">
-                            <img src="../static/img/Logo City Tour.png" alt="logocitytour">
-                            <h1>City-Tour  <br> Catamarca</h1>
-                        </div>
-                        <div id="perfilUsuario">
-                                <button> <img src="../static/img/usericon.svg" alt=""></button>
-                        </div>
-                    </div>
-                    
-                    <div id="abajocelu">
-                        <nav>
-                            <ul>
-                                <li><a href="home.html">Home</a></li>
-                                <li><a href="registroreco.html">Registro de Recorrido</a></li>
-                                <li><a href="registroReserva.html">Reservar Recorrido</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            
-            </header>
-            <main>
-                <div id class="margentop250 cosas_dentro_main">
-                    <div id="formularioEliminar">
-                        <form action="#" method="get">
-                            <fieldset>
-                                <label id="eliminarRecorrido">Desactivar Recorrido</label>
+    <footer>
+        <div id="abajafooter">
+            <div id="logosfooter4">
+                <img src="../static/img/catamarca_logo_turismo.png" alt="">
+            </div>
+            <div id="logosfooter1">
+                <img src="../static/img/logoCatamarca.png" alt="">
+            </div>
+            <div id="logosfooter2">
+                <img src="../static/img/SFVC-original-1024x351.png" alt="">
+            </div>
+            <div id="logosfooter3">
+                <img src="../static/img/logo1_no_bg.png" alt="logoCatamarca capitak">
 
-                                <br>
+            </div>
 
-                                <div class="grupoDesactivar">
-                                    <label for="recorrido-desactivar" id="labelDesactivar">🚌&nbsp;Seleccione&nbsp;el&nbsp;recorrido&nbsp;a&nbsp;desactivar: </label>
-                                    <select name="recorrido-desactivar" id="recorrido-desactivar" size="1" required>
-                                        <option value="1">opcion1</option>
-                                        <option value="2">opcion2</option>
-                                        <option value="3">opcion3</option>
-                                    </select>
-                                </div>
-
-                                <br>
-
-                                <div id="botones-formularios">
-                                    <button type="submit" id="boton-aceptar">Guardar</button>
-                                    <button type="reset" id="boton-cancelar">Cancelar</button>
-
-                                    <a href="registroreco.html">
-                                        <button type="button" id="boton-atras">Atras</button>
-                                    </a>
-                                </div>
-                            </fieldset>
-                        </form>
-                    </div>
-                </div>
-            </main>
         </div>
-
-        <footer>
-                <div id="abajafooter">
-                    <div id="logosfooter4">
-                        <img src="../static/img/catamarca_logo_turismo.png" alt="">
-                    </div>
-                    <div id="logosfooter1">
-                        <img src="../static/img/logoCatamarca.png" alt="">
-                    </div>
-                    <div id="logosfooter2">
-                        <img src="../static/img/SFVC-original-1024x351.png" alt="">
-                    </div>
-                    <div id="logosfooter3">
-                        <img src="../static/img/logo1_no_bg.png" alt="logoCatamarca capitak">
-            
-                    </div>
-            
-                </div>
-                <div id="derechosautor">
-                    <p>
-                        ©copy 2025-CityTour Catamarca
-                    </p>
-                </div>
-            </footer>
+        <div id="derechosautor">
+            <p>
+                ©copy 2025-CityTour Catamarca
+            </p>
+        </div>
+    </footer>
 </body>
+
 </html>

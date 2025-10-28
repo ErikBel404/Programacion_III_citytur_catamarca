@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Transportes - CityTur Catamarca
+{% endblock %}
+
+{% block head_css %}
+  <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/vistaTransporte.css' %}" />
+
+{% endblock %}
+
+{% block content %}
+  <main>
+    <div id="" class="cosas_dentro_main">
+      <h2 class="titulo">Lista de Transportes</h2>
+      <div class="contenedor-tarjetas">
+        {% for transporte in transportes %}
+          <div class="tarjeta">
+            <figure>
+              <img src="{% static 'img/modeloTransporte.png' %}" alt="imagen transporte" width="60%" height="60%" />
+            </figure>
+            <hr>
+            <p>
+              <span>Matricula:</span> {{ transporte.dominioMatriculaTransporte }}
+            </p>
+            <p>
+              <span>Cantida Asientos:</span> {{ transporte.capacidadTransporte }}
+            </p>
+            <p>
+              <span>Estado de la Unidad:</span> {{ transporte.estadoTransporte }}
+            </p>
+            <hr>
+            
+            <div class="contBtn">
+              <a class="btnP btnModificarP" href="{% url 'administracion:modificarTransporte'  transporte.id %}">Modificar</a>
+              <a class="btnP btnEliminarP" href="{% url 'administracion:bajaTransporte' transporte.id %}">Eliminar</a>      
+            </div>
+        
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

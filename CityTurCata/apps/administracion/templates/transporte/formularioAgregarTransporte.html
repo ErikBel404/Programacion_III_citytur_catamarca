@@ -1,0 +1,63 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block title%}
+    Transporte Turistico Crear - CityTur Catamarca
+{%endblock%}
+
+{%block head_css%}
+    <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+
+
+{%endblock%}
+
+{%block content%}
+<main>
+    <div id="" class="cosas_dentro_main">
+      <div id="formularioAgregar">
+        
+        <form method="POST">
+          <fieldset>
+            
+            {% csrf_token %}
+
+            <label id="agregarRecorrido"><strong>Agregar Transporte</strong></label>
+
+
+            <div class="contenedorLabelInput">
+              {{ transportes.dominioMatriculaTransporte.errors }}
+              {{ transportes.dominioMatriculaTransporte }}
+              <label for="{{ transportes.dominioMatriculaTransporte.id_for_label }}" class="campoLabel">{{ transportes.dominioMatriculaTransporte.label }}</label>
+            </div>
+
+            <div class="contenedorLabelInput">
+              {{ transportes.capacidadTransporte.errors }}
+              {{ transportes.capacidadTransporte }}
+              <label for="{{ transportes.capacidadTransportes.id_for_label }}" class="campoLabel">{{ transportes.capacidadTransporte.label }}</label>
+            </div>
+
+            <div class="contenedorLabelInput">
+              {{ transportes.estadoTransporte.errors }}
+              {{ transportes.estadoTransporte }}
+              <label for="{{ transportes.estadoTransporte.id_for_label }}" class="campoLabel">{{ transportes.estadoTransporte.label }}</label>
+            </div>
+
+            <br />
+
+            <div class="contBtn">
+              <button type="submit" class="btnP btnModificarP">Aceptar</button>
+              <a class="btnP btnEliminarP" href="{% url 'administracion:listaTransporte'%}">Cancelar</a>      
+            </div>
+            </fieldset>
+        </form>
+      </div>
+    </div>
+  </main>
+
+{%endblock%}
+
+{%block js%}
+
+{%endblock%}
