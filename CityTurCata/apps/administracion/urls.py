@@ -44,8 +44,8 @@ urlpatterns = [
 
     #
     #urls de notificacion
-    path('notificacion/lista/', views.listarNotificacionesView , name='listarNotificaciones '), 
+    path('notificacion/lista/', views.listarNotificacionesView, name='listarNotificaciones'), 
     path('notificacion/agregar/', views.crearNotificacionView, name='agregarNotificacion'), 
-    path('notificacion/modificar/', views.modificarNotificacionView, name='modificarNotificacion'), 
-    path('notificacion/baja/',views.bajaNotificacionView,name='bajaNotificacion')
+    path('notificacion/modificar/<int:pk>/', views.modificarNotificacionView, name='modificarNotificacion'), 
+    path('notificacion/baja/<int:pk>/',views.bajaNotificacionView,name='bajaNotificacion')
 ]

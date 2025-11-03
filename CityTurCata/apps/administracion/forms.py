@@ -26,7 +26,7 @@ class PuntoTuristicoForm (forms.ModelForm):
                 'class': 'inputLabel',
                 'id': 'ubicacion',
             }),
-            'informacion': forms.TextInput(attrs={
+            'informacion': forms.Textarea(attrs={
                 'class': 'inputLabel',
                 'id': 'informacionPuntoTuristico',
             }),

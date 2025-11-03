@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Notificaciones Lista - CityTur Catamarca
+{% endblock %}
+
+{% block head_css %}
+  <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <main>
+    <div id="" class="cosas_dentro_main">
+      <h2 class="titulo">Lista De Notificaciones</h2>
+      <div class="contenedor-tarjetas">
+        {% for notificacion in notificaciones %}
+          <div class="tarjeta">
+            <figure>
+              <img src="{%static 'img/colectivoAlertaNotificaciones.png' %}" alt="imagen de la Alerta" width="60%" height="60%" />
+            </figure>
+            <hr>
+            <p>
+              <span>Titulo:</span> {{ notificacion.titulo }}
+            </p>
+            <p>
+              <span>descripcion:</span> {{ notificacion.descripcion }}
+            </p>
+            
+            <hr>
+            <div class="contBtn">
+              <a class="btnP btnModificarP" href="{% url 'administracion:modificarNotificacion' notificacion.id %}">Modificar</a>
+              <a class="btnP btnEliminarP" href="{% url 'administracion:bajaNotificacion' notificacion.id %}">Eliminar</a>
+              
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/controladorAñadirPuntoTuristico.js' %}"></script>
+{% endblock %}

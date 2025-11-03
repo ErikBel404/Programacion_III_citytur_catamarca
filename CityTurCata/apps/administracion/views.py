@@ -312,7 +312,7 @@ def modificarNotificacionView (request,pk):
         'notificaciones':notificacionNuevaForm
     }
 
-    return render(request,'notificaciones/formularioAgregarNotificacion',contexto)
+    return render(request,'notificaciones/formularioAgregarNotificacion.html',contexto)
 
 
 
