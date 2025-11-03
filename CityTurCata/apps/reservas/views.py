@@ -39,12 +39,28 @@ def crearReservaView(request):
     return render(request,'',contexto)
 
 
-def modificarResevaView (request,pk):
+def modificarReservaView (request,pk):
+    reservaVieja = get_object_or_404(Reserva, pk=pk)
 
+    if request.method == 'POST':
+        reservaNuevaForm = ReservaForm(request.POST, instance=reservaVieja)
+        if reservaNuevaForm.is_valid():
+            reservaNuevaForm.save(commit = True)
+            messages.success(request,'Se ha actulizado correctamente la reserva{}'.format(reservaNuevaForm))
 
-    
-    return HttpResponse ('aca esta la parte para modificar las reservas')
+            return redirect('reservas:listarReservas')
+    else:
+        reservaNuevaForm = ReservaForm(instance=reservaVieja)
+
+    contexto = {
+        'reservas' : reservaNuevaForm
+    }            
+
+    return render(request,'',contexto)
+
 
 def bajaReservaView (request, pk):
-    return HttpResponse(f'Aca sale una reserva particular con id:{id}')
+    bajaReserva = get_object_or_404(Reserva, pk=pk)
+    bajaReserva.delete()
 
+    return render('reservas:listarReservas')
