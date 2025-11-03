@@ -14,10 +14,11 @@
   <main>
     <div id="" class="cosas_dentro_main">
       <div id="formularioAgregar">
-        <label id="agregarPuntoTuristico"><strong>Agregar Punto Turistico</strong></label>
-
         <form method="POST" enctype="multipart/form-data">
+          
           <fieldset>
+            <label id="agregarPuntoTuristico"><strong>Agregar Recorrido</strong></label>
+    
             {% csrf_token %}
 
             <div class="contenedorLabelInput">
@@ -81,3 +82,5 @@
 {% block js %}
   <script src="{% static 'js/PuntoPartidaPuntoFinalAgregar.js' %}"></script>
 {% endblock %}
+
+
