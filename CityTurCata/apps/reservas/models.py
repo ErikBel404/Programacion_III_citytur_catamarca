@@ -9,7 +9,7 @@ class Reserva(models.Model):
     fechaReserva = models.DateField(blank=False, null=False);
     horaReserva = models.TimeField(blank=False, null=False);
     puntoDePartidaReserva = models.CharField(blank=False, null=False);
-    estadoReseva = models.CharField(max_length=250, blank=False, null=False);
+    estadoReserva = models.CharField(max_length=250, blank=False, null=False);
 
     turista= models.ForeignKey (Turista, on_delete= models.CASCADE, related_name='reservaTurista');
     itinerario= models.ForeignKey (Itinerario, on_delete=models.CASCADE, related_name='reservaitinerario')
