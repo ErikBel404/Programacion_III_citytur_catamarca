@@ -93,7 +93,6 @@ from .models import Recorrido, PuntoTuristico  # ¡Asegúrate de importar PuntoT
 class RecorridoForm(forms.ModelForm):
     
     # Los ModelChoiceField siguen igual.
-    # Django los usará para los campos 'inicio' y 'final' del modelo.
     inicio = forms.ModelChoiceField(
         queryset=PuntoTuristico.objects.all(),
         required=True,
@@ -163,7 +162,7 @@ class NotificacionForm(forms.ModelForm):
 
             'descripcion': forms.Textarea(attrs={
                 'class' : 'inputLabel',
-                'id': 'tituloNotificacion'}),
+                'id': 'descripcionNotificacion'}),
         }
 
         labels = {
