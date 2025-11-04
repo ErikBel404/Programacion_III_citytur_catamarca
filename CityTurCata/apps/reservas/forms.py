@@ -1,6 +1,7 @@
 from django import forms
 from apps.reservas.models import Reserva
 from apps.administracion.models import Recorrido
+from apps.administracion.models import PuntoTuristico
 
 class ReservaForm(forms.ModelForm):
     
@@ -17,7 +18,7 @@ class ReservaForm(forms.ModelForm):
     )
 
     puntoDePartidaReserva= forms.ModelChoiceField(
-        queryset=Recorrido.objects.all(),
+        queryset=PuntoTuristico.objects.all(),
         required=True,
         label='🚏 Punto de partida Reserva',
         empty_label='',
