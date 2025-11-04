@@ -32,7 +32,7 @@ urlpatterns = [
     #urls de recorridos
     path('recorridos/lista/', views.listarRecorridosView, name='ListarRecorridos'),
     path('recorridos/agregar/', views.crearRecorridosView, name='agregarRecorridos'),
-    path('recorridos/modificar/', views.modificarRecorridosView, name='modificarRecorridos'),
+    path('recorridos/modificar/<int:pk>/', views.modificarRecorridosView, name='modificarRecorridos'),
     path('recorridos/baja/', views.bajaRecorridosView, name='bajaRecorridos'),
 
     #

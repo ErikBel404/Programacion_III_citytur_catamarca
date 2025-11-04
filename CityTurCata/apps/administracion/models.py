@@ -62,8 +62,20 @@ class Recorrido (models.Model):
     nombreRecorrido = models.CharField(max_length=100, blank=False, null=False)
     horarios = models.TimeField(blank=False, null=False)
 
-    inicio = models.CharField(max_length= 250, blank=False, null=False)
-    final = models.CharField(max_length= 250, blank=False, null=False)
+    inicio = models.ForeignKey(
+        PuntoTuristico, 
+        on_delete=models.PROTECT,  # Evita borrar un Punto si un Recorrido lo usa
+        related_name='recorridos_que_inician_aqui', # Nombre único para la relación
+        blank=False, 
+        null=False
+    )
+    final = models.ForeignKey(
+        PuntoTuristico, 
+        on_delete=models.PROTECT, # Evita borrar un Punto si un Recorrido lo usa
+        related_name='recorridos_que_finalizan_aqui', # Nombre único para la relación
+        blank=False, 
+        null=False
+    )
 
     administradores = models.ManyToManyField (Administrador, related_name= 'recorridosAdministrador')
     puntosTuristicos= models.ManyToManyField(PuntoTuristico, related_name='recorridosPuntosTuristicos')
