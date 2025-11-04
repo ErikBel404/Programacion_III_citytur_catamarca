@@ -199,7 +199,7 @@ def listarRecorridosView(request):
         'recorridos' : recorridoView
     }
 
-    return render(request,'',contexto)
+    return render(request,'recorrido/visualizarRecorridos.html',contexto)
 
 
 
@@ -224,16 +224,37 @@ def crearRecorridosView(request):
     return render(request, 'recorrido/agregarRecorrido.html', contexto)
 
 
+def modificarRecorridosView(request, pk):
+
+    recorridoViejo= get_object_or_404(Recorrido, pk=pk)
+
+    if request.method == 'POST':
+        recorridoNuevoForm = RecorridoForm(
+            request.POST, request.FILES, instance=recorridoViejo)
+        if recorridoNuevoForm.is_valid():
+            recorridoNuevoForm.save(commit=True)
+            messages.success(request,
+                           'Se ha actualizado correctamente el Punto Turistico {}'.format(recorridoNuevoForm) )
+            
+            return redirect('administracion:ListarRecorridos')
+    else:
+        recorridoNuevoForm = RecorridoForm(instance=recorridoViejo)
+
+    contexto = {
+        'form': recorridoNuevoForm
+    }
+    return render(request,
+                  'recorrido/agregarRecorrido.html', contexto)
 
 
+
+
+def bajaRecorridosView(request,pk):
+    bajaRecorrido = get_object_or_404(Recorrido, pk = pk)
+    bajaRecorrido.delete()
     
-def modificarRecorridosView(request):
-    return HttpResponse('Aqui se mostrara la pagina de modificaciones')
+    return redirect('administracion:ListarRecorridos')
 
-
-
-def bajaRecorridosView(request):
-    return HttpResponse('Aqui se de de baja recorridos')
 
 
 #=========================================================Definicion de transporte de las vistas de Itinerarios(lo separo asi por que me pierdo si no)=========================================================

@@ -86,14 +86,19 @@ class ReportesForm(forms.ModelForm):
         }
 
 
+# En tu forms.py
+from django import forms
+from .models import Recorrido, PuntoTuristico  # ¡Asegúrate de importar PuntoTuristico!
+
 class RecorridoForm(forms.ModelForm):
     
+    # Los ModelChoiceField siguen igual.
+    # Django los usará para los campos 'inicio' y 'final' del modelo.
     inicio = forms.ModelChoiceField(
         queryset=PuntoTuristico.objects.all(),
         required=True,
         label='📌Punto partida:',
         empty_label="",
-        
         widget=forms.Select(attrs={
             'class': 'inputLabel',
             'id': 'partidaNuevaPC', 
@@ -101,19 +106,18 @@ class RecorridoForm(forms.ModelForm):
         })
     )
 
-    
     final = forms.ModelChoiceField(
         queryset=PuntoTuristico.objects.all(),
         required=True,
         label='📌Final recorrido:',
         empty_label="",
-        
         widget=forms.Select(attrs={
             'class': 'inputLabel',
             'id': 'finalNuevoPc', 
             'required': True
         })
     )
+
 
     class Meta:
         model = Recorrido
@@ -145,16 +149,6 @@ class RecorridoForm(forms.ModelForm):
             'puntosTuristicos': '📌Puntos turisticos:', 
         }
 
-    # ... (El método save() se mantiene igual)
-    def save(self, commit=True):
-        recorrido = super().save(commit=False)
-        recorrido.inicio = self.cleaned_data['inicio'].nombre
-        recorrido.final = self.cleaned_data['final'].nombre
-        if commit:
-            recorrido.save()
-            self.save_m2m()
-        return recorrido
-    
 
 
 class NotificacionForm(forms.ModelForm):
