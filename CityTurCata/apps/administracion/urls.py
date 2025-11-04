@@ -33,9 +33,9 @@ urlpatterns = [
     path('recorridos/lista/', views.listarRecorridosView, name='ListarRecorridos'),
     path('recorridos/agregar/', views.crearRecorridosView, name='agregarRecorridos'),
     path('recorridos/modificar/<int:pk>/', views.modificarRecorridosView, name='modificarRecorridos'),
-    path('recorridos/baja/', views.bajaRecorridosView, name='bajaRecorridos'),
+    path('recorridos/baja/<int:pk>', views.bajaRecorridosView, name='bajaRecorridos'),
 
-    #
+    
     #urls de itinerarios
     path('itinerario/lista/', views.listarItinerariosView, name='listarItinerarios'), 
     path('itinerario/agregar/', views.crearItinerariosView , name='agregarItinerario'), 

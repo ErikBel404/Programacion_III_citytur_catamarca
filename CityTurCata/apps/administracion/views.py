@@ -212,7 +212,7 @@ def crearRecorridosView(request):
 
         recorridoForm.save_m2m()
 
-        messages.success(request, 'Se ha agrega correctamente el Recorrido: {}'.format(nuevoRecorrido))
+        return redirect('administracion:ListarRecorridos')
 
     else:
         recorridoForm = RecorridoForm()

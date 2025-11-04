@@ -14,12 +14,22 @@
   <main>
     <div id="" class="cosas_dentro_main">
       <div id="formularioAgregar">
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" enctype="multipart/form-data" >
           
           <fieldset>
-            <label id="agregarPuntoTuristico"><strong>Agregar Recorrido</strong></label>
     
             {% csrf_token %}
+
+            {% csrf_token %}
+            <div class="contenedorLabelInput">
+              {% if form.instance.pk %}
+
+                <h2 class="titulo">Modificar Recorrido</h2>
+
+                {% else %}
+                    <label id="agregarPuntoTuristico"><strong>Agregar Recorrido</strong></label>
+   
+              {% endif %}
 
             <div class="contenedorLabelInput">
               {{ form.nombreRecorrido.errors }}
@@ -69,7 +79,7 @@
             <div id="botones-formularios">
               <button type="submit" id="boton-aceptar">Aceptar</button>
 
-              <button type="reset" id="boton-cancelar">Cancelar</button>
+              <a class="btnP btnEliminarP" href="{% url 'administracion:ListarRecorridos' %}">Cancelar</a>
 
             </div>
           </fieldset>

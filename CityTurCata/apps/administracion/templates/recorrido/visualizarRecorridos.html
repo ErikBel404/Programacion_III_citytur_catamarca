@@ -1,1 +1,61 @@
-<h1>Aca debe ir la lista de recorridos</h1>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Notificaciones Lista - CityTur Catamarca
+{% endblock %}
+
+{% block head_css %}
+  <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <main>
+    <div id="" class="cosas_dentro_main">
+      <h2 class="titulo">Lista De Recorridos</h2>
+      <div class="contenedor-tarjetas">
+        {% for recorrido in recorridos %}
+          <div class="tarjeta">
+            <figure>
+              <img src="{%static 'img/mapaRecorrido.png' %}" alt="imagen de la Alerta" width="60%" height="60%" />
+            </figure>
+            <hr>
+            <p>
+              <span>Nombre de Recorrido:</span> {{ recorrido.nombreRecorrido }}
+            </p>
+            <p>
+              <span>Horario:</span> {{ recorrido.horario }}
+            </p>
+            <p>
+              <span>Inicio:</span> {{ recorrido.inicio }}
+            </p>
+            <p>
+              <span>Final:</span> {{ recorrido.final }}
+            </p>
+
+            <p>
+                <span>Puntos Turisticos:</span>
+                <ul>
+                {% for punto in recorrido.puntosTuristicos.all %}
+                    <li>{{ punto }}</li>
+                {% endfor %}
+                </ul>
+            </p>
+            
+            <hr>
+            <div class="contBtn">
+              <a class="btnP btnModificarP" href="{% url "administracion:modificarRecorridos" recorrido.id %}">Modificar</a>
+              <a class="btnP btnEliminarP" href="{% url "administracion:bajaRecorridos" recorrido.id %}">Eliminar</a>
+              
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/controladorAñadirPuntoTuristico.js' %}"></script>
+{% endblock %}
