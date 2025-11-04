@@ -15,7 +15,18 @@ class ReservaForm(forms.ModelForm):
             'requiered': True
         })
     )
-    
+
+    puntoDePartidaReserva= forms.ModelChoiceField(
+        queryset=Recorrido.objects.all(),
+        required=True,
+        label='🚏 Punto de partida Reserva',
+        empty_label='',
+        widget=forms.Select(attrs={
+            'class': 'inputLabel',
+            'id': 'parada',
+            'requiered': True
+        })
+    )
     
     class Meta:
         model = Reserva
@@ -53,11 +64,7 @@ class ReservaForm(forms.ModelForm):
 
             }),
 
-            'puntoDePartidaReserva': forms.CheckboxSelectMultiple(attrs={
-                'required': True,
-                'placeholder': ' '
-
-            }),
+           
             
             'estadoReserva':forms.Select(attrs={
                 'class':'inputLabel',
@@ -71,5 +78,4 @@ class ReservaForm(forms.ModelForm):
             'fechaReserva': '📆 Fecha de la reserva',
             'horaReserva': '⌚ Hora de la reserva',
             'estadoReserva': '📋 Estado de la reserva',
-            'puntoDePartidaReserva':'🚏 Punto de partida Reserva'
-        }
+         }
