@@ -1,16 +1,17 @@
 from django import forms
 from apps.reservas.models import Reserva
+from apps.administracion.models import Recorrido
 
 class ReservaForm(forms.ModelForm):
     
     recorridoReserva = forms.ModelChoiceField(
-        queryset=Reserva.objects.all(),
+        queryset=Recorrido.objects.all(),
         required=True,
-        label='🛣️ Recorridos Disponibles para resercar',
+        label='🛣️ Recorridos Disponibles para reservar',
         empty_label='',
         widget=forms.Select(attrs={
             'class': 'inputLabel',
-            'id': 'partidaNuevaPc',
+            'id': 'recorridos',
             'requiered': True
         })
     )
