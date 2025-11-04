@@ -5,7 +5,7 @@ from apps.administracion.models import PuntoTuristico, Recorrido
 
 # Create your models here.
 class Reserva(models.Model):
-    recorridoReserva = models.ForeignKey (Turista, on_delete= models.CASCADE, related_name='reservaTurista', blank=True, null= True);
+    recorridoReserva = models.ForeignKey (Recorrido, on_delete= models.CASCADE, related_name='reservaTurista', blank=True, null= True);
     cantidadReserva = models.IntegerField(blank=False, null=False);
     fechaReserva = models.DateField(blank=False, null=False);
     horaReserva = models.TimeField(blank=False, null=False);
