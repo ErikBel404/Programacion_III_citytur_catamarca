@@ -30,7 +30,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('apps.administracion.urls')),
-    #path('', include(apps.perfil.urls)),
+    path('', include('apps.usuario.urls')),
     path('', include('apps.reservas.urls'))
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
