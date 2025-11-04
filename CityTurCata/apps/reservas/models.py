@@ -10,7 +10,7 @@ class Reserva(models.Model):
     fechaReserva = models.DateField(blank=False, null=False);
     horaReserva = models.TimeField(blank=False, null=False);
 
-    puntoDePartidaReserva = models.ForeignKey(PuntoTuristico, on_delete=models.PROTECT, related_name = 'puntosDePartida', blanck = False, null = False)
+    puntoDePartidaReserva = models.ForeignKey(PuntoTuristico, on_delete=models.PROTECT, related_name = 'puntosDePartida', blank = False, null = False)
     
     ESTADORESERVA=[('reservaActiva','Reserva Activa'),
                    ('reservaCancelada','Reserva Cancelada')]
