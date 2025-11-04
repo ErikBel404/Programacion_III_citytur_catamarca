@@ -30,22 +30,10 @@
    
               {% endif %}
 
-            <div class="acordeonGrupo">
-                <input type="checkbox" id="acordeon-1" class="acordeonInput" />
-                <!-- sin esto no funciona no tocar -->
-
-                <label for="acordeon-1" class="acordeonLabel">
-                    <div class="">{{ reservas.recorridoReserva.label }}</div>
-                    <div class="acordeonFlecha">▼</div>
-              </label>
-
-              <div class="acordeonContenido">
-                    <div class="checkboxItem">
-                        {{ reservas.recorridoReserva.errors }}
-                        {{ reservas.recorridoReserva. }}
-                        <label for="{{ reservas.recorridoReserva.id_for_label }}" class="campoLabel">{{ reservas.recorridoReserva.label }}</label>
-                    </div>
-              </div>
+            <div class="contenedorLabelInput">
+              {{ reservas.recorridoReserva.errors }}
+              {{ reservas.recorridoReserva }}
+              <label for="{{ reservas.recorridoReserva.id_for_label }}" class="campoLabel">{{ reservas.recorridoReserva.label }}</label>
             </div>
 
 
@@ -67,12 +55,25 @@
               <label for="{{ reservas.horaReserva.id_for_label }}" class="campoLabel">{{ reservas.horaReserva.label }}</label>
             </div>
 
-            <div class="contenedorLabelInput">
-              {{ reservas.puntoDePartidaReserva.errors }}
-              {{ reservas.puntoDePartidaReserva }}
-              <label for="{{ reservas.puntoDePartidaReserva.id_for_label }}" class="campoLabel">{{ reservas.puntoDePartidaReserva.label }}</label>
+            <div class="acordeonGrupo">
+                <input type="checkbox" id="acordeon-1" class="acordeonInput" />
+                <!-- sin esto no funciona no tocar -->
+
+                <label for="acordeon-1" class="acordeonLabel">
+                    <div class="">{{ reservas.recorridoReserva.label }}</div>
+                    <div class="acordeonFlecha">▼</div>
+              </label>
+
+              <div class="acordeonContenido">
+                    <div class="checkboxItem">
+                        {{ reservas.puntoDePartidaReserva.errors }}
+                        {{ reservas.puntoDePartidaReserva }}
+                        <label for="{{ reservas.puntoDePartidaReserva.id_for_label }}" class="campoLabel">{{ reservas.puntoDePartidaReserva.label }}</label>
+                    </div>
+              </div>
             </div>
 
+            
             <div class="contenedorLabelInput">
               {{ reservas.estadoReserva.errors }}
               {{ reservas.estadoReserva }}
