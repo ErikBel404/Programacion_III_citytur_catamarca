@@ -25,7 +25,7 @@ class ReservaForm(forms.ModelForm):
                 'id':'fechaReserva' 
             }),
 
-            'horaReserva':forms.TimeInpout(attrs={
+            'horaReserva':forms.TimeInput(attrs={
                 'class':'inputLabel',
                 'id': 'horaRerserva'
             }),
