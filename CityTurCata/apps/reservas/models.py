@@ -10,7 +10,7 @@ class Reserva(models.Model):
     fechaReserva = models.DateField(blank=False, null=False);
     horaReserva = models.TimeField(blank=False, null=False);
 
-    puntoDePartidaReserva = models.ManyToManyField(PuntoTuristico, related_name = 'puntosDePartida', blank = False)
+    puntoDePartidaReserva = models.ForeignKey(PuntoTuristico,on_delete= models.CASCADE, related_name = 'puntosDePartida', blank = False)
     
     ESTADORESERVA=[('reservaActiva','Reserva Activa'),
                    ('reservaCancelada','Reserva Cancelada')]

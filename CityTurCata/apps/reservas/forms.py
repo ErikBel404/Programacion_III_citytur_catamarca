@@ -7,7 +7,7 @@ class ReservaForm(forms.ModelForm):
     recorridoReserva = forms.ModelChoiceField(
         queryset=Recorrido.objects.all(),
         required=True,
-        label='🛣️ Recorridos Disponibles para reservar',
+        label='🛣️ Recorridos Disponibles',
         empty_label='',
         widget=forms.Select(attrs={
             'class': 'inputLabel',
@@ -51,7 +51,6 @@ class ReservaForm(forms.ModelForm):
                 'type': 'time',
                 'placeholder': ' ' 
 
-
             }),
 
             'puntoDePartidaReserva': forms.CheckboxSelectMultiple(attrs={
@@ -73,5 +72,4 @@ class ReservaForm(forms.ModelForm):
             'horaReserva': '⌚ Hora de la reserva',
             'estadoReserva': '📋 Estado de la reserva',
             'puntoDePartidaReserva':'🚏 Punto de partida Reserva'
-
         }

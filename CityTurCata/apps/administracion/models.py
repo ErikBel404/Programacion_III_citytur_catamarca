@@ -64,15 +64,15 @@ class Recorrido (models.Model):
 
     inicio = models.ForeignKey(
         PuntoTuristico, 
-        on_delete=models.PROTECT,  # Evita borrar un Punto si un Recorrido lo usa
-        related_name='recorridos_que_inician_aqui', # Nombre único para la relación
+        on_delete=models.PROTECT, 
+        related_name='recorridos_que_inician_aqui',
         blank=False, 
         null=False
     )
     final = models.ForeignKey(
         PuntoTuristico, 
-        on_delete=models.PROTECT, # Evita borrar un Punto si un Recorrido lo usa
-        related_name='recorridos_que_finalizan_aqui', # Nombre único para la relación
+        on_delete=models.PROTECT, 
+        related_name='recorridos_que_finalizan_aqui',
         blank=False, 
         null=False
     )
