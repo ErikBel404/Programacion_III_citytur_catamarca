@@ -10,7 +10,7 @@ class Reserva(models.Model):
     fechaReserva = models.DateField(blank=False, null=False);
     horaReserva = models.TimeField(blank=False, null=False);
 
-    puntoDePartidaReserva = models.ForeignKey(PuntoTuristico, on_delete=models.PROTECT, related_name = 'puntosDePartida', blank = False, null = False)
+    puntoDePartidaReserva = models.ManyToManyField(PuntoTuristico, related_name = 'puntosDePartida', blank = False)
     
     ESTADORESERVA=[('reservaActiva','Reserva Activa'),
                    ('reservaCancelada','Reserva Cancelada')]
@@ -21,4 +21,4 @@ class Reserva(models.Model):
     itinerario= models.ForeignKey (Itinerario, on_delete=models.CASCADE, related_name='reservaitinerario', blank=True, null= True)
 
     def __str__(self):
-        return f'Recorrido de la reserva: {self.recorridoReserva}, cantidad de asientos reservados: {self.cantidadReserva}, fecha del recorrido: {self.fechaReserva}, hora de la reserva: {self.horaReserva}, punto de partida de persona:{self.puntoDePartidaReserva}, estado de la reserva: {self.estadoReseva}';
+        return f'Recorrido: {self.recorridoReserva}, Cantidad: {self.cantidadReserva}, Fecha: {self.fechaReserva}, Estado: {self.estadoReserva}';

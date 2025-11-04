@@ -85,14 +85,8 @@ class ReportesForm(forms.ModelForm):
 
         }
 
-
-# En tu forms.py
-from django import forms
-from .models import Recorrido, PuntoTuristico  # ¡Asegúrate de importar PuntoTuristico!
-
 class RecorridoForm(forms.ModelForm):
     
-    # Los ModelChoiceField siguen igual.
     inicio = forms.ModelChoiceField(
         queryset=PuntoTuristico.objects.all(),
         required=True,

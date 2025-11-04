@@ -80,8 +80,7 @@ class Recorrido (models.Model):
     puntosTuristicos= models.ManyToManyField(PuntoTuristico, related_name='recorridosPuntosTuristicos')
 
     def __str__(self):
-        return f'Nombre Recorrido: {self.nombreRecorrido} Horarios: {self.horarios} Puntos Turisticos: {self.puntosTuristicos} Inicio: {self.inicio} Fin: {self.final}'
- 
+        return f'{self.nombreRecorrido}'
 class Itinerario(models.Model):
     titulo = models.CharField(max_length=100, blank=False, null=False)
 
