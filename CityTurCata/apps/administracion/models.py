@@ -1,7 +1,6 @@
 from django.db import models
-from apps.perfil.models import Administrador
-from apps.perfil.models import Cliente
-from apps.perfil.models import Operario
+from apps.usuario.models import Usuario
+
 
 # Create your models here.
 class Transporte(models.Model):
@@ -15,7 +14,7 @@ class Transporte(models.Model):
     capacidadTransporte = models.IntegerField(blank=False, null=False);
     estadoTransporte = models.CharField(max_length = 20, choices = ESTADOTRANSPORTE, default = 'activo', blank= False, null=False);
 
-    administradores = models.ManyToManyField (Administrador, related_name= 'transportesAdministrador')
+    administradores = models.ManyToManyField (Usuario, related_name= 'transportesAdministrador')
 
     def __str__(self):
         return f'Matricula del Transporte: {self.dominioMatriculaTransporte}, Capacidad del transporte: {self.capacidadTransporte}, estado del Transporte: {self.estadoTransporte}'
@@ -38,8 +37,8 @@ class Reportes(models.Model):
     horaFecha= models.DateTimeField (blank=False, null= False);
     identidadSolicitante= models.CharField (blank=False, null= False, max_length=250)
     
-    clientes= models.ManyToManyField (Cliente, related_name='reporteCliente');
-    administradores= models.ManyToManyField (Administrador, related_name='reporteAdministrador');
+    clientes= models.ManyToManyField (Usuario, related_name='reporteCliente');
+    administradores= models.ManyToManyField (Usuario, related_name='reporteAdministrador');
 
     def __str__(self):
         return f'tipo de reporte: {self.tipoReportes}'
@@ -51,7 +50,7 @@ class PuntoTuristico (models.Model):
     informacion = models.TextField(max_length=500, blank=False, null=False)
     imagen = models.ImageField(upload_to='puntos/', blank=True, null=True)
 
-    administrador = models.ManyToManyField (Administrador, related_name= 'puntosTuristicosAdministrador')
+    administrador = models.ManyToManyField (Usuario, related_name= 'puntosTuristicosAdministrador')
     
     def __str__(self):
         return f'{self.nombre}'
@@ -77,7 +76,7 @@ class Recorrido (models.Model):
         null=False
     )
 
-    administradores = models.ManyToManyField (Administrador, related_name= 'recorridosAdministrador')
+    administradores = models.ManyToManyField (Usuario, related_name= 'recorridosAdministrador')
     puntosTuristicos= models.ManyToManyField(PuntoTuristico, related_name='recorridosPuntosTuristicos')
 
     def __str__(self):
@@ -98,8 +97,8 @@ class Notificacion(models.Model):
     descripcion=models.TextField(blank=False, null=False)
 
     #cuando logremos hacer los administrador y el itineario le saco el blank y null
-    operario= models.ForeignKey(Operario, on_delete=models.CASCADE, related_name='notificacionesOperario',null=True, blank=True)
-    administrador= models.ForeignKey(Administrador, on_delete=models.CASCADE, related_name='notificacionesAdministrador', null=True, blank=True)
+    operario= models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='notificacionesOperario',null=True, blank=True)
+    administrador= models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='notificacionesAdministrador', null=True, blank=True)
     itinerario= models.ForeignKey(Itinerario, on_delete=models.CASCADE, related_name='notificacionesItinerario',null=True, blank=True)
     
 
