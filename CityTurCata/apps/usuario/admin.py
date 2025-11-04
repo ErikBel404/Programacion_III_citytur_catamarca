@@ -6,7 +6,7 @@ from .models import Usuario
 @admin.register (Usuario)
 class UsuarioAdmin (UserAdmin):
     fieldsets = UserAdmin.fieldsets + ((None, {'fields': ('documento_identidad', 'domicilio', 'tipoUsuario')}),)
-    add_fieldsets = UserAdmin.fieldsets + ((None, {'fields': ('documento_identidad', 'domicilio', 'tipoUsuario')}),)
+    add_fieldsets = UserAdmin.add_fieldsets + ((None, {'fields': ('documento_identidad', 'domicilio', 'tipoUsuario')}),)
     
 
 
