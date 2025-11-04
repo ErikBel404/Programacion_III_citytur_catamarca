@@ -1,5 +1,5 @@
 from django.db import models
-from apps.perfil.models  import Turista
+from apps.usuario.models import Usuario
 from apps.administracion.models  import Itinerario
 from apps.administracion.models import PuntoTuristico, Recorrido
 
@@ -17,7 +17,7 @@ class Reserva(models.Model):
 
     estadoReserva = models.CharField(max_length=250, blank=False, null=False, choices=ESTADORESERVA, default='reservaActiva');
 
-    turista= models.ForeignKey (Turista, on_delete= models.CASCADE, related_name='reservaTurista', blank=True, null= True);
+    turista= models.ForeignKey (Usuario, on_delete= models.CASCADE, related_name='reservaTurista', blank=True, null= True);
     itinerario= models.ForeignKey (Itinerario, on_delete=models.CASCADE, related_name='reservaitinerario', blank=True, null= True)
 
     def __str__(self):
