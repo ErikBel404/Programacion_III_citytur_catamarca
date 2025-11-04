@@ -36,7 +36,7 @@ def crearReservaView(request):
         'reservas' : reservaForm
     } 
 
-    return render(request,'',contexto)
+    return render(request,'reserva/formularioAgregarReserva.html',contexto)
 
 
 def modificarReservaView (request,pk):

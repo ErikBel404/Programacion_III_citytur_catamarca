@@ -1,0 +1,72 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block title%}
+    Reservas Visualizar - CityTur Catamarca
+{%endblock%}
+
+{%block head_css%}
+    <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+{%endblock%}
+
+{%block content%}
+<main>
+    <div id="" class="cosas_dentro_main">
+        <h2 class="titulo">Lista De Notificaciones</h2>
+      <div class="contenedor-tarjetas">
+        {% for reserva in reservas %}
+          <div class="tarjeta">
+            <figure>
+              <img src="{%static 'img/colectivoAlertaNotificaciones.png' %}" alt="imagen de la Alerta" width="60%" height="60%" />
+            </figure>
+            <hr>
+            <p>
+              <span>Recorrido:</span> {{ reserva.recorridoReserva }}
+            </p>
+
+            <p>
+              <span>Cantidad de Reservas:</span> {{reserva.cantidadReserva }}
+            </p>
+
+            <p>
+              <span> Fecha de la Reserva</span> {{reserva.fechaReserva }}
+            </p>
+
+            <p>
+              <span> Hora de la Reserva</span> {{reserva.horaReserva }}
+            </p>
+            
+            <p>
+              <span> Punto de la Partida</span> {{reserva.puntoDePartidaReserva }}
+            </p>
+            
+            <p>
+              <span>Estado de la Reserva</span> {{reserva.estadoReserva }}
+            </p>
+
+            <p>
+              <span> Turista: </span> {{reserva.turista }}
+            </p>
+
+            <p>
+              <span> Itinerario: </span> {{reserva.itinerario }}
+            </p>
+            
+            <hr>
+            <div class="contBtn">
+              <a class="btnP btnModificarP" href="{% url 'administracion:modificarNotificacion' notificacion.id %}">Modificar</a>
+              <a class="btnP btnEliminarP" href="{% url 'administracion:bajaNotificacion' notificacion.id %}">Eliminar</a>
+              
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+</main>
+{%endblock%}
+
+{%block js%}
+
+{%endblock%}
