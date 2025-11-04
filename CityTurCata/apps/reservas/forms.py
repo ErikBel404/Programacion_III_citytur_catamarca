@@ -27,35 +27,51 @@ class ReservaForm(forms.ModelForm):
                   'estadoReserva',
                   'itinerario']
         
-        widgets = { #para cuando haga el template mi shey
-
+        widgets = { 
             'cantidadReserva': forms.TextInput(attrs={
-                'class' : 'inputLaberl',
-                'id': 'cantidadReservas'
+                'class' : 'inputLabel',
+                'id': 'cantidadReservas',
+                'required': True,
+                'placeholder': ' '
+
             }),
 
             'fechaReserva': forms.DateInput(attrs = {
                 'class':'inputLabel',
-                'id':'fechaReserva' 
+                'id':'fechaReserva',
+                'required': True,
+                'type':'date'
+
             }),
 
             'horaReserva':forms.TimeInput(attrs={
                 'class':'inputLabel',
-                'id': 'horaRerserva'
+                'id': 'horaRerserva',
+                'required': True,
+                'type': 'time',
+                'placeholder': ' ' 
+
+
             }),
 
-            'puntoDePartidaReserva': forms.CheckboxSelectMultiple(attrs={}),
+            'puntoDePartidaReserva': forms.CheckboxSelectMultiple(attrs={
+                'required': True,
+                'placeholder': ' '
+
+            }),
             
             'estadoReserva':forms.Select(attrs={
                 'class':'inputLabel',
-                'id':'estatadoReserva'
+                'id':'estatadoReserva',
+                'placeholder': ' '
             })
         }
 
-        label={
+        labels = {
             'cantidadReserva':'🚌 Cantidad de reservas',
             'fechaReserva': '📆 Fecha de la reserva',
             'horaReserva': '⌚ Hora de la reserva',
-            'estadoReserva': '📋 Estado de la reserva'
+            'estadoReserva': '📋 Estado de la reserva',
+            'puntoDePartidaReserva':'🚏 Punto de partida Reserva'
 
         }
