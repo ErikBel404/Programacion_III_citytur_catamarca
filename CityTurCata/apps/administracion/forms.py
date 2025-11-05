@@ -1,6 +1,6 @@
 from django import forms
 from .models import PuntoTuristico
-from apps.administracion.models import Transporte, Reportes, Recorrido, PuntoTuristico, Notificacion, Itinerario
+from apps.administracion.models import Transporte, Recorrido, PuntoTuristico, Notificacion, Itinerario
 
 
 class PuntoTuristicoForm (forms.ModelForm):
@@ -74,16 +74,56 @@ class TransporteForm(forms.ModelForm):
             'estadoTransporte':'📢Estado Transporte:'
         }
 
+class ReporteForm(forms.Form):
+    
+    TIPOINFORME = [
+        ('', '--- Seleccione un reporte ---'), 
+        ('recorridos_activos', 'Recorridos Activos'),
+        ('paradas_utilizadas', 'Paradas Más Utilizadas'),
+        # Cambié la 'key' para que coincida con tus URLs
+        ('reservaRecorrido', 'Listado de Reservas por Recorrido'), 
+        ('consultasReservas', 'Consulta de Reservas (Turista)'), 
+        ('estadisticasPasajeros', 'Estadísticas de Pasajeros'), 
+    ]
 
-class ReportesForm(forms.ModelForm):
-    class Meta:
-        model = Reportes
-        fields = ['tipoReportes', 'formatoReporte',
-                  'horaFecha', 'identidadSolicitante']
+    FORMATODOCUMENTO = [
+        ('csv', 'CSV'),
+        ('excel', 'Excel (.xlsx)'),
+        ('pdf', 'PDF'),
+    ]
 
-        widgets = {
+    tipoReportes = forms.ChoiceField(
+        choices=TIPOINFORME,
+        label="Tipo de Reporte",
+        widget=forms.Select(attrs={'class': 'inputLabel', 'id': 'id_tipo_reporte'})
+    )
+    
+    formatoReporte = forms.ChoiceField(
+        choices=FORMATODOCUMENTO,
+        label="Formato de Archivo",
+        widget=forms.Select(attrs={'class': 'inputLabel', 'id': 'id_formato_reporte'})
+    )
+        
+    
+    recorrido = forms.ModelChoiceField(
+        queryset=Recorrido.objects.all(), 
+        required=False,
+        label="Seleccione un Recorrido",
+        widget=forms.Select(attrs={'class': 'inputLabel', 'id': 'id_recorrido'})
+    )
 
-        }
+    fecha_inicio = forms.DateField(
+        required=False,
+        label="Fecha Desde",
+        widget=forms.DateInput(attrs={'class': 'inputLabel', 'type': 'date', 'id': 'id_fecha_inicio'})
+    )
+    
+    fecha_fin = forms.DateField(
+        required=False,
+        label="Fecha Hasta",
+        widget=forms.DateInput(attrs={'class': 'inputLabel', 'type': 'date', 'id': 'id_fecha_fin'})
+    )
+
 
 class RecorridoForm(forms.ModelForm):
     
@@ -173,7 +213,7 @@ class ItinerarioForm(forms.ModelForm):
             'titulo',
             'transporte',
             'recorridos',
-            'reportes',
+            
         ]
         
         widgets = {
@@ -192,11 +232,7 @@ class ItinerarioForm(forms.ModelForm):
             'recorridos': forms.Select(attrs={
                 'class': 'inputLabel',
                 'id': 'recorridoItinerario'
-            }),
-            'reportes': forms.SelectMultiple(attrs={
-                'class': 'inputLabel',
-                'id': 'reporteItinerario'
-            }),
+            })
         }
 
         labels = {
@@ -204,5 +240,4 @@ class ItinerarioForm(forms.ModelForm):
             'titulo': '🏷️ Título (Opcional)',
             'transporte': '🚌 Transporte Asignado',
             'recorridos': '🛣️ Recorrido Principal',
-            'reportes': '📋 Reportes Asociados',
         }

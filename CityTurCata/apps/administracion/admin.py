@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Transporte, Reportes, Reportes, PuntoTuristico, Recorrido, Itinerario, Notificacion
+from .models import Transporte, PuntoTuristico, Recorrido, Itinerario, Notificacion
 
 # Register your models here.
 @admin.register (Transporte)
@@ -8,9 +8,9 @@ class TransporteAdmin (admin.ModelAdmin):
     
     
     
-@admin.register (Reportes)
-class ReportesAdmin (admin.ModelAdmin):
-    list_display = ['tipoReportes', 'formatoReporte', 'horaFecha', 'identidadSolicitante' ]
+#@admin.register (Reportes)
+#class ReportesAdmin (admin.ModelAdmin):
+#    list_display = ['tipoReportes', 'formatoReporte', 'horaFecha', 'identidadSolicitante' ]
     
 @admin.register (PuntoTuristico)
 class PuntoTuristicoAdmin (admin.ModelAdmin):

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Panel de Reportes {% endblock %}
+
+{% block head_css %}
+    <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+{% endblock %}
+
+{% block content %}
+<main>
+    <div id="" class="cosas_dentro_main">
+        <div id="formularioAgregar">
+            
+            <fieldset>
+                <h2 class="titulo">Generar Reporte</h2>
+                
+                <div class="contenedorLabelInput">
+                    {{ form.tipoReportes.errors }}
+                    {{ form.tipoReportes }}
+                    <label for="{{ form.tipoReportes.id_for_label }}" class="campoLabel">{{ form.tipoReportes.label }}</label>
+                </div>
+
+                <div class="contenedorLabelInput">
+                    {{ form.formatoReporte.errors }}
+                    {{ form.formatoReporte }}
+                    <label for="{{ form.formatoReporte.id_for_label }}" class="campoLabel">{{ form.formatoReporte.label }}</label>
+                </div>
+
+                <hr>
+                <p>Opciones (Llenar solo si el reporte lo requiere):</p>
+                
+                <div class="contenedorLabelInput" id="campo_recorrido">
+                    {{ form.recorrido.errors }}
+                    {{ form.recorrido }}
+                    <label for="{{ form.recorrido.id_for_label }}" class="campoLabel">{{ form.recorrido.label }}</label>
+                </div>
+                
+                <div class="contenedorLabelInput" id="campo_fechas">
+                    {{ form.fecha_inicio.errors }}
+                    {{ form.fecha_inicio }}
+                    <label for="{{ form.fecha_inicio.id_for_label }}" class="campoLabel">{{ form.fecha_inicio.label }}</label>
+                </div>
+                
+                <div class="contenedorLabelInput" id="campo_fechas_fin">
+                    {{ form.fecha_fin.errors }}
+                    {{ form.fecha_fin }}
+                    <label for="{{ form.fecha_fin.id_for_label }}" class="campoLabel">{{ form.fecha_fin.label }}</label>
+                </div>
+
+                <br>
+                <div id="botones-formularios">
+                    <button type="button" 
+                            id="boton-generar" 
+                            class="btnP btnModificarP"
+                            data-base-url="{% url 'administracion:agregarReportes' %}"
+                            >
+                        Generar y Descargar
+                    </button>
+                </div>
+            </fieldset>
+            
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/reportes.js' %}"></script>
+{% endblock %}

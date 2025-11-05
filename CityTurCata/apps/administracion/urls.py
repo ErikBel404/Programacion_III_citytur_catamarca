@@ -12,7 +12,6 @@ urlpatterns = [
     
     #
     #urls de reportes
-    path('reportes/lista/',views.listaReportesView,name='listaReportes'),
     path('reportes/agregar/', views.reportesView, name='agregarReportes'),
     #
     path('reportes/activos/',views.reporteRecorridosActivosView, name='recorridosActivos'),
