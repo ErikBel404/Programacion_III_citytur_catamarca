@@ -41,7 +41,7 @@ header {
 #logoheader{
     display: flex;
     align-items: center;
-    gap: 1px;
+    gap: 15px;
 }
 
 
@@ -106,14 +106,20 @@ nav a:hover, #perfilUsuario button:hover{
 }
 
 #abajoheader{
+    justify-self: end;
+    padding-right: 20px;
     display: flex;
     flex-direction:row;
-    align-items: flex-end;
+    align-items: end;
     gap: 10px;
 }
 
-
-
+header.headerbloqueado {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    width: 100%;
+}
 /*Aca empieza el body*/
 
 main{
