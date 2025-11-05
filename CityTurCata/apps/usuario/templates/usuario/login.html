@@ -1,38 +1,61 @@
-{%extends 'base.html'%}
-{%load static%}
+{% extends 'base.html' %}
+{% load static %}
 
-{%block title%}
-    Reservas Crear - CityTur Catamarca
-{%endblock%}
+{% block title %}
+    Login - CityTur Catamarca
+{% endblock %}
 
-{%block head_css%}
+{% block head_css %}
     <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
     <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
     <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
-{%endblock%}
+{% endblock %}
 
-{%block content%}
-<hr class="w-75">
-    <br>
-    {% if msj %}
-        <div>{{ msj }}</div>
-    {% endif %}
-    <form action="{% url 'usuario:login' %}" method="post" class="w-75">
-        {% csrf_token %}
-        <div class="mb-3">
-            <label class="form-label" for="username">Nombre de Usuario: </label>
-            <input type="text" id="username" name="username" class="form-control" >
+{% block content %}
+<main>
+    <div id="" class="cosas_dentro_main">
+
+        {% if msj %}
+        <div class="messages" style="text-align: center; margin-bottom: 15px;">
+            <div class="alert alert-danger"> <strong>{{ msj }}</strong>
+            </div>
         </div>
-        <div class="mb-3">
-            <label class="form-label" for="passw">Contraseña: </label>
-            <input type="password" id="passw" name="password" class="form-control" >
+        {% endif %}
+
+        <div id="formularioAgregar">
+            
+            <form action="{% url 'usuario:login' %}" method="post">
+                <fieldset>
+                    {% csrf_token %}
+                    <h2 class="titulo">Iniciar Sesión</h2>
+                    
+                    <div class="contenedorLabelInput">
+                        <input type="text" id="username" name="username" class="inputLabel" required>
+                        <label class="campoLabel" for="username">👤 Nombre de Usuario: </label>
+                    </div>
+
+                    <div class="contenedorLabelInput">
+                        <input type="password" id="passw" name="password" class="inputLabel" required>
+                        <label class="campoLabel" for="passw">🔑 Contraseña: </label>
+                    </div>
+
+                    <br>
+
+                    <div id="botones-formularios">
+                        <button type="submit" id="boton-aceptar" class="btnP btnModificarP">Login</button>
+                        <a class="btnP btnEliminarP" href="/">Cancelar</a>
+                    </div>
+
+                    <div class="enlace-registro" id="enlace-registro-id" style="text-align: center; margin-top: 20px; ">
+                        <span>¿No tienes una cuenta? </span>
+                        <a href="{% url 'usuario:registroUsuario' %} " style="color:brown">Regístrate aquí</a>
+                    </div>
+                    </fieldset>
+            </form>
         </div>
-        <input type="submit" class="btn btn-primary" value="Login">
-    </form>
+    </div>
+</main>
+{% endblock %}
 
-
-{%endblock%}
-
-{%block js%}
-
-{%endblock%}
+{% block js %}
+{% endblock %}
