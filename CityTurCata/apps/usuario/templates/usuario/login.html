@@ -1,36 +1,38 @@
-{% extends 'base.html' %}
-{% load static %}
+{%extends 'base.html'%}
+{%load static%}
 
-{% block title %}
-  Reservas Crear - CityTur Catamarca
-{% endblock %}
+{%block title%}
+    Reservas Crear - CityTur Catamarca
+{%endblock%}
 
-{% block head_css %}
-  <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
-{% endblock %}
+{%block head_css%}
+    <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+{%endblock%}
 
-{% block content %}
-  <hr class="w-75" />
-  <br />
-  {% if msj %}
-    <div>{{ msj }}</div>
-  {% endif %}
-  <form action="{% url 'usuario:login' %}" method="post" class="w-75">
-    {% csrf_token %}
-    <div class="mb-3">
-      <label class="form-label" for="username">Nombre de Usuario:</label>
-      <input type="text" id="username" name="username" class="form-control" />
-    </div>
-    <div class="mb-3">
-      <label class="form-label" for="passw">Contraseña:</label>
-      <input type="password" id="passw" name="password" class="form-control" />
-    </div>
-    <input type="submit" class="btn btn-primary" value="Login" />
-  </form>
-{% endblock %}
+{%block content%}
+<hr class="w-75">
+    <br>
+    {% if msj %}
+        <div>{{ msj }}</div>
+    {% endif %}
+    <form action="{% url 'usuario:login' %}" method="post" class="w-75">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label" for="username">Nombre de Usuario: </label>
+            <input type="text" id="username" name="username" class="form-control" >
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="passw">Contraseña: </label>
+            <input type="password" id="passw" name="password" class="form-control" >
+        </div>
+        <input type="submit" class="btn btn-primary" value="Login">
+    </form>
 
-{% block js %}
 
-{% endblock %}
+{%endblock%}
+
+{%block js%}
+
+{%endblock%}
