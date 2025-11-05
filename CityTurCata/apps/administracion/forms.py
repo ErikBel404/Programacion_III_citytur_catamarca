@@ -205,14 +205,35 @@ class NotificacionForm(forms.ModelForm):
 
 
 class ItinerarioForm(forms.ModelForm):
+    transporte = forms.ModelChoiceField(
+        queryset=Transporte.objects.all(),
+        label="🚌 Transporte Asignado",
+        required=False,  
+        empty_label="",   
+        widget=forms.Select(attrs={
+            'class': 'inputLabel',
+            'id': 'transporteItinerario' 
+        })
+    )
+
+    recorridos = forms.ModelChoiceField(
+        queryset=Recorrido.objects.all(),
+        label="🛣️ Recorrido Principal",
+        required=False,  
+        empty_label="",    
+        widget=forms.Select(attrs={
+            'class': 'inputLabel',
+            'id': 'recorridoItinerario'
+        })
+    )
+
     class Meta:
         model = Itinerario
         fields = [
             'fecha',
             'titulo',
-            'transporte',
-            'recorridos',
-            
+            'transporte', 
+            'recorridos'
         ]
         
         widgets = {
@@ -222,21 +243,13 @@ class ItinerarioForm(forms.ModelForm):
             }),
             'titulo': forms.TextInput(attrs={
                 'class': 'inputLabel',
-                'id': 'tituloItinerario'
-            }),
-            'transporte': forms.Select(attrs={
-                'class': 'inputLabel',
-                'id': 'transporteItinerario'
-            }),
-            'recorridos': forms.Select(attrs={
-                'class': 'inputLabel',
-                'id': 'recorridoItinerario'
+                'id': 'tituloItinerario',
+                'placeholder': ' ' 
             })
+            
         }
 
         labels = {
             'fecha': '📅 Fecha del Itinerario',
-            'titulo': '🏷️ Título (Opcional)',
-            'transporte': '🚌 Transporte Asignado',
-            'recorridos': '🛣️ Recorrido Principal',
+            'titulo': '🏷️ Título (Opcional)'
         }
