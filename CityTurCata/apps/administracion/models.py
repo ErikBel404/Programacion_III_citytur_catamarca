@@ -85,7 +85,7 @@ class Recorrido (models.Model):
 class Itinerario(models.Model):
 
     fecha = models.DateField(
-        unique=True, 
+         
         null=True, 
         blank=True, 
         verbose_name="Fecha del Itinerario"
