@@ -2,26 +2,26 @@
 
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import Usuario  # Importa tu modelo
+from .models import Usuario  
 
 class RegistroUsuarioForm(UserCreationForm):
     
-    # --- ¡AQUÍ ESTÁ LA CORRECCIÓN! ---
-    # Los campos DEBEN llamarse 'password_1' y 'password_2'
-    
     password1 = forms.CharField(
         label='Contraseña', 
-        widget=forms.PasswordInput
+        widget=forms.PasswordInput(attrs={
+            'class': 'inputLabel',  
+        })
     )
     password2 = forms.CharField(
         label='Confirmar Contraseña', 
-        widget=forms.PasswordInput
+        widget=forms.PasswordInput(attrs={
+            'class': 'inputLabel',  
+        })
     )
 
     class Meta(UserCreationForm.Meta):
-        model = Usuario
+        model = Usuario 
         
-        # Campos de tu modelo que se pedirán
         fields = [
             'username',
             'first_name',
@@ -31,12 +31,34 @@ class RegistroUsuarioForm(UserCreationForm):
             'domicilio',
         ]
         
-        # Etiquetas en español
+       
         labels = {
-            'username': 'Nombre de Usuario',
-            'first_name': 'Nombres',
-            'last_name': 'Apellidos',
-            'email': 'Correo Electrónico',
-            'documento_identidad': 'Número de Documento',
-            'domicilio': 'Domicilio',
+            'username': '👤 Nombre de Usuario',
+            'first_name': '🧑 Nombres',
+            'last_name': '🧑 Apellidos',
+            'email': '📧 Correo Electrónico',
+            'documento_identidad': '🆔 Número de Documento',
+            'domicilio': '🏠 Domicilio',
+        }
+
+        
+        widgets = {
+            'username': forms.TextInput(attrs={
+                'class': 'inputLabel',
+            }),
+            'first_name': forms.TextInput(attrs={
+                'class': 'inputLabel',
+            }),
+            'last_name': forms.TextInput(attrs={
+                'class': 'inputLabel',
+            }),
+            'email': forms.EmailInput(attrs={  
+                'class': 'inputLabel',
+            }),
+            'documento_identidad': forms.TextInput(attrs={
+                'class': 'inputLabel',
+            }),
+            'domicilio': forms.TextInput(attrs={
+                'class': 'inputLabel',
+            }),
         }
