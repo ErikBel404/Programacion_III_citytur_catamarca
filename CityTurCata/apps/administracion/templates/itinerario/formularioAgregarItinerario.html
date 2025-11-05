@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    {% if form.instance.pk %}
+        Modificar Itinerario
+    {% else %}
+        Crear Itinerario
+    {% endif %}
+{% endblock %}
+
+{% block head_css %}
+   <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+{% endblock %}
+
+{% block content %}
+<main>
+    <div id="" class="cosas_dentro_main">
+        <div id="formularioAgregar">
+            
+            <form method="POST">
+                <fieldset>
+                    {% csrf_token %}
+
+                    {% if form.instance.pk %}
+                        <h2 class="titulo">Modificar Itinerario</h2>
+                    {% else %}
+                        <h2 class="titulo">Agregar Itinerario</h2>
+                    {% endif %}
+
+                    <div class="contenedorLabelInput">
+                        {{ form.fecha.errors }}
+                        {{ form.fecha }}
+                        <label for="{{ form.fecha.id_for_label }}" class="campoLabel">{{ form.fecha.label }}</label>
+                    </div>
+                    
+                    <div class="contenedorLabelInput">
+                        {{ form.titulo.errors }}
+                        {{ form.titulo }}
+                        <label for="{{ form.titulo.id_for_label }}" class="campoLabel">{{ form.titulo.label }}</label>
+                    </div>
+                    
+                    <div class="contenedorLabelInput">
+                        {{ form.transporte.errors }}
+                        {{ form.transporte }}
+                        <label for="{{ form.transporte.id_for_label }}" class="campoLabel">{{ form.transporte.label }}</label>
+                    </div>
+
+                    <div class="contenedorLabelInput">
+                        {{ form.recorridos.errors }}
+                        {{ form.recorridos }}
+                        <label for="{{ form.recorridos.id_for_label }}" class="campoLabel">{{ form.recorridos.label }}</label>
+                    </div>
+                    
+                    <div class="contenedorLabelInput">
+                        {{ form.reportes.errors }}
+                        {{ form.reportes }}
+                        <label for="{{ form.reportes.id_for_label }}" class="campoLabel">{{ form.reportes.label }}</label>
+                    </div>
+
+                    <br>
+                    <div id="botones-formularios">
+                        <button type="submit" id="boton-aceptar" class="btnP btnModificarP">Aceptar</button>
+                        <a class="btnP btnEliminarP" href="{% url 'administracion:ListarItinerarios' %}">Cancelar</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

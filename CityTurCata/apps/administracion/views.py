@@ -7,7 +7,8 @@ from django.urls import reverse
 from apps.administracion.models import PuntoTuristico, Transporte, Recorrido, Reportes, Itinerario, Notificacion
 
 #importaciones de los form
-from .forms import TransporteForm, ReportesForm, RecorridoForm, NotificacionForm, PuntoTuristicoForm
+from .forms import TransporteForm, ReportesForm, RecorridoForm, NotificacionForm, PuntoTuristicoForm, ItinerarioForm
+
 
 #=========================================================Definicion de transporte de las vistas de transporte(lo separo asi por que me pierdo si no)=========================================================
 
@@ -259,31 +260,58 @@ def bajaRecorridosView(request,pk):
 
 #=========================================================Definicion de transporte de las vistas de Itinerarios(lo separo asi por que me pierdo si no)=========================================================
 
-def crearItinerariosView (request):
-    return HttpResponse ('aca sale la parte para crear un Itinerario')
-
-
-
-def listarItinerariosView (request):
-    itinerarioView = Itinerario.objects.all()
+def listarItinerariosView(request):
+    itinerarioView = Itinerario.objects.all().order_by('-fecha') # Ordenamos por fecha
 
     contexto = {
-        'itinerario': itinerarioView
+        'itinerarios': itinerarioView 
     }
-
-    return render(request,'',contexto)
-
+    return render(request, 'itinerario/visualizarItinerarios.html', contexto)
 
 
-def modificarItinerariosView (request):
-    return HttpResponse ('aca esta la parte para modificar los Itinerarios')
+def crearItinerarioView(request):
+    # Usando tu lógica de 'crearRecorridosView'
+    if request.method == 'POST':
+        itinerarioForm = ItinerarioForm(request.POST)
+        if itinerarioForm.is_valid():
+            itinerarioForm.save() 
+            messages.success(request, '¡Itinerario creado exitosamente!')
+            return redirect('administracion:listarItinerarios') 
+    else:
+        itinerarioForm = ItinerarioForm()
+
+    contexto = {
+        'form': itinerarioForm
+    }
+    return render(request, 'itinerario/formularioAgregarItinerario.html', contexto)
 
 
+def modificarItinerarioView(request, pk):
+    itinerarioViejo = get_object_or_404(Itinerario, pk=pk)
+
+    if request.method == 'POST':
+        itinerarioNuevoForm = ItinerarioForm(request.POST, instance=itinerarioViejo)
+        if itinerarioNuevoForm.is_valid():
+            itinerarioNuevoForm.save()
+            messages.success(request, 'Se ha actualizado correctamente el Itinerario')
+            return redirect('administracion:ListarItinerarios') 
+    else:
+        itinerarioNuevoForm = ItinerarioForm(instance=itinerarioViejo)
+
+    contexto = {
+        'form': itinerarioNuevoForm
+    }
+    return render(request, 'itinerario/formularioAgregarItinerario.html', contexto)
 
 
-def bajaItinerariosView (request):
-    return HttpResponse ('aca esta la parte para dar de baja los Itinerarios')
+def bajaItinerarioView(request, pk):
+    bajaItinerario = get_object_or_404(Itinerario, pk=pk)
+    bajaItinerario.delete()
+    
+    messages.success(request, 'Itinerario eliminado.')
+    return redirect('administracion:listarItinerarios')
 
+    
 #=========================================================Definicion de transporte de las vistas de Notificacion(lo separo asi por que me pierdo si no)=========================================================
 def listarNotificacionesView (request):
     notificacionView = Notificacion.objects.all()

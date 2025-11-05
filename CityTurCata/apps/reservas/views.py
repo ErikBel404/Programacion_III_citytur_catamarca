@@ -1,5 +1,8 @@
 from django.contrib import messages
 from django.shortcuts import get_object_or_404, redirect, render
+from apps.administracion.models import Itinerario
+from django.contrib.auth.decorators import login_required
+
 from django.http import HttpResponse
 from django.urls import reverse
 
@@ -17,12 +20,20 @@ def listarReservasView (request):
 
     return render(request,'reserva/visualizarReservas.html',contexto)
 
-
+@login_required
 def crearReservaView(request):
     nuevaReserva = None
     if request.method == 'POST':
         reservaForm = ReservaForm(request.POST)
         if reservaForm.is_valid():
+
+            fechaSeleccionada = reservaForm.cleaned_data['fechaReserva']
+            itinerario_obj, creado = Itinerario.objects.get_or_create(fecha=fechaSeleccionada)
+
+            if creado:
+                itinerario_obj.titulo = f"Itinerario para {fechaSeleccionada.strftime('%d-%m-%Y')}"
+                itinerario_obj.save()
+
             nuevaReserva = reservaForm.save(commit=False)
             nuevaReserva.save()
             reservaForm.save_m2m()
@@ -45,8 +56,18 @@ def modificarReservaView (request,pk):
     if request.method == 'POST':
         reservaNuevaForm = ReservaForm(request.POST, instance=reservaVieja)
         if reservaNuevaForm.is_valid():
-            reservaNuevaForm.save(commit = True)
-            messages.success(request,'Se ha actulizado correctamente la reserva{}'.format(reservaNuevaForm))
+
+            fechaSeleccionada = reservaNuevaForm.cleaned_data['fechaReserva']
+            itinerario_obj, creado = Itinerario.objects.get_or_create(fecha=fechaSeleccionada)
+            if creado:
+                itinerario_obj.titulo = f"Itinerario para {fechaSeleccionada.strftime('%d-%m-%Y')}"
+                itinerario_obj.save()
+
+            reservaModificada = reservaNuevaForm.save(commit=False)
+            reservaModificada.itinerario = itinerario_obj # Re-asigna el itinerario
+            reservaModificada.save()            
+
+            messages.success(request,'Se ha actulizado correctamente la reserva{}'.format(reservaModificada))
 
             return redirect('reservas:listarReservas')
     else:
