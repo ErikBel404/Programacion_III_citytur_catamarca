@@ -31,7 +31,7 @@ urlpatterns = [
     path('', admin_views.index_view, name='index'),
     path('admin/', admin.site.urls),
     path('', include('apps.administracion.urls')),
-    #path('', include(apps.perfil.urls)),
+    path('', include('apps.usuario.urls')),
     path('', include('apps.reservas.urls'))
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 

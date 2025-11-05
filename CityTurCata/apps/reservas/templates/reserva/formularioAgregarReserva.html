@@ -55,25 +55,15 @@
               <label for="{{ reservas.horaReserva.id_for_label }}" class="campoLabel">{{ reservas.horaReserva.label }}</label>
             </div>
 
-            <br>
 
-            <div class="acordeonGrupo">
-                <input type="checkbox" id="acordeon-1" class="acordeonInput" />
-                <!-- sin esto no funciona no tocar -->
-
-                <label for="acordeon-1" class="acordeonLabel">
-                    {{ reservas.puntoDePartidaReserva.label }}
-                    <div class="acordeonFlecha">▼</div>
-              </label>
-
-              <div class="acordeonContenido">
-                    <div class="checkboxItem">
-                        {{ reservas.puntoDePartidaReserva.errors }}
-                        {{ reservas.puntoDePartidaReserva }}
-                        <label for="{{ reservas.puntoDePartidaReserva.id_for_label }}" class="campoLabel"></label>
-                    </div>
-              </div>
+            <div class="contenedorLabelInput">
+              {{ reservas.puntoDePartidaReserva.errors }}
+              {{ reservas.puntoDePartidaReserva }}
+              <label for="{{ reservas.puntoDePartidaReserva.id_for_label }}" class="campoLabel">{{ reservas.puntoDePartidaReserva.label }}</label>
             </div>
+
+
+            
 
             
             <div class="contenedorLabelInput">
@@ -98,5 +88,6 @@
 {%endblock%}
 
 {%block js%}
+  <script src="{% static 'js/controldefecha.js' %}"></script>
 
 {%endblock%}

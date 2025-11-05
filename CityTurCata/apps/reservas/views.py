@@ -15,7 +15,7 @@ def listarReservasView (request):
         'reservas' : reservaVista
     }
 
-    return render(request,'',contexto)
+    return render(request,'reserva/visualizarReservas.html',contexto)
 
 
 def crearReservaView(request):
@@ -56,11 +56,11 @@ def modificarReservaView (request,pk):
         'reservas' : reservaNuevaForm
     }            
 
-    return render(request,'',contexto)
+    return render(request,'reserva/formularioAgregarReserva.html',contexto)
 
 
 def bajaReservaView (request, pk):
     bajaReserva = get_object_or_404(Reserva, pk=pk)
     bajaReserva.delete()
 
-    return render('reservas:listarReservas')
+    return redirect('reservas:listarReservas')
