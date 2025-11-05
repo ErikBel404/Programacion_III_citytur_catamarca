@@ -20,8 +20,8 @@ class Transporte(models.Model):
         return f'Matricula del Transporte: {self.dominioMatriculaTransporte}, Capacidad del transporte: {self.capacidadTransporte}, estado del Transporte: {self.estadoTransporte}'
    
 class PuntoTuristico (models.Model):
-    nombre = models.CharField(max_length=20, blank=False, null=False)
-    ubicacion = models.CharField(max_length=100, blank=False, null=False)
+    nombre = models.CharField(max_length=250, blank=False, null=False)
+    ubicacion = models.CharField(max_length=250, blank=False, null=False)
     informacion = models.TextField(max_length=500, blank=False, null=False)
     imagen = models.ImageField(upload_to='puntos/', blank=True, null=True)
 
