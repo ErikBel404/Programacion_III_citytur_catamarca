@@ -269,7 +269,7 @@ def listarItinerariosView(request):
     return render(request, 'itinerario/visualizarItinerarios.html', contexto)
 
 
-def crearItinerarioView(request):
+def crearItinerariosView(request):
     # Usando tu lógica de 'crearRecorridosView'
     if request.method == 'POST':
         itinerarioForm = ItinerarioForm(request.POST)
@@ -286,7 +286,7 @@ def crearItinerarioView(request):
     return render(request, 'itinerario/formularioAgregarItinerario.html', contexto)
 
 
-def modificarItinerarioView(request, pk):
+def modificarItinerariosView(request, pk):
     itinerarioViejo = get_object_or_404(Itinerario, pk=pk)
 
     if request.method == 'POST':
@@ -304,7 +304,7 @@ def modificarItinerarioView(request, pk):
     return render(request, 'itinerario/formularioAgregarItinerario.html', contexto)
 
 
-def bajaItinerarioView(request, pk):
+def bajaItinerariosView(request, pk):
     bajaItinerario = get_object_or_404(Itinerario, pk=pk)
     bajaItinerario.delete()
     
