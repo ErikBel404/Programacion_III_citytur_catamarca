@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Lista de Itinerarios {% endblock %}
+
+{% block head_css %}
+    <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+{% endblock %}
+
+{% block content %}
+<main>
+    <div id="" class="cosas_dentro_main">
+        <h2 class="titulo">Lista De Itinerarios</h2>
+        
+        <div style="margin-bottom: 20px;">
+            <a class="btnP btnModificarP" href="{% url 'administracion:crearItinerario' %}">
+                + Agregar Itinerario
+            </a>
+        </div>
+
+        <div class="contenedor-tarjetas">
+            {% for itinerario in itinerarios %}
+                <div class="tarjeta">
+                    <p>
+                        <span>Fecha:</span> 
+                        {% if itinerario.fecha %}
+                            {{ itinerario.fecha|date:"d/m/Y" }}
+                        {% else %}
+                            Sin fecha
+                        {% endif %}
+                    </p>
+                    <p>
+                        <span>Título:</span> {{ itinerario.titulo|default:"N/A" }}
+                    </p>
+                    <p>
+                        <span>Recorrido:</span> {{ itinerario.recorridos|default:"N/A" }}
+                    </p>
+                    <p>
+                        <span>Reservas:</span> {{ itinerario.reservaitinerario.count }}
+                    </p>
+                    <hr>
+                    <div class="contBtn">
+                        <a class="btnP btnModificarP" href="{% url 'administracion:modificarItinerario' itinerario.id %}">Modificar</a>
+                        
+                        <form method="POST" action="{% url 'administracion:bajaItinerario' itinerario.id %}" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btnP btnEliminarP" onclick="return confirm('¿Seguro que quieres eliminar este itinerario?');">
+                                Eliminar
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No hay itinerarios creados.</p>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock %}

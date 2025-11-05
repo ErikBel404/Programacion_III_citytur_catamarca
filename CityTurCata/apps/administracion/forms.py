@@ -1,6 +1,6 @@
 from django import forms
 from .models import PuntoTuristico
-from apps.administracion.models import Transporte, Reportes, Recorrido, PuntoTuristico, Notificacion
+from apps.administracion.models import Transporte, Reportes, Recorrido, PuntoTuristico, Notificacion, Itinerario
 
 
 class PuntoTuristicoForm (forms.ModelForm):
@@ -162,4 +162,47 @@ class NotificacionForm(forms.ModelForm):
         labels = {
             'titulo':'📎Titulo',
             'descripcion': '📄Descripcion De la Notificacion'
+        }
+
+
+class ItinerarioForm(forms.ModelForm):
+    class Meta:
+        model = Itinerario
+        fields = [
+            'fecha',
+            'titulo',
+            'transporte',
+            'recorridos',
+            'reportes',
+        ]
+        
+        widgets = {
+            'fecha': forms.DateInput(attrs={
+                'class': 'inputLabel',
+                'type': 'date'
+            }),
+            'titulo': forms.TextInput(attrs={
+                'class': 'inputLabel',
+                'id': 'tituloItinerario'
+            }),
+            'transporte': forms.Select(attrs={
+                'class': 'inputLabel',
+                'id': 'transporteItinerario'
+            }),
+            'recorridos': forms.Select(attrs={
+                'class': 'inputLabel',
+                'id': 'recorridoItinerario'
+            }),
+            'reportes': forms.SelectMultiple(attrs={
+                'class': 'inputLabel',
+                'id': 'reporteItinerario'
+            }),
+        }
+
+        labels = {
+            'fecha': '📅 Fecha del Itinerario',
+            'titulo': '🏷️ Título (Opcional)',
+            'transporte': '🚌 Transporte Asignado',
+            'recorridos': '🛣️ Recorrido Principal',
+            'reportes': '📋 Reportes Asociados',
         }

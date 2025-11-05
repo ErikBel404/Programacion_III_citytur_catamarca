@@ -81,7 +81,16 @@ class Recorrido (models.Model):
 
     def __str__(self):
         return f'{self.nombreRecorrido}'
+
 class Itinerario(models.Model):
+
+    fecha = models.DateField(
+        unique=True, 
+        null=True, 
+        blank=True, 
+        verbose_name="Fecha del Itinerario"
+    )
+
     titulo = models.CharField(max_length=100, blank=False, null=False)
 
     transporte= models.ForeignKey(Transporte, on_delete=models.CASCADE, related_name='trasporteItinerario')
@@ -89,7 +98,10 @@ class Itinerario(models.Model):
     reportes= models.ManyToManyField (Reportes, related_name='reportesNotificaciones')
 
     def __str__(self):
-        return f'Titulo:{self.titulo} Recorrido:{self.recorrido}'
+        if self.fecha:
+            return self.titulo or f'Itinerario del {self.fecha.strftime("%d-%m-%Y")}'
+        return self.titulo or f'Itinerario (ID: {self.id})'
+
 
 class Notificacion(models.Model):
     titulo=models.CharField(max_length=100, blank= False, null=False)
