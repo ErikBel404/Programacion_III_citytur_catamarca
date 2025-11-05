@@ -18,31 +18,6 @@ class Transporte(models.Model):
 
     def __str__(self):
         return f'Matricula del Transporte: {self.dominioMatriculaTransporte}, Capacidad del transporte: {self.capacidadTransporte}, estado del Transporte: {self.estadoTransporte}'
-    
-class Reportes(models.Model):
-    TIPOINFORME=[('recoActivos', 'Recorridos Activos'),
-                 ('paradasMasUtilizadas', 'Paradas Mas Utilizadas'),
-                 ('reservaPorRecorrido','Reservas Por Recorrido'),
-                 ('consultaDeReservas', 'Consulta De Reservas'),
-                 ('estadisticasPasajeros', 'Estadisticas Pasajeros')
-                 ]
-
-    FORMATODOCUMENTO = [('pdf', 'PDF'),
-                        ('excel', 'Excel'),
-                        ('csv', 'CSV')]
-
-    tipoReportes = models.CharField(max_length=40, blank=False, null=False, choices=TIPOINFORME, default='recoActivos');
-    formatoReporte = models.CharField(max_length=20,blank=False, null=False, choices=FORMATODOCUMENTO, default='pdf')
-
-    horaFecha= models.DateTimeField (blank=False, null= False);
-    identidadSolicitante= models.CharField (blank=False, null= False, max_length=250)
-    
-    clientes= models.ManyToManyField (Usuario, related_name='reporteCliente');
-    administradores= models.ManyToManyField (Usuario, related_name='reporteAdministrador');
-
-    def __str__(self):
-        return f'tipo de reporte: {self.tipoReportes}'
-    
    
 class PuntoTuristico (models.Model):
     nombre = models.CharField(max_length=250, blank=False, null=False)
@@ -95,7 +70,7 @@ class Itinerario(models.Model):
 
     transporte= models.ForeignKey(Transporte, on_delete=models.CASCADE, related_name='trasporteItinerario')
     recorridos= models.ForeignKey(Recorrido, on_delete=models.CASCADE, related_name='recorridoItinerario')
-    reportes= models.ManyToManyField (Reportes, related_name='reportesNotificaciones')
+    #reportes= models.ManyToManyField (Reportes, related_name='reportesNotificaciones')
 
     def __str__(self):
         if self.fecha:

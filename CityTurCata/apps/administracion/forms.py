@@ -1,6 +1,6 @@
 from django import forms
 from .models import PuntoTuristico
-from apps.administracion.models import Transporte, Reportes, Recorrido, PuntoTuristico, Notificacion, Itinerario
+from apps.administracion.models import Transporte, Recorrido, PuntoTuristico, Notificacion, Itinerario
 
 
 class PuntoTuristicoForm (forms.ModelForm):
@@ -74,16 +74,55 @@ class TransporteForm(forms.ModelForm):
             'estadoTransporte':'📢Estado Transporte:'
         }
 
+class ReporteForm(forms.Form):
+    
+    TIPOINFORME = [
+        ('', ''), 
+        ('recorridos_activos', 'Recorridos Activos'),
+        ('paradas_utilizadas', 'Paradas Más Utilizadas'),
+        ('reservaRecorrido', 'Listado de Reservas por Recorrido'), 
+        ('consultasReservas', 'Consulta de Reservas (Turista)'), 
+        ('estadisticasPasajeros', 'Estadísticas de Pasajeros'), 
+    ]
 
-class ReportesForm(forms.ModelForm):
-    class Meta:
-        model = Reportes
-        fields = ['tipoReportes', 'formatoReporte',
-                  'horaFecha', 'identidadSolicitante']
+    FORMATODOCUMENTO = [
+        ('csv', 'CSV'),
+        ('excel', 'Excel (.xlsx)'),
+        ('pdf', 'PDF'),
+    ]
 
-        widgets = {
+    tipoReportes = forms.ChoiceField(
+        choices=TIPOINFORME,
+        label="📋 Tipo de Reporte",
+        widget=forms.Select(attrs={'class': 'inputLabel', 'id': 'id_tipo_reporte'})
+    )
+    
+    formatoReporte = forms.ChoiceField(
+        choices=FORMATODOCUMENTO,
+        label="🗂️ Formato de Archivo",
+        widget=forms.Select(attrs={'class': 'inputLabel', 'id': 'id_formato_reporte'})
+    )
+        
+    
+    recorrido = forms.ModelChoiceField(
+        queryset=Recorrido.objects.all(), 
+        required=False,
+        label="Seleccione un Recorrido",
+        widget=forms.Select(attrs={'class': 'inputLabel', 'id': 'id_recorrido'})
+    )
 
-        }
+    fecha_inicio = forms.DateField(
+        required=False,
+        label="Fecha Desde",
+        widget=forms.DateInput(attrs={'class': 'inputLabel', 'type': 'date', 'id': 'id_fecha_inicio'})
+    )
+    
+    fecha_fin = forms.DateField(
+        required=False,
+        label="Fecha Hasta",
+        widget=forms.DateInput(attrs={'class': 'inputLabel', 'type': 'date', 'id': 'id_fecha_fin'})
+    )
+
 
 class RecorridoForm(forms.ModelForm):
     
@@ -166,14 +205,35 @@ class NotificacionForm(forms.ModelForm):
 
 
 class ItinerarioForm(forms.ModelForm):
+    transporte = forms.ModelChoiceField(
+        queryset=Transporte.objects.all(),
+        label="🚌 Transporte Asignado",
+        required=False,  
+        empty_label="",   
+        widget=forms.Select(attrs={
+            'class': 'inputLabel',
+            'id': 'transporteItinerario' 
+        })
+    )
+
+    recorridos = forms.ModelChoiceField(
+        queryset=Recorrido.objects.all(),
+        label="🛣️ Recorrido Principal",
+        required=False,  
+        empty_label="",    
+        widget=forms.Select(attrs={
+            'class': 'inputLabel',
+            'id': 'recorridoItinerario'
+        })
+    )
+
     class Meta:
         model = Itinerario
         fields = [
             'fecha',
             'titulo',
-            'transporte',
-            'recorridos',
-            'reportes',
+            'transporte', 
+            'recorridos'
         ]
         
         widgets = {
@@ -183,26 +243,13 @@ class ItinerarioForm(forms.ModelForm):
             }),
             'titulo': forms.TextInput(attrs={
                 'class': 'inputLabel',
-                'id': 'tituloItinerario'
-            }),
-            'transporte': forms.Select(attrs={
-                'class': 'inputLabel',
-                'id': 'transporteItinerario'
-            }),
-            'recorridos': forms.Select(attrs={
-                'class': 'inputLabel',
-                'id': 'recorridoItinerario'
-            }),
-            'reportes': forms.SelectMultiple(attrs={
-                'class': 'inputLabel',
-                'id': 'reporteItinerario'
-            }),
+                'id': 'tituloItinerario',
+                'placeholder': ' ' 
+            })
+            
         }
 
         labels = {
             'fecha': '📅 Fecha del Itinerario',
-            'titulo': '🏷️ Título (Opcional)',
-            'transporte': '🚌 Transporte Asignado',
-            'recorridos': '🛣️ Recorrido Principal',
-            'reportes': '📋 Reportes Asociados',
+            'titulo': '🏷️ Título (Opcional)'
         }

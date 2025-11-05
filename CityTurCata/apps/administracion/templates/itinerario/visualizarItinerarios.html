@@ -14,12 +14,7 @@
     <div id="" class="cosas_dentro_main">
         <h2 class="titulo">Lista De Itinerarios</h2>
         
-        <div style="margin-bottom: 20px;">
-            <a class="btnP btnModificarP" href="{% url 'administracion:crearItinerario' %}">
-                + Agregar Itinerario
-            </a>
-        </div>
-
+        
         <div class="contenedor-tarjetas">
             {% for itinerario in itinerarios %}
                 <div class="tarjeta">
@@ -44,16 +39,10 @@
                     <div class="contBtn">
                         <a class="btnP btnModificarP" href="{% url 'administracion:modificarItinerario' itinerario.id %}">Modificar</a>
                         
-                        <form method="POST" action="{% url 'administracion:bajaItinerario' itinerario.id %}" style="display:inline;">
-                            {% csrf_token %}
-                            <button type="submit" class="btnP btnEliminarP" onclick="return confirm('¿Seguro que quieres eliminar este itinerario?');">
-                                Eliminar
-                            </button>
-                        </form>
+                        <a class="btnP btnEliminarP" href="{% url 'administracion:bajaItinerario' itinerario.id %}">Eliminar</a>
+
                     </div>
                 </div>
-            {% empty %}
-                <p>No hay itinerarios creados.</p>
             {% endfor %}
         </div>
     </div>
