@@ -3,11 +3,17 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.http import HttpResponse
 from django.urls import reverse
 
+#para los reportes no tocar(de lala para belicho)
+from django.http import HttpResponse
+from .utils import generar_csv, generar_excel, generar_pdf 
+
 #importaciones de los modelos
-from apps.administracion.models import PuntoTuristico, Transporte, Recorrido, Reportes, Itinerario, Notificacion
+from apps.administracion.models import PuntoTuristico, Transporte, Recorrido, Itinerario, Notificacion
+from apps.reservas.models import Reserva
+from django.db.models import Count,Sum
 
 #importaciones de los form
-from .forms import TransporteForm, ReportesForm, RecorridoForm, NotificacionForm, PuntoTuristicoForm, ItinerarioForm
+from .forms import TransporteForm, ReporteForm, RecorridoForm, NotificacionForm, PuntoTuristicoForm, ItinerarioForm
 
 
 #=========================================================Definicion de transporte de las vistas de transporte(lo separo asi por que me pierdo si no)=========================================================
@@ -77,51 +83,169 @@ def bajaTransporteView(request,pk):
 #=========================================================Definicion de transporte de las vistas de reportes(lo separo asi por que me pierdo si no)=========================================================
 
 def reportesView(request):
-    nuevoReporte = None
-    if request.method == 'POST':
-        reportesForm = ReportesForm(request.POST)
-        if reportesForm.is_valid():
-            nuevoReporte = reportesForm.save(commit=False)
-            nuevoReporte.save()
-
-            reportesForm.save_m2m()
-            messages.success(request, 'Se ha creado correctamente el reporte: {}'.format(nuevoReporte))
-    else:
-        reportesForm = ReportesForm()
-
+    form = ReporteForm()
     contexto = {
-        'form' : reportesForm
+        'form': form
     }
-
-    return render(request,'',contexto)
-
+    return render(request, 'reportes/panelReportes.html', contexto)
 
 
-def listaReportesView(request):
-    reportesView = Reportes.objects.all()
-
-    contexto = {
-        'reportes' : reportesView
-    }
-
-    return render(request,'',contexto)
-
+# Recorridos Activos
 def reporteRecorridosActivosView(request):
-    return HttpResponse('Aca va el reporte de recorridos activos');
+    formato = request.GET.get('formato', 'pdf')
 
+    recorridos = Recorrido.objects.all() 
+
+    titulo = "Recorridos_Activos"
+    cabecera = ['ID', 'Nombre del Recorrido', 'Horario', 'Punto de Inicio', 'Punto Final']
+    datos = []
+    for r in recorridos:
+        datos.append([
+            r.id, 
+            r.nombreRecorrido,
+            r.horarios.strftime('%H:%M'), 
+            str(r.inicio), 
+            str(r.final)   
+        ]) 
+
+    if formato == 'csv':
+        return generar_csv(titulo, cabecera, datos)
+    elif formato == 'excel':
+        return generar_excel(titulo, cabecera, datos)
+    elif formato == 'pdf':
+        return generar_pdf(titulo, "Reporte de Recorridos Activos", cabecera, datos)
+    
+    return HttpResponse("Formato no válido.")
+
+# Paradas Más Utilizadas
 def reporteParadasMasUtilizadasView(request):
-    return HttpResponse('Aca van el reporte de las paradas mas utilizadas');
+    formato = request.GET.get('formato', 'pdf')
 
-def reporteReservasRecorridoView(resquest):
-    return HttpResponse('Aca va el reporte de las reservas de los recorridos');
+   
+    paradas = PuntoTuristico.objects.annotate(
+        num_reservas=Count('puntosDePartida') 
+    ).filter(num_reservas__gt=0).order_by('-num_reservas')
 
+    titulo = "Paradas_Mas_Utilizadas"
+    cabecera = ['Nombre de Parada', 'Cantidad de Usos']
+    datos = []
+    for p in paradas:
+        datos.append([p.nombre, p.num_reservas])
+
+    if formato == 'csv':
+        return generar_csv(titulo, cabecera, datos)
+    elif formato == 'excel':
+        return generar_excel(titulo, cabecera, datos)
+    elif formato == 'pdf':
+        return generar_pdf(titulo, "Reporte de Paradas Más Utilizadas", cabecera, datos)
+
+    return HttpResponse("Formato no válido.")
+
+#Reportes de reservas por recorrido
+def reporteReservasRecorridoView(request):
+    formato = request.GET.get('formato', 'pdf')
+    recorrido_id = request.GET.get('recorrido_id')
+
+    if not recorrido_id:
+        messages.error(request, "Debe seleccionar un recorrido para este reporte.")
+        return HttpResponse("Error: No se especificó un recorrido.")
+        
+    recorrido = get_object_or_404(Recorrido, pk=recorrido_id)
+    
+    reservas = Reserva.objects.filter(recorridoReserva=recorrido).order_by('fechaReserva')
+
+    titulo = f"Reservas_del_{recorrido.nombreRecorrido}" 
+    titulo_pdf = f"Reservas del Recorrido: {recorrido.nombreRecorrido}" 
+    cabecera = ['ID Reserva', 'Turista', 'Fecha', 'Hora', 'Cantidad', 'Estado']
+    datos = []
+    for r in reservas:
+        datos.append([
+            r.id,
+            str(r.turista), 
+            r.fechaReserva.strftime('%d/%m/%Y'),
+            r.horaReserva.strftime('%H:%M'),
+            r.cantidadReserva,
+            r.get_estadoReserva_display()
+        ])
+
+    if formato == 'csv':
+        return generar_csv(titulo, cabecera, datos)
+    elif formato == 'excel':
+        return generar_excel(titulo, cabecera, datos)
+    elif formato == 'pdf':
+        return generar_pdf(titulo, titulo_pdf, cabecera, datos)
+
+    return HttpResponse("Formato no válido.")
+
+# Reporte de consulta de reservas
 def reporteConsultaReservasView(request):
-    return HttpResponse('Aca va el reporte de las consultas de las reservas');
+    formato = request.GET.get('formato', 'pdf')
+    
+    reservas = Reserva.objects.all().select_related(
+        'turista', 'recorridoReserva'
+    ).order_by('turista__username', 'fechaReserva')
+
+    titulo = "Consulta_General_Reservas"
+    titulo_pdf = "Consulta General de Reservas"
+    cabecera = ['Turista', 'Recorrido', 'Fecha', 'Hora', 'Cantidad', 'Estado']
+    datos = []
+    for r in reservas:
+        datos.append([
+            str(r.turista),
+            str(r.recorridoReserva),
+            r.fechaReserva.strftime('%d/%m/%Y'),
+            r.horaReserva.strftime('%H:%M'),
+            r.cantidadReserva,
+            r.get_estadoReserva_display()
+        ])
+
+    if formato == 'csv':
+        return generar_csv(titulo, cabecera, datos)
+    elif formato == 'excel':
+        return generar_excel(titulo, cabecera, datos)
+    elif formato == 'pdf':
+        return generar_pdf(titulo, titulo_pdf, cabecera, datos)
+
+    return HttpResponse("Formato no válido.")
+
+
 
 def reporteEstadistaPasajerosView(request):
-    return HttpResponse('Aca va el reporte de estadisticas en un rango de fechas')
+    formato = request.GET.get('formato', 'pdf')
+    fecha_inicio = request.GET.get('fecha_inicio')
+    fecha_fin = request.GET.get('fecha_fin')
 
+    if not (fecha_inicio and fecha_fin):
+        messages.error(request, "Debe seleccionar un rango de fechas (Desde y Hasta).")
+        return HttpResponse("Error: No se especificó un rango de fechas.")
 
+    stats = Reserva.objects.filter(
+        fechaReserva__range=[fecha_inicio, fecha_fin]
+    ).values(
+        'recorridoReserva__nombreRecorrido' 
+    ).annotate(
+        total_pasajeros=Sum('cantidadReserva') 
+    ).order_by('-total_pasajeros')
+
+   
+    titulo = f"Estadisticas_Pasajeros_{fecha_inicio}_al_{fecha_fin}"
+    titulo_pdf = f"Estadísticas de Pasajeros ({fecha_inicio} al {fecha_fin})"
+    cabecera = ['Recorrido', 'Total Pasajeros']
+    datos = []
+    for s in stats:
+        datos.append([
+            s['recorridoReserva__nombreRecorrido'],
+            s['total_pasajeros']
+        ])
+
+    if formato == 'csv':
+        return generar_csv(titulo, cabecera, datos)
+    elif formato == 'excel':
+        return generar_excel(titulo, cabecera, datos)
+    elif formato == 'pdf':
+        return generar_pdf(titulo, titulo_pdf, cabecera, datos)
+
+    return HttpResponse("Formato no válido.")
 
 #=========================================================Definicion de transporte de las vistas de puntos Turisticos(lo separo asi por que me pierdo si no)=========================================================
 def listarPuntosTuristicosView(request):
@@ -140,10 +264,8 @@ def crearPuntosTuristicosView(request):
     if request.method == 'POST':
         formPuntoTuristico = PuntoTuristicoForm (request.POST, request.FILES)
         if formPuntoTuristico.is_valid():
-            # Se guardan los datos que provienen del formulario en la B.D.
             nuevoPuntoTuristico = formPuntoTuristico.save(commit=False)
             nuevoPuntoTuristico.save()
-            # Guarda las relaciones ManyToMany (como el campo categorias)
             formPuntoTuristico.save_m2m()
 
             return redirect('administracion:listaPuntosTuristicos')

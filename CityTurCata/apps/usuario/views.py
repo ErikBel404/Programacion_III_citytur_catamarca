@@ -34,6 +34,7 @@ def home_view(request):
     }
     return render(request, 'home.html', context)
 
+<<<<<<< HEAD
 @login_required 
 def detalle_recorrido_view(request, recorrido_id):
     recorrido = get_object_or_404(Recorrido, id=recorrido_id)
@@ -44,33 +45,27 @@ def detalle_recorrido_view(request, recorrido_id):
         'puntos': puntos
     }
     return render(request, 'detalle_recorrido.html', context)
+=======
+
+>>>>>>> 3add194c1f44bd00a7aaad9a04830e9a294b6114
 
 def registro_usuario(request):
-    
-     # Aca debe ir la pagina del home
 
     if request.method == 'POST':
         form = RegistroUsuarioForm(request.POST)
         
         if form.is_valid():
             
-            # --- CAMBIOS CLAVE AQUÍ ---
-            
-            # 1. Guarda el formulario sin enviarlo a la BD todavía
             user = form.save(commit=False)
             
-            # 2. Asigna el tipo de usuario por defecto
-            #    (¡Asegúrate que 'Cliente' sea un valor válido!)
             user.tipoUsuario = 'turista' 
             
-            # 3. Ahora sí, guarda el usuario en la BD
             user.save()
             
-            # 4. Inicia sesión y redirige (esto sigue igual)
             login(request, user)
             
             messages.success(request, f'¡Cuenta creada exitosamente! Bienvenido, {user.username}.')
-            return redirect('usuario/home.html') # Cambia debe redirigir a la pagina del home
+            return redirect('usuario/home.html') 
         else:
             messages.error(request, 'Por favor, corrige los errores en el formulario.')
             
