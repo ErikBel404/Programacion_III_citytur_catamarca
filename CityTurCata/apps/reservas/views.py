@@ -129,7 +129,26 @@ def crearReservaView(request):
             return redirect('reservas:listarReservas')
 
     else:
-        reservaForm = ReservaForm()
+        recorrido_id = request.GET.get('recorrido_id')
+        initial_data = {}
+        
+        if recorrido_id:
+            try:
+                # Usamos el ID de la URL para obtener el objeto Recorrido
+                # (Recorrido debe estar importado: from .models import Recorrido)
+                recorrido_obj = get_object_or_404(Recorrido, id=recorrido_id)
+                
+                # 2. Pre-llenamos el campo con el objeto
+                # 'recorridoReserva' debe ser el nombre del campo en tu ReservaForm
+                initial_data['recorridoReserva'] = recorrido_obj
+                
+            except Exception:
+                # Si el ID en la URL es incorrecto, el formulario se carga sin pre-llenar.
+                pass
+        
+        # 3. Inicializamos el formulario, aplicando los datos iniciales si existen
+        # Si initial_data está vacío, se crea un formulario en blanco, como antes.
+        reservaForm = ReservaForm(initial=initial_data)
 
     contexto = {
         'reservas' : reservaForm

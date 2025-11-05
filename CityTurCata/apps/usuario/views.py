@@ -1,14 +1,18 @@
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from .forms import RegistroUsuarioForm
 from django.contrib import messages
-from django.shortcuts import render, get_object_or_404
+
+# --- IMPORTACIONES CONSOLIDADAS Y CORREGIDAS ---
+# Usamos '..' para importar desde la app 'administracion'
+from ..administracion.models import Notificacion, Recorrido, PuntoTuristico 
+from .forms import RegistroUsuarioForm
 from django.contrib.auth.decorators import login_required
-from apps.administracion.models import Recorrido, PuntoTuristico
+# ------------------------------------------------
 
 
-# Create your views here.
+# --- VISTAS DE AUTENTICACIÓN ---
+
 def login_view(request):
     if request.method == "POST":
         username = request.POST["username"]
@@ -25,14 +29,59 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return render(request, "usuario/login.html", {"msj": "Deslogueado"})
-#seccion del home
+
+
+def registro_usuario(request):
+    if request.method == 'POST':
+        form = RegistroUsuarioForm(request.POST)
+        
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.tipoUsuario = 'turista' 
+            user.save()
+            
+            login(request, user)
+            
+            messages.success(request, f'¡Cuenta creada exitosamente! Bienvenido, {user.username}.')
+            
+            # ▼▼▼ CORRECCIÓN DE REDIRECCIÓN ▼▼▼
+            # Debe usar el nombre de la URL, no la ruta del archivo
+            return redirect(reverse('usuario:home')) 
+        else:
+            messages.error(request, 'Por favor, corrige los errores en el formulario.')
+            
+    else:
+        form = RegistroUsuarioForm()
+        
+    contexto = {
+        'form' : form
+    }
+    return render(request, 'usuario/AgregarUsuario.html', contexto)
+
+
+# --- VISTAS DE HOME Y DETALLE ---
+
 @login_required 
 def home_view(request):
-    lista_de_recorridos = Recorrido.objects.all()
-    context = {
-        'recorridos': lista_de_recorridos
+    # 1. Lógica de Notificación (Combinada)
+    notificacion_activa = None
+    try:
+        # Buscamos la notificación activa más reciente (por el ID más alto)
+        notificacion_activa = Notificacion.objects.filter(
+            activo_en_home=True
+        ).order_by('-id').first() 
+    except Notificacion.DoesNotExist:
+        pass
+        
+    # 2. Lógica de Recorridos (Combinada)
+    recorridos = Recorrido.objects.all()
+
+    contexto = {
+        'recorridos': recorridos,
+        'notificacion': notificacion_activa,
     }
-    return render(request, 'home.html', context)
+    return render(request, 'home.html', contexto)
+
 
 @login_required 
 def detalle_recorrido_view(request, recorrido_id):
@@ -44,32 +93,3 @@ def detalle_recorrido_view(request, recorrido_id):
         'puntos': puntos
     }
     return render(request, 'detalle_recorrido.html', context)
-
-def registro_usuario(request):
-
-    if request.method == 'POST':
-        form = RegistroUsuarioForm(request.POST)
-        
-        if form.is_valid():
-            
-            user = form.save(commit=False)
-            
-            user.tipoUsuario = 'turista' 
-            
-            user.save()
-            
-            login(request, user)
-            
-            messages.success(request, f'¡Cuenta creada exitosamente! Bienvenido, {user.username}.')
-            return redirect('usuario/home.html') 
-        else:
-            messages.error(request, 'Por favor, corrige los errores en el formulario.')
-            
-    else:
-        form = RegistroUsuarioForm()
-        
-    contexto = {
-        'form' : form
-    }
-
-    return render(request, 'usuario/AgregarUsuario.html', contexto)

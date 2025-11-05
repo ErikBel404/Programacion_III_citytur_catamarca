@@ -28,4 +28,4 @@ class ItinerarioAdmin (admin.ModelAdmin):
 
 @admin.register (Notificacion)
 class NotificacionAdmin (admin.ModelAdmin):
-    list_display =['titulo', 'descripcion','operario', 'administrador', 'itinerario']
+    list_display =['titulo', 'descripcion','activo_en_home','operario', 'administrador', 'itinerario']

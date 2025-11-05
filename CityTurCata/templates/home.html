@@ -15,7 +15,25 @@
 {% endblock %}
     
 {% block content %}
+
   <main>
+    <div style="background-color: var(--amarilloClarito); padding: 20px;">
+        
+        {% if notificacion %}
+        <div class="alerta-operario-activa">
+            <div class="alerta-header">
+                <h4>📢 AVISO IMPORTANTE</h4>
+            </div>
+            <hr style="margin: 5px 0; border-color: rgba(255, 255, 255, 0.5);"> 
+            <div class="alerta-body">
+                <h3 class="alerta-titulo">{{ notificacion.titulo }}</h3>
+                <p class="alerta-descripcion">{{ notificacion.descripcion }}</p>
+            </div>
+        </div>
+        {% endif %}
+
+
+    </div>
     <div id="" class="cosas_dentro_main">
       <h2 class="titulo">Recorridos Disponibles</h2>
       

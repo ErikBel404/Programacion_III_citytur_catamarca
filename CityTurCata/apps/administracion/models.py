@@ -81,6 +81,10 @@ class Itinerario(models.Model):
 class Notificacion(models.Model):
     titulo=models.CharField(max_length=100, blank= False, null=False)
     descripcion=models.TextField(blank=False, null=False)
+    activo_en_home = models.BooleanField(
+        default=True, 
+        verbose_name='Activa y visible en la página Home'
+    )
 
     #cuando logremos hacer los administrador y el itineario le saco el blank y null
     operario= models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='notificacionesOperario',null=True, blank=True)
@@ -89,5 +93,5 @@ class Notificacion(models.Model):
     
 
     def __str__(self):
-        return f'Titulo:{self.Titulo} Descripcion:{self.descripcion}'
+        return f'Titulo:{self.titulo} Descripcion:{self.descripcion}'
 

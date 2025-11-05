@@ -190,7 +190,34 @@ footer {
     font-size: 20px;
     margin: 0;
 }
-/*Aca termina el footer*/
+.alerta-operario-activa {
+    background-color: var(--verdeAgua); 
+    color: var(--blancoCalido); 
+    border-radius: 12px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+
+    padding: 10px 20px; 
+
+    border-left: none; 
+    border-radius: 12px;
+    
+    margin: 0; 
+}
+
+.alerta-header, .alerta-titulo, .alerta-descripcion {
+    text-align: center;
+    color: var(--blancoCalido);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    border-radius: 12px;
+}
+
+.alerta-titulo {
+    font-size: 1.8em; 
+    font-weight: bold;
+}
+
 
 
 /* manejo de media */
