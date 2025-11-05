@@ -93,14 +93,20 @@ def reportesView(request):
 # Recorridos Activos
 def reporteRecorridosActivosView(request):
     formato = request.GET.get('formato', 'pdf')
-    recorridos = Recorrido.objects.filter(activo=True) 
+
+    recorridos = Recorrido.objects.all() 
 
     titulo = "Recorridos_Activos"
-    cabecera = ['ID', 'Título', 'Duración', 'Descripción']
+    cabecera = ['ID', 'Nombre del Recorrido', 'Horario', 'Punto de Inicio', 'Punto Final']
     datos = []
     for r in recorridos:
-       
-        datos.append([r.id, r.titulo, r.duracion, r.descripcion]) 
+        datos.append([
+            r.id, 
+            r.nombreRecorrido,
+            r.horarios.strftime('%H:%M'), 
+            str(r.inicio), 
+            str(r.final)   
+        ]) 
 
     if formato == 'csv':
         return generar_csv(titulo, cabecera, datos)
@@ -148,8 +154,8 @@ def reporteReservasRecorridoView(request):
     
     reservas = Reserva.objects.filter(recorridoReserva=recorrido).order_by('fechaReserva')
 
-    titulo = f"Reservas_del_{recorrido.titulo}"
-    titulo_pdf = f"Reservas del Recorrido: {recorrido.titulo}"
+    titulo = f"Reservas_del_{recorrido.nombreRecorrido}" 
+    titulo_pdf = f"Reservas del Recorrido: {recorrido.nombreRecorrido}" 
     cabecera = ['ID Reserva', 'Turista', 'Fecha', 'Hora', 'Cantidad', 'Estado']
     datos = []
     for r in reservas:
@@ -159,7 +165,7 @@ def reporteReservasRecorridoView(request):
             r.fechaReserva.strftime('%d/%m/%Y'),
             r.horaReserva.strftime('%H:%M'),
             r.cantidadReserva,
-            r.get_estadoReserva_display() 
+            r.get_estadoReserva_display()
         ])
 
     if formato == 'csv':
@@ -170,7 +176,6 @@ def reporteReservasRecorridoView(request):
         return generar_pdf(titulo, titulo_pdf, cabecera, datos)
 
     return HttpResponse("Formato no válido.")
-
 
 # Reporte de consulta de reservas
 def reporteConsultaReservasView(request):
@@ -204,7 +209,7 @@ def reporteConsultaReservasView(request):
     return HttpResponse("Formato no válido.")
 
 
-#Reporte de estadisticas de pasajeros
+
 def reporteEstadistaPasajerosView(request):
     formato = request.GET.get('formato', 'pdf')
     fecha_inicio = request.GET.get('fecha_inicio')
@@ -217,18 +222,19 @@ def reporteEstadistaPasajerosView(request):
     stats = Reserva.objects.filter(
         fechaReserva__range=[fecha_inicio, fecha_fin]
     ).values(
-        'recorridoReserva__titulo' 
+        'recorridoReserva__nombreRecorrido' 
     ).annotate(
         total_pasajeros=Sum('cantidadReserva') 
-    ).order_by('-total_pasajeros') 
+    ).order_by('-total_pasajeros')
 
+   
     titulo = f"Estadisticas_Pasajeros_{fecha_inicio}_al_{fecha_fin}"
     titulo_pdf = f"Estadísticas de Pasajeros ({fecha_inicio} al {fecha_fin})"
     cabecera = ['Recorrido', 'Total Pasajeros']
     datos = []
     for s in stats:
         datos.append([
-            s['recorridoReserva__titulo'], 
+            s['recorridoReserva__nombreRecorrido'],
             s['total_pasajeros']
         ])
 

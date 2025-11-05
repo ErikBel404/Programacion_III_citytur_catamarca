@@ -77,10 +77,9 @@ class TransporteForm(forms.ModelForm):
 class ReporteForm(forms.Form):
     
     TIPOINFORME = [
-        ('', '--- Seleccione un reporte ---'), 
+        ('', ''), 
         ('recorridos_activos', 'Recorridos Activos'),
         ('paradas_utilizadas', 'Paradas Más Utilizadas'),
-        # Cambié la 'key' para que coincida con tus URLs
         ('reservaRecorrido', 'Listado de Reservas por Recorrido'), 
         ('consultasReservas', 'Consulta de Reservas (Turista)'), 
         ('estadisticasPasajeros', 'Estadísticas de Pasajeros'), 
@@ -94,13 +93,13 @@ class ReporteForm(forms.Form):
 
     tipoReportes = forms.ChoiceField(
         choices=TIPOINFORME,
-        label="Tipo de Reporte",
+        label="📋 Tipo de Reporte",
         widget=forms.Select(attrs={'class': 'inputLabel', 'id': 'id_tipo_reporte'})
     )
     
     formatoReporte = forms.ChoiceField(
         choices=FORMATODOCUMENTO,
-        label="Formato de Archivo",
+        label="🗂️ Formato de Archivo",
         widget=forms.Select(attrs={'class': 'inputLabel', 'id': 'id_formato_reporte'})
     )
         
