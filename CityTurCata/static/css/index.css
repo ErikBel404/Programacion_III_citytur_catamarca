@@ -18,6 +18,16 @@ main
     padding-top: 50px;
     padding-bottom: 50px;
 }
+p
+{
+    color: rgb(57, 57, 57);
+}
+p em {
+    text-shadow: none;
+    font-style: normal; 
+    font-weight: 700; 
+    color: var(--verdeAgua); 
+}
 .contenedorHome
 {
     background-color: var(--amarilloClarito);
