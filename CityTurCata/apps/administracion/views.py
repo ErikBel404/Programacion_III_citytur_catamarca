@@ -342,3 +342,6 @@ def bajaNotificacionView(request,pk):
     bajaNotificacion.delete()
 
     return redirect('administracion:listarNotificaciones')
+
+def index_view(request):
+    return render(request, 'index.html')

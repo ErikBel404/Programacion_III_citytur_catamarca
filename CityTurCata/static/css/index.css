@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=TASA+Explorer:wght@400..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Story+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Momo+Signature&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap');
+
+:root {
+    --verdeAgua: #0c7968;
+    --naranja: #e38e15;
+    --amarilloFuerte: #fab701;
+    --blancoCalido: #f1f1f1;
+    --amarilloClarito: #ffcc3b;
+}
+main
+{
+    justify-content: center;
+    display: flex;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.contenedorHome
+{
+    background-color: var(--amarilloClarito);
+    padding: 30px;
+    min-height: 100vh;
+    justify-content: center;
+    
+    width: 90%;
+    background: linear-gradient(rgba(255, 204, 59, 0.6),rgba(255, 204, 59, 0.6)) ;
+    border-radius: 12px;
+}
+.contenedorImg {
+    padding: 10px;
+    border-radius: 12px;
+    background: linear-gradient(rgba(227, 142, 21, 0.1)), url("../img/ChatGPT\ Image\ 4\ nov\ 2025\,\ 08_44_17\ p.m..png") top center/cover no-repeat;
+    min-height: 100vh;
+    width: 98%;
+    
+}
+.contenedorText
+{
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+}
+.contenedorText h2
+{
+    padding-top: 10px;
+    top: 30px; 
+    right: 20px; 
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    font-family: "PT Sans", sans-serif;
+    font-weight: 1000;
+    font-size: 40px;
+}
+.contenedorText h2 span
+{
+    
+    color: var(--amarilloClarito);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    font-size: 1.5em;
+}
+.contenedorText h3
+{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,4);
+    font-family: "Edu NSW ACT Cursive", cursive;
+    font-weight: 600;
+}
+h3
+{
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,4);
+    font-family: "Edu NSW ACT Cursive", cursive;
+    font-weight: 600;
+}
+/* --- Artículos --- */
+
+/* Estilos compartidos por ambos artículos */
+.article-titulo-imagen,
+.article-parrafos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.img_carpa  {
+    border: 3px solid var(--verdeAgua);
+    border-radius: 50%;
+    background : var(--verdeAgua);
+}
+
+/* Estilos compartidos por los H2 */
+.article-titulo-imagen h2,
+.article-parrafos h2 {
+    font-size: 50px;
+    font-family: "Story Script", sans-serif;
+    font-style: initial;
+}
+
+/* Estilos específicos para el H2 del primer artículo */
+.article-titulo-imagen h2 {
+    margin: 10px;
+    font-weight: 700;
+    text-align: center;
+    
+}
+
+/* Estilos específicos para el H2 del segundo artículo */
+.article-parrafos h2 {
+    font-weight: 500;
+    text-decoration: underline;
+}
+
+.article-parrafos-div img {
+    width: 100%;
+    border-radius: 500px;
+    border: 5px solid var(--verdeAgua);
+}
+
+/* --- Ajustes de Margen --- */
+
+.ajuste-margen {
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+em {
+    color: var(--verdeAgua);
+    text-decoration: underline;
+}
+
+/*celular*/
+@media (max-width:767px) {
+    .article-titulo-imagen,
+    .article-parrafos {
+        text-align: center;
+    }
+    .contenedorText h2
+    {
+        font-size: 1.8rem;
+    }
+    .contenedorText h3
+    {
+        font-size: 1.2rem;
+    }
+    h3
+    {
+        font-size: 1.2rem;
+    }
+    #logoheader
+    {
+        gap: 0px !important;
+    }
+    
+}
+
+/*tablet*/
+@media (min-width:768px) and (max-width:1023px)
+{
+    .article-titulo-imagen,
+    .article-parrafos {
+        text-align: center;
+    }
+    
+}
+
+/*pc*/
+@media (min-width:1024px){
+    .article-titulo-imagen,
+    .article-parrafos {
+        text-align: justify;
+    }
+}
