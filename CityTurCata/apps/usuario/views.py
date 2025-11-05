@@ -34,7 +34,6 @@ def home_view(request):
     }
     return render(request, 'home.html', context)
 
-<<<<<<< HEAD
 @login_required 
 def detalle_recorrido_view(request, recorrido_id):
     recorrido = get_object_or_404(Recorrido, id=recorrido_id)
@@ -45,9 +44,6 @@ def detalle_recorrido_view(request, recorrido_id):
         'puntos': puntos
     }
     return render(request, 'detalle_recorrido.html', context)
-=======
-
->>>>>>> 3add194c1f44bd00a7aaad9a04830e9a294b6114
 
 def registro_usuario(request):
 
