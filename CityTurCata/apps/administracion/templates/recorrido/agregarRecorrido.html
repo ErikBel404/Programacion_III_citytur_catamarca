@@ -6,8 +6,9 @@
 {% endblock %}
 
 {% block head_css %}
-  <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
 {% endblock %}
 
 {% block content %}
@@ -68,15 +69,15 @@
                 <div class="checkboxItem">
                   {{ form.puntosTuristicos.errors }}
                   {{ form.puntosTuristicos }}
-                  <label for="{{ form.puntosTuristicos.id_for_label }}" class="campoLabel">{{ form.puntosTuristicos.label }}</label>
+                  <label for="{{ form.puntosTuristicos.id_for_label }}" class="campoLabel"></label>
                 </div>
               </div>
             </div>
 
-  
+            <br>
 
             <div id="botones-formularios">
-              <button type="submit" id="boton-aceptar">Aceptar</button>
+              <button type="submit" id="boton-aceptar" class="btnP btnModificarP" >Aceptar</button>
               <a class="btnP btnEliminarP" href="{% url 'administracion:ListarRecorridos' %}">Cancelar</a>
 
             </div>
