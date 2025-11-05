@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Crear Cuenta - CityTur Catamarca
+{% endblock %}
+
+{% block head_css %}
+    <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+    
+    <style>
+        .error-container, .errorlist {
+            color: #b30000; 
+            font-weight: 500;
+            margin-bottom: -10px;
+            margin-top: 5px;
+            font-size: 0.9em;
+            list-style-type: none;
+            padding-left: 5px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<main>
+    <div id="" class="cosas_dentro_main">
+
+        {% if messages %}
+          <div class="messages" style="text-align: center; margin-bottom: 15px;">
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                <strong>{{ message }}</strong>
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+
+        <div id="formularioAgregar">
+            
+            <form method="POST">
+                <fieldset>
+                    {% csrf_token %}
+                    <h2 class="titulo">Crear Nueva Cuenta</h2>
+                    
+                    <div class="error-container">
+                        {{ form.non_field.errors }}
+                    </div>
+
+                    <div class="error-container">
+                        {{ form.username.errors }}
+                    </div>
+                    <div class="contenedorLabelInput">
+                        {{ form.username }}
+                        <label for="{{ form.username.id_for_label }}" class="campoLabel">{{ form.username.label }}</label>
+                    </div>
+
+                    <div class="error-container">
+                        {{ form.first_name.errors }}
+                    </div>
+                    <div class="contenedorLabelInput">
+                        {{ form.first_name }}
+                        <label for="{{ form.first_name.id_for_label }}" class="campoLabel">{{ form.first_name.label }}</label>
+                    </div>
+
+                    <div class="error-container">
+                        {{ form.last_name.errors }}
+                    </div>
+                    <div class="contenedorLabelInput">
+                        {{ form.last_name }}
+                        <label for="{{ form.last_name.id_for_label }}" class="campoLabel">{{ form.last_name.label }}</label>
+                    </div>
+
+                    <div class="error-container">
+                        {{ form.email.errors }}
+                    </div>
+                    <div class="contenedorLabelInput">
+                        {{ form.email }}
+                        <label for="{{ form.email.id_for_label }}" class="campoLabel">{{ form.email.label }}</label>
+                    </div>
+
+                    <div class="error-container">
+                        {{ form.documento_identidad.errors }}
+                    </div>
+                    <div class="contenedorLabelInput">
+                        {{ form.documento_identidad }}
+                        <label for="{{ form.documento_identidad.id_for_label }}" class="campoLabel">{{ form.documento_identidad.label }}</label>
+                    </div>
+
+                    <div class="error-container">
+                        {{ form.domicilio.errors }}
+                    </div>
+                    <div class="contenedorLabelInput">
+                        {{ form.domicilio }}
+                        <label for="{{ form.domicilio.id_for_label }}" class="campoLabel">{{ form.domicilio.label }}</label>
+                    </div>
+
+                    <hr style="margin-top: 20px; margin-bottom: 20px;">
+
+                    <div class="error-container">
+                        {{ form.password1.errors }}
+                    </div>
+                    <div class="contenedorLabelInput">
+                        {{ form.password1 }}
+                        <label for="{{ form.password1.id_for_label }}" class="campoLabel">{{ form.password1.label }}</label>
+                    </div>
+                    
+                    {% if form.password1.help_text %}
+                        <div style="font-size: 0.8em; color: #666; margin-left: 10px;">
+                            {{ form.password1.help_text|safe }}
+                        </div>
+                    {% endif %}
+
+                    <div class="error-container">
+                        {{ form.password2.errors }}
+                    </div>
+                    <div class="contenedorLabelInput">
+                        {{ form.password2 }}
+                        <label for="{{ form.password2.id_for_label }}" class="campoLabel">{{ form.password2.label }}</label>
+                    </div>
+
+                    <br>
+
+                    <div id="botones-formularios">
+                        <button type="submit" id="boton-aceptar" class="btnP btnModificarP">Registrarse</button>
+                        <a class="btnP btnEliminarP" href="/">Cancelar</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -25,12 +25,13 @@ from django.urls import path, include
 # --- Importaciones para Media ---
 from django.conf import settings
 from django.conf.urls.static import static
-
+from apps.administracion import views as admin_views
 
 urlpatterns = [
+    path('', admin_views.index_view, name='index'),
     path('admin/', admin.site.urls),
     path('', include('apps.administracion.urls')),
-    #path('', include(apps.perfil.urls)),
+    path('', include('apps.usuario.urls')),
     path('', include('apps.reservas.urls'))
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 

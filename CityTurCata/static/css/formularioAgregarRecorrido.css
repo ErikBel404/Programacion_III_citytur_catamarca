@@ -153,10 +153,11 @@ form select{
 }
 
 .inputLabel:focus+.campoLabel,
-.inputLabel:valid+.campoLabel {
+.inputLabel:valid+.campoLabel{
     top: 1px;
     font-size: 12px;
     color: var(--verdeAgua);
+    background-color: white; /* Opcional: para "cortar" la línea del input */
 }
 
 .inputLabel:focus {
@@ -280,6 +281,15 @@ input[type="time"]:valid {
     color: #000; 
 }
 
+input[type="date"]:invalid {
+    color: transparent;
+}
+
+
+input[type="date"]:valid {
+    color: #000; 
+}
+
 .contenedor-imagen-con-fondo {
     background-color: white; 
     border-radius: 15px;    
@@ -323,3 +333,9 @@ input[type="time"]:valid {
     border-right: none;
     border-left: none;
 }
+
+
+
+
+
+

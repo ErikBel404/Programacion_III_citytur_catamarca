@@ -6,10 +6,13 @@
 {%endblock%}
 
 {%block head_css%}
-    <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
     <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
 {%endblock%}
-
+{% block navigation %}
+    {% include 'partials/_main_nav.html' %}
+{% endblock %}
 {%block content%}
 <main>
     <div id="" class="cosas_dentro_main">
@@ -24,29 +27,22 @@
 
 
             <div class="contenedorLabelInput">
-              {{ notificaciones.dominioMatriculaTransporte.errors }}
-              {{ notificaciones.dominioMatriculaTransporte }}
-              <label for="{{ notificaciones.dominioMatriculaTransporte.id_for_label }}" class="campoLabel">{{ transportes.dominioMatriculaTransporte.label }}</label>
+              {{ notificaciones.titulo.errors }}
+              {{ notificaciones.titulo }}
+              <label for="{{ notificaciones.titulo.id_for_label }}" class="campoLabel">{{ notificaciones.titulo.label }}</label>
             </div>
 
             <div class="contenedorLabelInput">
-              {{ notificaciones.capacidadTransporte.errors }}
-              {{ notificaciones.capacidadTransporte }}
-              <label for="{{ notificaciones.capacidadTransportes.id_for_label }}" class="campoLabel">{{ transportes.capacidadTransporte.label }}</label>
-            </div>
-
-            <div class="contenedorLabelInput">
-              {{ transportes.estadoTransporte.errors }}
-              {{ transportes.estadoTransporte }}
-              <label for="{{ transportes.estadoTransporte.id_for_label }}" class="campoLabel">{{ transportes.estadoTransporte.label }}</label>
+              {{ notificaciones.descripcion.errors }}
+              {{ notificaciones.descripcion }}
+              <label for="{{ notificaciones.descripcion.id_for_label }}" class="campoLabel">{{ notificaciones.descripcion.label }}</label>
             </div>
 
             <br />
 
             <div id="botones-formularios">
-              <button type="submit" id="boton-aceptar">Aceptar</button>
-              <button type="reset" id="boton-cancelar">Cancelar</button>
-              <a href="registroreco.html"><button type="button" id="boton-atras">Atras</button></a>
+              <button type="submit" id="boton-aceptar" class="btnP btnModificarP">Aceptar</button>
+              <a class="btnP btnEliminarP" href="{% url 'administracion:listarNotificaciones' %}">Cancelar</a>
             </div>
           </fieldset>
         </form>

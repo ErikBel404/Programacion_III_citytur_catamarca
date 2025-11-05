@@ -1,6 +1,6 @@
 from django import forms
 from .models import PuntoTuristico
-from apps.administracion.models import Transporte, Reportes, Recorrido, PuntoTuristico, Notificacion
+from apps.administracion.models import Transporte, Recorrido, PuntoTuristico, Notificacion, Itinerario
 
 
 class PuntoTuristicoForm (forms.ModelForm):
@@ -26,7 +26,7 @@ class PuntoTuristicoForm (forms.ModelForm):
                 'class': 'inputLabel',
                 'id': 'ubicacion',
             }),
-            'informacion': forms.TextInput(attrs={
+            'informacion': forms.Textarea(attrs={
                 'class': 'inputLabel',
                 'id': 'informacionPuntoTuristico',
             }),
@@ -74,16 +74,54 @@ class TransporteForm(forms.ModelForm):
             'estadoTransporte':'📢Estado Transporte:'
         }
 
+class ReporteForm(forms.Form):
+    
+    TIPOINFORME = [
+        ('', ''), 
+        ('recorridos_activos', 'Recorridos Activos'),
+        ('paradas_utilizadas', 'Paradas Más Utilizadas'),
+        ('reservaRecorrido', 'Listado de Reservas por Recorrido'), 
+        ('consultasReservas', 'Consulta de Reservas (Turista)'), 
+        ('estadisticasPasajeros', 'Estadísticas de Pasajeros'), 
+    ]
 
-class ReportesForm(forms.ModelForm):
-    class Meta:
-        model = Reportes
-        fields = ['tipoReportes', 'formatoReporte',
-                  'horaFecha', 'identidadSolicitante']
+    FORMATODOCUMENTO = [
+        ('csv', 'CSV'),
+        ('excel', 'Excel (.xlsx)'),
+        ('pdf', 'PDF'),
+    ]
 
-        widgets = {
+    tipoReportes = forms.ChoiceField(
+        choices=TIPOINFORME,
+        label="📋 Tipo de Reporte",
+        widget=forms.Select(attrs={'class': 'inputLabel', 'id': 'id_tipo_reporte'})
+    )
+    
+    formatoReporte = forms.ChoiceField(
+        choices=FORMATODOCUMENTO,
+        label="🗂️ Formato de Archivo",
+        widget=forms.Select(attrs={'class': 'inputLabel', 'id': 'id_formato_reporte'})
+    )
+        
+    
+    recorrido = forms.ModelChoiceField(
+        queryset=Recorrido.objects.all(), 
+        required=False,
+        label="Seleccione un Recorrido",
+        widget=forms.Select(attrs={'class': 'inputLabel', 'id': 'id_recorrido'})
+    )
 
-        }
+    fecha_inicio = forms.DateField(
+        required=False,
+        label="Fecha Desde",
+        widget=forms.DateInput(attrs={'class': 'inputLabel', 'type': 'date', 'id': 'id_fecha_inicio'})
+    )
+    
+    fecha_fin = forms.DateField(
+        required=False,
+        label="Fecha Hasta",
+        widget=forms.DateInput(attrs={'class': 'inputLabel', 'type': 'date', 'id': 'id_fecha_fin'})
+    )
 
 
 class RecorridoForm(forms.ModelForm):
@@ -93,7 +131,6 @@ class RecorridoForm(forms.ModelForm):
         required=True,
         label='📌Punto partida:',
         empty_label="",
-        
         widget=forms.Select(attrs={
             'class': 'inputLabel',
             'id': 'partidaNuevaPC', 
@@ -101,19 +138,18 @@ class RecorridoForm(forms.ModelForm):
         })
     )
 
-    
     final = forms.ModelChoiceField(
         queryset=PuntoTuristico.objects.all(),
         required=True,
         label='📌Final recorrido:',
         empty_label="",
-        
         widget=forms.Select(attrs={
             'class': 'inputLabel',
             'id': 'finalNuevoPc', 
             'required': True
         })
     )
+
 
     class Meta:
         model = Recorrido
@@ -145,22 +181,75 @@ class RecorridoForm(forms.ModelForm):
             'puntosTuristicos': '📌Puntos turisticos:', 
         }
 
-    # ... (El método save() se mantiene igual)
-    def save(self, commit=True):
-        recorrido = super().save(commit=False)
-        recorrido.inicio = self.cleaned_data['inicio'].nombre
-        recorrido.final = self.cleaned_data['final'].nombre
-        if commit:
-            recorrido.save()
-            self.save_m2m()
-        return recorrido
-    
 
 
 class NotificacionForm(forms.ModelForm):
-    model =Notificacion
-    fields = ['titulo', 'descripcion']
+    class Meta:
+        model =Notificacion
+        fields = ['titulo', 'descripcion', 'administrador', 'operario', 'itinerario']
 
-    widgets = {
+        widgets = {
+            'titulo': forms.TextInput(attrs={
+                'class' : 'inputLabel',
+                'id': 'tituloNotificacion'}),
 
-    }
+            'descripcion': forms.Textarea(attrs={
+                'class' : 'inputLabel',
+                'id': 'descripcionNotificacion'}),
+        }
+
+        labels = {
+            'titulo':'📎Titulo',
+            'descripcion': '📄Descripcion De la Notificacion'
+        }
+
+
+class ItinerarioForm(forms.ModelForm):
+    transporte = forms.ModelChoiceField(
+        queryset=Transporte.objects.all(),
+        label="🚌 Transporte Asignado",
+        required=False,  
+        empty_label="",   
+        widget=forms.Select(attrs={
+            'class': 'inputLabel',
+            'id': 'transporteItinerario' 
+        })
+    )
+
+    recorridos = forms.ModelChoiceField(
+        queryset=Recorrido.objects.all(),
+        label="🛣️ Recorrido Principal",
+        required=False,  
+        empty_label="",    
+        widget=forms.Select(attrs={
+            'class': 'inputLabel',
+            'id': 'recorridoItinerario'
+        })
+    )
+
+    class Meta:
+        model = Itinerario
+        fields = [
+            'fecha',
+            'titulo',
+            'transporte', 
+            'recorridos'
+        ]
+        
+        widgets = {
+            'fecha': forms.DateInput(attrs={
+                'class': 'inputLabel',
+                'type': 'date'
+            }),
+            'titulo': forms.TextInput(attrs={
+                'class': 'inputLabel',
+                'id': 'tituloItinerario',
+                'placeholder': ' ' 
+            })
+            
+        }
+
+        labels = {
+            'fecha': '📅 Fecha del Itinerario',
+            'titulo': '🏷️ Título (Opcional)'
+        }

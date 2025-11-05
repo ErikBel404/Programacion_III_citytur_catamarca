@@ -32,7 +32,6 @@ header {
     align-items: center;
 }
 
-
 .displayflex{
     display: flex;
 }
@@ -57,9 +56,13 @@ h1{
     text-shadow: 0px 5px 7px rgba(0,0,0,0.5);
 }
 
-#perfilUsuario button{
+#perfilUsuario a{
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
     color: black;
-    background-color: none;
+    background-color: var(--blancoCalido);
     border-radius:50% ;
     padding: 10px 14px;
     border: 3px solid transparent;
@@ -73,8 +76,8 @@ nav{
     margin-right:10px;
     list-style: none;
     display: flex;
-    justify-content: left;
-    gap: 10px;
+    justify-content: center;
+    gap: 30px;
     padding: 0;
 }
 
@@ -89,29 +92,40 @@ nav a{
     box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
 }
 
-nav a:hover, #perfilUsuario button:hover{
+#perfilUsuario a:hover{
     background-color: var(--amarilloFuerte);
-    padding: 10px 20px;
-    border-radius:20px;
     color: black;
     text-decoration: none;
     font-weight: bold;
     border: 3px solid transparent;
-    transform: scale(1.03);
+    transform: translateY(-50%) scale(1.03);
     transition: all 0.3s ease;
 }
-
-#perfilUsuario button:hover{
+nav a:hover
+{
+    background-color: var(--amarilloFuerte);
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border: 3px solid transparent;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+#perfilUsuario a:hover {
+    border-radius: 20px;
     padding: 10px 39px;
 }
 
-#abajoheader{
-    display: flex;
-    flex-direction:row;
-    align-items: flex-end;
-    gap: 10px;
-}
 
+#abajoheader{
+    position: relative;
+    min-height: 120px;
+}
+#navheader {
+    background-color: var(--verdeAgua);
+    
+    padding: 10px 0; 
+}
 
 
 /*Aca empieza el body*/
@@ -176,21 +190,61 @@ footer {
     font-size: 20px;
     margin: 0;
 }
-/*Aca termina el footer*/
+.alerta-operario-activa {
+    background-color: var(--verdeAgua); 
+    color: var(--blancoCalido); 
+    border-radius: 12px;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+
+    padding: 10px 20px; 
+
+    border-left: none; 
+    border-radius: 12px;
+    
+    margin: 0; 
+}
+
+.alerta-header, .alerta-titulo, .alerta-descripcion {
+    text-align: center;
+    color: var(--blancoCalido);
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    border-radius: 12px;
+}
+
+.alerta-titulo {
+    font-size: 1.8em; 
+    font-weight: bold;
+}
+
 
 
 /* manejo de media */
 /*celular*/
 @media (max-width:767px) {
-    header{
+    h2
+    {
+        text-align: center;
+    }
+    header
+    {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    justify-content:center;
+    justify-content: space-between;
+    }
+    .headerbloqueado
+    {
+        width: 100%;
     }
 
     footer{
         padding-top: 10px;
+    }
+    #perfilUsuario a{
+    position: absolute;
+    top: 50%;
     }
 }
 /*tablet*/
@@ -221,9 +275,9 @@ footer {
         justify-content: space-between;
     }
 
-    #perfilUsuario button{
+    #perfilUsuario a{
 
-        margin: 0px 20px 0px 0px;  
+        margin: 0px 20px 0px 0px;
     }
 
 }

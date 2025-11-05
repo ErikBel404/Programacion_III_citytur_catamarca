@@ -1,0 +1,98 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block title%}
+    Reservas Crear - CityTur Catamarca
+{%endblock%}
+
+{%block head_css%}
+    <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+{%endblock%}
+{% block navigation %}
+    {% include 'partials/_main_nav.html' %}
+{% endblock %}
+{%block content%}
+<main>
+    <div id="" class="cosas_dentro_main">
+      <div id="formularioAgregar">
+        
+        <form method="POST">
+          <fieldset>
+            
+            {% csrf_token %}
+
+            {% if reservas.instance.pk %}
+
+                    <h2 class="titulo">Modificar Reserva</h2>
+
+                {% else %}
+                    <h2 class="titulo">Agregar Reserva</h2>
+   
+            {% endif %}
+
+            {{ reservas.non_field_errors }}
+
+            <div class="contenedorLabelInput">
+              {{ reservas.recorridoReserva.errors }}
+              {{ reservas.recorridoReserva }}
+              <label for="{{ reservas.recorridoReserva.id_for_label }}" class="campoLabel">{{ reservas.recorridoReserva.label }}</label>
+            </div>
+
+
+            <div class="contenedorLabelInput">
+              
+              {{ reservas.cantidadReserva }}
+              <label for="{{ reservas.cantidadReserva.id_for_label }}" class="campoLabel">{{ reservas.cantidadReserva.label }}</label>
+              {{ reservas.cantidadReserva.errors }}
+            </div>
+
+            <div class="contenedorLabelInput">
+              {{ reservas.fechaReserva.errors }}
+              {{ reservas.fechaReserva }}
+              <label for="{{ reservas.fechaReserva.id_for_label }}" class="campoLabel">{{ reservas.fechaReserva.label }}</label>
+            </div>
+            
+            <div class="contenedorLabelInput">
+              {{ reservas.horaReserva.errors }}
+              {{ reservas.horaReserva }}
+              <label for="{{ reservas.horaReserva.id_for_label }}" class="campoLabel">{{ reservas.horaReserva.label }}</label>
+            </div>
+
+
+            <div class="contenedorLabelInput">
+              {{ reservas.puntoDePartidaReserva.errors }}
+              {{ reservas.puntoDePartidaReserva }}
+              <label for="{{ reservas.puntoDePartidaReserva.id_for_label }}" class="campoLabel">{{ reservas.puntoDePartidaReserva.label }}</label>
+            </div>
+
+
+            
+
+            
+            <div class="contenedorLabelInput">
+              {{ reservas.estadoReserva.errors }}
+              {{ reservas.estadoReserva }}
+              <label for="{{ reservas.estadoReserva.id_for_label }}" class="campoLabel">{{ reservas.estadoReserva.label }}</label>
+            </div>
+
+
+            <br>
+
+            <div id="botones-formularios">
+              <button type="submit" id="boton-aceptar" class="btnP btnModificarP">Aceptar</button>
+              <a class="btnP btnEliminarP" href="{% url 'usuario:home' %}">Cancelar</a>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </main>
+
+{%endblock%}
+
+{%block js%}
+  <script src="{% static 'js/controldefecha.js' %}"></script>
+
+{%endblock%}

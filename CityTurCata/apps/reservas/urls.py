@@ -1,10 +1,11 @@
 from django.urls import path
-from apps.reservas.views import listarReservas, buscarResevaParticular, crearReserva, modificarReseva
+from apps.reservas import views
 
 app_name = 'reservas'
+
 urlpatterns = [
-    path('reservas/', listarReservas, name='listarReservas'),
-    path('reservas/<int:id>', buscarResevaParticular,name= 'buscarResevaParticular'),
-    path('reservas/crear', crearReserva,name= 'crearReserva'),
-    path('reservas/modificar', modificarReseva,name= 'modificarReseva'),
+    path('reservas/lista/', views.listarReservasView, name='listarReservas'),
+    path('reservas/agregar/',views.crearReservaView, name='agregarReserva'),
+    path('reservas/modificar/<int:pk>/', views.modificarReservaView, name='modificarReseva'),
+    path('reservas/baja/<int:pk>', views.bajaReservaView, name='bajaReserva')
 ]

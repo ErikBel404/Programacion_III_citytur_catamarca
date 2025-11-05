@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Login - CityTur Catamarca
+{% endblock %}
+
+{% block head_css %}
+    <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+{% endblock %}
+
+{% block content %}
+
+<main>
+    <div id="" class="cosas_dentro_main">
+
+        {% if msj %}
+        <div class="messages" style="text-align: center; margin-bottom: 15px;">
+            <div class="alert alert-danger"> <strong>{{ msj }}</strong>
+            </div>
+        </div>
+        {% endif %}
+
+        <div id="formularioAgregar">
+            
+            <form action="{% url 'usuario:login' %}" method="post">
+                <fieldset>
+                    {% csrf_token %}
+                    <h2 class="titulo">Iniciar Sesión</h2>
+                    
+                    <div class="contenedorLabelInput">
+                        <input type="text" id="username" name="username" class="inputLabel" required>
+                        <label class="campoLabel" for="username">👤 Nombre de Usuario: </label>
+                    </div>
+
+                    <div class="contenedorLabelInput">
+                        <input type="password" id="passw" name="password" class="inputLabel" required>
+                        <label class="campoLabel" for="passw">🔑 Contraseña: </label>
+                    </div>
+
+                    <br>
+
+                    <div id="botones-formularios">
+                        <button type="submit" id="boton-aceptar" class="btnP btnModificarP">Login</button>
+                        <a class="btnP btnEliminarP" href="/">Cancelar</a>
+                    </div>
+
+                    <div class="enlace-registro" id="enlace-registro-id" style="text-align: center; margin-top: 20px; ">
+                        <span>¿No tienes una cuenta? </span>
+                        <a href="{% url 'usuario:registroUsuario' %} " style="color:brown">Regístrate aquí</a>
+                    </div>
+                    </fieldset>
+            </form>
+        </div>
+    </div>
+</main>
+{% endblock %}
+
+{% block js %}
+{% endblock %}

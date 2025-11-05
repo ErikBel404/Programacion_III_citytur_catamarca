@@ -6,20 +6,32 @@
 {% endblock %}
 
 {% block head_css %}
-  <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
-  <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/formularioAgregarRecorrido.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
 {% endblock %}
-
+{% block navigation %}
+{% include 'partials/_main_nav.html' %}
+{% endblock %}
 {% block content %}
   <main>
     <div id="" class="cosas_dentro_main">
       <div id="formularioAgregar">
-        <form method="POST" enctype="multipart/form-data">
+        <form method="POST" >
           
           <fieldset>
-            <label id="agregarPuntoTuristico"><strong>Agregar Recorrido</strong></label>
     
             {% csrf_token %}
+
+            <div class="contenedorLabelInput">
+              {% if form.instance.pk %}
+
+                <h2 class="titulo">Modificar Recorrido</h2>
+
+                {% else %}
+                    <label id="agregarPuntoTuristico"><strong>Agregar Recorrido</strong></label>
+   
+              {% endif %}
 
             <div class="contenedorLabelInput">
               {{ form.nombreRecorrido.errors }}
@@ -59,17 +71,16 @@
                 <div class="checkboxItem">
                   {{ form.puntosTuristicos.errors }}
                   {{ form.puntosTuristicos }}
-                  <label for="{{ form.puntosTuristicos.id_for_label }}" class="campoLabel">{{ form.puntosTuristicos.label }}</label>
+                  <label for="{{ form.puntosTuristicos.id_for_label }}" class="campoLabel"></label>
                 </div>
               </div>
             </div>
 
-  
+            <br>
 
             <div id="botones-formularios">
-              <button type="submit" id="boton-aceptar">Aceptar</button>
-
-              <button type="reset" id="boton-cancelar">Cancelar</button>
+              <button type="submit" id="boton-aceptar" class="btnP btnModificarP" >Aceptar</button>
+              <a class="btnP btnEliminarP" href="{% url 'administracion:ListarRecorridos' %}">Cancelar</a>
 
             </div>
           </fieldset>

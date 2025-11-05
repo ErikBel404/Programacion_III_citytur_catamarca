@@ -12,7 +12,6 @@ urlpatterns = [
     
     #
     #urls de reportes
-    path('reportes/lista/',views.listaReportesView,name='listaReportes'),
     path('reportes/agregar/', views.reportesView, name='agregarReportes'),
     #
     path('reportes/activos/',views.reporteRecorridosActivosView, name='recorridosActivos'),
@@ -32,20 +31,20 @@ urlpatterns = [
     #urls de recorridos
     path('recorridos/lista/', views.listarRecorridosView, name='ListarRecorridos'),
     path('recorridos/agregar/', views.crearRecorridosView, name='agregarRecorridos'),
-    path('recorridos/modificar/', views.modificarRecorridosView, name='modificarRecorridos'),
-    path('recorridos/baja/', views.bajaRecorridosView, name='bajaRecorridos'),
+    path('recorridos/modificar/<int:pk>/', views.modificarRecorridosView, name='modificarRecorridos'),
+    path('recorridos/baja/<int:pk>', views.bajaRecorridosView, name='bajaRecorridos'),
 
-    #
+    
     #urls de itinerarios
     path('itinerario/lista/', views.listarItinerariosView, name='listarItinerarios'), 
     path('itinerario/agregar/', views.crearItinerariosView , name='agregarItinerario'), 
-    path('itinerario/modificar/', views.modificarItinerariosView, name='modificarItinerarios'),
-    path("itinenrario/baja/", views.bajaItinerariosView, name="bajaItinerario"),
+    path('itinerario/modificar/<int:pk>/', views.modificarItinerariosView, name='modificarItinerarios'),
+    path("itinenrario/baja/<int:pk>/", views.bajaItinerariosView, name="bajaItinerario"),
 
     #
     #urls de notificacion
-    path('notificacion/lista/', views.listarNotificacionesView , name='listarNotificaciones '), 
+    path('notificacion/lista/', views.listarNotificacionesView, name='listarNotificaciones'), 
     path('notificacion/agregar/', views.crearNotificacionView, name='agregarNotificacion'), 
-    path('notificacion/modificar/', views.modificarNotificacionView, name='modificarNotificacion'), 
-    path('notificacion/baja/',views.bajaNotificacionView,name='bajaNotificacion')
+    path('notificacion/modificar/<int:pk>/', views.modificarNotificacionView, name='modificarNotificacion'), 
+    path('notificacion/baja/<int:pk>/',views.bajaNotificacionView,name='bajaNotificacion')
 ]
