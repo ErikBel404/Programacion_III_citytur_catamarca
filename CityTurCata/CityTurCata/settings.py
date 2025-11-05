@@ -88,8 +88,8 @@ DATABASES = {
         "PORT": config("POSTGRES_PORT"),
     }
 }
-
-
+LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 

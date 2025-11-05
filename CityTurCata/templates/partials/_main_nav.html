@@ -1,0 +1,14 @@
+{% if user.is_authenticated %}
+    
+    {% if user.tipoUsuario == 'admin' %}
+      {% include 'partials/_nav_admin.html' %}
+    
+    {% elif user.tipoUsuario == 'operario' %}
+      {% include 'partials/_nav_operario.html' %}
+      
+    {% elif user.tipoUsuario == 'turista' %}
+      {% include 'partials/_nav_turista.html' %}
+    
+    {% endif %}
+
+{% endif %}

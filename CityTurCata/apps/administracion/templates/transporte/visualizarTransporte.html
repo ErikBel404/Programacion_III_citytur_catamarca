@@ -11,7 +11,17 @@
   <link rel="stylesheet" href="{% static 'css/vistaTransporte.css' %}" />
 
 {% endblock %}
-
+{% block navigation %}
+  <div id="navheader">
+    <nav>
+      <a href="{% url 'administracion:listaTransporte' %} ">transportes</a>
+      <a href="{% url 'administracion:listaReportes' %} ">Reportes</a>
+      <a href="{% url 'administracion:listaPuntosTuristicos' %} ">Puntos Turisticos</a>
+      <a href="{% url 'administracion:ListarRecorridos' %} ">Recorridos</a>
+      <a href="{% url 'administracion:listarItinerarios' %} ">itinerario</a>
+    </nav>
+  </div>
+{% endblock %}
 {% block content %}
   <main>
     <div id="" class="cosas_dentro_main">

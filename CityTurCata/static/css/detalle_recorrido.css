@@ -1,0 +1,21 @@
+main p
+{
+    color: rgb(75, 72, 72);
+    font-weight: 700;
+}
+main p strong
+{
+    color: var(--verdeAgua);
+    font-weight: 900;
+}
+.titulo
+{
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  overflow: hidden; 
+  background-color: #ffffff;
+  color: gray;
+  padding: 10px;
+  padding-left: 10px;
+}

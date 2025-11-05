@@ -32,7 +32,6 @@ header {
     align-items: center;
 }
 
-
 .displayflex{
     display: flex;
 }
@@ -77,8 +76,8 @@ nav{
     margin-right:10px;
     list-style: none;
     display: flex;
-    justify-content: left;
-    gap: 10px;
+    justify-content: center;
+    gap: 30px;
     padding: 0;
 }
 
@@ -93,13 +92,23 @@ nav a{
     box-shadow: 0px 5px 10px rgba(0,0,0,0.2);
 }
 
-nav a:hover, #perfilUsuario a:hover{
+#perfilUsuario a:hover{
     background-color: var(--amarilloFuerte);
     color: black;
     text-decoration: none;
     font-weight: bold;
     border: 3px solid transparent;
     transform: translateY(-50%) scale(1.03);
+    transition: all 0.3s ease;
+}
+nav a:hover
+{
+    background-color: var(--amarilloFuerte);
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    border: 3px solid transparent;
+    transform: scale(1.05);
     transition: all 0.3s ease;
 }
 #perfilUsuario a:hover {
@@ -112,7 +121,11 @@ nav a:hover, #perfilUsuario a:hover{
     position: relative;
     min-height: 120px;
 }
-
+#navheader {
+    background-color: var(--verdeAgua);
+    
+    padding: 10px 0; 
+}
 
 
 /*Aca empieza el body*/
@@ -183,16 +196,28 @@ footer {
 /* manejo de media */
 /*celular*/
 @media (max-width:767px) {
+    h2
+    {
+        text-align: center;
+    }
     header
     {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    justify-content:center;
+    justify-content: space-between;
+    }
+    .headerbloqueado
+    {
+        width: 100%;
     }
 
     footer{
         padding-top: 10px;
+    }
+    #perfilUsuario a{
+    position: absolute;
+    top: 50%;
     }
 }
 /*tablet*/

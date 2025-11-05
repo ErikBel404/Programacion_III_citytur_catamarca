@@ -23,26 +23,24 @@
   </head>
 
   <body>
+
     <header class="jc-between displayflex headerbloqueado">
-      <div id="logoheader">
-        <img src="{% static 'img/Logo City Tour.png' %}" alt="logocitytour" />
-        <h1>City-Tour <br /> Catamarca</h1>
-      </div>
-
-      <div id="abajoheader">
-        <div id="navheader">
-          <nav>
-            <a href="#">Home</a>
-            <a href="#">Registro de Recorrido</a>
-            <a href="#">Reservar Recorrido</a>
-          </nav>
-        </div>
+    <div id="divBacio"></div>
+    <div id="logoheader">
+        <img src="{%static '../static/img/Logo City Tour.png' %}" alt="logocitytour">
+        <h1>City-Tour <br> Catamarca</h1>
+    </div>
+    <div id="abajoheader">
         <div id="perfilUsuario">
-          <button><img src="{% static 'img/usericon.svg' %}" alt="" /></button>
+            <a href="{% url 'usuario:login' %}"> <img src="{% static 'img/usericon.svg' %}" alt=""></a>
         </div>
-      </div>
-    </header>
+    </div>
 
+
+    </header>
+    {% block navigation %}
+    {% endblock %}
+    
     {% block content %}
 
     {% endblock %}

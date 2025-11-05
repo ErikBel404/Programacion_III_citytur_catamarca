@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Detalle de {{ recorrido.nombreRecorrido }}
+{% endblock %}
+
+{% block head_css %}
+  <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
+  <link rel="stylesheet" href="{% static 'css/detalle_recorrido.css' %}" />
+{% endblock %}
+
+{% block navigation %}
+  {% include 'partials/_main_nav.html' %} 
+{% endblock %}
+
+{% block content %}
+  <main>
+     <div class="cosas_dentro_main">
+     
+      <div class="contenedorInfo">
+          <h2 class="titulo">{{ recorrido.nombreRecorrido }}</h2>
+          <hr>
+             <p><strong>Horario:</strong> {{ recorrido.horario }}</p>
+             <p><strong>Punto de Inicio:</strong> {{ recorrido.inicio }}</p>
+          <p><strong>Punto Final:</strong> {{ recorrido.final }}</p>
+      </div>
+
+      <hr>
+
+     <h3 class="titulo">Puntos Turísticos en este Recorrido:</h3>
+     
+             <div class="contenedor-tarjetas"> 
+
+         {% for punto in puntos %}
+         <div class="tarjeta">
+            <figure>
+               <img src="{{ punto.imagen.url }}" alt="Imagen de {{ punto.nombre }}" width="60%" height="60%" />
+            </figure>
+            <hr>
+            <p>
+             <span>Nombre:</span> {{ punto.nombre }}
+             </p>
+            <p>
+             <span>Ubicación:</span> {{ punto.ubicacion }}
+            </p>
+            <p>
+                <span>Información:</span> {{ punto.informacion|truncatechars:100 }} </p>
+            <hr>
+            <div class="contBtn">
+                </div>
+         </div>
+        {% empty %}
+            <p>Este recorrido aún no tiene puntos turísticos asignados.</p>
+        {% endfor %}
+     </div>
+        <div class="contBtn" style="margin-top: 30px;">
+         <a class="btnP btnModificarP" href="{% url 'usuario:home' %}">Volver a la lista</a>
+         <a class="btnP btnModificarP" href="{% url 'reservas:agregarReserva' %}?recorrido_id={{ recorrido.id }}">Reservar</a>
+     </div>
+
+    </div>
+    </main>
+{% endblock %}
