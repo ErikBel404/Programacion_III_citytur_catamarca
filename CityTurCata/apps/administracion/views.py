@@ -294,7 +294,7 @@ def modificarItinerariosView(request, pk):
         if itinerarioNuevoForm.is_valid():
             itinerarioNuevoForm.save()
             messages.success(request, 'Se ha actualizado correctamente el Itinerario')
-            return redirect('administracion:ListarItinerarios') 
+            return redirect('administracion:listarItinerarios') 
     else:
         itinerarioNuevoForm = ItinerarioForm(instance=itinerarioViejo)
 
@@ -343,7 +343,7 @@ def crearNotificacionView (request):
     }
 
     return render(request,'notificaciones/formularioAgregarNotificacion.html',contexto)
-        
+
 
 def modificarNotificacionView (request,pk):
     notificacionVieja = get_object_or_404(Notificacion, pk=pk)
