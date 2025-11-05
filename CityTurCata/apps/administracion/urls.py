@@ -38,8 +38,8 @@ urlpatterns = [
     #urls de itinerarios
     path('itinerario/lista/', views.listarItinerariosView, name='listarItinerarios'), 
     path('itinerario/agregar/', views.crearItinerariosView , name='agregarItinerario'), 
-    path('itinerario/modificar/', views.modificarItinerariosView, name='modificarItinerarios'),
-    path("itinenrario/baja/", views.bajaItinerariosView, name="bajaItinerario"),
+    path('itinerario/modificar/<int:pk>/', views.modificarItinerariosView, name='modificarItinerarios'),
+    path("itinenrario/baja/<int:pk>/", views.bajaItinerariosView, name="bajaItinerario"),
 
     #
     #urls de notificacion
