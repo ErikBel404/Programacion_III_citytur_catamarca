@@ -1,6 +1,6 @@
 # Programacion_III_Laboratorio
 
-## Semana del 18 al 22  0/3 
-* primera pag
+## Maidana Alejo Leonel -> MU: 01713
+## Barrionuevo Juan Emir -> MU: 01723
+## Cirione Leguizamon Erik -> MU: 01744
 
-## Semana del 25 al 29 
