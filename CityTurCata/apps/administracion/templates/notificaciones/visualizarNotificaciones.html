@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="{% static 'css/puntoTuristico.css' %}" />
   <link rel="stylesheet" href="{% static 'css/vistaPuntoTuristico.css' %}" />
 {% endblock %}
-
+{% block navigation %}
+    {% include 'partials/_main_nav.html' %}
+{% endblock %}
 {% block content %}
   <main>
     <div id="" class="cosas_dentro_main">
